@@ -77,5 +77,5 @@ optional arguments:
 
 #### Performance
 
-![speed](graphs/speed_SICER2_vs_SICER_no_bigwig.png)
-![memory](graphs/memory_SICER2_vs_SICER_no_bigwig.png)
+<img src="graphs/speed_SICER2_vs_SICER_no_bigwig.png" width="50%" height="50%" />
+<img src="graphs/memory_SICER2_vs_SICER_no_bigwig.png" width="50%" height="50%" />
