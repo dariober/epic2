@@ -7,6 +7,7 @@
 #include <vector>
 #include <iterator>
 #include <unordered_map>
+#include <zlib.h>
 
 
 
@@ -40,6 +41,72 @@ genome_map read_bed(char const* fileName)
       } else {
         five_end = end;
       }
+
+      genome[chrom_strand].push_back(five_end);
+
+    }
+
+  return genome;
+}
+
+
+
+#include "gzstream.h"
+// using namespace gz;
+genome_map read_bed_gz(char const* fileName)
+{
+  igzstream in(fileName);
+
+  std::string   chromosome;
+  std::string   junk;
+  std::uint32_t start;
+  std::uint32_t end;
+  char strand;
+
+  key chrom_strand;
+  std::uint32_t five_end;
+  genome_map genome;
+
+  while(in >> chromosome >> start >> end >> junk >> junk >> strand)
+    {
+
+      chrom_strand = std::make_pair(chromosome, strand);
+
+      if (strand == '+'){
+        five_end = start;
+      } else {
+        five_end = end;
+      }
+
+      genome[chrom_strand].push_back(five_end);
+
+    }
+
+  return genome;
+}
+
+
+genome_map read_bedpe_gz(char const* fileName)
+{
+
+  igzstream in(fileName);
+
+  std::string   chromosome;
+  std::string   junk;
+  std::uint32_t start;
+  std::uint32_t end;
+  char strand;
+
+  key chrom_strand;
+  std::uint32_t five_end;
+  genome_map genome;
+
+  while(in >> chromosome >> start >> junk >> junk >> junk >> end >> junk >> junk >> strand >> junk)
+    {
+
+      chrom_strand = std::make_pair(chromosome, strand);
+
+      five_end = start + ((end - start) / 2);
 
       genome[chrom_strand].push_back(five_end);
 

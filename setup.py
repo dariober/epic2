@@ -1,3 +1,9 @@
+# require pysam is pre-installed
+try:
+    import pysam
+except ImportError:
+    raise Exception('pysam not found; please install pysam first')
+
 import os
 import sys
 
@@ -17,7 +23,7 @@ if os.getenv("TRAVIS"):
 if sys.version_info[0] == 2:
     install_requires.append("functools32")
 
-compile_options = ["-Ofast", "-Wall", "-std=c++11"] #, "-frename-registers", "-funroll-loops"] #
+compile_options = ["-Ofast", "-Wall", "-std=c++11"] #, "-frename-registers", "-funroll-loops"] # , "-lgzstream", "-lz"
 
 # bamtools_args = ["-I ./lib/bamtools-master/include/ -L ./lib/bamtools-master/src/"]
                    # -fprofile-generate
@@ -25,15 +31,25 @@ compile_options = ["-Ofast", "-Wall", "-std=c++11"] #, "-frename-registers", "-f
 
 
 extensions = [Extension("SICER2.src.reads_to_bins",
-                        ["SICER2/src/reads_to_bins.pyx"], language="c++", extra_compile_args=compile_options),
+                        ["SICER2/src/reads_to_bins.pyx", "SICER2/src/gzstream.cpp"], language="c++",
+                        include_dirs=["SICER2/src/"],
+                        extra_compile_args=compile_options,
+                        libraries=["z"]),
+                        # include_dirs=["SICER2/src/"]),
               Extension("SICER2.src.statistics",
-                        ["SICER2/src/statistics.pyx"], language="c++", extra_compile_args=compile_options),
+                        ["SICER2/src/statistics.pyx"], language="c++",
+                        extra_compile_args=compile_options),
               Extension("SICER2.src.find_islands",
-                        ["SICER2/src/find_islands.pyx"], language="c++", extra_compile_args=compile_options),
+                        ["SICER2/src/find_islands.pyx"], language="c++",
+                        extra_compile_args=compile_options),
               Extension("SICER2.src.read_bam",
-                        ["SICER2/src/read_bam.pyx"], language="c++", extra_compile_args=compile_options),
+                        ["SICER2/src/read_bam.pyx"], language="c++",
+                        extra_compile_args=compile_options,
+                        include_dirs=pysam.get_include(),
+                        define_macros=pysam.get_defines()),
               Extension("SICER2.src.genome_info",
-                        ["SICER2/src/genome_info.pyx"], language="c++", extra_compile_args=compile_options)]
+                        ["SICER2/src/genome_info.pyx"], language="c++",
+                        extra_compile_args=compile_options)]
 
 setup(
     name="SICER2",

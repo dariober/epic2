@@ -19,15 +19,20 @@ ctypedef map[key, intvec] genome_map
 
 cdef extern from "read_files.hpp":
     genome_map read_bed(const char *)
+    genome_map read_bed_gz(const char *)
     genome_map read_bedpe(const char *)
+    genome_map read_bedpe_gz(const char *)
     genome_map read_bam(const char *)
+
+
 
 
 # cdef extern from "../../lib/htslib/htslib/hts.h":
 #     hts_open(const char *fn, const char *mode)
 
 
-cdef extern from "lib/htslib/htslib/sam.h":
+
+# cdef extern from "lib/htslib/htslib/sam.h":
 #     ctypedef struct bam_hdr_t:
 #         pass
 
@@ -37,6 +42,9 @@ cdef extern from "lib/htslib/htslib/sam.h":
     pass
     # bam_hdr_t *sam_hdr_read(samFile *fp)
 #     bam_init1()
+
+# cdef extern from "SICER2/src/"
+
 
 
 # typedef struct {

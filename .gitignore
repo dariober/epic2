@@ -1,4 +1,5 @@
 build/
+*.so
 *deleteme*
 *.out
 *.swp
