@@ -132,7 +132,7 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
 @cython.wraparound(False)
 @cython.initializedcheck(False)
 @cython.cdivision(True)
-def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_library_size, float effective_genome_fraction):
+def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_library_size, float effective_genome_fraction, float fdr_cutoff):
 
     cdef:
         int i
@@ -222,13 +222,14 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
             if fdr > 1:
                 fdr = 1
 
-            print("\t".join(str(e) for e in [chromosome, _island.start, _island.end, _island.p_value,
-                                             min(1000, _island.fold_change * 100), ".", _island.chip_count, _island.input_count, fdr, _island.fold_change]))
+            if fdr <= fdr_cutoff:
+                print("\t".join(str(e) for e in [chromosome, _island.start, _island.end, _island.p_value,
+                                                 min(1000, _island.fold_change * 100), ".", _island.chip_count, _island.input_count, fdr, _island.fold_change]))
 
         counter += chromosome_size
 
 
-def write_islands(islands, average_window_readcount):
+def write_islands(islands, float average_window_readcount, float fdr_cutoff):
 
     cdef:
         island _island
@@ -263,4 +264,5 @@ def write_islands(islands, average_window_readcount):
             fdr = _island.p_value * num_islands / ranks[i + counter]
             if fdr > 1:
                 fdr = 1
-            print("\t".join(str(e) for e in [chromosome, _island.start, _island.end, _island.p_value, _island.chip_count, ".", fdr]))
+            if fdr <= fdr_cutoff:
+                print("\t".join(str(e) for e in [chromosome, _island.start, _island.end, _island.p_value, _island.chip_count, ".", fdr]))
