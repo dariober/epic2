@@ -108,15 +108,15 @@ def find_readlength(args):
 
 def get_genome_size_file(genome):
 
-    # genome_names = pkg_resources.resource_listdir("epic", "scripts/chromsizes")
-    # name_dict = {n.lower().replace(".chromsizes", ""): n for n in genome_names}
+    genome_names = pkg_resources.resource_listdir("epic", "scripts/chromsizes")
+    name_dict = {n.lower().replace(".chromsizes", ""): n for n in genome_names}
 
     # # No try/except here, because get_egs would already have failed if genome
     # # did not exist
-    # genome_exact = name_dict[genome.lower()]
+    genome_exact = name_dict[genome.lower()]
 
     return pkg_resources.resource_filename(
-        "SICER2", "chromsizes/{}.chromsizes".format(genome.lower()))
+        "SICER2", "chromsizes/{}".format(genome_exact))
 
 
 def create_genome_size_dict(genome):
@@ -151,10 +151,17 @@ def get_effective_genome_fraction(genome, read_length):
     genome_names = pkg_resources.resource_listdir("SICER2",
                                                   "effective_sizes")
 
+    name_dict = {n.lower(): n for n in genome_names}
+
+    # # No try/except here, because get_egs would already have failed if genome
+    # # did not exist
+    genome_exact = name_dict[genome.lower() + "_" + str(read_length) + ".txt"]
+
+
     try:
         egf = pkg_resources.resource_string( # type: ignore
-            "SICER2", "effective_sizes/{}_{}.txt".format(
-                genome.lower(), read_length)).split()[-1].decode()
+            "SICER2", "effective_sizes/{}".format(
+                genome_exact)).split()[-1].decode()
     except KeyError:
 
         genome_list = "\n".join([basename(g) for g in genome_names])
