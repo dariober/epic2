@@ -29,13 +29,25 @@ compile_options = ["-Ofast", "-Wall", "-std=c++11"] #, "-frename-registers", "-f
                    # -fprofile-generate
                    #"-fopenmp", "-D_GLIBCXX_PARALLEL"]
 
+from subprocess import check_output
+
+conda_path = check_output("which conda", shell=True).decode().strip()
+
+conda_include = []
+conda_lib = []
+if conda_path:
+    conda_base = conda_path.replace("bin/conda", "")
+    conda_include.append(conda_base + "include/")
+    conda_lib.append(conda_base + "lib/")
+
+
 
 extensions = [Extension("SICER2.src.reads_to_bins",
                         ["SICER2/src/reads_to_bins.pyx", "SICER2/src/gzstream.cpp"], language="c++",
-                        include_dirs=["SICER2/src/"],
+                        include_dirs=conda_include,
+                        library_dirs=conda_lib,
                         extra_compile_args=compile_options,
                         libraries=["z"]),
-                        # include_dirs=["SICER2/src/"]),
               Extension("SICER2.src.statistics",
                         ["SICER2/src/statistics.pyx"], language="c++",
                         extra_compile_args=compile_options),
@@ -45,7 +57,8 @@ extensions = [Extension("SICER2.src.reads_to_bins",
               Extension("SICER2.src.read_bam",
                         ["SICER2/src/read_bam.pyx"], language="c++",
                         extra_compile_args=compile_options,
-                        include_dirs=pysam.get_include(),
+                        include_dirs=pysam.get_include(), #  + conda_include
+                        library_dirs=conda_lib,
                         define_macros=pysam.get_defines()),
               Extension("SICER2.src.genome_info",
                         ["SICER2/src/genome_info.pyx"], language="c++",

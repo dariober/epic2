@@ -146,9 +146,9 @@ def main():
         background_count = sum(sum(counts) for _, counts in b_bins_counts.values())
         sys.stderr.write("\n  Valid background reads: {}\n".format(background_count))
 
-        compute_fdr(islands, b_bins_counts, chip_count, background_count, effective_genome_length)
+        compute_fdr(islands, b_bins_counts, chip_count, background_count, effective_genome_length, args["false_discovery_rate_cutoff"])
     else:
-        write_islands(islands, average_window_readcount)
+        write_islands(islands, average_window_readcount, args["false_discovery_rate_cutoff"])
 
 
 main()
