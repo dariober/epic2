@@ -1,4 +1,0 @@
-File analyzed:  trimmed_fasta/susScr2.trimmed.fa
-Genome length:  2262501571
-Number unique 100-mers:  1974509066
-Effective genome size:  0.8727105834128943

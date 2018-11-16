@@ -1,6 +1,6 @@
-# SICER2
+# epic2
 
-SICER2 is an ultraperformant reimplementation of SICER. It focuses on speed, low memory overhead and ease of use.
+epic2 is an ultraperformant reimplementation of SICER. It focuses on speed, low memory overhead and ease of use.
 
 #### Features
 
@@ -15,22 +15,32 @@ SICER2 is an ultraperformant reimplementation of SICER. It focuses on speed, low
 #### Quick Start
 
 ```
-git clone git@github.com:endrebak/SICER2.git
-cd SICER2
+git clone git@github.com:endrebak/epic2.git
+cd epic2
 python setup.py install
-SICER2 -t examples/test.bed -c examples/control.bed > results.txt
+epic2 -t examples/test.bed -c examples/control.bed > results.txt
+```
+
+#### Install
+
+The installation currently requires bioconda htslib to be installed for setup.py
+to find the appropriate headers. I will update the install script with more ways
+to include the headers.
+
+```
+pip install epic2
 ```
 
 #### CLI
 
 ```
-usage: SICER2 [-h] --treatment TREATMENT [TREATMENT ...]
-              [--control CONTROL [CONTROL ...]] [--genome GENOME]
-              [--drop-duplicates] [--bin-size BIN_SIZE]
-              [--gaps-allowed GAPS_ALLOWED] [--fragment-size FRAGMENT_SIZE]
-              [--false-discovery-rate-cutoff FALSE_DISCOVERY_RATE_CUTOFF]
-              [--effective-genome-fraction EFFECTIVE_GENOME_FRACTION]
-              [--chromsizes CHROMSIZES]
+usage: epic2 [-h] --treatment TREATMENT [TREATMENT ...]
+             [--control CONTROL [CONTROL ...]] [--genome GENOME]
+             [--drop-duplicates] [--bin-size BIN_SIZE]
+             [--gaps-allowed GAPS_ALLOWED] [--fragment-size FRAGMENT_SIZE]
+             [--false-discovery-rate-cutoff FALSE_DISCOVERY_RATE_CUTOFF]
+             [--effective-genome-fraction EFFECTIVE_GENOME_FRACTION]
+             [--chromsizes CHROMSIZES]
 
 SICER2. (Visit github.com/endrebak/SICER2 for examples and help.)
 
@@ -46,9 +56,8 @@ optional arguments:
                         Which genome to analyze. Default: hg19. If
                         --chromsizes flag is given, --genome is not required.
   --drop-duplicates, -d
-                        Keep reads mapping to the same position on the same
-                        strand within a library. Default is to remove all but
-                        the first duplicate.
+                        Drop reads mapping to the same position on the same
+                        strand within a library. Default: True.
   --bin-size BIN_SIZE, -bin BIN_SIZE
                         Size of the windows to scan the genome. WINDOW_SIZE is
                         the smallest possible island. Default 200.
@@ -58,8 +67,8 @@ optional arguments:
                         3.
   --fragment-size FRAGMENT_SIZE, -fs FRAGMENT_SIZE
                         (Single end reads only) Size of the sequenced
-                        fragment. The center of the the fragment will be taken
-                        as half the fragment size. Default 150.
+                        fragment. Half of the fragment size will be used to
+                        extend the reads from the 5' end. Default 150.
   --false-discovery-rate-cutoff FALSE_DISCOVERY_RATE_CUTOFF, -fdr FALSE_DISCOVERY_RATE_CUTOFF
                         Remove all islands with an FDR below cutoff. Default
                         0.05.
@@ -77,5 +86,4 @@ optional arguments:
 
 #### Performance
 
-<img src="graphs/speed_SICER2_vs_SICER_no_bigwig.png" width="50%" height="50%" />
-<img src="graphs/memory_SICER2_vs_SICER_no_bigwig.png" width="50%" height="50%" />
+<img src="graphs/speed_SICER2_vs_SICER_no_bigwig.png" />

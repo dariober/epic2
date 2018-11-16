@@ -1,8 +1,8 @@
 import pytest
 import numpy as np
 
-from SICER2.src.find_islands import find_islands
-from SICER2.src.find_islands import compute_fdr
+from epic2.src.find_islands import find_islands
+from epic2.src.find_islands import compute_fdr
 
 
 

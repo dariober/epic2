@@ -1,7 +1,7 @@
 
 import pytest
 
-from SICER2.src.reads_to_bins import add_reads_to_dict, files_to_bin_counts
+from epic2.src.reads_to_bins import add_reads_to_dict, files_to_bin_counts
 
 
 args = {"bin_size": 200, "fragment_size": 150, "drop_duplicates": True}

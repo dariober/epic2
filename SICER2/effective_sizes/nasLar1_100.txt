@@ -1,4 +1,0 @@
-File analyzed:  trimmed_fasta/nasLar1.trimmed.fa
-Genome length:  2672388898
-Number unique 100-mers:  1905042582
-Effective genome size:  0.7128612843084786

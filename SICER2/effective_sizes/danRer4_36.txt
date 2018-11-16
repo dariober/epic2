@@ -1,4 +1,0 @@
-File analyzed:  trimmed_fasta/danRer4.trimmed.fa
-Genome length:  1547316319
-Number unique 36-mers:  1067126880
-Effective genome size:  0.6896630423245733

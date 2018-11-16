@@ -1,4 +1,0 @@
-File analyzed:  trimmed_fasta/ailMel1.trimmed.fa
-Genome length:  2299509015
-Number unique 36-mers:  2134277860
-Effective genome size:  0.9281450283855487
