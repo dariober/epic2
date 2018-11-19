@@ -64,7 +64,7 @@ from epic2.src.statistics import compute_background_probabilities
 def test_compute_background_probabilities():
 
     # 17.673
-    result = compute_background_probabilities(5799920, 200, 2625043440, 3)
+    result = compute_background_probabilities(5799920, 200, 2625043440, 600)
 
     print(result)
 

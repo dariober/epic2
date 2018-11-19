@@ -1,3 +1,4 @@
+import sys
 from math import pi, log, exp, ceil, fabs
 
 class Background_island_probscore_statistics:
@@ -298,6 +299,8 @@ def compute_score_threshold(chip_counts, window_size, effective_genome_length, g
 	tag_density = chip_counts/effective_genome_length
 	background = Background_island_probscore_statistics(chip_counts, window_size, gap_size, 0.2, effective_genome_length, 0.001)
 	score_threshold = background.find_island_threshold(1000)
+
+	sys.stderr.write("Score threshold: {}".format(score_threshold))
 
 	min_tags_in_window = background.min_tags_in_window
 
