@@ -230,26 +230,27 @@ def compute_boundary(island_enriched_threshold, gap_intervals_allowed,
 def compute_background_probabilities(total_chip_count, bin_size, effective_genome_fraction, gaps_allowed):
     # type: (int, Namespace) -> Tuple[float, int, float]
 
-    # print("total_chip_count", total_chip_count)
-    # print("bin_size", bin_size)
-    # print("effective_genome_fraction", effective_genome_fraction)
+    print("total_chip_count", total_chip_count)
+    print("bin_size", bin_size)
+    print("effective_genome_fraction", effective_genome_fraction)
+
     average_window_readcount = total_chip_count * (bin_size / float(effective_genome_fraction))
-    # print("average_window_readcount", average_window_readcount)
+    print("average_window_readcount", average_window_readcount)
 
     island_enriched_threshold = compute_enriched_threshold(average_window_readcount)
-    # print("island_enriched_threshold", island_enriched_threshold)
+    print("island_enriched_threshold", island_enriched_threshold)
 
     gap_contribution = compute_gap_factor(island_enriched_threshold, gaps_allowed, average_window_readcount)
-    # print("gap_contribution", gap_contribution)
+    print("gap_contribution", gap_contribution)
 
     boundary_contribution = compute_boundary(island_enriched_threshold, gaps_allowed, average_window_readcount)
-    # print("boundary_contribution", boundary_contribution)
+    print("boundary_contribution", boundary_contribution)
 
     genome_length_in_bins = effective_genome_fraction / bin_size
-    # print("genome_length_in_bins", genome_length_in_bins)
+    print("genome_length_in_bins", genome_length_in_bins)
 
     score_threshold = compute_score_threshold(average_window_readcount, island_enriched_threshold, gap_contribution, boundary_contribution, genome_length_in_bins, bin_size)
-    # print("score_threshold", score_threshold)
+    print("score_threshold", score_threshold)
 
     return score_threshold, island_enriched_threshold, average_window_readcount
 

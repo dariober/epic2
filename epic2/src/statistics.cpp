@@ -1654,6 +1654,13 @@ static void __Pyx_CppExn2PyErr() {
 }
 #endif
 
+/* Print.proto */
+static int __Pyx_Print(PyObject*, PyObject *, int);
+#if CYTHON_COMPILING_IN_PYPY || PY_MAJOR_VERSION >= 3
+static PyObject* __pyx_print = 0;
+static PyObject* __pyx_print_kwargs = 0;
+#endif
+
 /* None.proto */
 #include <new>
 
@@ -1672,6 +1679,9 @@ static CYTHON_INLINE size_t __Pyx_PyInt_As_size_t(PyObject *);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *);
+
+/* PrintOne.proto */
+static int __Pyx_PrintOne(PyObject* stream, PyObject *o);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE char __Pyx_PyInt_As_char(PyObject *);
@@ -1865,6 +1875,7 @@ static const char __pyx_k_i[] = "i";
 static const char __pyx_k_l[] = "l";
 static const char __pyx_k_id[] = "id";
 static const char __pyx_k_np[] = "np";
+static const char __pyx_k_end[] = "end";
 static const char __pyx_k_log[] = "log";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_obj[] = "obj";
@@ -1873,6 +1884,7 @@ static const char __pyx_k_sum[] = "sum";
 static const char __pyx_k_args[] = "args";
 static const char __pyx_k_base[] = "base";
 static const char __pyx_k_dict[] = "__dict__";
+static const char __pyx_k_file[] = "file";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_mean[] = "mean";
 static const char __pyx_k_mode[] = "mode";
@@ -1895,6 +1907,7 @@ static const char __pyx_k_error[] = "error";
 static const char __pyx_k_flags[] = "flags";
 static const char __pyx_k_index[] = "index";
 static const char __pyx_k_numpy[] = "numpy";
+static const char __pyx_k_print[] = "print";
 static const char __pyx_k_range[] = "range";
 static const char __pyx_k_round[] = "round";
 static const char __pyx_k_score[] = "score";
@@ -2089,10 +2102,12 @@ static PyObject *__pyx_n_s_dtype_is_object;
 static PyObject *__pyx_n_s_e;
 static PyObject *__pyx_n_s_effective_genome_fraction;
 static PyObject *__pyx_n_s_encode;
+static PyObject *__pyx_n_s_end;
 static PyObject *__pyx_n_s_enumerate;
 static PyObject *__pyx_n_s_epic2_src_statistics;
 static PyObject *__pyx_kp_s_epic2_src_statistics_pyx;
 static PyObject *__pyx_n_s_error;
+static PyObject *__pyx_n_s_file;
 static PyObject *__pyx_n_s_flags;
 static PyObject *__pyx_n_s_format;
 static PyObject *__pyx_n_s_fortran;
@@ -2145,6 +2160,7 @@ static PyObject *__pyx_n_s_poisson;
 static PyObject *__pyx_n_s_poisson_2;
 static PyObject *__pyx_n_s_poisson_distribution_parameter;
 static PyObject *__pyx_n_s_poisson_scores;
+static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_prob;
 static PyObject *__pyx_n_s_pyx_PickleError;
 static PyObject *__pyx_n_s_pyx_checksum;
@@ -5661,32 +5677,104 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
   int __pyx_t_5;
   __Pyx_RefNannySetupContext("compute_background_probabilities", 0);
 
-  /* "epic2/src/statistics.pyx":236
- *     # print("bin_size", bin_size)
- *     # print("effective_genome_fraction", effective_genome_fraction)
- *     average_window_readcount = total_chip_count * (bin_size / float(effective_genome_fraction))             # <<<<<<<<<<<<<<
- *     # print("average_window_readcount", average_window_readcount)
+  /* "epic2/src/statistics.pyx":233
+ *     # type: (int, Namespace) -> Tuple[float, int, float]
+ * 
+ *     print("total_chip_count", total_chip_count)             # <<<<<<<<<<<<<<
+ *     print("bin_size", bin_size)
+ *     print("effective_genome_fraction", effective_genome_fraction)
+ */
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_n_s_total_chip_count);
+  __Pyx_GIVEREF(__pyx_n_s_total_chip_count);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_total_chip_count);
+  __Pyx_INCREF(__pyx_v_total_chip_count);
+  __Pyx_GIVEREF(__pyx_v_total_chip_count);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_total_chip_count);
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 233, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "epic2/src/statistics.pyx":234
+ * 
+ *     print("total_chip_count", total_chip_count)
+ *     print("bin_size", bin_size)             # <<<<<<<<<<<<<<
+ *     print("effective_genome_fraction", effective_genome_fraction)
  * 
  */
-  __pyx_t_1 = __Pyx_PyNumber_Float(__pyx_v_effective_genome_fraction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_v_bin_size, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_n_s_bin_size);
+  __Pyx_GIVEREF(__pyx_n_s_bin_size);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_bin_size);
+  __Pyx_INCREF(__pyx_v_bin_size);
+  __Pyx_GIVEREF(__pyx_v_bin_size);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_bin_size);
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 234, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "epic2/src/statistics.pyx":235
+ *     print("total_chip_count", total_chip_count)
+ *     print("bin_size", bin_size)
+ *     print("effective_genome_fraction", effective_genome_fraction)             # <<<<<<<<<<<<<<
+ * 
+ *     average_window_readcount = total_chip_count * (bin_size / float(effective_genome_fraction))
+ */
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_n_s_effective_genome_fraction);
+  __Pyx_GIVEREF(__pyx_n_s_effective_genome_fraction);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_effective_genome_fraction);
+  __Pyx_INCREF(__pyx_v_effective_genome_fraction);
+  __Pyx_GIVEREF(__pyx_v_effective_genome_fraction);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_effective_genome_fraction);
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 235, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "epic2/src/statistics.pyx":237
+ *     print("effective_genome_fraction", effective_genome_fraction)
+ * 
+ *     average_window_readcount = total_chip_count * (bin_size / float(effective_genome_fraction))             # <<<<<<<<<<<<<<
+ *     print("average_window_readcount", average_window_readcount)
+ * 
+ */
+  __pyx_t_1 = __Pyx_PyNumber_Float(__pyx_v_effective_genome_fraction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_v_bin_size, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Multiply(__pyx_v_total_chip_count, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Multiply(__pyx_v_total_chip_count, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_average_window_readcount = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "epic2/src/statistics.pyx":239
- *     # print("average_window_readcount", average_window_readcount)
+  /* "epic2/src/statistics.pyx":238
+ * 
+ *     average_window_readcount = total_chip_count * (bin_size / float(effective_genome_fraction))
+ *     print("average_window_readcount", average_window_readcount)             # <<<<<<<<<<<<<<
+ * 
+ *     island_enriched_threshold = compute_enriched_threshold(average_window_readcount)
+ */
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 238, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_n_s_average_window_readcount);
+  __Pyx_GIVEREF(__pyx_n_s_average_window_readcount);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_average_window_readcount);
+  __Pyx_INCREF(__pyx_v_average_window_readcount);
+  __Pyx_GIVEREF(__pyx_v_average_window_readcount);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_average_window_readcount);
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 238, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "epic2/src/statistics.pyx":240
+ *     print("average_window_readcount", average_window_readcount)
  * 
  *     island_enriched_threshold = compute_enriched_threshold(average_window_readcount)             # <<<<<<<<<<<<<<
- *     # print("island_enriched_threshold", island_enriched_threshold)
+ *     print("island_enriched_threshold", island_enriched_threshold)
  * 
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_compute_enriched_threshold); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_compute_enriched_threshold); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -5699,13 +5787,13 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
     }
   }
   if (!__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_average_window_readcount); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_average_window_readcount); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   } else {
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[2] = {__pyx_t_3, __pyx_v_average_window_readcount};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_GOTREF(__pyx_t_1);
     } else
@@ -5713,19 +5801,19 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[2] = {__pyx_t_3, __pyx_v_average_window_readcount};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_GOTREF(__pyx_t_1);
     } else
     #endif
     {
-      __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 239, __pyx_L1_error)
+      __pyx_t_4 = PyTuple_New(1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __pyx_t_3 = NULL;
       __Pyx_INCREF(__pyx_v_average_window_readcount);
       __Pyx_GIVEREF(__pyx_v_average_window_readcount);
       PyTuple_SET_ITEM(__pyx_t_4, 0+1, __pyx_v_average_window_readcount);
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
@@ -5734,14 +5822,32 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
   __pyx_v_island_enriched_threshold = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "epic2/src/statistics.pyx":242
- *     # print("island_enriched_threshold", island_enriched_threshold)
+  /* "epic2/src/statistics.pyx":241
+ * 
+ *     island_enriched_threshold = compute_enriched_threshold(average_window_readcount)
+ *     print("island_enriched_threshold", island_enriched_threshold)             # <<<<<<<<<<<<<<
+ * 
+ *     gap_contribution = compute_gap_factor(island_enriched_threshold, gaps_allowed, average_window_readcount)
+ */
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_n_s_island_enriched_threshold);
+  __Pyx_GIVEREF(__pyx_n_s_island_enriched_threshold);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_island_enriched_threshold);
+  __Pyx_INCREF(__pyx_v_island_enriched_threshold);
+  __Pyx_GIVEREF(__pyx_v_island_enriched_threshold);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_island_enriched_threshold);
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 241, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "epic2/src/statistics.pyx":243
+ *     print("island_enriched_threshold", island_enriched_threshold)
  * 
  *     gap_contribution = compute_gap_factor(island_enriched_threshold, gaps_allowed, average_window_readcount)             # <<<<<<<<<<<<<<
- *     # print("gap_contribution", gap_contribution)
+ *     print("gap_contribution", gap_contribution)
  * 
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_compute_gap_factor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 242, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_compute_gap_factor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -5758,7 +5864,7 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_4, __pyx_v_island_enriched_threshold, __pyx_v_gaps_allowed, __pyx_v_average_window_readcount};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -5766,13 +5872,13 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_4, __pyx_v_island_enriched_threshold, __pyx_v_gaps_allowed, __pyx_v_average_window_readcount};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_3 = PyTuple_New(3+__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 242, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(3+__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 243, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -5786,7 +5892,7 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
     __Pyx_INCREF(__pyx_v_average_window_readcount);
     __Pyx_GIVEREF(__pyx_v_average_window_readcount);
     PyTuple_SET_ITEM(__pyx_t_3, 2+__pyx_t_5, __pyx_v_average_window_readcount);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
@@ -5794,14 +5900,32 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
   __pyx_v_gap_contribution = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "epic2/src/statistics.pyx":245
- *     # print("gap_contribution", gap_contribution)
+  /* "epic2/src/statistics.pyx":244
+ * 
+ *     gap_contribution = compute_gap_factor(island_enriched_threshold, gaps_allowed, average_window_readcount)
+ *     print("gap_contribution", gap_contribution)             # <<<<<<<<<<<<<<
+ * 
+ *     boundary_contribution = compute_boundary(island_enriched_threshold, gaps_allowed, average_window_readcount)
+ */
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_n_s_gap_contribution);
+  __Pyx_GIVEREF(__pyx_n_s_gap_contribution);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_gap_contribution);
+  __Pyx_INCREF(__pyx_v_gap_contribution);
+  __Pyx_GIVEREF(__pyx_v_gap_contribution);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_gap_contribution);
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 244, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "epic2/src/statistics.pyx":246
+ *     print("gap_contribution", gap_contribution)
  * 
  *     boundary_contribution = compute_boundary(island_enriched_threshold, gaps_allowed, average_window_readcount)             # <<<<<<<<<<<<<<
- *     # print("boundary_contribution", boundary_contribution)
+ *     print("boundary_contribution", boundary_contribution)
  * 
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_compute_boundary); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 245, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_compute_boundary); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 246, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_5 = 0;
@@ -5818,7 +5942,7 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_v_island_enriched_threshold, __pyx_v_gaps_allowed, __pyx_v_average_window_readcount};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 245, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 246, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -5826,13 +5950,13 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_v_island_enriched_threshold, __pyx_v_gaps_allowed, __pyx_v_average_window_readcount};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 245, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 3+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 246, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(3+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 245, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(3+__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 246, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -5846,7 +5970,7 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
     __Pyx_INCREF(__pyx_v_average_window_readcount);
     __Pyx_GIVEREF(__pyx_v_average_window_readcount);
     PyTuple_SET_ITEM(__pyx_t_4, 2+__pyx_t_5, __pyx_v_average_window_readcount);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 245, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 246, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
@@ -5854,26 +5978,62 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
   __pyx_v_boundary_contribution = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "epic2/src/statistics.pyx":248
- *     # print("boundary_contribution", boundary_contribution)
+  /* "epic2/src/statistics.pyx":247
+ * 
+ *     boundary_contribution = compute_boundary(island_enriched_threshold, gaps_allowed, average_window_readcount)
+ *     print("boundary_contribution", boundary_contribution)             # <<<<<<<<<<<<<<
+ * 
+ *     genome_length_in_bins = effective_genome_fraction / bin_size
+ */
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 247, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_n_s_boundary_contribution);
+  __Pyx_GIVEREF(__pyx_n_s_boundary_contribution);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_boundary_contribution);
+  __Pyx_INCREF(__pyx_v_boundary_contribution);
+  __Pyx_GIVEREF(__pyx_v_boundary_contribution);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_boundary_contribution);
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 247, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "epic2/src/statistics.pyx":249
+ *     print("boundary_contribution", boundary_contribution)
  * 
  *     genome_length_in_bins = effective_genome_fraction / bin_size             # <<<<<<<<<<<<<<
- *     # print("genome_length_in_bins", genome_length_in_bins)
+ *     print("genome_length_in_bins", genome_length_in_bins)
  * 
  */
-  __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_v_effective_genome_fraction, __pyx_v_bin_size); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_v_effective_genome_fraction, __pyx_v_bin_size); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_genome_length_in_bins = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "epic2/src/statistics.pyx":251
- *     # print("genome_length_in_bins", genome_length_in_bins)
+  /* "epic2/src/statistics.pyx":250
+ * 
+ *     genome_length_in_bins = effective_genome_fraction / bin_size
+ *     print("genome_length_in_bins", genome_length_in_bins)             # <<<<<<<<<<<<<<
+ * 
+ *     score_threshold = compute_score_threshold(average_window_readcount, island_enriched_threshold, gap_contribution, boundary_contribution, genome_length_in_bins, bin_size)
+ */
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_n_s_genome_length_in_bins);
+  __Pyx_GIVEREF(__pyx_n_s_genome_length_in_bins);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_genome_length_in_bins);
+  __Pyx_INCREF(__pyx_v_genome_length_in_bins);
+  __Pyx_GIVEREF(__pyx_v_genome_length_in_bins);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_genome_length_in_bins);
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 250, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "epic2/src/statistics.pyx":252
+ *     print("genome_length_in_bins", genome_length_in_bins)
  * 
  *     score_threshold = compute_score_threshold(average_window_readcount, island_enriched_threshold, gap_contribution, boundary_contribution, genome_length_in_bins, bin_size)             # <<<<<<<<<<<<<<
- *     # print("score_threshold", score_threshold)
+ *     print("score_threshold", score_threshold)
  * 
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_compute_score_threshold); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_compute_score_threshold); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -5890,7 +6050,7 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[7] = {__pyx_t_4, __pyx_v_average_window_readcount, __pyx_v_island_enriched_threshold, __pyx_v_gap_contribution, __pyx_v_boundary_contribution, __pyx_v_genome_length_in_bins, __pyx_v_bin_size};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -5898,13 +6058,13 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[7] = {__pyx_t_4, __pyx_v_average_window_readcount, __pyx_v_island_enriched_threshold, __pyx_v_gap_contribution, __pyx_v_boundary_contribution, __pyx_v_genome_length_in_bins, __pyx_v_bin_size};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 6+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_3 = PyTuple_New(6+__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(6+__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -5927,7 +6087,7 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
     __Pyx_INCREF(__pyx_v_bin_size);
     __Pyx_GIVEREF(__pyx_v_bin_size);
     PyTuple_SET_ITEM(__pyx_t_3, 5+__pyx_t_5, __pyx_v_bin_size);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
@@ -5935,15 +6095,33 @@ static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabil
   __pyx_v_score_threshold = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "epic2/src/statistics.pyx":254
- *     # print("score_threshold", score_threshold)
+  /* "epic2/src/statistics.pyx":253
+ * 
+ *     score_threshold = compute_score_threshold(average_window_readcount, island_enriched_threshold, gap_contribution, boundary_contribution, genome_length_in_bins, bin_size)
+ *     print("score_threshold", score_threshold)             # <<<<<<<<<<<<<<
+ * 
+ *     return score_threshold, island_enriched_threshold, average_window_readcount
+ */
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 253, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_INCREF(__pyx_n_s_score_threshold);
+  __Pyx_GIVEREF(__pyx_n_s_score_threshold);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_score_threshold);
+  __Pyx_INCREF(__pyx_v_score_threshold);
+  __Pyx_GIVEREF(__pyx_v_score_threshold);
+  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_score_threshold);
+  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 253, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "epic2/src/statistics.pyx":255
+ *     print("score_threshold", score_threshold)
  * 
  *     return score_threshold, island_enriched_threshold, average_window_readcount             # <<<<<<<<<<<<<<
  * 
  * # ('total_chip_count', 9999)
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_score_threshold);
   __Pyx_GIVEREF(__pyx_v_score_threshold);
@@ -20037,10 +20215,12 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_e, __pyx_k_e, sizeof(__pyx_k_e), 0, 0, 1, 1},
   {&__pyx_n_s_effective_genome_fraction, __pyx_k_effective_genome_fraction, sizeof(__pyx_k_effective_genome_fraction), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
+  {&__pyx_n_s_end, __pyx_k_end, sizeof(__pyx_k_end), 0, 0, 1, 1},
   {&__pyx_n_s_enumerate, __pyx_k_enumerate, sizeof(__pyx_k_enumerate), 0, 0, 1, 1},
   {&__pyx_n_s_epic2_src_statistics, __pyx_k_epic2_src_statistics, sizeof(__pyx_k_epic2_src_statistics), 0, 0, 1, 1},
   {&__pyx_kp_s_epic2_src_statistics_pyx, __pyx_k_epic2_src_statistics_pyx, sizeof(__pyx_k_epic2_src_statistics_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_error, __pyx_k_error, sizeof(__pyx_k_error), 0, 0, 1, 1},
+  {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
   {&__pyx_n_s_flags, __pyx_k_flags, sizeof(__pyx_k_flags), 0, 0, 1, 1},
   {&__pyx_n_s_format, __pyx_k_format, sizeof(__pyx_k_format), 0, 0, 1, 1},
   {&__pyx_n_s_fortran, __pyx_k_fortran, sizeof(__pyx_k_fortran), 0, 0, 1, 1},
@@ -20093,6 +20273,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_poisson_2, __pyx_k_poisson_2, sizeof(__pyx_k_poisson_2), 0, 0, 1, 1},
   {&__pyx_n_s_poisson_distribution_parameter, __pyx_k_poisson_distribution_parameter, sizeof(__pyx_k_poisson_distribution_parameter), 0, 0, 1, 1},
   {&__pyx_n_s_poisson_scores, __pyx_k_poisson_scores, sizeof(__pyx_k_poisson_scores), 0, 0, 1, 1},
+  {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_prob, __pyx_k_prob, sizeof(__pyx_k_prob), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_PickleError, __pyx_k_pyx_PickleError, sizeof(__pyx_k_pyx_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_checksum, __pyx_k_pyx_checksum, sizeof(__pyx_k_pyx_checksum), 0, 0, 1, 1},
@@ -23754,6 +23935,112 @@ static CYTHON_INLINE int __pyx_memview_set_double(const char *itemp, PyObject *o
     return 1;
 }
 
+/* Print */
+        #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION < 3
+static PyObject *__Pyx_GetStdout(void) {
+    PyObject *f = PySys_GetObject((char *)"stdout");
+    if (!f) {
+        PyErr_SetString(PyExc_RuntimeError, "lost sys.stdout");
+    }
+    return f;
+}
+static int __Pyx_Print(PyObject* f, PyObject *arg_tuple, int newline) {
+    int i;
+    if (!f) {
+        if (!(f = __Pyx_GetStdout()))
+            return -1;
+    }
+    Py_INCREF(f);
+    for (i=0; i < PyTuple_GET_SIZE(arg_tuple); i++) {
+        PyObject* v;
+        if (PyFile_SoftSpace(f, 1)) {
+            if (PyFile_WriteString(" ", f) < 0)
+                goto error;
+        }
+        v = PyTuple_GET_ITEM(arg_tuple, i);
+        if (PyFile_WriteObject(v, f, Py_PRINT_RAW) < 0)
+            goto error;
+        if (PyString_Check(v)) {
+            char *s = PyString_AsString(v);
+            Py_ssize_t len = PyString_Size(v);
+            if (len > 0) {
+                switch (s[len-1]) {
+                    case ' ': break;
+                    case '\f': case '\r': case '\n': case '\t': case '\v':
+                        PyFile_SoftSpace(f, 0);
+                        break;
+                    default:  break;
+                }
+            }
+        }
+    }
+    if (newline) {
+        if (PyFile_WriteString("\n", f) < 0)
+            goto error;
+        PyFile_SoftSpace(f, 0);
+    }
+    Py_DECREF(f);
+    return 0;
+error:
+    Py_DECREF(f);
+    return -1;
+}
+#else
+static int __Pyx_Print(PyObject* stream, PyObject *arg_tuple, int newline) {
+    PyObject* kwargs = 0;
+    PyObject* result = 0;
+    PyObject* end_string;
+    if (unlikely(!__pyx_print)) {
+        __pyx_print = PyObject_GetAttr(__pyx_b, __pyx_n_s_print);
+        if (!__pyx_print)
+            return -1;
+    }
+    if (stream) {
+        kwargs = PyDict_New();
+        if (unlikely(!kwargs))
+            return -1;
+        if (unlikely(PyDict_SetItem(kwargs, __pyx_n_s_file, stream) < 0))
+            goto bad;
+        if (!newline) {
+            end_string = PyUnicode_FromStringAndSize(" ", 1);
+            if (unlikely(!end_string))
+                goto bad;
+            if (PyDict_SetItem(kwargs, __pyx_n_s_end, end_string) < 0) {
+                Py_DECREF(end_string);
+                goto bad;
+            }
+            Py_DECREF(end_string);
+        }
+    } else if (!newline) {
+        if (unlikely(!__pyx_print_kwargs)) {
+            __pyx_print_kwargs = PyDict_New();
+            if (unlikely(!__pyx_print_kwargs))
+                return -1;
+            end_string = PyUnicode_FromStringAndSize(" ", 1);
+            if (unlikely(!end_string))
+                return -1;
+            if (PyDict_SetItem(__pyx_print_kwargs, __pyx_n_s_end, end_string) < 0) {
+                Py_DECREF(end_string);
+                return -1;
+            }
+            Py_DECREF(end_string);
+        }
+        kwargs = __pyx_print_kwargs;
+    }
+    result = PyObject_Call(__pyx_print, arg_tuple, kwargs);
+    if (unlikely(kwargs) && (kwargs != __pyx_print_kwargs))
+        Py_DECREF(kwargs);
+    if (!result)
+        return -1;
+    Py_DECREF(result);
+    return 0;
+bad:
+    if (kwargs != __pyx_print_kwargs)
+        Py_XDECREF(kwargs);
+    return -1;
+}
+#endif
+
 /* MemviewSliceCopyTemplate */
         static __Pyx_memviewslice
 __pyx_memoryview_copy_new_contig(const __Pyx_memviewslice *from_mvs,
@@ -24387,6 +24674,43 @@ raise_neg_overflow:
         "can't convert negative value to long");
     return (long) -1;
 }
+
+/* PrintOne */
+        #if !CYTHON_COMPILING_IN_PYPY && PY_MAJOR_VERSION < 3
+static int __Pyx_PrintOne(PyObject* f, PyObject *o) {
+    if (!f) {
+        if (!(f = __Pyx_GetStdout()))
+            return -1;
+    }
+    Py_INCREF(f);
+    if (PyFile_SoftSpace(f, 0)) {
+        if (PyFile_WriteString(" ", f) < 0)
+            goto error;
+    }
+    if (PyFile_WriteObject(o, f, Py_PRINT_RAW) < 0)
+        goto error;
+    if (PyFile_WriteString("\n", f) < 0)
+        goto error;
+    Py_DECREF(f);
+    return 0;
+error:
+    Py_DECREF(f);
+    return -1;
+    /* the line below is just to avoid C compiler
+     * warnings about unused functions */
+    return __Pyx_Print(f, NULL, 0);
+}
+#else
+static int __Pyx_PrintOne(PyObject* stream, PyObject *o) {
+    int res;
+    PyObject* arg_tuple = PyTuple_Pack(1, o);
+    if (unlikely(!arg_tuple))
+        return -1;
+    res = __Pyx_Print(stream, arg_tuple, 1);
+    Py_DECREF(arg_tuple);
+    return res;
+}
+#endif
 
 /* CIntFromPy */
         static CYTHON_INLINE char __Pyx_PyInt_As_char(PyObject *x) {

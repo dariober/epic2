@@ -4,12 +4,12 @@ import pytest
 from epic2.src.reads_to_bins import add_reads_to_dict, files_to_bin_counts
 
 
-args = {"bin_size": 200, "fragment_size": 150, "drop_duplicates": True}
+args = {"bin_size": 200, "fragment_size": 150, "drop_duplicates": True, "chromsizes": {"chr7": int(1e8)}}
 
 
 def test_files_to_bins():
 
-    d = files_to_bin_counts(["tests/test.bed"], args)
+    d = files_to_bin_counts(["tests/test.bed"], args, "chip")
     print(d)
 
     print(d["chr7"][0])
@@ -20,7 +20,7 @@ def test_files_to_bins():
 
 def test_files_to_bins2():
 
-    d = files_to_bin_counts(["tests/test2.bed"], args)
+    d = files_to_bin_counts(["tests/test2.bed"], args, "chip")
     print(d)
 
     print(d["chr7"][0])
@@ -29,7 +29,7 @@ def test_files_to_bins2():
 
 def test_files_to_bins3():
 
-    d = files_to_bin_counts(["tests/test3.bed"], args)
+    d = files_to_bin_counts(["tests/test3.bed"], args, "chip")
     print(d)
 
     print(d["chr7"][0])
@@ -39,7 +39,7 @@ def test_files_to_bins3():
 
 def test_files_to_bins123():
 
-    d = files_to_bin_counts(["tests/test.bed", "tests/test2.bed", "tests/test3.bed"], args)
+    d = files_to_bin_counts(["tests/test.bed", "tests/test2.bed", "tests/test3.bed"], args, "chip")
 
     print(d)
 
