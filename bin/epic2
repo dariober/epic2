@@ -7,7 +7,8 @@ import sys
 
 
 from epic2.src.reads_to_bins import files_to_bin_counts
-from epic2.src.statistics import compute_background_probabilities
+# from epic2.src.statistics import compute_background_probabilities
+from epic2.src.SICER_stats import compute_score_threshold
 from epic2.src.find_islands import find_islands, compute_fdr, write_islands
 from epic2.src.genome_info import egl_and_chromsizes
 
@@ -128,8 +129,8 @@ def main():
 
     sys.stderr.write("\n  Valid ChIP reads: {}\n".format(chip_count))
 
-    score_threshold, island_enriched_threshold, average_window_readcount = compute_background_probabilities(
-        chip_count, args["bin_size"], effective_genome_length, args["gaps_allowed"])
+    score_threshold, island_enriched_threshold, average_window_readcount = compute_score_threshold(
+        chip_count, args["bin_size"], effective_genome_length, args["gaps_allowed"] * args["bin_size"])
 
     sys.stderr.write("\nNumber of reads needed to consider an island enriched: {}\n".format(island_enriched_threshold + 1))
 

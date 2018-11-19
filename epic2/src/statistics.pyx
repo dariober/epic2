@@ -177,6 +177,7 @@ def compute_enriched_threshold(average_window_readcount):
 
     cdef:
 
+		print("gap_contribution", gap_contribution)
         float WINDOW_P_VALUE = 0.20
         float BIN_SIZE = 0.001
         int E_VALUE = 1000
