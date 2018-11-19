@@ -132,7 +132,7 @@ def main():
     score_threshold, island_enriched_threshold, average_window_readcount = compute_score_threshold(
         chip_count, args["bin_size"], effective_genome_length, args["gaps_allowed"] * args["bin_size"])
 
-    sys.stderr.write("\nNumber of reads needed to consider an island enriched: {}\n".format(island_enriched_threshold + 1))
+    sys.stderr.write("\nNumber of tags in a window: {}\n".format(island_enriched_threshold))
 
     # print(average_window_readcount)
     islands = find_islands(c_bins_counts, args["gaps_allowed"], args["bin_size"], score_threshold, island_enriched_threshold, average_window_readcount)
