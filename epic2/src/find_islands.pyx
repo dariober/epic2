@@ -98,6 +98,9 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
 
             count = counts[i]
 
+            if count < island_enriched_threshold:
+                continue
+
             _bin = bins[i]
 
             dist = _bin - current_island.end
@@ -107,14 +110,14 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
                 current_island.chip_count += counts[i]
                 current_island.score += compute_window_score(counts[i], _poisson)
             else:
-                if current_island.score > slightly_less and current_island.chip_count > island_enriched_threshold:
+                if current_island.score > slightly_less: # and current_island.chip_count > island_enriched_threshold:
                     v.push_back(current_island)
 
                 score = compute_window_score(counts[i], _poisson)
                 current_island = [_bin, bins[i] + bin_size - 1, count, 0, score, 0, 0]
 
         # takes care of last or potential single bin
-        if current_island.score > slightly_less and current_island.chip_count > island_enriched_threshold:
+        if current_island.score > slightly_less: # and current_island.chip_count > island_enriched_threshold:
             v.push_back(current_island)
 
         island_dict[chromosome] = v

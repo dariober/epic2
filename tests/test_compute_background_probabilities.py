@@ -48,24 +48,15 @@
 # Done!
 import pytest
 
-from epic2.src.statistics import compute_background_probabilities
+# from epic2.src.statistics import compute_background_probabilities
+from epic2.src.SICER_stats import compute_score_threshold
 
-# epic2:
-# ('total_chip_count', 5794119)
-# ('bin_size', 200)
-# ('effective_genome_fraction', 2671858539.0005245)
-# ('average_window_readcount', 0.43371450362543784)
-# ('island_enriched_threshold', 2)
-# ('gap_contribution', 3.594821778228725)
-# ('boundary_contribution', 0.5556776175264408)
-# ('genome_length_in_bins', 13359292.695002623)
-# ('score_threshold', 6.953000330249779)
 
 def test_compute_background_probabilities():
 
     # 17.673
-    result = compute_background_probabilities(5799920, 200, 2625043440, 600)
+    result = compute_score_threshold(5799920, 200, 2625043440, 600)
 
     print(result)
 
-    assert 0
+    assert result[0] - 17.673 < 0.01

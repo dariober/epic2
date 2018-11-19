@@ -1412,7 +1412,7 @@ static const char __pyx_k_poisson_value[] = "poisson_value";
 static const char __pyx_k_window_pvalue[] = "window_pvalue";
 static const char __pyx_k_Expect_islands[] = "Expect # islands";
 static const char __pyx_k_max_iterations[] = "max_iterations";
-static const char __pyx_k_Score_threshold[] = "Score threshold: {}";
+static const char __pyx_k_Score_threshold[] = "\nScore threshold: {}\n";
 static const char __pyx_k_score_threshold[] = "score_threshold";
 static const char __pyx_k_gap_contribution[] = "gap_contribution";
 static const char __pyx_k_e_value_threshold[] = "e_value_threshold";
@@ -8081,7 +8081,7 @@ static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTH
  * 	background = Background_island_probscore_statistics(chip_counts, window_size, gap_size, 0.2, effective_genome_length, 0.001)
  * 	score_threshold = background.find_island_threshold(1000)             # <<<<<<<<<<<<<<
  * 
- * 	sys.stderr.write("Score threshold: {}".format(score_threshold))
+ * 	sys.stderr.write("\nScore threshold: {}\n".format(score_threshold))
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_background, __pyx_n_s_find_island_threshold); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -8094,7 +8094,7 @@ static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTH
   /* "epic2/src/SICER_stats.pyx":303
  * 	score_threshold = background.find_island_threshold(1000)
  * 
- * 	sys.stderr.write("Score threshold: {}".format(score_threshold))             # <<<<<<<<<<<<<<
+ * 	sys.stderr.write("\nScore threshold: {}\n".format(score_threshold))             # <<<<<<<<<<<<<<
  * 
  * 	min_tags_in_window = background.min_tags_in_window
  */
@@ -8200,7 +8200,7 @@ static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTH
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "epic2/src/SICER_stats.pyx":305
- * 	sys.stderr.write("Score threshold: {}".format(score_threshold))
+ * 	sys.stderr.write("\nScore threshold: {}\n".format(score_threshold))
  * 
  * 	min_tags_in_window = background.min_tags_in_window             # <<<<<<<<<<<<<<
  * 
@@ -8520,7 +8520,7 @@ static int __Pyx_InitCachedConstants(void) {
  * 	background = Background_island_probscore_statistics(chip_counts, window_size, gap_size, 0.2, effective_genome_length, 0.001)
  * 	score_threshold = background.find_island_threshold(1000)             # <<<<<<<<<<<<<<
  * 
- * 	sys.stderr.write("Score threshold: {}".format(score_threshold))
+ * 	sys.stderr.write("\nScore threshold: {}\n".format(score_threshold))
  */
   __pyx_tuple__7 = PyTuple_Pack(1, __pyx_int_1000); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
