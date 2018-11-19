@@ -4,18 +4,18 @@
 {
     "distutils": {
         "depends": [
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/htslib_util.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/htslib/htslib/bgzf.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/htslib/htslib/cram.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/htslib/htslib/faidx.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/htslib/htslib/hfile.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/htslib/htslib/hts.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/htslib/htslib/kstring.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/htslib/htslib/sam.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/htslib/htslib/tbx.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/htslib/htslib/vcf.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/htslib/htslib/vcfutils.h",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/pysam_stream.h"
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/htslib_util.h",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/htslib/htslib/bgzf.h",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/htslib/htslib/cram.h",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/htslib/htslib/faidx.h",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/htslib/htslib/hfile.h",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/htslib/htslib/hts.h",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/htslib/htslib/kstring.h",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/htslib/htslib/sam.h",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/htslib/htslib/tbx.h",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/htslib/htslib/vcf.h",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/htslib/htslib/vcfutils.h",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/pysam_stream.h"
         ],
         "extra_compile_args": [
             "-Ofast",
@@ -23,17 +23,20 @@
             "-std=c++11"
         ],
         "include_dirs": [
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/htslib",
-            "/mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/pysam/include/samtools"
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/htslib",
+            "/Users/endrebakkenstovner/anaconda3/lib/python3.6/site-packages/pysam/include/samtools"
         ],
         "language": "c++",
-        "name": "SICER2.src.read_bam",
+        "library_dirs": [
+            "/Users/endrebakkenstovner/anaconda3/lib/"
+        ],
+        "name": "epic2.src.read_bam",
         "sources": [
-            "SICER2/src/read_bam.pyx"
+            "epic2/src/read_bam.pyx"
         ]
     },
-    "module_name": "SICER2.src.read_bam"
+    "module_name": "epic2.src.read_bam"
 }
 END: Cython Metadata */
 
@@ -609,8 +612,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__SICER2__src__read_bam
-#define __PYX_HAVE_API__SICER2__src__read_bam
+#define __PYX_HAVE__epic2__src__read_bam
+#define __PYX_HAVE_API__epic2__src__read_bam
 /* Early includes */
 #include <stdint.h>
 #include <algorithm>
@@ -843,7 +846,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "SICER2/src/read_bam.pyx",
+  "epic2/src/read_bam.pyx",
   "array.pxd",
   "stringsource",
   "type.pxd",
@@ -999,50 +1002,50 @@ struct __pyx_opt_args_5pysam_17libcalignmentfile_14IteratorColumn__setup_iterato
   int multiple_iterators;
 };
 
-/* "SICER2/src/read_bam.pyx":17
+/* "epic2/src/read_bam.pyx":17
  *     pair[T,U] make_pair[T,U](T&,U&)
  * 
  * ctypedef vector[uint32_t] intvec             # <<<<<<<<<<<<<<
  * ctypedef pair [string, char] key
  * ctypedef pair [int, char] intkey
  */
-typedef std::vector<uint32_t>  __pyx_t_6SICER2_3src_8read_bam_intvec;
+typedef std::vector<uint32_t>  __pyx_t_5epic2_3src_8read_bam_intvec;
 
-/* "SICER2/src/read_bam.pyx":18
+/* "epic2/src/read_bam.pyx":18
  * 
  * ctypedef vector[uint32_t] intvec
  * ctypedef pair [string, char] key             # <<<<<<<<<<<<<<
  * ctypedef pair [int, char] intkey
  * ctypedef map[intkey, intvec] genome_map_int
  */
-typedef std::pair<std::string,char>  __pyx_t_6SICER2_3src_8read_bam_key;
+typedef std::pair<std::string,char>  __pyx_t_5epic2_3src_8read_bam_key;
 
-/* "SICER2/src/read_bam.pyx":19
+/* "epic2/src/read_bam.pyx":19
  * ctypedef vector[uint32_t] intvec
  * ctypedef pair [string, char] key
  * ctypedef pair [int, char] intkey             # <<<<<<<<<<<<<<
  * ctypedef map[intkey, intvec] genome_map_int
  * ctypedef map[key, intvec] genome_map
  */
-typedef std::pair<int,char>  __pyx_t_6SICER2_3src_8read_bam_intkey;
+typedef std::pair<int,char>  __pyx_t_5epic2_3src_8read_bam_intkey;
 
-/* "SICER2/src/read_bam.pyx":20
+/* "epic2/src/read_bam.pyx":20
  * ctypedef pair [string, char] key
  * ctypedef pair [int, char] intkey
  * ctypedef map[intkey, intvec] genome_map_int             # <<<<<<<<<<<<<<
  * ctypedef map[key, intvec] genome_map
  * 
  */
-typedef std::map<__pyx_t_6SICER2_3src_8read_bam_intkey,__pyx_t_6SICER2_3src_8read_bam_intvec>  __pyx_t_6SICER2_3src_8read_bam_genome_map_int;
+typedef std::map<__pyx_t_5epic2_3src_8read_bam_intkey,__pyx_t_5epic2_3src_8read_bam_intvec>  __pyx_t_5epic2_3src_8read_bam_genome_map_int;
 
-/* "SICER2/src/read_bam.pyx":21
+/* "epic2/src/read_bam.pyx":21
  * ctypedef pair [int, char] intkey
  * ctypedef map[intkey, intvec] genome_map_int
  * ctypedef map[key, intvec] genome_map             # <<<<<<<<<<<<<<
  * 
  * 
  */
-typedef std::map<__pyx_t_6SICER2_3src_8read_bam_key,__pyx_t_6SICER2_3src_8read_bam_intvec>  __pyx_t_6SICER2_3src_8read_bam_genome_map;
+typedef std::map<__pyx_t_5epic2_3src_8read_bam_key,__pyx_t_5epic2_3src_8read_bam_intvec>  __pyx_t_5epic2_3src_8read_bam_genome_map;
 
 /* "pysam/libchtslib.pxd":2590
  * 
@@ -2266,8 +2269,8 @@ static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IteratorColumnRegion
 static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IteratorColumnAllRefs = 0;
 static PyTypeObject *__pyx_ptype_5pysam_17libcalignmentfile_IndexedReads = 0;
 
-/* Module declarations from 'SICER2.src.read_bam' */
-static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *, int __pyx_skip_dispatch); /*proto*/
+/* Module declarations from 'epic2.src.read_bam' */
+static PyObject *__pyx_f_5epic2_3src_8read_bam_read_bam(PyObject *, int __pyx_skip_dispatch); /*proto*/
 static std::string __pyx_convert_string_from_py_std__in_string(PyObject *); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_convert_PyObject_string_to_py_std__in_string(std::string const &); /*proto*/
 static CYTHON_INLINE PyObject *__pyx_convert_PyUnicode_string_to_py_std__in_string(std::string const &); /*proto*/
@@ -2276,12 +2279,12 @@ static CYTHON_INLINE PyObject *__pyx_convert_PyBytes_string_to_py_std__in_string
 static CYTHON_INLINE PyObject *__pyx_convert_PyByteArray_string_to_py_std__in_string(std::string const &); /*proto*/
 static PyObject *__pyx_convert_pair_to_py_std_3a__3a_string____char(std::pair<std::string,char>  const &); /*proto*/
 static PyObject *__pyx_convert_vector_to_py_uint32_t(const std::vector<uint32_t>  &); /*proto*/
-static PyObject *__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec(std::map<__pyx_t_6SICER2_3src_8read_bam_key,__pyx_t_6SICER2_3src_8read_bam_intvec>  const &); /*proto*/
-#define __Pyx_MODULE_NAME "SICER2.src.read_bam"
-extern int __pyx_module_is_main_SICER2__src__read_bam;
-int __pyx_module_is_main_SICER2__src__read_bam = 0;
+static PyObject *__pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec(std::map<__pyx_t_5epic2_3src_8read_bam_key,__pyx_t_5epic2_3src_8read_bam_intvec>  const &); /*proto*/
+#define __Pyx_MODULE_NAME "epic2.src.read_bam"
+extern int __pyx_module_is_main_epic2__src__read_bam;
+int __pyx_module_is_main_epic2__src__read_bam = 0;
 
-/* Implementation of 'SICER2.src.read_bam' */
+/* Implementation of 'epic2.src.read_bam' */
 static PyObject *__pyx_builtin_chr;
 static PyObject *__pyx_builtin_MemoryError;
 static PyObject *__pyx_builtin_range;
@@ -2323,13 +2326,13 @@ static PyObject *__pyx_n_s_reference_id;
 static PyObject *__pyx_n_s_reference_start;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_kp_s_utf_8;
-static PyObject *__pyx_pf_6SICER2_3src_8read_bam_read_bam(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_filename); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_8read_bam_read_bam(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_filename); /* proto */
 static int __pyx_pf_7cpython_5array_5array___getbuffer__(arrayobject *__pyx_v_self, Py_buffer *__pyx_v_info, CYTHON_UNUSED int __pyx_v_flags); /* proto */
 static void __pyx_pf_7cpython_5array_5array_2__releasebuffer__(CYTHON_UNUSED arrayobject *__pyx_v_self, Py_buffer *__pyx_v_info); /* proto */
 static PyObject *__pyx_tuple_;
 /* Late includes */
 
-/* "SICER2/src/read_bam.pyx":44
+/* "epic2/src/read_bam.pyx":44
  * #     int64_t flag
  * 
  * cpdef read_bam(filename):             # <<<<<<<<<<<<<<
@@ -2337,8 +2340,8 @@ static PyObject *__pyx_tuple_;
  *     cdef:
  */
 
-static PyObject *__pyx_pw_6SICER2_3src_8read_bam_1read_bam(PyObject *__pyx_self, PyObject *__pyx_v_filename); /*proto*/
-static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filename, CYTHON_UNUSED int __pyx_skip_dispatch) {
+static PyObject *__pyx_pw_5epic2_3src_8read_bam_1read_bam(PyObject *__pyx_self, PyObject *__pyx_v_filename); /*proto*/
+static PyObject *__pyx_f_5epic2_3src_8read_bam_read_bam(PyObject *__pyx_v_filename, CYTHON_UNUSED int __pyx_skip_dispatch) {
   uint32_t __pyx_v_flag;
   int32_t __pyx_v_start;
   int32_t __pyx_v_end;
@@ -2347,14 +2350,14 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
   char __pyx_v_strand;
   std::string __pyx_v_chromosome;
   int __pyx_v_chromosome_id;
-  __pyx_t_6SICER2_3src_8read_bam_intkey __pyx_v_chrom_strand;
-  __pyx_t_6SICER2_3src_8read_bam_key __pyx_v_chrom_strand_fixed;
-  __pyx_t_6SICER2_3src_8read_bam_genome_map_int __pyx_v_genome;
-  __pyx_t_6SICER2_3src_8read_bam_genome_map __pyx_v_genome_fixed;
+  __pyx_t_5epic2_3src_8read_bam_intkey __pyx_v_chrom_strand;
+  __pyx_t_5epic2_3src_8read_bam_key __pyx_v_chrom_strand_fixed;
+  __pyx_t_5epic2_3src_8read_bam_genome_map_int __pyx_v_genome;
+  __pyx_t_5epic2_3src_8read_bam_genome_map __pyx_v_genome_fixed;
   struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile *__pyx_v_samfile = 0;
   struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *__pyx_v_a = 0;
   long __pyx_v_is_reverse;
-  std::map<__pyx_t_6SICER2_3src_8read_bam_intkey,__pyx_t_6SICER2_3src_8read_bam_intvec> ::iterator __pyx_v_it;
+  std::map<__pyx_t_5epic2_3src_8read_bam_intkey,__pyx_t_5epic2_3src_8read_bam_intvec> ::iterator __pyx_v_it;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -2371,10 +2374,10 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
   PyObject *__pyx_t_12 = NULL;
   std::string __pyx_t_13;
   char __pyx_t_14;
-  __pyx_t_6SICER2_3src_8read_bam_intvec __pyx_t_15;
+  __pyx_t_5epic2_3src_8read_bam_intvec __pyx_t_15;
   __Pyx_RefNannySetupContext("read_bam", 0);
 
-  /* "SICER2/src/read_bam.pyx":52
+  /* "epic2/src/read_bam.pyx":52
  *         int32_t length
  *         uint32_t is_strand
  *         char forward = "+"             # <<<<<<<<<<<<<<
@@ -2383,7 +2386,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
   __pyx_v_forward = '+';
 
-  /* "SICER2/src/read_bam.pyx":53
+  /* "epic2/src/read_bam.pyx":53
  *         uint32_t is_strand
  *         char forward = "+"
  *         char reverse = "-"             # <<<<<<<<<<<<<<
@@ -2392,7 +2395,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
   __pyx_v_reverse = '-';
 
-  /* "SICER2/src/read_bam.pyx":65
+  /* "epic2/src/read_bam.pyx":65
  *         AlignedSegment a
  * 
  *     samfile = pysam.AlignmentFile(filename, "rb")             # <<<<<<<<<<<<<<
@@ -2453,7 +2456,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
   __pyx_v_samfile = ((struct __pyx_obj_5pysam_17libcalignmentfile_AlignmentFile *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/read_bam.pyx":68
+  /* "epic2/src/read_bam.pyx":68
  * 
  * 
  *     for a in samfile:             # <<<<<<<<<<<<<<
@@ -2503,7 +2506,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __Pyx_XDECREF_SET(__pyx_v_a, ((struct __pyx_obj_5pysam_18libcalignedsegment_AlignedSegment *)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "SICER2/src/read_bam.pyx":69
+    /* "epic2/src/read_bam.pyx":69
  * 
  *     for a in samfile:
  *         flag = a.flag             # <<<<<<<<<<<<<<
@@ -2516,7 +2519,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_flag = __pyx_t_8;
 
-    /* "SICER2/src/read_bam.pyx":72
+    /* "epic2/src/read_bam.pyx":72
  * 
  *         # https://broadinstitute.github.io/picard/explain-flags.html
  *         if flag & 0x4 or flag & 0x200 or flag & 0x400:             # <<<<<<<<<<<<<<
@@ -2540,7 +2543,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __pyx_L6_bool_binop_done:;
     if (__pyx_t_9) {
 
-      /* "SICER2/src/read_bam.pyx":73
+      /* "epic2/src/read_bam.pyx":73
  *         # https://broadinstitute.github.io/picard/explain-flags.html
  *         if flag & 0x4 or flag & 0x200 or flag & 0x400:
  *             continue             # <<<<<<<<<<<<<<
@@ -2549,7 +2552,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
       goto __pyx_L3_continue;
 
-      /* "SICER2/src/read_bam.pyx":72
+      /* "epic2/src/read_bam.pyx":72
  * 
  *         # https://broadinstitute.github.io/picard/explain-flags.html
  *         if flag & 0x4 or flag & 0x200 or flag & 0x400:             # <<<<<<<<<<<<<<
@@ -2558,7 +2561,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
     }
 
-    /* "SICER2/src/read_bam.pyx":75
+    /* "epic2/src/read_bam.pyx":75
  *             continue
  * 
  *         is_reverse = flag & 0x10             # <<<<<<<<<<<<<<
@@ -2567,7 +2570,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
     __pyx_v_is_reverse = (__pyx_v_flag & 0x10);
 
-    /* "SICER2/src/read_bam.pyx":77
+    /* "epic2/src/read_bam.pyx":77
  *         is_reverse = flag & 0x10
  * 
  *         start = a.reference_start             # <<<<<<<<<<<<<<
@@ -2580,7 +2583,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_start = __pyx_t_11;
 
-    /* "SICER2/src/read_bam.pyx":79
+    /* "epic2/src/read_bam.pyx":79
  *         start = a.reference_start
  * 
  *         end = start + a.alen             # <<<<<<<<<<<<<<
@@ -2599,7 +2602,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_end = __pyx_t_11;
 
-    /* "SICER2/src/read_bam.pyx":81
+    /* "epic2/src/read_bam.pyx":81
  *         end = start + a.alen
  * 
  *         if start < 0 or end < 0:             # <<<<<<<<<<<<<<
@@ -2617,7 +2620,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __pyx_L10_bool_binop_done:;
     if (__pyx_t_9) {
 
-      /* "SICER2/src/read_bam.pyx":82
+      /* "epic2/src/read_bam.pyx":82
  * 
  *         if start < 0 or end < 0:
  *             continue             # <<<<<<<<<<<<<<
@@ -2626,7 +2629,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
       goto __pyx_L3_continue;
 
-      /* "SICER2/src/read_bam.pyx":81
+      /* "epic2/src/read_bam.pyx":81
  *         end = start + a.alen
  * 
  *         if start < 0 or end < 0:             # <<<<<<<<<<<<<<
@@ -2635,7 +2638,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
     }
 
-    /* "SICER2/src/read_bam.pyx":84
+    /* "epic2/src/read_bam.pyx":84
  *             continue
  * 
  *         chromosome_id = a.reference_id             # <<<<<<<<<<<<<<
@@ -2648,7 +2651,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_chromosome_id = __pyx_t_4;
 
-    /* "SICER2/src/read_bam.pyx":85
+    /* "epic2/src/read_bam.pyx":85
  * 
  *         chromosome_id = a.reference_id
  *         if is_reverse:             # <<<<<<<<<<<<<<
@@ -2658,7 +2661,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __pyx_t_9 = (__pyx_v_is_reverse != 0);
     if (__pyx_t_9) {
 
-      /* "SICER2/src/read_bam.pyx":86
+      /* "epic2/src/read_bam.pyx":86
  *         chromosome_id = a.reference_id
  *         if is_reverse:
  *             chrom_strand = make_pair(<int>chromosome_id, <char>reverse)             # <<<<<<<<<<<<<<
@@ -2667,7 +2670,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
       __pyx_v_chrom_strand = std::make_pair<int,char>(((int)__pyx_v_chromosome_id), ((char)__pyx_v_reverse));
 
-      /* "SICER2/src/read_bam.pyx":87
+      /* "epic2/src/read_bam.pyx":87
  *         if is_reverse:
  *             chrom_strand = make_pair(<int>chromosome_id, <char>reverse)
  *             genome[chrom_strand].push_back(end + 1)             # <<<<<<<<<<<<<<
@@ -2681,7 +2684,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
         __PYX_ERR(0, 87, __pyx_L1_error)
       }
 
-      /* "SICER2/src/read_bam.pyx":85
+      /* "epic2/src/read_bam.pyx":85
  * 
  *         chromosome_id = a.reference_id
  *         if is_reverse:             # <<<<<<<<<<<<<<
@@ -2691,7 +2694,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
       goto __pyx_L12;
     }
 
-    /* "SICER2/src/read_bam.pyx":89
+    /* "epic2/src/read_bam.pyx":89
  *             genome[chrom_strand].push_back(end + 1)
  *         else:
  *             chrom_strand = make_pair(<int>chromosome_id, <char>forward)             # <<<<<<<<<<<<<<
@@ -2701,7 +2704,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     /*else*/ {
       __pyx_v_chrom_strand = std::make_pair<int,char>(((int)__pyx_v_chromosome_id), ((char)__pyx_v_forward));
 
-      /* "SICER2/src/read_bam.pyx":90
+      /* "epic2/src/read_bam.pyx":90
  *         else:
  *             chrom_strand = make_pair(<int>chromosome_id, <char>forward)
  *             genome[chrom_strand].push_back(start + 1)             # <<<<<<<<<<<<<<
@@ -2717,7 +2720,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     }
     __pyx_L12:;
 
-    /* "SICER2/src/read_bam.pyx":68
+    /* "epic2/src/read_bam.pyx":68
  * 
  * 
  *     for a in samfile:             # <<<<<<<<<<<<<<
@@ -2728,7 +2731,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/read_bam.pyx":93
+  /* "epic2/src/read_bam.pyx":93
  * 
  * 
  *     it = genome.begin();             # <<<<<<<<<<<<<<
@@ -2737,7 +2740,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
   __pyx_v_it = __pyx_v_genome.begin();
 
-  /* "SICER2/src/read_bam.pyx":95
+  /* "epic2/src/read_bam.pyx":95
  *     it = genome.begin();
  * 
  *     while (it != genome.end()):             # <<<<<<<<<<<<<<
@@ -2748,7 +2751,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __pyx_t_9 = ((__pyx_v_it != __pyx_v_genome.end()) != 0);
     if (!__pyx_t_9) break;
 
-    /* "SICER2/src/read_bam.pyx":96
+    /* "epic2/src/read_bam.pyx":96
  * 
  *     while (it != genome.end()):
  *         chromosome_id = dereference(it).first.first             # <<<<<<<<<<<<<<
@@ -2758,7 +2761,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __pyx_t_4 = (*__pyx_v_it).first.first;
     __pyx_v_chromosome_id = __pyx_t_4;
 
-    /* "SICER2/src/read_bam.pyx":97
+    /* "epic2/src/read_bam.pyx":97
  *     while (it != genome.end()):
  *         chromosome_id = dereference(it).first.first
  *         chromosome = samfile.get_reference_name(chromosome_id).encode("utf-8")             # <<<<<<<<<<<<<<
@@ -2825,7 +2828,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_chromosome = __pyx_t_13;
 
-    /* "SICER2/src/read_bam.pyx":99
+    /* "epic2/src/read_bam.pyx":99
  *         chromosome = samfile.get_reference_name(chromosome_id).encode("utf-8")
  * 
  *         strand = dereference(it).first.second             # <<<<<<<<<<<<<<
@@ -2835,7 +2838,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __pyx_t_14 = (*__pyx_v_it).first.second;
     __pyx_v_strand = __pyx_t_14;
 
-    /* "SICER2/src/read_bam.pyx":101
+    /* "epic2/src/read_bam.pyx":101
  *         strand = dereference(it).first.second
  * 
  *         if chr(strand) == "+":             # <<<<<<<<<<<<<<
@@ -2851,7 +2854,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_9) {
 
-      /* "SICER2/src/read_bam.pyx":102
+      /* "epic2/src/read_bam.pyx":102
  * 
  *         if chr(strand) == "+":
  *             chrom_strand_fixed = make_pair(<string>chromosome, <char>forward)             # <<<<<<<<<<<<<<
@@ -2860,7 +2863,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
  */
       __pyx_v_chrom_strand_fixed = std::make_pair<std::string,char>(((std::string)__pyx_v_chromosome), ((char)__pyx_v_forward));
 
-      /* "SICER2/src/read_bam.pyx":103
+      /* "epic2/src/read_bam.pyx":103
  *         if chr(strand) == "+":
  *             chrom_strand_fixed = make_pair(<string>chromosome, <char>forward)
  *             genome_fixed[chrom_strand_fixed] = dereference(it).second             # <<<<<<<<<<<<<<
@@ -2870,7 +2873,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
       __pyx_t_15 = (*__pyx_v_it).second;
       (__pyx_v_genome_fixed[__pyx_v_chrom_strand_fixed]) = __pyx_t_15;
 
-      /* "SICER2/src/read_bam.pyx":101
+      /* "epic2/src/read_bam.pyx":101
  *         strand = dereference(it).first.second
  * 
  *         if chr(strand) == "+":             # <<<<<<<<<<<<<<
@@ -2880,7 +2883,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
       goto __pyx_L15;
     }
 
-    /* "SICER2/src/read_bam.pyx":105
+    /* "epic2/src/read_bam.pyx":105
  *             genome_fixed[chrom_strand_fixed] = dereference(it).second
  *         else:
  *             chrom_strand_fixed = make_pair(<string>chromosome, <char>reverse)             # <<<<<<<<<<<<<<
@@ -2890,7 +2893,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     /*else*/ {
       __pyx_v_chrom_strand_fixed = std::make_pair<std::string,char>(((std::string)__pyx_v_chromosome), ((char)__pyx_v_reverse));
 
-      /* "SICER2/src/read_bam.pyx":106
+      /* "epic2/src/read_bam.pyx":106
  *         else:
  *             chrom_strand_fixed = make_pair(<string>chromosome, <char>reverse)
  *             genome_fixed[chrom_strand_fixed] = dereference(it).second             # <<<<<<<<<<<<<<
@@ -2902,7 +2905,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     }
     __pyx_L15:;
 
-    /* "SICER2/src/read_bam.pyx":108
+    /* "epic2/src/read_bam.pyx":108
  *             genome_fixed[chrom_strand_fixed] = dereference(it).second
  * 
  *         postincrement(it)             # <<<<<<<<<<<<<<
@@ -2912,19 +2915,19 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
     (void)((__pyx_v_it++));
   }
 
-  /* "SICER2/src/read_bam.pyx":110
+  /* "epic2/src/read_bam.pyx":110
  *         postincrement(it)
  * 
  *     return genome_fixed             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec(__pyx_v_genome_fixed); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec(__pyx_v_genome_fixed); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "SICER2/src/read_bam.pyx":44
+  /* "epic2/src/read_bam.pyx":44
  * #     int64_t flag
  * 
  * cpdef read_bam(filename):             # <<<<<<<<<<<<<<
@@ -2939,7 +2942,7 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_AddTraceback("SICER2.src.read_bam.read_bam", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.read_bam.read_bam", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF((PyObject *)__pyx_v_samfile);
@@ -2950,25 +2953,25 @@ static PyObject *__pyx_f_6SICER2_3src_8read_bam_read_bam(PyObject *__pyx_v_filen
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6SICER2_3src_8read_bam_1read_bam(PyObject *__pyx_self, PyObject *__pyx_v_filename); /*proto*/
-static PyObject *__pyx_pw_6SICER2_3src_8read_bam_1read_bam(PyObject *__pyx_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pw_5epic2_3src_8read_bam_1read_bam(PyObject *__pyx_self, PyObject *__pyx_v_filename); /*proto*/
+static PyObject *__pyx_pw_5epic2_3src_8read_bam_1read_bam(PyObject *__pyx_self, PyObject *__pyx_v_filename) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("read_bam (wrapper)", 0);
-  __pyx_r = __pyx_pf_6SICER2_3src_8read_bam_read_bam(__pyx_self, ((PyObject *)__pyx_v_filename));
+  __pyx_r = __pyx_pf_5epic2_3src_8read_bam_read_bam(__pyx_self, ((PyObject *)__pyx_v_filename));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6SICER2_3src_8read_bam_read_bam(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pf_5epic2_3src_8read_bam_read_bam(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_filename) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("read_bam", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_6SICER2_3src_8read_bam_read_bam(__pyx_v_filename, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5epic2_3src_8read_bam_read_bam(__pyx_v_filename, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2977,7 +2980,7 @@ static PyObject *__pyx_pf_6SICER2_3src_8read_bam_read_bam(CYTHON_UNUSED PyObject
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("SICER2.src.read_bam.read_bam", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.read_bam.read_bam", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4033,26 +4036,26 @@ static PyObject *__pyx_convert_vector_to_py_uint32_t(const std::vector<uint32_t>
 
 /* "map.to_py":201
  * 
- * @cname("__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec")
- * cdef object __pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec(const map[X,Y]& s):             # <<<<<<<<<<<<<<
+ * @cname("__pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec")
+ * cdef object __pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec(const map[X,Y]& s):             # <<<<<<<<<<<<<<
  *     o = {}
  *     cdef const map[X,Y].value_type *key_value
  */
 
-static PyObject *__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec(std::map<__pyx_t_6SICER2_3src_8read_bam_key,__pyx_t_6SICER2_3src_8read_bam_intvec>  const &__pyx_v_s) {
+static PyObject *__pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec(std::map<__pyx_t_5epic2_3src_8read_bam_key,__pyx_t_5epic2_3src_8read_bam_intvec>  const &__pyx_v_s) {
   PyObject *__pyx_v_o = NULL;
-  std::map<__pyx_t_6SICER2_3src_8read_bam_key,__pyx_t_6SICER2_3src_8read_bam_intvec> ::value_type const *__pyx_v_key_value;
-  std::map<__pyx_t_6SICER2_3src_8read_bam_key,__pyx_t_6SICER2_3src_8read_bam_intvec> ::const_iterator __pyx_v_iter;
+  std::map<__pyx_t_5epic2_3src_8read_bam_key,__pyx_t_5epic2_3src_8read_bam_intvec> ::value_type const *__pyx_v_key_value;
+  std::map<__pyx_t_5epic2_3src_8read_bam_key,__pyx_t_5epic2_3src_8read_bam_intvec> ::const_iterator __pyx_v_iter;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   int __pyx_t_2;
   PyObject *__pyx_t_3 = NULL;
-  __Pyx_RefNannySetupContext("__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec", 0);
+  __Pyx_RefNannySetupContext("__pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec", 0);
 
   /* "map.to_py":202
- * @cname("__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec")
- * cdef object __pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec(const map[X,Y]& s):
+ * @cname("__pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec")
+ * cdef object __pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec(const map[X,Y]& s):
  *     o = {}             # <<<<<<<<<<<<<<
  *     cdef const map[X,Y].value_type *key_value
  *     cdef map[X,Y].const_iterator iter = s.begin()
@@ -4130,8 +4133,8 @@ static PyObject *__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key_____
 
   /* "map.to_py":201
  * 
- * @cname("__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec")
- * cdef object __pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec(const map[X,Y]& s):             # <<<<<<<<<<<<<<
+ * @cname("__pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec")
+ * cdef object __pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec(const map[X,Y]& s):             # <<<<<<<<<<<<<<
  *     o = {}
  *     cdef const map[X,Y].value_type *key_value
  */
@@ -4140,7 +4143,7 @@ static PyObject *__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key_____
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("map.to_py.__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("map.to_py.__pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_o);
@@ -4150,7 +4153,7 @@ static PyObject *__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key_____
 }
 
 static PyMethodDef __pyx_methods[] = {
-  {"read_bam", (PyCFunction)__pyx_pw_6SICER2_3src_8read_bam_1read_bam, METH_O, 0},
+  {"read_bam", (PyCFunction)__pyx_pw_5epic2_3src_8read_bam_1read_bam, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -4221,7 +4224,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "SICER2/src/read_bam.pyx":97
+  /* "epic2/src/read_bam.pyx":97
  *     while (it != genome.end()):
  *         chromosome_id = dereference(it).first.first
  *         chromosome = samfile.get_reference_name(chromosome_id).encode("utf-8")             # <<<<<<<<<<<<<<
@@ -4507,14 +4510,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_SICER2__src__read_bam) {
+  if (__pyx_module_is_main_epic2__src__read_bam) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 2, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "SICER2.src.read_bam")) {
-      if (unlikely(PyDict_SetItemString(modules, "SICER2.src.read_bam", __pyx_m) < 0)) __PYX_ERR(0, 2, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "epic2.src.read_bam")) {
+      if (unlikely(PyDict_SetItemString(modules, "epic2.src.read_bam", __pyx_m) < 0)) __PYX_ERR(0, 2, __pyx_L1_error)
     }
   }
   #endif
@@ -4535,7 +4538,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   #endif
 
-  /* "SICER2/src/read_bam.pyx":32
+  /* "epic2/src/read_bam.pyx":32
  * 
  * 
  * import pysam             # <<<<<<<<<<<<<<
@@ -4547,7 +4550,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pysam, __pyx_t_1) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/read_bam.pyx":2
+  /* "epic2/src/read_bam.pyx":2
  * 
  * from cython.operator import dereference, postincrement             # <<<<<<<<<<<<<<
  * from libc.stdint cimport uint32_t, uint16_t, int32_t, int64_t
@@ -4560,8 +4563,8 @@ if (!__Pyx_RefNanny) {
 
   /* "map.to_py":201
  * 
- * @cname("__pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec")
- * cdef object __pyx_convert_map_to_py___pyx_t_6SICER2_3src_8read_bam_key______pyx_t_6SICER2_3src_8read_bam_intvec(const map[X,Y]& s):             # <<<<<<<<<<<<<<
+ * @cname("__pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec")
+ * cdef object __pyx_convert_map_to_py___pyx_t_5epic2_3src_8read_bam_key______pyx_t_5epic2_3src_8read_bam_intvec(const map[X,Y]& s):             # <<<<<<<<<<<<<<
  *     o = {}
  *     cdef const map[X,Y].value_type *key_value
  */
@@ -4573,11 +4576,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init SICER2.src.read_bam", 0, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init epic2.src.read_bam", 0, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init SICER2.src.read_bam");
+    PyErr_SetString(PyExc_ImportError, "init epic2.src.read_bam");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

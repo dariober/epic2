@@ -6,7 +6,8 @@
 #include <string>
 #include <vector>
 #include <iterator>
-#include <unordered_map>
+// #include <cstdint>
+// #include <unordered_map>
 // #include <zlib.h>
 
 
@@ -23,12 +24,12 @@ genome_map read_bed(char const* fileName)
 
   std::string   chromosome;
   std::string   junk;
-  std::uint32_t start;
-  std::uint32_t end;
+  uint32_t start;
+  uint32_t end;
   char strand;
 
   key chrom_strand;
-  std::uint32_t five_end;
+  uint32_t five_end;
   genome_map genome;
 
   while(file >> chromosome >> start >> end >> junk >> junk >> strand)
@@ -59,12 +60,12 @@ genome_map read_bed_gz(char const* fileName)
 
   std::string   chromosome;
   std::string   junk;
-  std::uint32_t start;
-  std::uint32_t end;
+  uint32_t start;
+  uint32_t end;
   char strand;
 
   key chrom_strand;
-  std::uint32_t five_end;
+  uint32_t five_end;
   genome_map genome;
 
   while(in >> chromosome >> start >> end >> junk >> junk >> strand)
@@ -93,12 +94,12 @@ genome_map read_bedpe_gz(char const* fileName)
 
   std::string   chromosome;
   std::string   junk;
-  std::uint32_t start;
-  std::uint32_t end;
+  uint32_t start;
+  uint32_t end;
   char strand;
 
   key chrom_strand;
-  std::uint32_t five_end;
+  uint32_t five_end;
   genome_map genome;
 
   while(in >> chromosome >> start >> junk >> junk >> junk >> end >> junk >> junk >> strand >> junk)
@@ -122,12 +123,12 @@ genome_map read_bedpe(char const* fileName)
 
   std::string   chromosome;
   std::string   junk;
-  std::uint32_t start;
-  std::uint32_t end;
+  uint32_t start;
+  uint32_t end;
   char strand;
 
   key chrom_strand;
-  std::uint32_t five_end;
+  uint32_t five_end;
   genome_map genome;
 
   while(file >> chromosome >> start >> junk >> junk >> junk >> end >> junk >> junk >> strand >> junk)

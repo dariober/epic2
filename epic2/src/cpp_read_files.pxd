@@ -10,10 +10,6 @@ ctypedef pair[string, char] key
 ctypedef vector[uint32_t] intvec
 
 
-cdef extern from "<unordered_map>" namespace "std":
-    cdef cppclass unordered_map[T, T]:
-        pass
-
 ctypedef map[key, intvec] genome_map
 
 

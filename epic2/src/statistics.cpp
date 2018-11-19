@@ -10,12 +10,12 @@
             "-std=c++11"
         ],
         "language": "c++",
-        "name": "SICER2.src.statistics",
+        "name": "epic2.src.statistics",
         "sources": [
-            "SICER2/src/statistics.pyx"
+            "epic2/src/statistics.pyx"
         ]
     },
-    "module_name": "SICER2.src.statistics"
+    "module_name": "epic2.src.statistics"
 }
 END: Cython Metadata */
 
@@ -591,8 +591,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__SICER2__src__statistics
-#define __PYX_HAVE_API__SICER2__src__statistics
+#define __PYX_HAVE__epic2__src__statistics
+#define __PYX_HAVE_API__epic2__src__statistics
 /* Early includes */
 #include "ios"
 #include "new"
@@ -808,7 +808,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "SICER2/src/statistics.pyx",
+  "epic2/src/statistics.pyx",
   "stringsource",
 };
 /* MemviewSliceStruct.proto */
@@ -921,21 +921,21 @@ typedef struct {
 
 
 /*--- Type declarations ---*/
-struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold;
-struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr;
+struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold;
+struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr;
 struct __pyx_array_obj;
 struct __pyx_MemviewEnum_obj;
 struct __pyx_memoryview_obj;
 struct __pyx_memoryviewslice_obj;
 
-/* "SICER2/src/statistics.pyx":100
+/* "epic2/src/statistics.pyx":100
  * 
  * 
  * def compute_score_threshold(average_window_readcount,             # <<<<<<<<<<<<<<
  *                             island_enriched_threshold,
  *                             gap_contribution, boundary_contribution,
  */
-struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold {
+struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold {
   PyObject_HEAD
   int __pyx_v_interval;
   std::vector<float>  __pyx_v_island_expectations;
@@ -943,16 +943,16 @@ struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_thr
 };
 
 
-/* "SICER2/src/statistics.pyx":155
+/* "epic2/src/statistics.pyx":155
  *         l = island_expectations.size()
  *         if l > interval:
  *             partial_cumu = sum(island_expectations[i] for i in range(l - interval + 1, l))             # <<<<<<<<<<<<<<
  *         else:
  *             partial_cumu = sum(island_expectations)
  */
-struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr {
+struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr {
   PyObject_HEAD
-  struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold *__pyx_outer_scope;
+  struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold *__pyx_outer_scope;
   long __pyx_v_i;
   int __pyx_t_0;
   int __pyx_t_1;
@@ -1792,9 +1792,9 @@ static PyObject *__pyx_memoryviewslice_assign_item_from_object(struct __pyx_memo
 
 /* Module declarations from 'libc.math' */
 
-/* Module declarations from 'SICER2.src.statistics' */
-static PyTypeObject *__pyx_ptype_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold = 0;
-static PyTypeObject *__pyx_ptype_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr = 0;
+/* Module declarations from 'epic2.src.statistics' */
+static PyTypeObject *__pyx_ptype_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold = 0;
+static PyTypeObject *__pyx_ptype_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr = 0;
 static PyTypeObject *__pyx_array_type = 0;
 static PyTypeObject *__pyx_MemviewEnum_type = 0;
 static PyTypeObject *__pyx_memoryview_type = 0;
@@ -1842,11 +1842,11 @@ static void __pyx_memoryview_slice_assign_scalar(__Pyx_memviewslice *, int, size
 static void __pyx_memoryview__slice_assign_scalar(char *, Py_ssize_t *, Py_ssize_t *, int, size_t, void *); /*proto*/
 static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *, PyObject *); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_double = { "double", NULL, sizeof(double), { 0 }, 0, 'R', 0, 0 };
-#define __Pyx_MODULE_NAME "SICER2.src.statistics"
-extern int __pyx_module_is_main_SICER2__src__statistics;
-int __pyx_module_is_main_SICER2__src__statistics = 0;
+#define __Pyx_MODULE_NAME "epic2.src.statistics"
+extern int __pyx_module_is_main_epic2__src__statistics;
+int __pyx_module_is_main_epic2__src__statistics = 0;
 
-/* Implementation of 'SICER2.src.statistics' */
+/* Implementation of 'epic2.src.statistics' */
 static PyObject *__pyx_builtin_ImportError;
 static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_round;
@@ -1985,8 +1985,8 @@ static const char __pyx_k_island_expectations[] = "island_expectations";
 static const char __pyx_k_start_and_end_score[] = "start_and_end_score";
 static const char __pyx_k_compute_window_score[] = "compute_window_score";
 static const char __pyx_k_current_scaled_score[] = "current_scaled_score";
+static const char __pyx_k_epic2_src_statistics[] = "epic2.src.statistics";
 static const char __pyx_k_strided_and_indirect[] = "<strided and indirect>";
-static const char __pyx_k_SICER2_src_statistics[] = "SICER2.src.statistics";
 static const char __pyx_k_boundary_contribution[] = "boundary_contribution";
 static const char __pyx_k_contiguous_and_direct[] = "<contiguous and direct>";
 static const char __pyx_k_gap_intervals_allowed[] = "gap_intervals_allowed";
@@ -1999,8 +1999,8 @@ static const char __pyx_k_contiguous_and_indirect[] = "<contiguous and indirect>
 static const char __pyx_k_Cannot_index_with_type_s[] = "Cannot index with type '%s'";
 static const char __pyx_k_average_window_readcount[] = "average_window_readcount";
 static const char __pyx_k_current_max_scaled_score[] = "current_max_scaled_score";
+static const char __pyx_k_epic2_src_statistics_pyx[] = "epic2/src/statistics.pyx";
 static const char __pyx_k_Invalid_shape_in_axis_d_d[] = "Invalid shape in axis %d: %d.";
-static const char __pyx_k_SICER2_src_statistics_pyx[] = "SICER2/src/statistics.pyx";
 static const char __pyx_k_effective_genome_fraction[] = "effective_genome_fraction";
 static const char __pyx_k_island_enriched_threshold[] = "island_enriched_threshold";
 static const char __pyx_k_compute_enriched_threshold[] = "compute_enriched_threshold";
@@ -2048,8 +2048,6 @@ static PyObject *__pyx_kp_s_MemoryView_of_r_object;
 static PyObject *__pyx_n_b_O;
 static PyObject *__pyx_kp_s_Out_of_bounds_on_buffer_access_a;
 static PyObject *__pyx_n_s_PickleError;
-static PyObject *__pyx_n_s_SICER2_src_statistics;
-static PyObject *__pyx_kp_s_SICER2_src_statistics_pyx;
 static PyObject *__pyx_n_s_TypeError;
 static PyObject *__pyx_kp_s_Unable_to_convert_item_to_object;
 static PyObject *__pyx_n_s_ValueError;
@@ -2092,6 +2090,8 @@ static PyObject *__pyx_n_s_e;
 static PyObject *__pyx_n_s_effective_genome_fraction;
 static PyObject *__pyx_n_s_encode;
 static PyObject *__pyx_n_s_enumerate;
+static PyObject *__pyx_n_s_epic2_src_statistics;
+static PyObject *__pyx_kp_s_epic2_src_statistics_pyx;
 static PyObject *__pyx_n_s_error;
 static PyObject *__pyx_n_s_flags;
 static PyObject *__pyx_n_s_format;
@@ -2194,16 +2194,16 @@ static PyObject *__pyx_n_s_update;
 static PyObject *__pyx_n_s_update_island_expectations;
 static PyObject *__pyx_n_s_window_score;
 static PyObject *__pyx_n_s_zeros;
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_i, PyObject *__pyx_v__poisson); /* proto */
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distribution(CYTHON_UNUSED PyObject *__pyx_self, std::vector<float>  __pyx_v_island_expectations); /* proto */
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(CYTHON_UNUSED PyObject *__pyx_self, std::vector<float>  __pyx_v_island_expectations, int __pyx_v_scaled_score, CYTHON_UNUSED int __pyx_v_bin_size, float __pyx_v_average_window_readcount, int __pyx_v_island_enriched_threshold, float __pyx_v_gap_contribution); /* proto */
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_23compute_score_threshold_genexpr(PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_contribution, PyObject *__pyx_v_boundary_contribution, PyObject *__pyx_v_genome_length_in_bins, PyObject *__pyx_v_bin_size); /* proto */
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount); /* proto */
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_intervals_allowed, PyObject *__pyx_v_poisson_distribution_parameter); /* proto */
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_poisson_distribution_parameter); /* proto */
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_14compute_boundary(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_intervals_allowed, PyObject *__pyx_v_average); /* proto */
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_16compute_background_probabilities(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_total_chip_count, PyObject *__pyx_v_bin_size, PyObject *__pyx_v_effective_genome_fraction, PyObject *__pyx_v_gaps_allowed); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_10statistics_compute_window_score(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_i, PyObject *__pyx_v__poisson); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_10statistics_2generate_cumulative_distribution(CYTHON_UNUSED PyObject *__pyx_self, std::vector<float>  __pyx_v_island_expectations); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_10statistics_4update_island_expectations(CYTHON_UNUSED PyObject *__pyx_self, std::vector<float>  __pyx_v_island_expectations, int __pyx_v_scaled_score, CYTHON_UNUSED int __pyx_v_bin_size, float __pyx_v_average_window_readcount, int __pyx_v_island_enriched_threshold, float __pyx_v_gap_contribution); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_10statistics_23compute_score_threshold_genexpr(PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_10statistics_6compute_score_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_contribution, PyObject *__pyx_v_boundary_contribution, PyObject *__pyx_v_genome_length_in_bins, PyObject *__pyx_v_bin_size); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_10statistics_8compute_enriched_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_10statistics_10compute_gap_factor(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_intervals_allowed, PyObject *__pyx_v_poisson_distribution_parameter); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_10statistics_12single_gap_factor(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_poisson_distribution_parameter); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_10statistics_14compute_boundary(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_intervals_allowed, PyObject *__pyx_v_average); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabilities(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_total_chip_count, PyObject *__pyx_v_bin_size, PyObject *__pyx_v_effective_genome_fraction, PyObject *__pyx_v_gaps_allowed); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array_2__getbuffer__(struct __pyx_array_obj *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_array___pyx_pf_15View_dot_MemoryView_5array_4__dealloc__(struct __pyx_array_obj *__pyx_v_self); /* proto */
@@ -2246,8 +2246,8 @@ static PyObject *__pyx_pf_15View_dot_MemoryView_16_memoryviewslice_4base___get__
 static PyObject *__pyx_pf___pyx_memoryviewslice___reduce_cython__(CYTHON_UNUSED struct __pyx_memoryviewslice_obj *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf___pyx_memoryviewslice_2__setstate_cython__(CYTHON_UNUSED struct __pyx_memoryviewslice_obj *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_15View_dot_MemoryView___pyx_unpickle_Enum(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_array(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_Enum(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_memoryview(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -2305,7 +2305,7 @@ static PyObject *__pyx_codeobj__39;
 static PyObject *__pyx_codeobj__46;
 /* Late includes */
 
-/* "SICER2/src/statistics.pyx":17
+/* "epic2/src/statistics.pyx":17
  * 
  * @lru_cache()
  * def compute_window_score(int i, _poisson):             # <<<<<<<<<<<<<<
@@ -2314,9 +2314,9 @@ static PyObject *__pyx_codeobj__46;
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_1compute_window_score(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6SICER2_3src_10statistics_1compute_window_score = {"compute_window_score", (PyCFunction)__pyx_pw_6SICER2_3src_10statistics_1compute_window_score, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_1compute_window_score(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5epic2_3src_10statistics_1compute_window_score(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5epic2_3src_10statistics_1compute_window_score = {"compute_window_score", (PyCFunction)__pyx_pw_5epic2_3src_10statistics_1compute_window_score, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5epic2_3src_10statistics_1compute_window_score(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_v_i;
   PyObject *__pyx_v__poisson = 0;
   PyObject *__pyx_r = 0;
@@ -2364,18 +2364,18 @@ static PyObject *__pyx_pw_6SICER2_3src_10statistics_1compute_window_score(PyObje
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("compute_window_score", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 17, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_window_score", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_window_score", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6SICER2_3src_10statistics_compute_window_score(__pyx_self, __pyx_v_i, __pyx_v__poisson);
+  __pyx_r = __pyx_pf_5epic2_3src_10statistics_compute_window_score(__pyx_self, __pyx_v_i, __pyx_v__poisson);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_i, PyObject *__pyx_v__poisson) {
+static PyObject *__pyx_pf_5epic2_3src_10statistics_compute_window_score(CYTHON_UNUSED PyObject *__pyx_self, int __pyx_v_i, PyObject *__pyx_v__poisson) {
   float __pyx_v_window_score;
   float __pyx_v_p_value;
   PyObject *__pyx_r = NULL;
@@ -2389,7 +2389,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
   float __pyx_t_7;
   __Pyx_RefNannySetupContext("compute_window_score", 0);
 
-  /* "SICER2/src/statistics.pyx":22
+  /* "epic2/src/statistics.pyx":22
  *     cdef float p_value
  * 
  *     if i < _poisson.mean():             # <<<<<<<<<<<<<<
@@ -2425,7 +2425,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_5) {
 
-    /* "SICER2/src/statistics.pyx":23
+    /* "epic2/src/statistics.pyx":23
  * 
  *     if i < _poisson.mean():
  *         return 0             # <<<<<<<<<<<<<<
@@ -2437,7 +2437,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
     __pyx_r = __pyx_int_0;
     goto __pyx_L0;
 
-    /* "SICER2/src/statistics.pyx":22
+    /* "epic2/src/statistics.pyx":22
  *     cdef float p_value
  * 
  *     if i < _poisson.mean():             # <<<<<<<<<<<<<<
@@ -2446,7 +2446,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
  */
   }
 
-  /* "SICER2/src/statistics.pyx":25
+  /* "epic2/src/statistics.pyx":25
  *         return 0
  * 
  *     p_value = _poisson.pmf(i)             # <<<<<<<<<<<<<<
@@ -2507,7 +2507,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_p_value = __pyx_t_7;
 
-  /* "SICER2/src/statistics.pyx":27
+  /* "epic2/src/statistics.pyx":27
  *     p_value = _poisson.pmf(i)
  * 
  *     if p_value > 0:             # <<<<<<<<<<<<<<
@@ -2517,7 +2517,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
   __pyx_t_5 = ((__pyx_v_p_value > 0.0) != 0);
   if (__pyx_t_5) {
 
-    /* "SICER2/src/statistics.pyx":28
+    /* "epic2/src/statistics.pyx":28
  * 
  *     if p_value > 0:
  *         window_score = -log(p_value)             # <<<<<<<<<<<<<<
@@ -2581,7 +2581,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_window_score = __pyx_t_7;
 
-    /* "SICER2/src/statistics.pyx":27
+    /* "epic2/src/statistics.pyx":27
  *     p_value = _poisson.pmf(i)
  * 
  *     if p_value > 0:             # <<<<<<<<<<<<<<
@@ -2591,7 +2591,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
     goto __pyx_L4;
   }
 
-  /* "SICER2/src/statistics.pyx":31
+  /* "epic2/src/statistics.pyx":31
  *     else:
  *     # log of zero not defined
  *         window_score = 1000             # <<<<<<<<<<<<<<
@@ -2603,7 +2603,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
   }
   __pyx_L4:;
 
-  /* "SICER2/src/statistics.pyx":33
+  /* "epic2/src/statistics.pyx":33
  *         window_score = 1000
  * 
  *     return window_score             # <<<<<<<<<<<<<<
@@ -2617,7 +2617,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "SICER2/src/statistics.pyx":17
+  /* "epic2/src/statistics.pyx":17
  * 
  * @lru_cache()
  * def compute_window_score(int i, _poisson):             # <<<<<<<<<<<<<<
@@ -2632,7 +2632,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_window_score", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_window_score", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2640,7 +2640,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
   return __pyx_r;
 }
 
-/* "SICER2/src/statistics.pyx":38
+/* "epic2/src/statistics.pyx":38
  * 
  * 
  * def generate_cumulative_distribution(vector[float] island_expectations):             # <<<<<<<<<<<<<<
@@ -2649,9 +2649,9 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_compute_window_score(CYTHON_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_3generate_cumulative_distribution(PyObject *__pyx_self, PyObject *__pyx_arg_island_expectations); /*proto*/
-static PyMethodDef __pyx_mdef_6SICER2_3src_10statistics_3generate_cumulative_distribution = {"generate_cumulative_distribution", (PyCFunction)__pyx_pw_6SICER2_3src_10statistics_3generate_cumulative_distribution, METH_O, 0};
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_3generate_cumulative_distribution(PyObject *__pyx_self, PyObject *__pyx_arg_island_expectations) {
+static PyObject *__pyx_pw_5epic2_3src_10statistics_3generate_cumulative_distribution(PyObject *__pyx_self, PyObject *__pyx_arg_island_expectations); /*proto*/
+static PyMethodDef __pyx_mdef_5epic2_3src_10statistics_3generate_cumulative_distribution = {"generate_cumulative_distribution", (PyCFunction)__pyx_pw_5epic2_3src_10statistics_3generate_cumulative_distribution, METH_O, 0};
+static PyObject *__pyx_pw_5epic2_3src_10statistics_3generate_cumulative_distribution(PyObject *__pyx_self, PyObject *__pyx_arg_island_expectations) {
   std::vector<float>  __pyx_v_island_expectations;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -2661,18 +2661,18 @@ static PyObject *__pyx_pw_6SICER2_3src_10statistics_3generate_cumulative_distrib
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SICER2.src.statistics.generate_cumulative_distribution", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.generate_cumulative_distribution", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distribution(__pyx_self, ((std::vector<float> )__pyx_v_island_expectations));
+  __pyx_r = __pyx_pf_5epic2_3src_10statistics_2generate_cumulative_distribution(__pyx_self, ((std::vector<float> )__pyx_v_island_expectations));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distribution(CYTHON_UNUSED PyObject *__pyx_self, std::vector<float>  __pyx_v_island_expectations) {
+static PyObject *__pyx_pf_5epic2_3src_10statistics_2generate_cumulative_distribution(CYTHON_UNUSED PyObject *__pyx_self, std::vector<float>  __pyx_v_island_expectations) {
   int __pyx_v_i;
   int __pyx_v_l;
   __Pyx_memviewslice __pyx_v_cumulative = { 0, 0, { 0 }, { 0 }, { 0 } };
@@ -2694,7 +2694,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
   Py_ssize_t __pyx_t_11;
   __Pyx_RefNannySetupContext("generate_cumulative_distribution", 0);
 
-  /* "SICER2/src/statistics.pyx":42
+  /* "epic2/src/statistics.pyx":42
  *     cdef:
  *         int i
  *         int l = island_expectations.size()             # <<<<<<<<<<<<<<
@@ -2703,7 +2703,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
  */
   __pyx_v_l = __pyx_v_island_expectations.size();
 
-  /* "SICER2/src/statistics.pyx":44
+  /* "epic2/src/statistics.pyx":44
  *         int l = island_expectations.size()
  *         double [::1] cumulative
  *         float partial_sum = 0             # <<<<<<<<<<<<<<
@@ -2712,7 +2712,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
  */
   __pyx_v_partial_sum = 0.0;
 
-  /* "SICER2/src/statistics.pyx":47
+  /* "epic2/src/statistics.pyx":47
  * 
  * 
  *     cumulative_arr = np.zeros(l, dtype=float)             # <<<<<<<<<<<<<<
@@ -2742,7 +2742,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
   __pyx_v_cumulative_arr = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "SICER2/src/statistics.pyx":48
+  /* "epic2/src/statistics.pyx":48
  * 
  *     cumulative_arr = np.zeros(l, dtype=float)
  *     cumulative = cumulative_arr             # <<<<<<<<<<<<<<
@@ -2754,7 +2754,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
   __pyx_t_5.memview = NULL;
   __pyx_t_5.data = NULL;
 
-  /* "SICER2/src/statistics.pyx":50
+  /* "epic2/src/statistics.pyx":50
  *     cumulative = cumulative_arr
  * 
  *     for i in range(1, l + 1):             # <<<<<<<<<<<<<<
@@ -2766,7 +2766,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
   for (__pyx_t_8 = 1; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "SICER2/src/statistics.pyx":52
+    /* "epic2/src/statistics.pyx":52
  *     for i in range(1, l + 1):
  * 
  *         compliment = l - i             # <<<<<<<<<<<<<<
@@ -2775,7 +2775,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
  */
     __pyx_v_compliment = (__pyx_v_l - __pyx_v_i);
 
-    /* "SICER2/src/statistics.pyx":53
+    /* "epic2/src/statistics.pyx":53
  * 
  *         compliment = l - i
  *         partial_sum += island_expectations[compliment]             # <<<<<<<<<<<<<<
@@ -2784,7 +2784,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
  */
     __pyx_v_partial_sum = (__pyx_v_partial_sum + (__pyx_v_island_expectations[__pyx_v_compliment]));
 
-    /* "SICER2/src/statistics.pyx":54
+    /* "epic2/src/statistics.pyx":54
  *         compliment = l - i
  *         partial_sum += island_expectations[compliment]
  *         cumulative[compliment] = partial_sum             # <<<<<<<<<<<<<<
@@ -2804,7 +2804,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
     *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_cumulative.data) + __pyx_t_9)) )) = __pyx_v_partial_sum;
   }
 
-  /* "SICER2/src/statistics.pyx":56
+  /* "epic2/src/statistics.pyx":56
  *         cumulative[compliment] = partial_sum
  * 
  *     partial_sum += island_expectations[l]             # <<<<<<<<<<<<<<
@@ -2813,7 +2813,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
  */
   __pyx_v_partial_sum = (__pyx_v_partial_sum + (__pyx_v_island_expectations[__pyx_v_l]));
 
-  /* "SICER2/src/statistics.pyx":57
+  /* "epic2/src/statistics.pyx":57
  * 
  *     partial_sum += island_expectations[l]
  *     cumulative[1] = partial_sum             # <<<<<<<<<<<<<<
@@ -2832,7 +2832,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
   }
   *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_cumulative.data) + __pyx_t_11)) )) = __pyx_v_partial_sum;
 
-  /* "SICER2/src/statistics.pyx":59
+  /* "epic2/src/statistics.pyx":59
  *     cumulative[1] = partial_sum
  * 
  *     return cumulative             # <<<<<<<<<<<<<<
@@ -2846,7 +2846,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "SICER2/src/statistics.pyx":38
+  /* "epic2/src/statistics.pyx":38
  * 
  * 
  * def generate_cumulative_distribution(vector[float] island_expectations):             # <<<<<<<<<<<<<<
@@ -2861,7 +2861,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
-  __Pyx_AddTraceback("SICER2.src.statistics.generate_cumulative_distribution", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.generate_cumulative_distribution", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __PYX_XDEC_MEMVIEW(&__pyx_v_cumulative, 1);
@@ -2871,7 +2871,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
   return __pyx_r;
 }
 
-/* "SICER2/src/statistics.pyx":62
+/* "epic2/src/statistics.pyx":62
  * 
  * 
  * def update_island_expectations(vector[float] island_expectations, int scaled_score, int bin_size, float average_window_readcount, int island_enriched_threshold, float gap_contribution):             # <<<<<<<<<<<<<<
@@ -2880,9 +2880,9 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_2generate_cumulative_distrib
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_5update_island_expectations(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6SICER2_3src_10statistics_5update_island_expectations = {"update_island_expectations", (PyCFunction)__pyx_pw_6SICER2_3src_10statistics_5update_island_expectations, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_5update_island_expectations(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5epic2_3src_10statistics_5update_island_expectations(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5epic2_3src_10statistics_5update_island_expectations = {"update_island_expectations", (PyCFunction)__pyx_pw_5epic2_3src_10statistics_5update_island_expectations, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5epic2_3src_10statistics_5update_island_expectations(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   std::vector<float>  __pyx_v_island_expectations;
   int __pyx_v_scaled_score;
   CYTHON_UNUSED int __pyx_v_bin_size;
@@ -2974,18 +2974,18 @@ static PyObject *__pyx_pw_6SICER2_3src_10statistics_5update_island_expectations(
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("update_island_expectations", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 62, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SICER2.src.statistics.update_island_expectations", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.update_island_expectations", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(__pyx_self, __pyx_v_island_expectations, __pyx_v_scaled_score, __pyx_v_bin_size, __pyx_v_average_window_readcount, __pyx_v_island_enriched_threshold, __pyx_v_gap_contribution);
+  __pyx_r = __pyx_pf_5epic2_3src_10statistics_4update_island_expectations(__pyx_self, __pyx_v_island_expectations, __pyx_v_scaled_score, __pyx_v_bin_size, __pyx_v_average_window_readcount, __pyx_v_island_enriched_threshold, __pyx_v_gap_contribution);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(CYTHON_UNUSED PyObject *__pyx_self, std::vector<float>  __pyx_v_island_expectations, int __pyx_v_scaled_score, CYTHON_UNUSED int __pyx_v_bin_size, float __pyx_v_average_window_readcount, int __pyx_v_island_enriched_threshold, float __pyx_v_gap_contribution) {
+static PyObject *__pyx_pf_5epic2_3src_10statistics_4update_island_expectations(CYTHON_UNUSED PyObject *__pyx_self, std::vector<float>  __pyx_v_island_expectations, int __pyx_v_scaled_score, CYTHON_UNUSED int __pyx_v_bin_size, float __pyx_v_average_window_readcount, int __pyx_v_island_enriched_threshold, float __pyx_v_gap_contribution) {
   CYTHON_UNUSED float __pyx_v_WINDOW_P_VALUE;
   float __pyx_v_BIN_SIZE;
   int __pyx_v_E_VALUE;
@@ -3016,7 +3016,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
   float __pyx_t_15;
   __Pyx_RefNannySetupContext("update_island_expectations", 0);
 
-  /* "SICER2/src/statistics.pyx":65
+  /* "epic2/src/statistics.pyx":65
  * 
  *     cdef:
  *         float WINDOW_P_VALUE = 0.20             # <<<<<<<<<<<<<<
@@ -3025,7 +3025,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
  */
   __pyx_v_WINDOW_P_VALUE = 0.20;
 
-  /* "SICER2/src/statistics.pyx":66
+  /* "epic2/src/statistics.pyx":66
  *     cdef:
  *         float WINDOW_P_VALUE = 0.20
  *         float BIN_SIZE = 0.001             # <<<<<<<<<<<<<<
@@ -3034,7 +3034,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
  */
   __pyx_v_BIN_SIZE = 0.001;
 
-  /* "SICER2/src/statistics.pyx":67
+  /* "epic2/src/statistics.pyx":67
  *         float WINDOW_P_VALUE = 0.20
  *         float BIN_SIZE = 0.001
  *         int E_VALUE = 1000             # <<<<<<<<<<<<<<
@@ -3043,7 +3043,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
  */
   __pyx_v_E_VALUE = 0x3E8;
 
-  /* "SICER2/src/statistics.pyx":68
+  /* "epic2/src/statistics.pyx":68
  *         float BIN_SIZE = 0.001
  *         int E_VALUE = 1000
  *         float E_VALUE_THRESHOLD = E_VALUE * .0000001             # <<<<<<<<<<<<<<
@@ -3052,7 +3052,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
  */
   __pyx_v_E_VALUE_THRESHOLD = (__pyx_v_E_VALUE * .0000001);
 
-  /* "SICER2/src/statistics.pyx":69
+  /* "epic2/src/statistics.pyx":69
  *         int E_VALUE = 1000
  *         float E_VALUE_THRESHOLD = E_VALUE * .0000001
  *         int i = island_enriched_threshold             # <<<<<<<<<<<<<<
@@ -3061,7 +3061,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
  */
   __pyx_v_i = __pyx_v_island_enriched_threshold;
 
-  /* "SICER2/src/statistics.pyx":73
+  /* "epic2/src/statistics.pyx":73
  *         int index
  * 
  *     _poisson = poisson(average_window_readcount)             # <<<<<<<<<<<<<<
@@ -3121,7 +3121,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
   __pyx_v__poisson = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":74
+  /* "epic2/src/statistics.pyx":74
  * 
  *     _poisson = poisson(average_window_readcount)
  *     current_max_scaled_score = island_expectations.size() - 1             # <<<<<<<<<<<<<<
@@ -3133,7 +3133,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
   __pyx_v_current_max_scaled_score = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":75
+  /* "epic2/src/statistics.pyx":75
  *     _poisson = poisson(average_window_readcount)
  *     current_max_scaled_score = island_expectations.size() - 1
  *     if scaled_score > current_max_scaled_score:             # <<<<<<<<<<<<<<
@@ -3148,7 +3148,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_6) {
 
-    /* "SICER2/src/statistics.pyx":77
+    /* "epic2/src/statistics.pyx":77
  *     if scaled_score > current_max_scaled_score:
  *         #index is the scaled_score
  *         for index in range(current_max_scaled_score + 1, scaled_score + 1):             # <<<<<<<<<<<<<<
@@ -3164,7 +3164,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
     for (__pyx_t_10 = __pyx_t_8; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
       __pyx_v_index = __pyx_t_10;
 
-      /* "SICER2/src/statistics.pyx":78
+      /* "epic2/src/statistics.pyx":78
  *         #index is the scaled_score
  *         for index in range(current_max_scaled_score + 1, scaled_score + 1):
  *             temp=0.0             # <<<<<<<<<<<<<<
@@ -3173,7 +3173,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
  */
       __pyx_v_temp = 0.0;
 
-      /* "SICER2/src/statistics.pyx":81
+      /* "epic2/src/statistics.pyx":81
  * 
  * 
  *             current_island = int(cround(index - compute_window_score(i, _poisson) / BIN_SIZE))             # <<<<<<<<<<<<<<
@@ -3250,7 +3250,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
       __Pyx_XDECREF_SET(__pyx_v_current_island, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "SICER2/src/statistics.pyx":83
+      /* "epic2/src/statistics.pyx":83
  *             current_island = int(cround(index - compute_window_score(i, _poisson) / BIN_SIZE))
  * 
  *             while (current_island >= 0):             # <<<<<<<<<<<<<<
@@ -3263,7 +3263,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         if (!__pyx_t_6) break;
 
-        /* "SICER2/src/statistics.pyx":84
+        /* "epic2/src/statistics.pyx":84
  * 
  *             while (current_island >= 0):
  *                 island_expectation = island_expectations[current_island]             # <<<<<<<<<<<<<<
@@ -3276,7 +3276,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
         __Pyx_XDECREF_SET(__pyx_v_island_expectation, __pyx_t_5);
         __pyx_t_5 = 0;
 
-        /* "SICER2/src/statistics.pyx":86
+        /* "epic2/src/statistics.pyx":86
  *                 island_expectation = island_expectations[current_island]
  * 
  *                 temp += _poisson.pmf(i) * island_expectation             # <<<<<<<<<<<<<<
@@ -3346,7 +3346,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __pyx_v_temp = __pyx_t_15;
 
-        /* "SICER2/src/statistics.pyx":87
+        /* "epic2/src/statistics.pyx":87
  * 
  *                 temp += _poisson.pmf(i) * island_expectation
  *                 i += 1             # <<<<<<<<<<<<<<
@@ -3355,7 +3355,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
  */
         __pyx_v_i = (__pyx_v_i + 1);
 
-        /* "SICER2/src/statistics.pyx":88
+        /* "epic2/src/statistics.pyx":88
  *                 temp += _poisson.pmf(i) * island_expectation
  *                 i += 1
  *                 if i == 500:             # <<<<<<<<<<<<<<
@@ -3365,7 +3365,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
         __pyx_t_6 = ((__pyx_v_i == 0x1F4) != 0);
         if (__pyx_t_6) {
 
-          /* "SICER2/src/statistics.pyx":89
+          /* "epic2/src/statistics.pyx":89
  *                 i += 1
  *                 if i == 500:
  *                     break             # <<<<<<<<<<<<<<
@@ -3374,7 +3374,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
  */
           goto __pyx_L7_break;
 
-          /* "SICER2/src/statistics.pyx":88
+          /* "epic2/src/statistics.pyx":88
  *                 temp += _poisson.pmf(i) * island_expectation
  *                 i += 1
  *                 if i == 500:             # <<<<<<<<<<<<<<
@@ -3383,7 +3383,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
  */
         }
 
-        /* "SICER2/src/statistics.pyx":91
+        /* "epic2/src/statistics.pyx":91
  *                     break
  * 
  *                 current_island = int(cround(index - compute_window_score(i, _poisson) / BIN_SIZE))             # <<<<<<<<<<<<<<
@@ -3460,7 +3460,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
         __Pyx_DECREF_SET(__pyx_v_current_island, __pyx_t_5);
         __pyx_t_5 = 0;
 
-        /* "SICER2/src/statistics.pyx":93
+        /* "epic2/src/statistics.pyx":93
  *                 current_island = int(cround(index - compute_window_score(i, _poisson) / BIN_SIZE))
  * 
  *                 temp *= gap_contribution             # <<<<<<<<<<<<<<
@@ -3471,7 +3471,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
       }
       __pyx_L7_break:;
 
-      /* "SICER2/src/statistics.pyx":94
+      /* "epic2/src/statistics.pyx":94
  * 
  *                 temp *= gap_contribution
  *             island_expectations.push_back(temp)             # <<<<<<<<<<<<<<
@@ -3486,7 +3486,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
       }
     }
 
-    /* "SICER2/src/statistics.pyx":75
+    /* "epic2/src/statistics.pyx":75
  *     _poisson = poisson(average_window_readcount)
  *     current_max_scaled_score = island_expectations.size() - 1
  *     if scaled_score > current_max_scaled_score:             # <<<<<<<<<<<<<<
@@ -3495,7 +3495,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
  */
   }
 
-  /* "SICER2/src/statistics.pyx":97
+  /* "epic2/src/statistics.pyx":97
  * 
  * 
  *     return island_expectations             # <<<<<<<<<<<<<<
@@ -3509,7 +3509,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "SICER2/src/statistics.pyx":62
+  /* "epic2/src/statistics.pyx":62
  * 
  * 
  * def update_island_expectations(vector[float] island_expectations, int scaled_score, int bin_size, float average_window_readcount, int island_enriched_threshold, float gap_contribution):             # <<<<<<<<<<<<<<
@@ -3525,7 +3525,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_AddTraceback("SICER2.src.statistics.update_island_expectations", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.update_island_expectations", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v__poisson);
@@ -3537,7 +3537,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
   return __pyx_r;
 }
 
-/* "SICER2/src/statistics.pyx":100
+/* "epic2/src/statistics.pyx":100
  * 
  * 
  * def compute_score_threshold(average_window_readcount,             # <<<<<<<<<<<<<<
@@ -3546,10 +3546,10 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_4update_island_expectations(
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_7compute_score_threshold(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_6SICER2_3src_10statistics_6compute_score_threshold[] = "\n    What does island_expectations do?\n    ";
-static PyMethodDef __pyx_mdef_6SICER2_3src_10statistics_7compute_score_threshold = {"compute_score_threshold", (PyCFunction)__pyx_pw_6SICER2_3src_10statistics_7compute_score_threshold, METH_VARARGS|METH_KEYWORDS, __pyx_doc_6SICER2_3src_10statistics_6compute_score_threshold};
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_7compute_score_threshold(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5epic2_3src_10statistics_7compute_score_threshold(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_5epic2_3src_10statistics_6compute_score_threshold[] = "\n    What does island_expectations do?\n    ";
+static PyMethodDef __pyx_mdef_5epic2_3src_10statistics_7compute_score_threshold = {"compute_score_threshold", (PyCFunction)__pyx_pw_5epic2_3src_10statistics_7compute_score_threshold, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5epic2_3src_10statistics_6compute_score_threshold};
+static PyObject *__pyx_pw_5epic2_3src_10statistics_7compute_score_threshold(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_average_window_readcount = 0;
   PyObject *__pyx_v_island_enriched_threshold = 0;
   PyObject *__pyx_v_gap_contribution = 0;
@@ -3641,19 +3641,19 @@ static PyObject *__pyx_pw_6SICER2_3src_10statistics_7compute_score_threshold(PyO
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("compute_score_threshold", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 100, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_score_threshold", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_score_threshold", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(__pyx_self, __pyx_v_average_window_readcount, __pyx_v_island_enriched_threshold, __pyx_v_gap_contribution, __pyx_v_boundary_contribution, __pyx_v_genome_length_in_bins, __pyx_v_bin_size);
+  __pyx_r = __pyx_pf_5epic2_3src_10statistics_6compute_score_threshold(__pyx_self, __pyx_v_average_window_readcount, __pyx_v_island_enriched_threshold, __pyx_v_gap_contribution, __pyx_v_boundary_contribution, __pyx_v_genome_length_in_bins, __pyx_v_bin_size);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_6SICER2_3src_10statistics_23compute_score_threshold_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_5epic2_3src_10statistics_23compute_score_threshold_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "SICER2/src/statistics.pyx":155
+/* "epic2/src/statistics.pyx":155
  *         l = island_expectations.size()
  *         if l > interval:
  *             partial_cumu = sum(island_expectations[i] for i in range(l - interval + 1, l))             # <<<<<<<<<<<<<<
@@ -3661,24 +3661,24 @@ static PyObject *__pyx_gb_6SICER2_3src_10statistics_23compute_score_threshold_2g
  *             partial_cumu = sum(island_expectations)
  */
 
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_23compute_score_threshold_genexpr(PyObject *__pyx_self) {
-  struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr *__pyx_cur_scope;
+static PyObject *__pyx_pf_5epic2_3src_10statistics_23compute_score_threshold_genexpr(PyObject *__pyx_self) {
+  struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("genexpr", 0);
-  __pyx_cur_scope = (struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr *)__pyx_tp_new_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr(__pyx_ptype_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr *)__pyx_tp_new_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr(__pyx_ptype_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 155, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
-  __pyx_cur_scope->__pyx_outer_scope = (struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold *) __pyx_self;
+  __pyx_cur_scope->__pyx_outer_scope = (struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold *) __pyx_self;
   __Pyx_INCREF(((PyObject *)__pyx_cur_scope->__pyx_outer_scope));
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_6SICER2_3src_10statistics_23compute_score_threshold_2generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_compute_score_threshold_locals_g, __pyx_n_s_SICER2_src_statistics); if (unlikely(!gen)) __PYX_ERR(0, 155, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_5epic2_3src_10statistics_23compute_score_threshold_2generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_compute_score_threshold_locals_g, __pyx_n_s_epic2_src_statistics); if (unlikely(!gen)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -3686,7 +3686,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_23compute_score_threshold_ge
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_score_threshold.genexpr", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_score_threshold.genexpr", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
@@ -3694,9 +3694,9 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_23compute_score_threshold_ge
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_6SICER2_3src_10statistics_23compute_score_threshold_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_5epic2_3src_10statistics_23compute_score_threshold_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr *__pyx_cur_scope = ((struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr *)__pyx_generator->closure);
+  struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr *__pyx_cur_scope = ((struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   int __pyx_t_1;
   int __pyx_t_2;
@@ -3753,7 +3753,7 @@ static PyObject *__pyx_gb_6SICER2_3src_10statistics_23compute_score_threshold_2g
   return __pyx_r;
 }
 
-/* "SICER2/src/statistics.pyx":100
+/* "epic2/src/statistics.pyx":100
  * 
  * 
  * def compute_score_threshold(average_window_readcount,             # <<<<<<<<<<<<<<
@@ -3761,8 +3761,8 @@ static PyObject *__pyx_gb_6SICER2_3src_10statistics_23compute_score_threshold_2g
  *                             gap_contribution, boundary_contribution,
  */
 
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_contribution, PyObject *__pyx_v_boundary_contribution, PyObject *__pyx_v_genome_length_in_bins, PyObject *__pyx_v_bin_size) {
-  struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold *__pyx_cur_scope;
+static PyObject *__pyx_pf_5epic2_3src_10statistics_6compute_score_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_contribution, PyObject *__pyx_v_boundary_contribution, PyObject *__pyx_v_genome_length_in_bins, PyObject *__pyx_v_bin_size) {
+  struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold *__pyx_cur_scope;
   int __pyx_v_current_scaled_score;
   float __pyx_v_partial_cumu;
   float __pyx_v_e;
@@ -3794,16 +3794,16 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   Py_ssize_t __pyx_t_12;
   PyObject *(*__pyx_t_13)(PyObject *);
   __Pyx_RefNannySetupContext("compute_score_threshold", 0);
-  __pyx_cur_scope = (struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold *)__pyx_tp_new_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold(__pyx_ptype_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold *)__pyx_tp_new_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold(__pyx_ptype_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 100, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
 
-  /* "SICER2/src/statistics.pyx":116
+  /* "epic2/src/statistics.pyx":116
  *         float e
  * 
  *         float WINDOW_P_VALUE = 0.20             # <<<<<<<<<<<<<<
@@ -3812,7 +3812,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
   __pyx_v_WINDOW_P_VALUE = 0.20;
 
-  /* "SICER2/src/statistics.pyx":117
+  /* "epic2/src/statistics.pyx":117
  * 
  *         float WINDOW_P_VALUE = 0.20
  *         float BIN_SIZE = 0.001             # <<<<<<<<<<<<<<
@@ -3821,7 +3821,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
   __pyx_v_BIN_SIZE = 0.001;
 
-  /* "SICER2/src/statistics.pyx":118
+  /* "epic2/src/statistics.pyx":118
  *         float WINDOW_P_VALUE = 0.20
  *         float BIN_SIZE = 0.001
  *         int E_VALUE = 1000             # <<<<<<<<<<<<<<
@@ -3830,7 +3830,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
   __pyx_v_E_VALUE = 0x3E8;
 
-  /* "SICER2/src/statistics.pyx":119
+  /* "epic2/src/statistics.pyx":119
  *         float BIN_SIZE = 0.001
  *         int E_VALUE = 1000
  *         float E_VALUE_THRESHOLD = E_VALUE * .0000001             # <<<<<<<<<<<<<<
@@ -3839,7 +3839,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
   __pyx_v_E_VALUE_THRESHOLD = (__pyx_v_E_VALUE * .0000001);
 
-  /* "SICER2/src/statistics.pyx":122
+  /* "epic2/src/statistics.pyx":122
  * 
  * 
  *     required_p_value = poisson.pmf(island_enriched_threshold,             # <<<<<<<<<<<<<<
@@ -3852,7 +3852,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SICER2/src/statistics.pyx":123
+  /* "epic2/src/statistics.pyx":123
  * 
  *     required_p_value = poisson.pmf(island_enriched_threshold,
  *                                    average_window_readcount)             # <<<<<<<<<<<<<<
@@ -3907,7 +3907,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __pyx_v_required_p_value = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":125
+  /* "epic2/src/statistics.pyx":125
  *                                    average_window_readcount)
  *     # print("required_p_value", required_p_value)
  *     prob = boundary_contribution * required_p_value             # <<<<<<<<<<<<<<
@@ -3919,7 +3919,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __pyx_v_prob = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":128
+  /* "epic2/src/statistics.pyx":128
  *     # print("prob", prob)
  * 
  *     score = -log(required_p_value)             # <<<<<<<<<<<<<<
@@ -3977,7 +3977,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __pyx_v_score = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "SICER2/src/statistics.pyx":131
+  /* "epic2/src/statistics.pyx":131
  *     # print("score", score)
  * 
  *     current_scaled_score = int(round(score / BIN_SIZE))             # <<<<<<<<<<<<<<
@@ -3999,7 +3999,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_current_scaled_score = __pyx_t_4;
 
-  /* "SICER2/src/statistics.pyx":134
+  /* "epic2/src/statistics.pyx":134
  *     # print("current_scaled_score", current_scaled_score)
  * 
  *     cdef vector[float] island_expectations = vector[float](current_scaled_score + 1)             # <<<<<<<<<<<<<<
@@ -4014,7 +4014,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   }
   __pyx_cur_scope->__pyx_v_island_expectations = __pyx_t_6;
 
-  /* "SICER2/src/statistics.pyx":136
+  /* "epic2/src/statistics.pyx":136
  *     cdef vector[float] island_expectations = vector[float](current_scaled_score + 1)
  * 
  *     island_expectations[0] = boundary_contribution * genome_length_in_bins / gap_contribution             # <<<<<<<<<<<<<<
@@ -4030,7 +4030,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   (__pyx_cur_scope->__pyx_v_island_expectations[0]) = __pyx_t_7;
 
-  /* "SICER2/src/statistics.pyx":138
+  /* "epic2/src/statistics.pyx":138
  *     island_expectations[0] = boundary_contribution * genome_length_in_bins / gap_contribution
  * 
  *     island_expectations[current_scaled_score] = prob * genome_length_in_bins             # <<<<<<<<<<<<<<
@@ -4043,7 +4043,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   (__pyx_cur_scope->__pyx_v_island_expectations[__pyx_v_current_scaled_score]) = __pyx_t_7;
 
-  /* "SICER2/src/statistics.pyx":142
+  /* "epic2/src/statistics.pyx":142
  *     # print(island_expectations)
  * 
  *     current_max_scaled_score = current_scaled_score             # <<<<<<<<<<<<<<
@@ -4052,7 +4052,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
   __pyx_v_current_max_scaled_score = __pyx_v_current_scaled_score;
 
-  /* "SICER2/src/statistics.pyx":144
+  /* "epic2/src/statistics.pyx":144
  *     current_max_scaled_score = current_scaled_score
  * 
  *     interval = 1000 # 1 / BIN_SIZE)             # <<<<<<<<<<<<<<
@@ -4061,7 +4061,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
   __pyx_cur_scope->__pyx_v_interval = 0x3E8;
 
-  /* "SICER2/src/statistics.pyx":145
+  /* "epic2/src/statistics.pyx":145
  * 
  *     interval = 1000 # 1 / BIN_SIZE)
  *     partial_cumu = 0.0             # <<<<<<<<<<<<<<
@@ -4070,7 +4070,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
   __pyx_v_partial_cumu = 0.0;
 
-  /* "SICER2/src/statistics.pyx":147
+  /* "epic2/src/statistics.pyx":147
  *     partial_cumu = 0.0
  * 
  *     while (partial_cumu > E_VALUE_THRESHOLD or partial_cumu < 1e-100):             # <<<<<<<<<<<<<<
@@ -4089,7 +4089,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
     __pyx_L5_bool_binop_done:;
     if (!__pyx_t_8) break;
 
-    /* "SICER2/src/statistics.pyx":149
+    /* "epic2/src/statistics.pyx":149
  *     while (partial_cumu > E_VALUE_THRESHOLD or partial_cumu < 1e-100):
  * 
  *         current_scaled_score += interval             # <<<<<<<<<<<<<<
@@ -4098,7 +4098,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
     __pyx_v_current_scaled_score = (__pyx_v_current_scaled_score + __pyx_cur_scope->__pyx_v_interval);
 
-    /* "SICER2/src/statistics.pyx":150
+    /* "epic2/src/statistics.pyx":150
  * 
  *         current_scaled_score += interval
  *         island_expectations = update_island_expectations(island_expectations, current_scaled_score, bin_size, average_window_readcount, island_enriched_threshold, gap_contribution)             # <<<<<<<<<<<<<<
@@ -4176,7 +4176,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_cur_scope->__pyx_v_island_expectations = __pyx_t_6;
 
-    /* "SICER2/src/statistics.pyx":151
+    /* "epic2/src/statistics.pyx":151
  *         current_scaled_score += interval
  *         island_expectations = update_island_expectations(island_expectations, current_scaled_score, bin_size, average_window_readcount, island_enriched_threshold, gap_contribution)
  *         current_expectation = island_expectations[current_scaled_score]             # <<<<<<<<<<<<<<
@@ -4188,7 +4188,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
     __Pyx_XDECREF_SET(__pyx_v_current_expectation, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "SICER2/src/statistics.pyx":153
+    /* "epic2/src/statistics.pyx":153
  *         current_expectation = island_expectations[current_scaled_score]
  * 
  *         l = island_expectations.size()             # <<<<<<<<<<<<<<
@@ -4197,7 +4197,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
     __pyx_cur_scope->__pyx_v_l = __pyx_cur_scope->__pyx_v_island_expectations.size();
 
-    /* "SICER2/src/statistics.pyx":154
+    /* "epic2/src/statistics.pyx":154
  * 
  *         l = island_expectations.size()
  *         if l > interval:             # <<<<<<<<<<<<<<
@@ -4207,14 +4207,14 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
     __pyx_t_8 = ((__pyx_cur_scope->__pyx_v_l > __pyx_cur_scope->__pyx_v_interval) != 0);
     if (__pyx_t_8) {
 
-      /* "SICER2/src/statistics.pyx":155
+      /* "epic2/src/statistics.pyx":155
  *         l = island_expectations.size()
  *         if l > interval:
  *             partial_cumu = sum(island_expectations[i] for i in range(l - interval + 1, l))             # <<<<<<<<<<<<<<
  *         else:
  *             partial_cumu = sum(island_expectations)
  */
-      __pyx_t_3 = __pyx_pf_6SICER2_3src_10statistics_23compute_score_threshold_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 155, __pyx_L1_error)
+      __pyx_t_3 = __pyx_pf_5epic2_3src_10statistics_23compute_score_threshold_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 155, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_sum, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 155, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
@@ -4223,7 +4223,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_v_partial_cumu = __pyx_t_7;
 
-      /* "SICER2/src/statistics.pyx":154
+      /* "epic2/src/statistics.pyx":154
  * 
  *         l = island_expectations.size()
  *         if l > interval:             # <<<<<<<<<<<<<<
@@ -4233,7 +4233,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
       goto __pyx_L7;
     }
 
-    /* "SICER2/src/statistics.pyx":157
+    /* "epic2/src/statistics.pyx":157
  *             partial_cumu = sum(island_expectations[i] for i in range(l - interval + 1, l))
  *         else:
  *             partial_cumu = sum(island_expectations)             # <<<<<<<<<<<<<<
@@ -4253,7 +4253,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
     __pyx_L7:;
   }
 
-  /* "SICER2/src/statistics.pyx":159
+  /* "epic2/src/statistics.pyx":159
  *             partial_cumu = sum(island_expectations)
  * 
  *     cumulative = generate_cumulative_distribution(island_expectations)             # <<<<<<<<<<<<<<
@@ -4313,7 +4313,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __pyx_v_cumulative = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "SICER2/src/statistics.pyx":162
+  /* "epic2/src/statistics.pyx":162
  *     # print(list(cumulative))
  * 
  *     score_threshold = 0             # <<<<<<<<<<<<<<
@@ -4323,7 +4323,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_score_threshold = __pyx_int_0;
 
-  /* "SICER2/src/statistics.pyx":163
+  /* "epic2/src/statistics.pyx":163
  * 
  *     score_threshold = 0
  *     for (i, e) in enumerate(cumulative):             # <<<<<<<<<<<<<<
@@ -4382,7 +4382,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
     __pyx_t_3 = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "SICER2/src/statistics.pyx":164
+    /* "epic2/src/statistics.pyx":164
  *     score_threshold = 0
  *     for (i, e) in enumerate(cumulative):
  *         if e < E_VALUE:             # <<<<<<<<<<<<<<
@@ -4392,7 +4392,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
     __pyx_t_8 = ((__pyx_v_e < __pyx_v_E_VALUE) != 0);
     if (__pyx_t_8) {
 
-      /* "SICER2/src/statistics.pyx":165
+      /* "epic2/src/statistics.pyx":165
  *     for (i, e) in enumerate(cumulative):
  *         if e < E_VALUE:
  *             score_threshold = (i - 1) * BIN_SIZE             # <<<<<<<<<<<<<<
@@ -4410,7 +4410,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
       __Pyx_DECREF_SET(__pyx_v_score_threshold, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "SICER2/src/statistics.pyx":166
+      /* "epic2/src/statistics.pyx":166
  *         if e < E_VALUE:
  *             score_threshold = (i - 1) * BIN_SIZE
  *             break             # <<<<<<<<<<<<<<
@@ -4419,7 +4419,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
       goto __pyx_L9_break;
 
-      /* "SICER2/src/statistics.pyx":164
+      /* "epic2/src/statistics.pyx":164
  *     score_threshold = 0
  *     for (i, e) in enumerate(cumulative):
  *         if e < E_VALUE:             # <<<<<<<<<<<<<<
@@ -4428,7 +4428,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
     }
 
-    /* "SICER2/src/statistics.pyx":163
+    /* "epic2/src/statistics.pyx":163
  * 
  *     score_threshold = 0
  *     for (i, e) in enumerate(cumulative):             # <<<<<<<<<<<<<<
@@ -4440,7 +4440,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "SICER2/src/statistics.pyx":168
+  /* "epic2/src/statistics.pyx":168
  *             break
  * 
  *     return score_threshold             # <<<<<<<<<<<<<<
@@ -4452,7 +4452,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __pyx_r = __pyx_v_score_threshold;
   goto __pyx_L0;
 
-  /* "SICER2/src/statistics.pyx":100
+  /* "epic2/src/statistics.pyx":100
  * 
  * 
  * def compute_score_threshold(average_window_readcount,             # <<<<<<<<<<<<<<
@@ -4468,7 +4468,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_10);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_score_threshold", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_score_threshold", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_required_p_value);
@@ -4484,7 +4484,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
   return __pyx_r;
 }
 
-/* "SICER2/src/statistics.pyx":172
+/* "epic2/src/statistics.pyx":172
  * 
  * 
  * def compute_enriched_threshold(average_window_readcount):             # <<<<<<<<<<<<<<
@@ -4493,21 +4493,21 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_6compute_score_threshold(CYT
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_9compute_enriched_threshold(PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount); /*proto*/
-static char __pyx_doc_6SICER2_3src_10statistics_8compute_enriched_threshold[] = "\n    Computes the minimum number of tags required in window for an island to be enriched.\n    ";
-static PyMethodDef __pyx_mdef_6SICER2_3src_10statistics_9compute_enriched_threshold = {"compute_enriched_threshold", (PyCFunction)__pyx_pw_6SICER2_3src_10statistics_9compute_enriched_threshold, METH_O, __pyx_doc_6SICER2_3src_10statistics_8compute_enriched_threshold};
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_9compute_enriched_threshold(PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount) {
+static PyObject *__pyx_pw_5epic2_3src_10statistics_9compute_enriched_threshold(PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount); /*proto*/
+static char __pyx_doc_5epic2_3src_10statistics_8compute_enriched_threshold[] = "\n    Computes the minimum number of tags required in window for an island to be enriched.\n    ";
+static PyMethodDef __pyx_mdef_5epic2_3src_10statistics_9compute_enriched_threshold = {"compute_enriched_threshold", (PyCFunction)__pyx_pw_5epic2_3src_10statistics_9compute_enriched_threshold, METH_O, __pyx_doc_5epic2_3src_10statistics_8compute_enriched_threshold};
+static PyObject *__pyx_pw_5epic2_3src_10statistics_9compute_enriched_threshold(PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("compute_enriched_threshold (wrapper)", 0);
-  __pyx_r = __pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(__pyx_self, ((PyObject *)__pyx_v_average_window_readcount));
+  __pyx_r = __pyx_pf_5epic2_3src_10statistics_8compute_enriched_threshold(__pyx_self, ((PyObject *)__pyx_v_average_window_readcount));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount) {
+static PyObject *__pyx_pf_5epic2_3src_10statistics_8compute_enriched_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_average_window_readcount) {
   float __pyx_v_WINDOW_P_VALUE;
   CYTHON_UNUSED float __pyx_v_BIN_SIZE;
   int __pyx_v_E_VALUE;
@@ -4525,7 +4525,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
   int __pyx_t_6;
   __Pyx_RefNannySetupContext("compute_enriched_threshold", 0);
 
-  /* "SICER2/src/statistics.pyx":180
+  /* "epic2/src/statistics.pyx":180
  *     cdef:
  * 
  *         float WINDOW_P_VALUE = 0.20             # <<<<<<<<<<<<<<
@@ -4534,7 +4534,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
  */
   __pyx_v_WINDOW_P_VALUE = 0.20;
 
-  /* "SICER2/src/statistics.pyx":181
+  /* "epic2/src/statistics.pyx":181
  * 
  *         float WINDOW_P_VALUE = 0.20
  *         float BIN_SIZE = 0.001             # <<<<<<<<<<<<<<
@@ -4543,7 +4543,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
  */
   __pyx_v_BIN_SIZE = 0.001;
 
-  /* "SICER2/src/statistics.pyx":182
+  /* "epic2/src/statistics.pyx":182
  *         float WINDOW_P_VALUE = 0.20
  *         float BIN_SIZE = 0.001
  *         int E_VALUE = 1000             # <<<<<<<<<<<<<<
@@ -4552,7 +4552,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
  */
   __pyx_v_E_VALUE = 0x3E8;
 
-  /* "SICER2/src/statistics.pyx":183
+  /* "epic2/src/statistics.pyx":183
  *         float BIN_SIZE = 0.001
  *         int E_VALUE = 1000
  *         float E_VALUE_THRESHOLD = E_VALUE * .0000001             # <<<<<<<<<<<<<<
@@ -4561,7 +4561,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
  */
   __pyx_v_E_VALUE_THRESHOLD = (__pyx_v_E_VALUE * .0000001);
 
-  /* "SICER2/src/statistics.pyx":185
+  /* "epic2/src/statistics.pyx":185
  *         float E_VALUE_THRESHOLD = E_VALUE * .0000001
  * 
  *     current_threshold, survival_function = 0, 1             # <<<<<<<<<<<<<<
@@ -4577,7 +4577,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
   __pyx_v_survival_function = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "SICER2/src/statistics.pyx":186
+  /* "epic2/src/statistics.pyx":186
  * 
  *     current_threshold, survival_function = 0, 1
  *     while True:             # <<<<<<<<<<<<<<
@@ -4586,7 +4586,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
  */
   while (1) {
 
-    /* "SICER2/src/statistics.pyx":187
+    /* "epic2/src/statistics.pyx":187
  *     current_threshold, survival_function = 0, 1
  *     while True:
  *         survival_function -= poisson.pmf(current_threshold,             # <<<<<<<<<<<<<<
@@ -4599,7 +4599,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "SICER2/src/statistics.pyx":188
+    /* "epic2/src/statistics.pyx":188
  *     while True:
  *         survival_function -= poisson.pmf(current_threshold,
  *                                          average_window_readcount)             # <<<<<<<<<<<<<<
@@ -4652,7 +4652,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "SICER2/src/statistics.pyx":187
+    /* "epic2/src/statistics.pyx":187
  *     current_threshold, survival_function = 0, 1
  *     while True:
  *         survival_function -= poisson.pmf(current_threshold,             # <<<<<<<<<<<<<<
@@ -4665,7 +4665,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
     __Pyx_DECREF_SET(__pyx_v_survival_function, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "SICER2/src/statistics.pyx":189
+    /* "epic2/src/statistics.pyx":189
  *         survival_function -= poisson.pmf(current_threshold,
  *                                          average_window_readcount)
  *         current_threshold += 1             # <<<<<<<<<<<<<<
@@ -4677,7 +4677,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
     __Pyx_DECREF_SET(__pyx_v_current_threshold, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "SICER2/src/statistics.pyx":190
+    /* "epic2/src/statistics.pyx":190
  *                                          average_window_readcount)
  *         current_threshold += 1
  *         if survival_function <= WINDOW_P_VALUE:             # <<<<<<<<<<<<<<
@@ -4692,7 +4692,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     if (__pyx_t_6) {
 
-      /* "SICER2/src/statistics.pyx":191
+      /* "epic2/src/statistics.pyx":191
  *         current_threshold += 1
  *         if survival_function <= WINDOW_P_VALUE:
  *             break             # <<<<<<<<<<<<<<
@@ -4701,7 +4701,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
  */
       goto __pyx_L4_break;
 
-      /* "SICER2/src/statistics.pyx":190
+      /* "epic2/src/statistics.pyx":190
  *                                          average_window_readcount)
  *         current_threshold += 1
  *         if survival_function <= WINDOW_P_VALUE:             # <<<<<<<<<<<<<<
@@ -4712,7 +4712,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
   }
   __pyx_L4_break:;
 
-  /* "SICER2/src/statistics.pyx":193
+  /* "epic2/src/statistics.pyx":193
  *             break
  * 
  *     island_enriched_threshold = current_threshold             # <<<<<<<<<<<<<<
@@ -4722,7 +4722,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
   __Pyx_INCREF(__pyx_v_current_threshold);
   __pyx_v_island_enriched_threshold = __pyx_v_current_threshold;
 
-  /* "SICER2/src/statistics.pyx":195
+  /* "epic2/src/statistics.pyx":195
  *     island_enriched_threshold = current_threshold
  * 
  *     return island_enriched_threshold             # <<<<<<<<<<<<<<
@@ -4734,7 +4734,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
   __pyx_r = __pyx_v_island_enriched_threshold;
   goto __pyx_L0;
 
-  /* "SICER2/src/statistics.pyx":172
+  /* "epic2/src/statistics.pyx":172
  * 
  * 
  * def compute_enriched_threshold(average_window_readcount):             # <<<<<<<<<<<<<<
@@ -4748,7 +4748,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_enriched_threshold", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_enriched_threshold", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_current_threshold);
@@ -4759,7 +4759,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
   return __pyx_r;
 }
 
-/* "SICER2/src/statistics.pyx":198
+/* "epic2/src/statistics.pyx":198
  * 
  * 
  * def compute_gap_factor(island_enriched_threshold,             # <<<<<<<<<<<<<<
@@ -4768,9 +4768,9 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_8compute_enriched_threshold(
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_11compute_gap_factor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6SICER2_3src_10statistics_11compute_gap_factor = {"compute_gap_factor", (PyCFunction)__pyx_pw_6SICER2_3src_10statistics_11compute_gap_factor, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_11compute_gap_factor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5epic2_3src_10statistics_11compute_gap_factor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5epic2_3src_10statistics_11compute_gap_factor = {"compute_gap_factor", (PyCFunction)__pyx_pw_5epic2_3src_10statistics_11compute_gap_factor, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5epic2_3src_10statistics_11compute_gap_factor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_island_enriched_threshold = 0;
   PyObject *__pyx_v_gap_intervals_allowed = 0;
   PyObject *__pyx_v_poisson_distribution_parameter = 0;
@@ -4829,18 +4829,18 @@ static PyObject *__pyx_pw_6SICER2_3src_10statistics_11compute_gap_factor(PyObjec
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("compute_gap_factor", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 198, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_gap_factor", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_gap_factor", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(__pyx_self, __pyx_v_island_enriched_threshold, __pyx_v_gap_intervals_allowed, __pyx_v_poisson_distribution_parameter);
+  __pyx_r = __pyx_pf_5epic2_3src_10statistics_10compute_gap_factor(__pyx_self, __pyx_v_island_enriched_threshold, __pyx_v_gap_intervals_allowed, __pyx_v_poisson_distribution_parameter);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_intervals_allowed, PyObject *__pyx_v_poisson_distribution_parameter) {
+static PyObject *__pyx_pf_5epic2_3src_10statistics_10compute_gap_factor(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_intervals_allowed, PyObject *__pyx_v_poisson_distribution_parameter) {
   PyObject *__pyx_v_max_gap_score = NULL;
   PyObject *__pyx_v_gap_factor = NULL;
   PyObject *__pyx_v_i = NULL;
@@ -4855,7 +4855,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
   PyObject *(*__pyx_t_7)(PyObject *);
   __Pyx_RefNannySetupContext("compute_gap_factor", 0);
 
-  /* "SICER2/src/statistics.pyx":202
+  /* "epic2/src/statistics.pyx":202
  *     # type: (int, int, float) -> float
  * 
  *     max_gap_score = 1.0             # <<<<<<<<<<<<<<
@@ -4865,7 +4865,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
   __Pyx_INCREF(__pyx_float_1_0);
   __pyx_v_max_gap_score = __pyx_float_1_0;
 
-  /* "SICER2/src/statistics.pyx":203
+  /* "epic2/src/statistics.pyx":203
  * 
  *     max_gap_score = 1.0
  *     gap_factor = single_gap_factor(island_enriched_threshold,             # <<<<<<<<<<<<<<
@@ -4875,7 +4875,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
   __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_single_gap_factor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "SICER2/src/statistics.pyx":204
+  /* "epic2/src/statistics.pyx":204
  *     max_gap_score = 1.0
  *     gap_factor = single_gap_factor(island_enriched_threshold,
  *                                    poisson_distribution_parameter)             # <<<<<<<<<<<<<<
@@ -4930,7 +4930,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
   __pyx_v_gap_factor = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":205
+  /* "epic2/src/statistics.pyx":205
  *     gap_factor = single_gap_factor(island_enriched_threshold,
  *                                    poisson_distribution_parameter)
  *     max_gap_score += sum([pow(gap_factor, i)             # <<<<<<<<<<<<<<
@@ -4940,7 +4940,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
   __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "SICER2/src/statistics.pyx":206
+  /* "epic2/src/statistics.pyx":206
  *                                    poisson_distribution_parameter)
  *     max_gap_score += sum([pow(gap_factor, i)
  *                           for i in range(1, gap_intervals_allowed + 1)])             # <<<<<<<<<<<<<<
@@ -5003,7 +5003,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "SICER2/src/statistics.pyx":205
+    /* "epic2/src/statistics.pyx":205
  *     gap_factor = single_gap_factor(island_enriched_threshold,
  *                                    poisson_distribution_parameter)
  *     max_gap_score += sum([pow(gap_factor, i)             # <<<<<<<<<<<<<<
@@ -5015,7 +5015,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
     if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "SICER2/src/statistics.pyx":206
+    /* "epic2/src/statistics.pyx":206
  *                                    poisson_distribution_parameter)
  *     max_gap_score += sum([pow(gap_factor, i)
  *                           for i in range(1, gap_intervals_allowed + 1)])             # <<<<<<<<<<<<<<
@@ -5025,7 +5025,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "SICER2/src/statistics.pyx":205
+  /* "epic2/src/statistics.pyx":205
  *     gap_factor = single_gap_factor(island_enriched_threshold,
  *                                    poisson_distribution_parameter)
  *     max_gap_score += sum([pow(gap_factor, i)             # <<<<<<<<<<<<<<
@@ -5041,7 +5041,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
   __Pyx_DECREF_SET(__pyx_v_max_gap_score, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":207
+  /* "epic2/src/statistics.pyx":207
  *     max_gap_score += sum([pow(gap_factor, i)
  *                           for i in range(1, gap_intervals_allowed + 1)])
  *     return max_gap_score             # <<<<<<<<<<<<<<
@@ -5053,7 +5053,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
   __pyx_r = __pyx_v_max_gap_score;
   goto __pyx_L0;
 
-  /* "SICER2/src/statistics.pyx":198
+  /* "epic2/src/statistics.pyx":198
  * 
  * 
  * def compute_gap_factor(island_enriched_threshold,             # <<<<<<<<<<<<<<
@@ -5067,7 +5067,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_gap_factor", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_gap_factor", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_max_gap_score);
@@ -5078,7 +5078,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
   return __pyx_r;
 }
 
-/* "SICER2/src/statistics.pyx":210
+/* "epic2/src/statistics.pyx":210
  * 
  * 
  * def single_gap_factor(island_enriched_threshold,             # <<<<<<<<<<<<<<
@@ -5087,9 +5087,9 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_10compute_gap_factor(CYTHON_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_13single_gap_factor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6SICER2_3src_10statistics_13single_gap_factor = {"single_gap_factor", (PyCFunction)__pyx_pw_6SICER2_3src_10statistics_13single_gap_factor, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_13single_gap_factor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5epic2_3src_10statistics_13single_gap_factor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5epic2_3src_10statistics_13single_gap_factor = {"single_gap_factor", (PyCFunction)__pyx_pw_5epic2_3src_10statistics_13single_gap_factor, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5epic2_3src_10statistics_13single_gap_factor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_island_enriched_threshold = 0;
   PyObject *__pyx_v_poisson_distribution_parameter = 0;
   PyObject *__pyx_r = 0;
@@ -5137,18 +5137,18 @@ static PyObject *__pyx_pw_6SICER2_3src_10statistics_13single_gap_factor(PyObject
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("single_gap_factor", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 210, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SICER2.src.statistics.single_gap_factor", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.single_gap_factor", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(__pyx_self, __pyx_v_island_enriched_threshold, __pyx_v_poisson_distribution_parameter);
+  __pyx_r = __pyx_pf_5epic2_3src_10statistics_12single_gap_factor(__pyx_self, __pyx_v_island_enriched_threshold, __pyx_v_poisson_distribution_parameter);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_poisson_distribution_parameter) {
+static PyObject *__pyx_pf_5epic2_3src_10statistics_12single_gap_factor(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_poisson_distribution_parameter) {
   PyObject *__pyx_v_poisson_scores = NULL;
   PyObject *__pyx_v_i = NULL;
   PyObject *__pyx_r = NULL;
@@ -5164,7 +5164,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(CYTHON_U
   PyObject *__pyx_t_9 = NULL;
   __Pyx_RefNannySetupContext("single_gap_factor", 0);
 
-  /* "SICER2/src/statistics.pyx":214
+  /* "epic2/src/statistics.pyx":214
  *     # type: (int, float) -> float
  * 
  *     poisson_scores = [poisson.pmf(i, poisson_distribution_parameter)             # <<<<<<<<<<<<<<
@@ -5174,7 +5174,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(CYTHON_U
   __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "SICER2/src/statistics.pyx":215
+  /* "epic2/src/statistics.pyx":215
  * 
  *     poisson_scores = [poisson.pmf(i, poisson_distribution_parameter)
  *                       for i in range(island_enriched_threshold)]             # <<<<<<<<<<<<<<
@@ -5226,7 +5226,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(CYTHON_U
     __Pyx_XDECREF_SET(__pyx_v_i, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "SICER2/src/statistics.pyx":214
+    /* "epic2/src/statistics.pyx":214
  *     # type: (int, float) -> float
  * 
  *     poisson_scores = [poisson.pmf(i, poisson_distribution_parameter)             # <<<<<<<<<<<<<<
@@ -5286,7 +5286,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(CYTHON_U
     if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_2))) __PYX_ERR(0, 214, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "SICER2/src/statistics.pyx":215
+    /* "epic2/src/statistics.pyx":215
  * 
  *     poisson_scores = [poisson.pmf(i, poisson_distribution_parameter)
  *                       for i in range(island_enriched_threshold)]             # <<<<<<<<<<<<<<
@@ -5298,7 +5298,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(CYTHON_U
   __pyx_v_poisson_scores = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":216
+  /* "epic2/src/statistics.pyx":216
  *     poisson_scores = [poisson.pmf(i, poisson_distribution_parameter)
  *                       for i in range(island_enriched_threshold)]
  *     return sum(poisson_scores)             # <<<<<<<<<<<<<<
@@ -5312,7 +5312,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(CYTHON_U
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "SICER2/src/statistics.pyx":210
+  /* "epic2/src/statistics.pyx":210
  * 
  * 
  * def single_gap_factor(island_enriched_threshold,             # <<<<<<<<<<<<<<
@@ -5328,7 +5328,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(CYTHON_U
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_AddTraceback("SICER2.src.statistics.single_gap_factor", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.single_gap_factor", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_poisson_scores);
@@ -5338,7 +5338,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(CYTHON_U
   return __pyx_r;
 }
 
-/* "SICER2/src/statistics.pyx":219
+/* "epic2/src/statistics.pyx":219
  * 
  * 
  * def compute_boundary(island_enriched_threshold, gap_intervals_allowed,             # <<<<<<<<<<<<<<
@@ -5347,9 +5347,9 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_12single_gap_factor(CYTHON_U
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_15compute_boundary(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6SICER2_3src_10statistics_15compute_boundary = {"compute_boundary", (PyCFunction)__pyx_pw_6SICER2_3src_10statistics_15compute_boundary, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_15compute_boundary(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5epic2_3src_10statistics_15compute_boundary(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5epic2_3src_10statistics_15compute_boundary = {"compute_boundary", (PyCFunction)__pyx_pw_5epic2_3src_10statistics_15compute_boundary, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5epic2_3src_10statistics_15compute_boundary(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_island_enriched_threshold = 0;
   PyObject *__pyx_v_gap_intervals_allowed = 0;
   PyObject *__pyx_v_average = 0;
@@ -5408,18 +5408,18 @@ static PyObject *__pyx_pw_6SICER2_3src_10statistics_15compute_boundary(PyObject 
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("compute_boundary", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 219, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_boundary", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_boundary", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6SICER2_3src_10statistics_14compute_boundary(__pyx_self, __pyx_v_island_enriched_threshold, __pyx_v_gap_intervals_allowed, __pyx_v_average);
+  __pyx_r = __pyx_pf_5epic2_3src_10statistics_14compute_boundary(__pyx_self, __pyx_v_island_enriched_threshold, __pyx_v_gap_intervals_allowed, __pyx_v_average);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_14compute_boundary(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_intervals_allowed, PyObject *__pyx_v_average) {
+static PyObject *__pyx_pf_5epic2_3src_10statistics_14compute_boundary(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_island_enriched_threshold, PyObject *__pyx_v_gap_intervals_allowed, PyObject *__pyx_v_average) {
   PyObject *__pyx_v_single_gap = NULL;
   PyObject *__pyx_v_single_boundary_score = NULL;
   PyObject *__pyx_v_start_and_end_score = NULL;
@@ -5432,7 +5432,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_14compute_boundary(CYTHON_UN
   PyObject *__pyx_t_5 = NULL;
   __Pyx_RefNannySetupContext("compute_boundary", 0);
 
-  /* "SICER2/src/statistics.pyx":223
+  /* "epic2/src/statistics.pyx":223
  *     # type: (int, int, float) -> float
  * 
  *     single_gap = single_gap_factor(island_enriched_threshold, average)             # <<<<<<<<<<<<<<
@@ -5489,7 +5489,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_14compute_boundary(CYTHON_UN
   __pyx_v_single_gap = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":224
+  /* "epic2/src/statistics.pyx":224
  * 
  *     single_gap = single_gap_factor(island_enriched_threshold, average)
  *     single_boundary_score = pow(single_gap, gap_intervals_allowed + 1)             # <<<<<<<<<<<<<<
@@ -5504,7 +5504,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_14compute_boundary(CYTHON_UN
   __pyx_v_single_boundary_score = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "SICER2/src/statistics.pyx":225
+  /* "epic2/src/statistics.pyx":225
  *     single_gap = single_gap_factor(island_enriched_threshold, average)
  *     single_boundary_score = pow(single_gap, gap_intervals_allowed + 1)
  *     start_and_end_score = single_boundary_score * single_boundary_score             # <<<<<<<<<<<<<<
@@ -5516,7 +5516,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_14compute_boundary(CYTHON_UN
   __pyx_v_start_and_end_score = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "SICER2/src/statistics.pyx":227
+  /* "epic2/src/statistics.pyx":227
  *     start_and_end_score = single_boundary_score * single_boundary_score
  * 
  *     return start_and_end_score             # <<<<<<<<<<<<<<
@@ -5528,7 +5528,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_14compute_boundary(CYTHON_UN
   __pyx_r = __pyx_v_start_and_end_score;
   goto __pyx_L0;
 
-  /* "SICER2/src/statistics.pyx":219
+  /* "epic2/src/statistics.pyx":219
  * 
  * 
  * def compute_boundary(island_enriched_threshold, gap_intervals_allowed,             # <<<<<<<<<<<<<<
@@ -5542,7 +5542,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_14compute_boundary(CYTHON_UN
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_boundary", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_boundary", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_single_gap);
@@ -5553,7 +5553,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_14compute_boundary(CYTHON_UN
   return __pyx_r;
 }
 
-/* "SICER2/src/statistics.pyx":230
+/* "epic2/src/statistics.pyx":230
  * 
  * 
  * def compute_background_probabilities(total_chip_count, bin_size, effective_genome_fraction, gaps_allowed):             # <<<<<<<<<<<<<<
@@ -5562,9 +5562,9 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_14compute_boundary(CYTHON_UN
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_17compute_background_probabilities(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_6SICER2_3src_10statistics_17compute_background_probabilities = {"compute_background_probabilities", (PyCFunction)__pyx_pw_6SICER2_3src_10statistics_17compute_background_probabilities, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_6SICER2_3src_10statistics_17compute_background_probabilities(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_5epic2_3src_10statistics_17compute_background_probabilities(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_5epic2_3src_10statistics_17compute_background_probabilities = {"compute_background_probabilities", (PyCFunction)__pyx_pw_5epic2_3src_10statistics_17compute_background_probabilities, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_5epic2_3src_10statistics_17compute_background_probabilities(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_total_chip_count = 0;
   PyObject *__pyx_v_bin_size = 0;
   PyObject *__pyx_v_effective_genome_fraction = 0;
@@ -5634,18 +5634,18 @@ static PyObject *__pyx_pw_6SICER2_3src_10statistics_17compute_background_probabi
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("compute_background_probabilities", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 230, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_background_probabilities", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_background_probabilities", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_6SICER2_3src_10statistics_16compute_background_probabilities(__pyx_self, __pyx_v_total_chip_count, __pyx_v_bin_size, __pyx_v_effective_genome_fraction, __pyx_v_gaps_allowed);
+  __pyx_r = __pyx_pf_5epic2_3src_10statistics_16compute_background_probabilities(__pyx_self, __pyx_v_total_chip_count, __pyx_v_bin_size, __pyx_v_effective_genome_fraction, __pyx_v_gaps_allowed);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_6SICER2_3src_10statistics_16compute_background_probabilities(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_total_chip_count, PyObject *__pyx_v_bin_size, PyObject *__pyx_v_effective_genome_fraction, PyObject *__pyx_v_gaps_allowed) {
+static PyObject *__pyx_pf_5epic2_3src_10statistics_16compute_background_probabilities(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_total_chip_count, PyObject *__pyx_v_bin_size, PyObject *__pyx_v_effective_genome_fraction, PyObject *__pyx_v_gaps_allowed) {
   PyObject *__pyx_v_average_window_readcount = NULL;
   PyObject *__pyx_v_island_enriched_threshold = NULL;
   PyObject *__pyx_v_gap_contribution = NULL;
@@ -5661,7 +5661,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_16compute_background_probabi
   int __pyx_t_5;
   __Pyx_RefNannySetupContext("compute_background_probabilities", 0);
 
-  /* "SICER2/src/statistics.pyx":236
+  /* "epic2/src/statistics.pyx":236
  *     # print("bin_size", bin_size)
  *     # print("effective_genome_fraction", effective_genome_fraction)
  *     average_window_readcount = total_chip_count * (bin_size / float(effective_genome_fraction))             # <<<<<<<<<<<<<<
@@ -5679,7 +5679,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_16compute_background_probabi
   __pyx_v_average_window_readcount = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":239
+  /* "epic2/src/statistics.pyx":239
  *     # print("average_window_readcount", average_window_readcount)
  * 
  *     island_enriched_threshold = compute_enriched_threshold(average_window_readcount)             # <<<<<<<<<<<<<<
@@ -5734,7 +5734,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_16compute_background_probabi
   __pyx_v_island_enriched_threshold = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":242
+  /* "epic2/src/statistics.pyx":242
  *     # print("island_enriched_threshold", island_enriched_threshold)
  * 
  *     gap_contribution = compute_gap_factor(island_enriched_threshold, gaps_allowed, average_window_readcount)             # <<<<<<<<<<<<<<
@@ -5794,7 +5794,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_16compute_background_probabi
   __pyx_v_gap_contribution = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":245
+  /* "epic2/src/statistics.pyx":245
  *     # print("gap_contribution", gap_contribution)
  * 
  *     boundary_contribution = compute_boundary(island_enriched_threshold, gaps_allowed, average_window_readcount)             # <<<<<<<<<<<<<<
@@ -5854,7 +5854,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_16compute_background_probabi
   __pyx_v_boundary_contribution = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":248
+  /* "epic2/src/statistics.pyx":248
  *     # print("boundary_contribution", boundary_contribution)
  * 
  *     genome_length_in_bins = effective_genome_fraction / bin_size             # <<<<<<<<<<<<<<
@@ -5866,7 +5866,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_16compute_background_probabi
   __pyx_v_genome_length_in_bins = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":251
+  /* "epic2/src/statistics.pyx":251
  *     # print("genome_length_in_bins", genome_length_in_bins)
  * 
  *     score_threshold = compute_score_threshold(average_window_readcount, island_enriched_threshold, gap_contribution, boundary_contribution, genome_length_in_bins, bin_size)             # <<<<<<<<<<<<<<
@@ -5935,7 +5935,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_16compute_background_probabi
   __pyx_v_score_threshold = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":254
+  /* "epic2/src/statistics.pyx":254
  *     # print("score_threshold", score_threshold)
  * 
  *     return score_threshold, island_enriched_threshold, average_window_readcount             # <<<<<<<<<<<<<<
@@ -5958,7 +5958,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_16compute_background_probabi
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "SICER2/src/statistics.pyx":230
+  /* "epic2/src/statistics.pyx":230
  * 
  * 
  * def compute_background_probabilities(total_chip_count, bin_size, effective_genome_fraction, gaps_allowed):             # <<<<<<<<<<<<<<
@@ -5972,7 +5972,7 @@ static PyObject *__pyx_pf_6SICER2_3src_10statistics_16compute_background_probabi
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("SICER2.src.statistics.compute_background_probabilities", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("epic2.src.statistics.compute_background_probabilities", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_average_window_readcount);
@@ -19083,41 +19083,41 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
   return __pyx_r;
 }
 
-static struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold *__pyx_freelist_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold[8];
-static int __pyx_freecount_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold = 0;
+static struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold *__pyx_freelist_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold[8];
+static int __pyx_freecount_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold = 0;
 
-static PyObject *__pyx_tp_new_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold *p;
+static PyObject *__pyx_tp_new_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold *p;
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold)))) {
-    o = (PyObject*)__pyx_freelist_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold[--__pyx_freecount_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold];
-    memset(o, 0, sizeof(struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold)))) {
+    o = (PyObject*)__pyx_freelist_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold[--__pyx_freecount_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold];
+    memset(o, 0, sizeof(struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold));
     (void) PyObject_INIT(o, t);
   } else {
     o = (*t->tp_alloc)(t, 0);
     if (unlikely(!o)) return 0;
   }
-  p = ((struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold *)o);
+  p = ((struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold *)o);
   new((void*)&(p->__pyx_v_island_expectations)) std::vector<float> ();
   return o;
 }
 
-static void __pyx_tp_dealloc_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold(PyObject *o) {
-  struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold *p = (struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold *)o;
+static void __pyx_tp_dealloc_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold(PyObject *o) {
+  struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold *p = (struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold *)o;
   __Pyx_call_destructor(p->__pyx_v_island_expectations);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold)))) {
-    __pyx_freelist_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold[__pyx_freecount_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold++] = ((struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold)))) {
+    __pyx_freelist_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold[__pyx_freecount_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold++] = ((struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static PyTypeObject __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold = {
+static PyTypeObject __pyx_type_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SICER2.src.statistics.__pyx_scope_struct__compute_score_threshold", /*tp_name*/
-  sizeof(struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold), /*tp_basicsize*/
+  "epic2.src.statistics.__pyx_scope_struct__compute_score_threshold", /*tp_name*/
+  sizeof(struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold, /*tp_dealloc*/
+  __pyx_tp_dealloc_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -19155,7 +19155,7 @@ static PyTypeObject __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct__com
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold, /*tp_new*/
+  __pyx_tp_new_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -19170,14 +19170,14 @@ static PyTypeObject __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct__com
   #endif
 };
 
-static struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr *__pyx_freelist_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr[8];
-static int __pyx_freecount_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr = 0;
+static struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr *__pyx_freelist_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr[8];
+static int __pyx_freecount_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr = 0;
 
-static PyObject *__pyx_tp_new_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr)))) {
-    o = (PyObject*)__pyx_freelist_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr[--__pyx_freecount_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr];
-    memset(o, 0, sizeof(struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr)))) {
+    o = (PyObject*)__pyx_freelist_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr[--__pyx_freecount_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr];
+    memset(o, 0, sizeof(struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else {
@@ -19187,32 +19187,32 @@ static PyObject *__pyx_tp_new_6SICER2_3src_10statistics___pyx_scope_struct_1_gen
   return o;
 }
 
-static void __pyx_tp_dealloc_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr(PyObject *o) {
-  struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr *p = (struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr *)o;
+static void __pyx_tp_dealloc_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr(PyObject *o) {
+  struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr *p = (struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr *)o;
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_outer_scope);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr)))) {
-    __pyx_freelist_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr[__pyx_freecount_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr++] = ((struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr)))) {
+    __pyx_freelist_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr[__pyx_freecount_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr++] = ((struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static int __pyx_tp_traverse_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr *p = (struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr *)o;
+  struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr *p = (struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr *)o;
   if (p->__pyx_outer_scope) {
     e = (*v)(((PyObject *)p->__pyx_outer_scope), a); if (e) return e;
   }
   return 0;
 }
 
-static PyTypeObject __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr = {
+static PyTypeObject __pyx_type_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SICER2.src.statistics.__pyx_scope_struct_1_genexpr", /*tp_name*/
-  sizeof(struct __pyx_obj_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr), /*tp_basicsize*/
+  "epic2.src.statistics.__pyx_scope_struct_1_genexpr", /*tp_name*/
+  sizeof(struct __pyx_obj_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr, /*tp_dealloc*/
+  __pyx_tp_dealloc_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -19234,7 +19234,7 @@ static PyTypeObject __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct_1_ge
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr, /*tp_traverse*/
+  __pyx_tp_traverse_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -19250,7 +19250,7 @@ static PyTypeObject __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct_1_ge
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr, /*tp_new*/
+  __pyx_tp_new_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -19387,7 +19387,7 @@ static PyBufferProcs __pyx_tp_as_buffer_array = {
 
 static PyTypeObject __pyx_type___pyx_array = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SICER2.src.statistics.array", /*tp_name*/
+  "epic2.src.statistics.array", /*tp_name*/
   sizeof(struct __pyx_array_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_array, /*tp_dealloc*/
@@ -19495,7 +19495,7 @@ static PyMethodDef __pyx_methods_Enum[] = {
 
 static PyTypeObject __pyx_type___pyx_MemviewEnum = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SICER2.src.statistics.Enum", /*tp_name*/
+  "epic2.src.statistics.Enum", /*tp_name*/
   sizeof(struct __pyx_MemviewEnum_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_Enum, /*tp_dealloc*/
@@ -19745,7 +19745,7 @@ static PyBufferProcs __pyx_tp_as_buffer_memoryview = {
 
 static PyTypeObject __pyx_type___pyx_memoryview = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SICER2.src.statistics.memoryview", /*tp_name*/
+  "epic2.src.statistics.memoryview", /*tp_name*/
   sizeof(struct __pyx_memoryview_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc_memoryview, /*tp_dealloc*/
@@ -19872,7 +19872,7 @@ static struct PyGetSetDef __pyx_getsets__memoryviewslice[] = {
 
 static PyTypeObject __pyx_type___pyx_memoryviewslice = {
   PyVarObject_HEAD_INIT(0, 0)
-  "SICER2.src.statistics._memoryviewslice", /*tp_name*/
+  "epic2.src.statistics._memoryviewslice", /*tp_name*/
   sizeof(struct __pyx_memoryviewslice_obj), /*tp_basicsize*/
   0, /*tp_itemsize*/
   __pyx_tp_dealloc__memoryviewslice, /*tp_dealloc*/
@@ -19996,8 +19996,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_b_O, __pyx_k_O, sizeof(__pyx_k_O), 0, 0, 0, 1},
   {&__pyx_kp_s_Out_of_bounds_on_buffer_access_a, __pyx_k_Out_of_bounds_on_buffer_access_a, sizeof(__pyx_k_Out_of_bounds_on_buffer_access_a), 0, 0, 1, 0},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
-  {&__pyx_n_s_SICER2_src_statistics, __pyx_k_SICER2_src_statistics, sizeof(__pyx_k_SICER2_src_statistics), 0, 0, 1, 1},
-  {&__pyx_kp_s_SICER2_src_statistics_pyx, __pyx_k_SICER2_src_statistics_pyx, sizeof(__pyx_k_SICER2_src_statistics_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_TypeError, __pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 0, 1, 1},
   {&__pyx_kp_s_Unable_to_convert_item_to_object, __pyx_k_Unable_to_convert_item_to_object, sizeof(__pyx_k_Unable_to_convert_item_to_object), 0, 0, 1, 0},
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
@@ -20040,6 +20038,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_effective_genome_fraction, __pyx_k_effective_genome_fraction, sizeof(__pyx_k_effective_genome_fraction), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
   {&__pyx_n_s_enumerate, __pyx_k_enumerate, sizeof(__pyx_k_enumerate), 0, 0, 1, 1},
+  {&__pyx_n_s_epic2_src_statistics, __pyx_k_epic2_src_statistics, sizeof(__pyx_k_epic2_src_statistics), 0, 0, 1, 1},
+  {&__pyx_kp_s_epic2_src_statistics_pyx, __pyx_k_epic2_src_statistics_pyx, sizeof(__pyx_k_epic2_src_statistics_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_error, __pyx_k_error, sizeof(__pyx_k_error), 0, 0, 1, 1},
   {&__pyx_n_s_flags, __pyx_k_flags, sizeof(__pyx_k_flags), 0, 0, 1, 1},
   {&__pyx_n_s_format, __pyx_k_format, sizeof(__pyx_k_format), 0, 0, 1, 1},
@@ -20390,7 +20390,7 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
 
-  /* "SICER2/src/statistics.pyx":17
+  /* "epic2/src/statistics.pyx":17
  * 
  * @lru_cache()
  * def compute_window_score(int i, _poisson):             # <<<<<<<<<<<<<<
@@ -20400,9 +20400,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__22 = PyTuple_Pack(4, __pyx_n_s_i, __pyx_n_s_poisson, __pyx_n_s_window_score, __pyx_n_s_p_value); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__22);
   __Pyx_GIVEREF(__pyx_tuple__22);
-  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_SICER2_src_statistics_pyx, __pyx_n_s_compute_window_score, 17, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_statistics_pyx, __pyx_n_s_compute_window_score, 17, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 17, __pyx_L1_error)
 
-  /* "SICER2/src/statistics.pyx":38
+  /* "epic2/src/statistics.pyx":38
  * 
  * 
  * def generate_cumulative_distribution(vector[float] island_expectations):             # <<<<<<<<<<<<<<
@@ -20412,9 +20412,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__24 = PyTuple_Pack(8, __pyx_n_s_island_expectations, __pyx_n_s_island_expectations, __pyx_n_s_i, __pyx_n_s_l, __pyx_n_s_cumulative, __pyx_n_s_partial_sum, __pyx_n_s_cumulative_arr, __pyx_n_s_compliment); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__24);
   __Pyx_GIVEREF(__pyx_tuple__24);
-  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_SICER2_src_statistics_pyx, __pyx_n_s_generate_cumulative_distribution, 38, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_statistics_pyx, __pyx_n_s_generate_cumulative_distribution, 38, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 38, __pyx_L1_error)
 
-  /* "SICER2/src/statistics.pyx":62
+  /* "epic2/src/statistics.pyx":62
  * 
  * 
  * def update_island_expectations(vector[float] island_expectations, int scaled_score, int bin_size, float average_window_readcount, int island_enriched_threshold, float gap_contribution):             # <<<<<<<<<<<<<<
@@ -20424,9 +20424,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__26 = PyTuple_Pack(17, __pyx_n_s_island_expectations, __pyx_n_s_scaled_score, __pyx_n_s_bin_size, __pyx_n_s_average_window_readcount, __pyx_n_s_island_enriched_threshold, __pyx_n_s_gap_contribution, __pyx_n_s_WINDOW_P_VALUE, __pyx_n_s_BIN_SIZE, __pyx_n_s_E_VALUE, __pyx_n_s_E_VALUE_THRESHOLD, __pyx_n_s_i, __pyx_n_s_temp, __pyx_n_s_index, __pyx_n_s_poisson, __pyx_n_s_current_max_scaled_score, __pyx_n_s_current_island, __pyx_n_s_island_expectation); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__26);
   __Pyx_GIVEREF(__pyx_tuple__26);
-  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(6, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_SICER2_src_statistics_pyx, __pyx_n_s_update_island_expectations, 62, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(6, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_statistics_pyx, __pyx_n_s_update_island_expectations, 62, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 62, __pyx_L1_error)
 
-  /* "SICER2/src/statistics.pyx":100
+  /* "epic2/src/statistics.pyx":100
  * 
  * 
  * def compute_score_threshold(average_window_readcount,             # <<<<<<<<<<<<<<
@@ -20436,9 +20436,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__28 = PyTuple_Pack(26, __pyx_n_s_average_window_readcount, __pyx_n_s_island_enriched_threshold, __pyx_n_s_gap_contribution, __pyx_n_s_boundary_contribution, __pyx_n_s_genome_length_in_bins, __pyx_n_s_bin_size, __pyx_n_s_current_scaled_score, __pyx_n_s_l, __pyx_n_s_interval, __pyx_n_s_partial_cumu, __pyx_n_s_e, __pyx_n_s_WINDOW_P_VALUE, __pyx_n_s_BIN_SIZE, __pyx_n_s_E_VALUE, __pyx_n_s_E_VALUE_THRESHOLD, __pyx_n_s_required_p_value, __pyx_n_s_prob, __pyx_n_s_score, __pyx_n_s_island_expectations, __pyx_n_s_current_max_scaled_score, __pyx_n_s_current_expectation, __pyx_n_s_cumulative, __pyx_n_s_score_threshold, __pyx_n_s_i, __pyx_n_s_genexpr, __pyx_n_s_genexpr); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__28);
   __Pyx_GIVEREF(__pyx_tuple__28);
-  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(6, 0, 26, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_SICER2_src_statistics_pyx, __pyx_n_s_compute_score_threshold, 100, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(6, 0, 26, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_statistics_pyx, __pyx_n_s_compute_score_threshold, 100, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 100, __pyx_L1_error)
 
-  /* "SICER2/src/statistics.pyx":172
+  /* "epic2/src/statistics.pyx":172
  * 
  * 
  * def compute_enriched_threshold(average_window_readcount):             # <<<<<<<<<<<<<<
@@ -20448,9 +20448,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__30 = PyTuple_Pack(8, __pyx_n_s_average_window_readcount, __pyx_n_s_WINDOW_P_VALUE, __pyx_n_s_BIN_SIZE, __pyx_n_s_E_VALUE, __pyx_n_s_E_VALUE_THRESHOLD, __pyx_n_s_current_threshold, __pyx_n_s_survival_function, __pyx_n_s_island_enriched_threshold); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(0, 172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__30);
   __Pyx_GIVEREF(__pyx_tuple__30);
-  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__30, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_SICER2_src_statistics_pyx, __pyx_n_s_compute_enriched_threshold, 172, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(0, 172, __pyx_L1_error)
+  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__30, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_statistics_pyx, __pyx_n_s_compute_enriched_threshold, 172, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(0, 172, __pyx_L1_error)
 
-  /* "SICER2/src/statistics.pyx":198
+  /* "epic2/src/statistics.pyx":198
  * 
  * 
  * def compute_gap_factor(island_enriched_threshold,             # <<<<<<<<<<<<<<
@@ -20460,9 +20460,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__32 = PyTuple_Pack(6, __pyx_n_s_island_enriched_threshold, __pyx_n_s_gap_intervals_allowed, __pyx_n_s_poisson_distribution_parameter, __pyx_n_s_max_gap_score, __pyx_n_s_gap_factor, __pyx_n_s_i); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__32);
   __Pyx_GIVEREF(__pyx_tuple__32);
-  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_SICER2_src_statistics_pyx, __pyx_n_s_compute_gap_factor, 198, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_statistics_pyx, __pyx_n_s_compute_gap_factor, 198, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(0, 198, __pyx_L1_error)
 
-  /* "SICER2/src/statistics.pyx":210
+  /* "epic2/src/statistics.pyx":210
  * 
  * 
  * def single_gap_factor(island_enriched_threshold,             # <<<<<<<<<<<<<<
@@ -20472,9 +20472,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__34 = PyTuple_Pack(4, __pyx_n_s_island_enriched_threshold, __pyx_n_s_poisson_distribution_parameter, __pyx_n_s_poisson_scores, __pyx_n_s_i); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__34);
   __Pyx_GIVEREF(__pyx_tuple__34);
-  __pyx_codeobj__35 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__34, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_SICER2_src_statistics_pyx, __pyx_n_s_single_gap_factor, 210, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__35)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_codeobj__35 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__34, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_statistics_pyx, __pyx_n_s_single_gap_factor, 210, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__35)) __PYX_ERR(0, 210, __pyx_L1_error)
 
-  /* "SICER2/src/statistics.pyx":219
+  /* "epic2/src/statistics.pyx":219
  * 
  * 
  * def compute_boundary(island_enriched_threshold, gap_intervals_allowed,             # <<<<<<<<<<<<<<
@@ -20484,9 +20484,9 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__36 = PyTuple_Pack(6, __pyx_n_s_island_enriched_threshold, __pyx_n_s_gap_intervals_allowed, __pyx_n_s_average, __pyx_n_s_single_gap, __pyx_n_s_single_boundary_score, __pyx_n_s_start_and_end_score); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__36);
   __Pyx_GIVEREF(__pyx_tuple__36);
-  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__36, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_SICER2_src_statistics_pyx, __pyx_n_s_compute_boundary, 219, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(3, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__36, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_statistics_pyx, __pyx_n_s_compute_boundary, 219, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(0, 219, __pyx_L1_error)
 
-  /* "SICER2/src/statistics.pyx":230
+  /* "epic2/src/statistics.pyx":230
  * 
  * 
  * def compute_background_probabilities(total_chip_count, bin_size, effective_genome_fraction, gaps_allowed):             # <<<<<<<<<<<<<<
@@ -20496,7 +20496,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__38 = PyTuple_Pack(10, __pyx_n_s_total_chip_count, __pyx_n_s_bin_size, __pyx_n_s_effective_genome_fraction, __pyx_n_s_gaps_allowed, __pyx_n_s_average_window_readcount, __pyx_n_s_island_enriched_threshold, __pyx_n_s_gap_contribution, __pyx_n_s_boundary_contribution, __pyx_n_s_genome_length_in_bins, __pyx_n_s_score_threshold); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__38);
   __Pyx_GIVEREF(__pyx_tuple__38);
-  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(4, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_SICER2_src_statistics_pyx, __pyx_n_s_compute_background_probabilities, 230, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(4, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_statistics_pyx, __pyx_n_s_compute_background_probabilities, 230, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 230, __pyx_L1_error)
 
   /* "View.MemoryView":285
  *         return self.name
@@ -20622,18 +20622,18 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
-  __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold.tp_dictoffset && __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  if (PyType_Ready(&__pyx_type_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_type_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold.tp_dictoffset && __pyx_type_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold = &__pyx_type_6SICER2_3src_10statistics___pyx_scope_struct__compute_score_threshold;
-  if (PyType_Ready(&__pyx_type_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
-  __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr.tp_dictoffset && __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  __pyx_ptype_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold = &__pyx_type_5epic2_3src_10statistics___pyx_scope_struct__compute_score_threshold;
+  if (PyType_Ready(&__pyx_type_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_type_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr.tp_dictoffset && __pyx_type_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr = &__pyx_type_6SICER2_3src_10statistics___pyx_scope_struct_1_genexpr;
+  __pyx_ptype_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr = &__pyx_type_5epic2_3src_10statistics___pyx_scope_struct_1_genexpr;
   __pyx_vtabptr_array = &__pyx_vtable_array;
   __pyx_vtable_array.get_memview = (PyObject *(*)(struct __pyx_array_obj *))__pyx_array_get_memview;
   if (PyType_Ready(&__pyx_type___pyx_array) < 0) __PYX_ERR(1, 104, __pyx_L1_error)
@@ -20862,14 +20862,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_SICER2__src__statistics) {
+  if (__pyx_module_is_main_epic2__src__statistics) {
     if (PyObject_SetAttrString(__pyx_m, "__name__", __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "SICER2.src.statistics")) {
-      if (unlikely(PyDict_SetItemString(modules, "SICER2.src.statistics", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "epic2.src.statistics")) {
+      if (unlikely(PyDict_SetItemString(modules, "epic2.src.statistics", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -20890,7 +20890,7 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "SICER2/src/statistics.pyx":2
+  /* "epic2/src/statistics.pyx":2
  * from libcpp.vector cimport vector
  * import numpy as np             # <<<<<<<<<<<<<<
  * from scipy.stats import poisson
@@ -20901,7 +20901,7 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":3
+  /* "epic2/src/statistics.pyx":3
  * from libcpp.vector cimport vector
  * import numpy as np
  * from scipy.stats import poisson             # <<<<<<<<<<<<<<
@@ -20922,7 +20922,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SICER2/src/statistics.pyx":4
+  /* "epic2/src/statistics.pyx":4
  * import numpy as np
  * from scipy.stats import poisson
  * from numpy import log             # <<<<<<<<<<<<<<
@@ -20943,7 +20943,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":5
+  /* "epic2/src/statistics.pyx":5
  * from scipy.stats import poisson
  * from numpy import log
  * from itertools import count             # <<<<<<<<<<<<<<
@@ -20964,7 +20964,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "SICER2/src/statistics.pyx":10
+  /* "epic2/src/statistics.pyx":10
  * from libc.math cimport round as cround
  * 
  * try:             # <<<<<<<<<<<<<<
@@ -20980,7 +20980,7 @@ if (!__Pyx_RefNanny) {
     __Pyx_XGOTREF(__pyx_t_5);
     /*try:*/ {
 
-      /* "SICER2/src/statistics.pyx":11
+      /* "epic2/src/statistics.pyx":11
  * 
  * try:
  *     from functools import lru_cache             # <<<<<<<<<<<<<<
@@ -21001,7 +21001,7 @@ if (!__Pyx_RefNanny) {
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "SICER2/src/statistics.pyx":10
+      /* "epic2/src/statistics.pyx":10
  * from libc.math cimport round as cround
  * 
  * try:             # <<<<<<<<<<<<<<
@@ -21017,7 +21017,7 @@ if (!__Pyx_RefNanny) {
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "SICER2/src/statistics.pyx":12
+    /* "epic2/src/statistics.pyx":12
  * try:
  *     from functools import lru_cache
  * except ImportError:             # <<<<<<<<<<<<<<
@@ -21026,13 +21026,13 @@ if (!__Pyx_RefNanny) {
  */
     __pyx_t_6 = __Pyx_PyErr_ExceptionMatches(__pyx_builtin_ImportError);
     if (__pyx_t_6) {
-      __Pyx_AddTraceback("SICER2.src.statistics", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("epic2.src.statistics", __pyx_clineno, __pyx_lineno, __pyx_filename);
       if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_2, &__pyx_t_7) < 0) __PYX_ERR(0, 12, __pyx_L4_except_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_GOTREF(__pyx_t_7);
 
-      /* "SICER2/src/statistics.pyx":13
+      /* "epic2/src/statistics.pyx":13
  *     from functools import lru_cache
  * except ImportError:
  *     from functools32 import lru_cache             # <<<<<<<<<<<<<<
@@ -21060,7 +21060,7 @@ if (!__Pyx_RefNanny) {
     goto __pyx_L4_except_error;
     __pyx_L4_except_error:;
 
-    /* "SICER2/src/statistics.pyx":10
+    /* "epic2/src/statistics.pyx":10
  * from libc.math cimport round as cround
  * 
  * try:             # <<<<<<<<<<<<<<
@@ -21080,7 +21080,7 @@ if (!__Pyx_RefNanny) {
     __pyx_L7_try_end:;
   }
 
-  /* "SICER2/src/statistics.pyx":16
+  /* "epic2/src/statistics.pyx":16
  * 
  * 
  * @lru_cache()             # <<<<<<<<<<<<<<
@@ -21093,17 +21093,17 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "SICER2/src/statistics.pyx":17
+  /* "epic2/src/statistics.pyx":17
  * 
  * @lru_cache()
  * def compute_window_score(int i, _poisson):             # <<<<<<<<<<<<<<
  * 
  *     cdef float window_score
  */
-  __pyx_t_7 = PyCFunction_NewEx(&__pyx_mdef_6SICER2_3src_10statistics_1compute_window_score, NULL, __pyx_n_s_SICER2_src_statistics); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_7 = PyCFunction_NewEx(&__pyx_mdef_5epic2_3src_10statistics_1compute_window_score, NULL, __pyx_n_s_epic2_src_statistics); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
 
-  /* "SICER2/src/statistics.pyx":16
+  /* "epic2/src/statistics.pyx":16
  * 
  * 
  * @lru_cache()             # <<<<<<<<<<<<<<
@@ -21117,103 +21117,103 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_window_score, __pyx_t_1) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":38
+  /* "epic2/src/statistics.pyx":38
  * 
  * 
  * def generate_cumulative_distribution(vector[float] island_expectations):             # <<<<<<<<<<<<<<
  * 
  *     cdef:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6SICER2_3src_10statistics_3generate_cumulative_distribution, NULL, __pyx_n_s_SICER2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5epic2_3src_10statistics_3generate_cumulative_distribution, NULL, __pyx_n_s_epic2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_generate_cumulative_distribution, __pyx_t_1) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":62
+  /* "epic2/src/statistics.pyx":62
  * 
  * 
  * def update_island_expectations(vector[float] island_expectations, int scaled_score, int bin_size, float average_window_readcount, int island_enriched_threshold, float gap_contribution):             # <<<<<<<<<<<<<<
  * 
  *     cdef:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6SICER2_3src_10statistics_5update_island_expectations, NULL, __pyx_n_s_SICER2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5epic2_3src_10statistics_5update_island_expectations, NULL, __pyx_n_s_epic2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_update_island_expectations, __pyx_t_1) < 0) __PYX_ERR(0, 62, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":100
+  /* "epic2/src/statistics.pyx":100
  * 
  * 
  * def compute_score_threshold(average_window_readcount,             # <<<<<<<<<<<<<<
  *                             island_enriched_threshold,
  *                             gap_contribution, boundary_contribution,
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6SICER2_3src_10statistics_7compute_score_threshold, NULL, __pyx_n_s_SICER2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5epic2_3src_10statistics_7compute_score_threshold, NULL, __pyx_n_s_epic2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_score_threshold, __pyx_t_1) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":172
+  /* "epic2/src/statistics.pyx":172
  * 
  * 
  * def compute_enriched_threshold(average_window_readcount):             # <<<<<<<<<<<<<<
  *     # type: (float) -> int
  *     """
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6SICER2_3src_10statistics_9compute_enriched_threshold, NULL, __pyx_n_s_SICER2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 172, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5epic2_3src_10statistics_9compute_enriched_threshold, NULL, __pyx_n_s_epic2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_enriched_threshold, __pyx_t_1) < 0) __PYX_ERR(0, 172, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":198
+  /* "epic2/src/statistics.pyx":198
  * 
  * 
  * def compute_gap_factor(island_enriched_threshold,             # <<<<<<<<<<<<<<
  *                        gap_intervals_allowed, poisson_distribution_parameter):
  *     # type: (int, int, float) -> float
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6SICER2_3src_10statistics_11compute_gap_factor, NULL, __pyx_n_s_SICER2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5epic2_3src_10statistics_11compute_gap_factor, NULL, __pyx_n_s_epic2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_gap_factor, __pyx_t_1) < 0) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":210
+  /* "epic2/src/statistics.pyx":210
  * 
  * 
  * def single_gap_factor(island_enriched_threshold,             # <<<<<<<<<<<<<<
  *                       poisson_distribution_parameter):
  *     # type: (int, float) -> float
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6SICER2_3src_10statistics_13single_gap_factor, NULL, __pyx_n_s_SICER2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5epic2_3src_10statistics_13single_gap_factor, NULL, __pyx_n_s_epic2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_single_gap_factor, __pyx_t_1) < 0) __PYX_ERR(0, 210, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":219
+  /* "epic2/src/statistics.pyx":219
  * 
  * 
  * def compute_boundary(island_enriched_threshold, gap_intervals_allowed,             # <<<<<<<<<<<<<<
  *                      average):
  *     # type: (int, int, float) -> float
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6SICER2_3src_10statistics_15compute_boundary, NULL, __pyx_n_s_SICER2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5epic2_3src_10statistics_15compute_boundary, NULL, __pyx_n_s_epic2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_boundary, __pyx_t_1) < 0) __PYX_ERR(0, 219, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":230
+  /* "epic2/src/statistics.pyx":230
  * 
  * 
  * def compute_background_probabilities(total_chip_count, bin_size, effective_genome_fraction, gaps_allowed):             # <<<<<<<<<<<<<<
  *     # type: (int, Namespace) -> Tuple[float, int, float]
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_6SICER2_3src_10statistics_17compute_background_probabilities, NULL, __pyx_n_s_SICER2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_5epic2_3src_10statistics_17compute_background_probabilities, NULL, __pyx_n_s_epic2_src_statistics); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_compute_background_probabilities, __pyx_t_1) < 0) __PYX_ERR(0, 230, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "SICER2/src/statistics.pyx":1
+  /* "epic2/src/statistics.pyx":1
  * from libcpp.vector cimport vector             # <<<<<<<<<<<<<<
  * import numpy as np
  * from scipy.stats import poisson
@@ -21387,11 +21387,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_9);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init SICER2.src.statistics", 0, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init epic2.src.statistics", 0, __pyx_lineno, __pyx_filename);
     }
     Py_DECREF(__pyx_m); __pyx_m = 0;
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init SICER2.src.statistics");
+    PyErr_SetString(PyExc_ImportError, "init epic2.src.statistics");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

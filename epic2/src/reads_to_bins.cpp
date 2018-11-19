@@ -13,14 +13,14 @@
         ],
         "include_dirs": [
             "./epic2/src",
-            "/mnt/work/endrebak/software/anaconda/include/"
+            "/Users/endrebakkenstovner/anaconda3/include/"
         ],
         "language": "c++",
         "libraries": [
             "z"
         ],
         "library_dirs": [
-            "/mnt/work/endrebak/software/anaconda/lib/"
+            "/Users/endrebakkenstovner/anaconda3/lib/"
         ],
         "name": "epic2.src.reads_to_bins",
         "sources": [
@@ -617,7 +617,6 @@ static CYTHON_INLINE float __PYX_NAN() {
 #include <vector>
 #include <map>
 #include <stdint.h>
-#include <unordered_map>
 #include "read_files.hpp"
 #include <algorithm>
 #include "pythread.h"
@@ -966,8 +965,8 @@ typedef std::pair<std::string,char>  __pyx_t_5epic2_3src_14cpp_read_files_key;
  */
 typedef std::vector<uint32_t>  __pyx_t_5epic2_3src_14cpp_read_files_intvec;
 
-/* "cpp_read_files.pxd":17
- *         pass
+/* "cpp_read_files.pxd":13
+ * 
  * 
  * ctypedef map[key, intvec] genome_map             # <<<<<<<<<<<<<<
  * 
