@@ -1,3 +1,4 @@
+import sys
 from libcpp.vector cimport vector
 import numpy as np
 from scipy.stats import poisson
@@ -20,16 +21,20 @@ def compute_window_score(int i, _poisson):
     cdef float p_value
 
     if i < _poisson.mean():
+        # sys.stderr.write(" ".join([str(e) for e in [ "i of", i, "gives poisson score of", 0, "\n" ]]))
         return 0
 
     p_value = _poisson.pmf(i)
 
     if p_value > 0:
+        # sys.stderr.write(" ".join([str(e) for e in ["i of", i, "gives poisson score of", -log(p_value), "and p_value of", p_value, "\n"] ]))
         window_score = -log(p_value)
     else:
-    # log of zero not defined
+        # log of zero not defined
+        # sys.stderr.write(" ".join([str(e) for e in ["i of", i, "gives poisson score of", -log(p_value), "and p_value of", p_value, "\n"] ]))
         window_score = 1000
 
+    # sys.stderr.write("Returning window score of " + str(window_score) + "\n")
     return window_score
 
 
@@ -177,7 +182,6 @@ def compute_enriched_threshold(average_window_readcount):
 
     cdef:
 
-		print("gap_contribution", gap_contribution)
         float WINDOW_P_VALUE = 0.20
         float BIN_SIZE = 0.001
         int E_VALUE = 1000

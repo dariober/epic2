@@ -294,6 +294,89 @@ class Background_island_probscore_statistics:
 		#print "# The exponent is: ", root;
 		return root;
 
+# Species:  hg38
+# Window_size:  200
+# Gap size:  600
+# E value is: 1000.0
+# Total read count: 20227554.0
+# Genome Length:  3088286401
+# Effective genome Length:  2625043440
+# Window average: 1.54112146807
+# opt.evalue: 1000.0
+# Total read count: 20227554.0
+# window_size: 200
+# opt.gap: 600
+# Window pvalue: 0.2
+# genome_length: 2625043440
+# ('self.average=', 1.541121468069877)
+# ('self.poisson_value[0]=', 0.2141408146291121)
+# ('window_pvalue', 0.2)
+# ('poisson', 0, 0.2141408146291121)
+# ('poisson', 1, 0.33001700661489664)
+# ('poisson', 2, 0.25429814686118796)
+# ('poisson', 3, 0.13063477780605437)
+# ('self.gap_contribution', 3.5943004243263443)
+# ('self.boundary_contribution', 0.5552199656493835)
+# ('island_expectation length', 2990)
+# ('self.island_expectation[scaled_score]', 366781.3884759084)
+# ('scaled_score', 2989)
+# Minimum num of tags in a qualified window:  4
+# Generate the enriched probscore summary graph and filter the summary graph to get rid of ineligible windows
+# Determine the score threshold from random background
+# opt.evalue 1000.0
+# The score threshold is:  19.112
+# Make and write islands
+# Total number of islands:  74071
+
+
+# Find candidate islands exhibiting clustering ...
+# /mnt/work/endrebak/software/anaconda/envs/py27/bin/python /home/endrebak/code/epic_paper/SICER/src/find_islands_in_pr.py -s hg38 -b /mnt/scratch/projects/epic_bencmarks/data/sicer_results/0h_exp1/no_bigwig/0h_exp1_chip-W200.graph -w 200 -g 600 -t 0.85 -e 1000 -f /mnt/scra
+# tch/projects/epic_bencmarks/data/sicer_results/0h_exp1/no_bigwig/0h_exp1_chip-W200-G600.scoreisland
+# Species:  hg38
+# Window_size:  200
+# Gap size:  600
+# E value is: 1000.0
+# Total read count: 2792406.0
+# Genome Length:  3088286401
+# Effective genome Length:  2625043440
+# Window average: 0.212751222128
+# opt.evalue: 1000.0
+# Total read count: 2792406.0
+# window_size: 200
+# opt.gap: 600
+# Window pvalue: 0.2
+# genome_length: 2625043440
+# ('self.average=', 0.21275122212834696)
+# ('self.poisson_value[0]=', 0.8083572135909076)
+# ('window_pvalue', 0.2)
+# ('poisson', 0, 0.8083572135909076)
+# ('self.gap_contribution', 2.990012655388544)
+# ('self.boundary_contribution', 0.18231673960386235)
+# ('island_expectation length', 1761)
+# ('self.island_expectation[scaled_score]', 411536.58828177786)
+# ('scaled_score', 1760)
+# Minimum num of tags in a qualified window:  1
+# Generate the enriched probscore summary graph and filter the summary graph to get rid of ineligible windows
+# ('read_count', 1.0, 'start', 1949600)
+# ('read_count', 1.0, 'start', 1949800)
+# ('read_count', 1.0, 'start', 1950000)
+# ('read_count', 3.0, 'start', 1950200)
+# ('read_count', 1.0, 'start', 1950600)
+# ('read_count', 1.0, 'start', 1950800)
+# ('read_count', 1.0, 'start', 1951000)
+# ('read_count', 1.0, 'start', 1951600)
+# ('read_count', 1.0, 'start', 1951800)
+# ('read_count', 1.0, 'start', 1952600)
+# ('read_count', 1.0, 'start', 1953400)
+# ('read_count', 1.0, 'start', 1953600)
+# ('read_count', 1.0, 'start', 1954000)
+# Determine the score threshold from random background
+# opt.evalue 1000.0
+# The score threshold is:  27.363
+# Make and write islands
+# Total number of islands:  16431
+
+
 def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size):
 
 	tag_density = chip_counts/effective_genome_length

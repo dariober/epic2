@@ -49,13 +49,13 @@ parser.add_argument('--genome',
                     help='''Which genome to analyze. Default: hg19. If --chromsizes flag is given, --genome is not required.''')
 
 parser.add_argument(
-    '--drop-duplicates',
-    '-d',
+    '--keep-duplicates',
+    '-kd',
     required=False,
-    default=True,
+    default=False,
     action='store_true',
     help=
-    '''Drop reads mapping to the same position on the same strand within a library. Default: True.
+    '''Drop reads mapping to the same position on the same strand within a library. Default: False.
                    ''')
 
 parser.add_argument(
@@ -119,6 +119,8 @@ parser.add_argument(
 def main():
 
     args = vars(parser.parse_args())
+    args["drop_duplicates"] = not args["keep_duplicates"]
+    # print("drop duplicates", args["drop_duplicates"])
 
     effective_genome_length, chromsizes = egl_and_chromsizes(args)
     args["chromsizes"] = chromsizes
@@ -132,7 +134,13 @@ def main():
     score_threshold, island_enriched_threshold, average_window_readcount = compute_score_threshold(
         chip_count, args["bin_size"], effective_genome_length, args["gaps_allowed"] * args["bin_size"])
 
+    # score_threshold = 27.363
+    # sys.stderr.write("\nResetting score threshold to: {}\n".format(score_threshold))
+
     sys.stderr.write("\nNumber of tags in a window: {}\n".format(island_enriched_threshold))
+
+    # island_enriched_threshold = 1 # 4
+    # sys.stderr.write("\nResetting min tags in window threshold to: {}\n".format(island_enriched_threshold))
 
     # print(average_window_readcount)
     islands = find_islands(c_bins_counts, args["gaps_allowed"], args["bin_size"], score_threshold, island_enriched_threshold, average_window_readcount)

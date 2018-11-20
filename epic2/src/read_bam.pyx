@@ -14,11 +14,18 @@ from libcpp.map cimport map
 cdef extern from "<utility>" namespace "std" nogil:
     pair[T,U] make_pair[T,U](T&,U&)
 
+ctypedef struct interval:
+    uint32_t start
+    uint32_t end
+
 ctypedef vector[uint32_t] intvec
+ctypedef vector[interval] interval_vector
 ctypedef pair [string, char] key
 ctypedef pair [int, char] intkey
 ctypedef map[intkey, intvec] genome_map_int
 ctypedef map[key, intvec] genome_map
+ctypedef map[intkey, interval_vector] genome_intervals_int
+ctypedef map[key, interval_vector] genome_intervals
 
 
 # include "<htslib>"
@@ -34,12 +41,6 @@ import pysam
 
 from pysam.libcalignmentfile cimport AlignmentFile, AlignedSegment
 
-
-# ctypedef struct Alignment:
-#     int32_t start
-#     uint32_t alen
-#     uint32_t reference_id
-#     int64_t flag
 
 cpdef read_bam(filename):
 
@@ -57,10 +58,11 @@ cpdef read_bam(filename):
         intkey chrom_strand
         key chrom_strand_fixed
         uint32_t five_end
-        genome_map_int genome
-        genome_map genome_fixed
-        AlignmentFile samfile
-        AlignedSegment a
+        genome_intervals_int genome
+        genome_intervals genome_fixed
+        interval _interval
+        # AlignmentFile samfile
+        # AlignedSegment a
 
     samfile = pysam.AlignmentFile(filename, "rb")
 
@@ -81,13 +83,15 @@ cpdef read_bam(filename):
         if start < 0 or end < 0:
             continue
 
+        _interval = [<uint32_t> start + 1, <uint32_t> end + 1]
+
         chromosome_id = a.reference_id
         if is_reverse:
             chrom_strand = make_pair(<int>chromosome_id, <char>reverse)
-            genome[chrom_strand].push_back(end + 1)
+            genome[chrom_strand].push_back(_interval)
         else:
             chrom_strand = make_pair(<int>chromosome_id, <char>forward)
-            genome[chrom_strand].push_back(start + 1)
+            genome[chrom_strand].push_back(_interval)
 
 
     it = genome.begin();

@@ -13,14 +13,14 @@
         ],
         "include_dirs": [
             "./epic2/src",
-            "/Users/endrebakkenstovner/anaconda3/include/"
+            "/mnt/work/endrebak/software/anaconda/include/"
         ],
         "language": "c++",
         "libraries": [
             "z"
         ],
         "library_dirs": [
-            "/Users/endrebakkenstovner/anaconda3/lib/"
+            "/mnt/work/endrebak/software/anaconda/lib/"
         ],
         "name": "epic2.src.reads_to_bins",
         "sources": [
@@ -1504,8 +1504,8 @@ static CYTHON_INLINE int __Pyx_PySequence_ContainsTF(PyObject* item, PyObject* s
     return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
 }
 
-/* py_dict_values.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyDict_Values(PyObject* d);
+/* py_dict_items.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyDict_Items(PyObject* d);
 
 /* UnpackUnboundCMethod.proto */
 typedef struct {
@@ -1535,9 +1535,6 @@ static PyObject* __Pyx__CallUnboundCMethod0(__Pyx_CachedCFunction* cfunc, PyObje
 #else
 #define __Pyx_CallUnboundCMethod0(cfunc, self)  __Pyx__CallUnboundCMethod0(cfunc, self)
 #endif
-
-/* py_dict_items.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyDict_Items(PyObject* d);
 
 /* IncludeStringH.proto */
 #include <string.h>
@@ -2163,10 +2160,8 @@ static const char __pyx_k_stderr[] = "stderr";
 static const char __pyx_k_struct[] = "struct";
 static const char __pyx_k_uint16[] = "uint16";
 static const char __pyx_k_uint32[] = "uint32";
-static const char __pyx_k_unique[] = "unique";
 static const char __pyx_k_unpack[] = "unpack";
 static const char __pyx_k_update[] = "update";
-static const char __pyx_k_values[] = "values";
 static const char __pyx_k_fortran[] = "fortran";
 static const char __pyx_k_genexpr[] = "genexpr";
 static const char __pyx_k_memview[] = "memview";
@@ -2377,10 +2372,8 @@ static PyObject *__pyx_n_s_uint16;
 static PyObject *__pyx_n_s_uint32;
 static PyObject *__pyx_kp_s_unable_to_allocate_array_data;
 static PyObject *__pyx_kp_s_unable_to_allocate_shape_and_str;
-static PyObject *__pyx_n_s_unique;
 static PyObject *__pyx_n_s_unpack;
 static PyObject *__pyx_n_s_update;
-static PyObject *__pyx_n_s_values;
 static PyObject *__pyx_n_s_write;
 static PyObject *__pyx_pf_5epic2_3src_13reads_to_bins_remove_out_of_bounds_bins(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_count_dict, PyObject *__pyx_v_chromsizes); /* proto */
 static PyObject *__pyx_pf_5epic2_3src_13reads_to_bins_2count_reads_per_bin(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_tags); /* proto */
@@ -2447,7 +2440,6 @@ static PyObject *__pyx_tp_new_Enum(PyTypeObject *t, PyObject *a, PyObject *k); /
 static PyObject *__pyx_tp_new_memoryview(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new__memoryviewslice(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_items = {0, &__pyx_n_s_items, 0, 0, 0};
-static __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_values = {0, &__pyx_n_s_values, 0, 0, 0};
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
 static PyObject *__pyx_int_2;
@@ -4584,7 +4576,6 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
   PyObject *__pyx_v_f = NULL;
   PyObject *__pyx_v_chromosome = NULL;
   PyObject *__pyx_v_strand = NULL;
-  CYTHON_UNUSED PyObject *__pyx_v_k = NULL;
   Py_ssize_t __pyx_v_i;
   PyObject *__pyx_v_bins_counts = NULL;
   PyObject *__pyx_r = NULL;
@@ -5053,7 +5044,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
  *         c_string = py_bytes
  * 
  *         if f.endswith(".bed"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bed(c_string)
+ *             cpp_tags = cr.read_bed(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe"):
  */
     __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_f, __pyx_n_s_endswith); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
@@ -5068,17 +5059,20 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
       /* "epic2/src/reads_to_bins.pyx":230
  * 
  *         if f.endswith(".bed"):
- *             cpp_tags = cr.read_bed(c_string)             # <<<<<<<<<<<<<<
+ *             cpp_tags = cr.read_bed(c_string, args["drop_duplicates"])             # <<<<<<<<<<<<<<
  *         elif f.endswith(".bedpe"):
- *             cpp_tags = cr.read_bedpe(c_string)
+ *             cpp_tags = cr.read_bedpe(c_string, args["drop_duplicates"])
  */
-      __pyx_v_cpp_tags = read_bed(__pyx_v_c_string);
+      __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_drop_duplicates); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 230, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __pyx_v_cpp_tags = read_bed(__pyx_v_c_string, __pyx_t_7);
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
       /* "epic2/src/reads_to_bins.pyx":229
  *         c_string = py_bytes
  * 
  *         if f.endswith(".bed"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bed(c_string)
+ *             cpp_tags = cr.read_bed(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe"):
  */
       goto __pyx_L5;
@@ -5086,9 +5080,9 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
 
     /* "epic2/src/reads_to_bins.pyx":231
  *         if f.endswith(".bed"):
- *             cpp_tags = cr.read_bed(c_string)
+ *             cpp_tags = cr.read_bed(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bedpe(c_string)
+ *             cpp_tags = cr.read_bedpe(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bam") or f.endswith(".sam"):
  */
     __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_f, __pyx_n_s_endswith); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 231, __pyx_L1_error)
@@ -5101,19 +5095,22 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
     if (__pyx_t_11) {
 
       /* "epic2/src/reads_to_bins.pyx":232
- *             cpp_tags = cr.read_bed(c_string)
+ *             cpp_tags = cr.read_bed(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe"):
- *             cpp_tags = cr.read_bedpe(c_string)             # <<<<<<<<<<<<<<
+ *             cpp_tags = cr.read_bedpe(c_string, args["drop_duplicates"])             # <<<<<<<<<<<<<<
  *         elif f.endswith(".bam") or f.endswith(".sam"):
  *             cpp_tags = read_bam(f)
  */
-      __pyx_v_cpp_tags = read_bedpe(__pyx_v_c_string);
+      __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_drop_duplicates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __pyx_v_cpp_tags = read_bedpe(__pyx_v_c_string, __pyx_t_1);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
       /* "epic2/src/reads_to_bins.pyx":231
  *         if f.endswith(".bed"):
- *             cpp_tags = cr.read_bed(c_string)
+ *             cpp_tags = cr.read_bed(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bedpe(c_string)
+ *             cpp_tags = cr.read_bedpe(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bam") or f.endswith(".sam"):
  */
       goto __pyx_L5;
@@ -5121,7 +5118,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
 
     /* "epic2/src/reads_to_bins.pyx":233
  *         elif f.endswith(".bedpe"):
- *             cpp_tags = cr.read_bedpe(c_string)
+ *             cpp_tags = cr.read_bedpe(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bam") or f.endswith(".sam"):             # <<<<<<<<<<<<<<
  *             cpp_tags = read_bam(f)
  *         elif f.endswith(".bed.gz"):
@@ -5150,11 +5147,11 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
     if (__pyx_t_11) {
 
       /* "epic2/src/reads_to_bins.pyx":234
- *             cpp_tags = cr.read_bedpe(c_string)
+ *             cpp_tags = cr.read_bedpe(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bam") or f.endswith(".sam"):
  *             cpp_tags = read_bam(f)             # <<<<<<<<<<<<<<
  *         elif f.endswith(".bed.gz"):
- *             cpp_tags = cr.read_bed_gz(c_string)
+ *             cpp_tags = cr.read_bed_gz(c_string, args["drop_duplicates"])
  */
       __pyx_t_7 = __Pyx_GetModuleGlobalName(__pyx_n_s_read_bam); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 234, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
@@ -5207,7 +5204,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
 
       /* "epic2/src/reads_to_bins.pyx":233
  *         elif f.endswith(".bedpe"):
- *             cpp_tags = cr.read_bedpe(c_string)
+ *             cpp_tags = cr.read_bedpe(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bam") or f.endswith(".sam"):             # <<<<<<<<<<<<<<
  *             cpp_tags = read_bam(f)
  *         elif f.endswith(".bed.gz"):
@@ -5219,7 +5216,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
  *         elif f.endswith(".bam") or f.endswith(".sam"):
  *             cpp_tags = read_bam(f)
  *         elif f.endswith(".bed.gz"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bed_gz(c_string)
+ *             cpp_tags = cr.read_bed_gz(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe.gz"):
  */
     __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_f, __pyx_n_s_endswith); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 235, __pyx_L1_error)
@@ -5234,17 +5231,20 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
       /* "epic2/src/reads_to_bins.pyx":236
  *             cpp_tags = read_bam(f)
  *         elif f.endswith(".bed.gz"):
- *             cpp_tags = cr.read_bed_gz(c_string)             # <<<<<<<<<<<<<<
+ *             cpp_tags = cr.read_bed_gz(c_string, args["drop_duplicates"])             # <<<<<<<<<<<<<<
  *         elif f.endswith(".bedpe.gz"):
- *             cpp_tags = cr.read_bedpe_gz(c_string)
+ *             cpp_tags = cr.read_bedpe_gz(c_string, args["drop_duplicates"])
  */
-      __pyx_v_cpp_tags = read_bed_gz(__pyx_v_c_string);
+      __pyx_t_7 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_drop_duplicates); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 236, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __pyx_v_cpp_tags = read_bed_gz(__pyx_v_c_string, __pyx_t_7);
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
       /* "epic2/src/reads_to_bins.pyx":235
  *         elif f.endswith(".bam") or f.endswith(".sam"):
  *             cpp_tags = read_bam(f)
  *         elif f.endswith(".bed.gz"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bed_gz(c_string)
+ *             cpp_tags = cr.read_bed_gz(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe.gz"):
  */
       goto __pyx_L5;
@@ -5252,9 +5252,9 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
 
     /* "epic2/src/reads_to_bins.pyx":237
  *         elif f.endswith(".bed.gz"):
- *             cpp_tags = cr.read_bed_gz(c_string)
+ *             cpp_tags = cr.read_bed_gz(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe.gz"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bedpe_gz(c_string)
+ *             cpp_tags = cr.read_bedpe_gz(c_string, args["drop_duplicates"])
  * 
  */
     __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_f, __pyx_n_s_endswith); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 237, __pyx_L1_error)
@@ -5267,26 +5267,29 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
     if (__pyx_t_11) {
 
       /* "epic2/src/reads_to_bins.pyx":238
- *             cpp_tags = cr.read_bed_gz(c_string)
+ *             cpp_tags = cr.read_bed_gz(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe.gz"):
- *             cpp_tags = cr.read_bedpe_gz(c_string)             # <<<<<<<<<<<<<<
+ *             cpp_tags = cr.read_bedpe_gz(c_string, args["drop_duplicates"])             # <<<<<<<<<<<<<<
  * 
  *         it = cpp_tags.begin();
  */
-      __pyx_v_cpp_tags = read_bedpe_gz(__pyx_v_c_string);
+      __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_drop_duplicates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 238, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __pyx_v_cpp_tags = read_bedpe_gz(__pyx_v_c_string, __pyx_t_1);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
       /* "epic2/src/reads_to_bins.pyx":237
  *         elif f.endswith(".bed.gz"):
- *             cpp_tags = cr.read_bed_gz(c_string)
+ *             cpp_tags = cr.read_bed_gz(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe.gz"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bedpe_gz(c_string)
+ *             cpp_tags = cr.read_bedpe_gz(c_string, args["drop_duplicates"])
  * 
  */
     }
     __pyx_L5:;
 
     /* "epic2/src/reads_to_bins.pyx":240
- *             cpp_tags = cr.read_bedpe_gz(c_string)
+ *             cpp_tags = cr.read_bedpe_gz(c_string, args["drop_duplicates"])
  * 
  *         it = cpp_tags.begin();             # <<<<<<<<<<<<<<
  * 
@@ -5439,7 +5442,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
  * 
  *             postincrement(it)             # <<<<<<<<<<<<<<
  * 
- *         for v in tags.values():
+ *         for (chromosome, strand), v in tags.items():
  */
       (void)((__pyx_v_it++));
       __pyx_L8_continue:;
@@ -5448,11 +5451,11 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
     /* "epic2/src/reads_to_bins.pyx":257
  *             postincrement(it)
  * 
- *         for v in tags.values():             # <<<<<<<<<<<<<<
- *             v.sort()
+ *         for (chromosome, strand), v in tags.items():             # <<<<<<<<<<<<<<
  * 
+ *             v.sort() # needs to be done again, since extracting the 5' end might make tags wrong order
  */
-    __pyx_t_4 = __Pyx_PyDict_Values(__pyx_v_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 257, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyDict_Items(__pyx_v_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 257, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (likely(PyList_CheckExact(__pyx_t_4)) || PyTuple_CheckExact(__pyx_t_4)) {
       __pyx_t_1 = __pyx_t_4; __Pyx_INCREF(__pyx_t_1); __pyx_t_15 = 0;
@@ -5494,314 +5497,60 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
         }
         __Pyx_GOTREF(__pyx_t_4);
       }
-      if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5epic2_3src_13reads_to_bins_Vector32))))) __PYX_ERR(0, 257, __pyx_L1_error)
-      __Pyx_XDECREF_SET(__pyx_v_v, ((struct __pyx_obj_5epic2_3src_13reads_to_bins_Vector32 *)__pyx_t_4));
-      __pyx_t_4 = 0;
-
-      /* "epic2/src/reads_to_bins.pyx":258
- * 
- *         for v in tags.values():
- *             v.sort()             # <<<<<<<<<<<<<<
- * 
- *         if args["drop_duplicates"]:
- */
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v), __pyx_n_s_sort); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 258, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_6 = NULL;
-      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
-        __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_7);
-        if (likely(__pyx_t_6)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
-          __Pyx_INCREF(__pyx_t_6);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_7, function);
-        }
-      }
-      if (__pyx_t_6) {
-        __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 258, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      } else {
-        __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 258, __pyx_L1_error)
-      }
-      __Pyx_GOTREF(__pyx_t_4);
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-      /* "epic2/src/reads_to_bins.pyx":257
- *             postincrement(it)
- * 
- *         for v in tags.values():             # <<<<<<<<<<<<<<
- *             v.sort()
- * 
- */
-    }
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-    /* "epic2/src/reads_to_bins.pyx":260
- *             v.sort()
- * 
- *         if args["drop_duplicates"]:             # <<<<<<<<<<<<<<
- *             for k, v in tags.items():
- *                 v.unique()
- */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_drop_duplicates); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 260, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_12 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 260, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (__pyx_t_12) {
-
-      /* "epic2/src/reads_to_bins.pyx":261
- * 
- *         if args["drop_duplicates"]:
- *             for k, v in tags.items():             # <<<<<<<<<<<<<<
- *                 v.unique()
- * 
- */
-      __pyx_t_1 = __Pyx_PyDict_Items(__pyx_v_tags); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
-        __pyx_t_4 = __pyx_t_1; __Pyx_INCREF(__pyx_t_4); __pyx_t_15 = 0;
-        __pyx_t_16 = NULL;
-      } else {
-        __pyx_t_15 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 261, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_16 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 261, __pyx_L1_error)
-      }
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      for (;;) {
-        if (likely(!__pyx_t_16)) {
-          if (likely(PyList_CheckExact(__pyx_t_4))) {
-            if (__pyx_t_15 >= PyList_GET_SIZE(__pyx_t_4)) break;
-            #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_1 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_15); __Pyx_INCREF(__pyx_t_1); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 261, __pyx_L1_error)
-            #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_1);
-            #endif
-          } else {
-            if (__pyx_t_15 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
-            #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-            __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_15); __Pyx_INCREF(__pyx_t_1); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 261, __pyx_L1_error)
-            #else
-            __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
-            __Pyx_GOTREF(__pyx_t_1);
-            #endif
-          }
-        } else {
-          __pyx_t_1 = __pyx_t_16(__pyx_t_4);
-          if (unlikely(!__pyx_t_1)) {
-            PyObject* exc_type = PyErr_Occurred();
-            if (exc_type) {
-              if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 261, __pyx_L1_error)
-            }
-            break;
-          }
-          __Pyx_GOTREF(__pyx_t_1);
-        }
-        if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
-          PyObject* sequence = __pyx_t_1;
-          Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
-          if (unlikely(size != 2)) {
-            if (size > 2) __Pyx_RaiseTooManyValuesError(2);
-            else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-            __PYX_ERR(0, 261, __pyx_L1_error)
-          }
-          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          if (likely(PyTuple_CheckExact(sequence))) {
-            __pyx_t_7 = PyTuple_GET_ITEM(sequence, 0); 
-            __pyx_t_6 = PyTuple_GET_ITEM(sequence, 1); 
-          } else {
-            __pyx_t_7 = PyList_GET_ITEM(sequence, 0); 
-            __pyx_t_6 = PyList_GET_ITEM(sequence, 1); 
-          }
-          __Pyx_INCREF(__pyx_t_7);
-          __Pyx_INCREF(__pyx_t_6);
-          #else
-          __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 261, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_7);
-          __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 261, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_6);
-          #endif
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        } else {
-          Py_ssize_t index = -1;
-          __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 261, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_5);
-          __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-          __pyx_t_17 = Py_TYPE(__pyx_t_5)->tp_iternext;
-          index = 0; __pyx_t_7 = __pyx_t_17(__pyx_t_5); if (unlikely(!__pyx_t_7)) goto __pyx_L16_unpacking_failed;
-          __Pyx_GOTREF(__pyx_t_7);
-          index = 1; __pyx_t_6 = __pyx_t_17(__pyx_t_5); if (unlikely(!__pyx_t_6)) goto __pyx_L16_unpacking_failed;
-          __Pyx_GOTREF(__pyx_t_6);
-          if (__Pyx_IternextUnpackEndCheck(__pyx_t_17(__pyx_t_5), 2) < 0) __PYX_ERR(0, 261, __pyx_L1_error)
-          __pyx_t_17 = NULL;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          goto __pyx_L17_unpacking_done;
-          __pyx_L16_unpacking_failed:;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_17 = NULL;
-          if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-          __PYX_ERR(0, 261, __pyx_L1_error)
-          __pyx_L17_unpacking_done:;
-        }
-        if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5epic2_3src_13reads_to_bins_Vector32))))) __PYX_ERR(0, 261, __pyx_L1_error)
-        __Pyx_XDECREF_SET(__pyx_v_k, __pyx_t_7);
-        __pyx_t_7 = 0;
-        __Pyx_XDECREF_SET(__pyx_v_v, ((struct __pyx_obj_5epic2_3src_13reads_to_bins_Vector32 *)__pyx_t_6));
-        __pyx_t_6 = 0;
-
-        /* "epic2/src/reads_to_bins.pyx":262
- *         if args["drop_duplicates"]:
- *             for k, v in tags.items():
- *                 v.unique()             # <<<<<<<<<<<<<<
- * 
- *         for (chromosome, strand), v in tags.items():
- */
-        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v), __pyx_n_s_unique); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 262, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_7 = NULL;
-        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
-          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
-          if (likely(__pyx_t_7)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
-            __Pyx_INCREF(__pyx_t_7);
-            __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_6, function);
-          }
-        }
-        if (__pyx_t_7) {
-          __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
-          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        } else {
-          __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 262, __pyx_L1_error)
-        }
-        __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-        /* "epic2/src/reads_to_bins.pyx":261
- * 
- *         if args["drop_duplicates"]:
- *             for k, v in tags.items():             # <<<<<<<<<<<<<<
- *                 v.unique()
- * 
- */
-      }
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-      /* "epic2/src/reads_to_bins.pyx":260
- *             v.sort()
- * 
- *         if args["drop_duplicates"]:             # <<<<<<<<<<<<<<
- *             for k, v in tags.items():
- *                 v.unique()
- */
-    }
-
-    /* "epic2/src/reads_to_bins.pyx":264
- *                 v.unique()
- * 
- *         for (chromosome, strand), v in tags.items():             # <<<<<<<<<<<<<<
- * 
- *             if strand == "+":
- */
-    __pyx_t_4 = __Pyx_PyDict_Items(__pyx_v_tags); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    if (likely(PyList_CheckExact(__pyx_t_4)) || PyTuple_CheckExact(__pyx_t_4)) {
-      __pyx_t_1 = __pyx_t_4; __Pyx_INCREF(__pyx_t_1); __pyx_t_15 = 0;
-      __pyx_t_16 = NULL;
-    } else {
-      __pyx_t_15 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 264, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_16 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_16)) __PYX_ERR(0, 264, __pyx_L1_error)
-    }
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    for (;;) {
-      if (likely(!__pyx_t_16)) {
-        if (likely(PyList_CheckExact(__pyx_t_1))) {
-          if (__pyx_t_15 >= PyList_GET_SIZE(__pyx_t_1)) break;
-          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_15); __Pyx_INCREF(__pyx_t_4); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
-          #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          #endif
-        } else {
-          if (__pyx_t_15 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
-          #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_15); __Pyx_INCREF(__pyx_t_4); __pyx_t_15++; if (unlikely(0 < 0)) __PYX_ERR(0, 264, __pyx_L1_error)
-          #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_15); __pyx_t_15++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 264, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_4);
-          #endif
-        }
-      } else {
-        __pyx_t_4 = __pyx_t_16(__pyx_t_1);
-        if (unlikely(!__pyx_t_4)) {
-          PyObject* exc_type = PyErr_Occurred();
-          if (exc_type) {
-            if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 264, __pyx_L1_error)
-          }
-          break;
-        }
-        __Pyx_GOTREF(__pyx_t_4);
-      }
       if ((likely(PyTuple_CheckExact(__pyx_t_4))) || (PyList_CheckExact(__pyx_t_4))) {
         PyObject* sequence = __pyx_t_4;
         Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
         if (unlikely(size != 2)) {
           if (size > 2) __Pyx_RaiseTooManyValuesError(2);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 264, __pyx_L1_error)
+          __PYX_ERR(0, 257, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
-          __pyx_t_6 = PyTuple_GET_ITEM(sequence, 0); 
-          __pyx_t_7 = PyTuple_GET_ITEM(sequence, 1); 
+          __pyx_t_7 = PyTuple_GET_ITEM(sequence, 0); 
+          __pyx_t_6 = PyTuple_GET_ITEM(sequence, 1); 
         } else {
-          __pyx_t_6 = PyList_GET_ITEM(sequence, 0); 
-          __pyx_t_7 = PyList_GET_ITEM(sequence, 1); 
+          __pyx_t_7 = PyList_GET_ITEM(sequence, 0); 
+          __pyx_t_6 = PyList_GET_ITEM(sequence, 1); 
         }
-        __Pyx_INCREF(__pyx_t_6);
         __Pyx_INCREF(__pyx_t_7);
+        __Pyx_INCREF(__pyx_t_6);
         #else
-        __pyx_t_6 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 264, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_7 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 264, __pyx_L1_error)
+        __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 257, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
+        __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 257, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
         #endif
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 264, __pyx_L1_error)
+        __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 257, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __pyx_t_17 = Py_TYPE(__pyx_t_5)->tp_iternext;
-        index = 0; __pyx_t_6 = __pyx_t_17(__pyx_t_5); if (unlikely(!__pyx_t_6)) goto __pyx_L20_unpacking_failed;
-        __Pyx_GOTREF(__pyx_t_6);
-        index = 1; __pyx_t_7 = __pyx_t_17(__pyx_t_5); if (unlikely(!__pyx_t_7)) goto __pyx_L20_unpacking_failed;
+        index = 0; __pyx_t_7 = __pyx_t_17(__pyx_t_5); if (unlikely(!__pyx_t_7)) goto __pyx_L13_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_7);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_17(__pyx_t_5), 2) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
+        index = 1; __pyx_t_6 = __pyx_t_17(__pyx_t_5); if (unlikely(!__pyx_t_6)) goto __pyx_L13_unpacking_failed;
+        __Pyx_GOTREF(__pyx_t_6);
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_17(__pyx_t_5), 2) < 0) __PYX_ERR(0, 257, __pyx_L1_error)
         __pyx_t_17 = NULL;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        goto __pyx_L21_unpacking_done;
-        __pyx_L20_unpacking_failed:;
+        goto __pyx_L14_unpacking_done;
+        __pyx_L13_unpacking_failed:;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __pyx_t_17 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 264, __pyx_L1_error)
-        __pyx_L21_unpacking_done:;
+        __PYX_ERR(0, 257, __pyx_L1_error)
+        __pyx_L14_unpacking_done:;
       }
-      if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_5epic2_3src_13reads_to_bins_Vector32))))) __PYX_ERR(0, 264, __pyx_L1_error)
-      if ((likely(PyTuple_CheckExact(__pyx_t_6))) || (PyList_CheckExact(__pyx_t_6))) {
-        PyObject* sequence = __pyx_t_6;
+      if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5epic2_3src_13reads_to_bins_Vector32))))) __PYX_ERR(0, 257, __pyx_L1_error)
+      if ((likely(PyTuple_CheckExact(__pyx_t_7))) || (PyList_CheckExact(__pyx_t_7))) {
+        PyObject* sequence = __pyx_t_7;
         Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
         if (unlikely(size != 2)) {
           if (size > 2) __Pyx_RaiseTooManyValuesError(2);
           else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-          __PYX_ERR(0, 264, __pyx_L1_error)
+          __PYX_ERR(0, 257, __pyx_L1_error)
         }
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
         if (likely(PyTuple_CheckExact(sequence))) {
@@ -5814,63 +5563,92 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
         __Pyx_INCREF(__pyx_t_5);
         __Pyx_INCREF(__pyx_t_18);
         #else
-        __pyx_t_5 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 264, __pyx_L1_error)
+        __pyx_t_5 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 257, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_18 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 264, __pyx_L1_error)
+        __pyx_t_18 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 257, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_18);
         #endif
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       } else {
         Py_ssize_t index = -1;
-        __pyx_t_19 = PyObject_GetIter(__pyx_t_6); if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 264, __pyx_L1_error)
+        __pyx_t_19 = PyObject_GetIter(__pyx_t_7); if (unlikely(!__pyx_t_19)) __PYX_ERR(0, 257, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_19);
-        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __pyx_t_17 = Py_TYPE(__pyx_t_19)->tp_iternext;
-        index = 0; __pyx_t_5 = __pyx_t_17(__pyx_t_19); if (unlikely(!__pyx_t_5)) goto __pyx_L22_unpacking_failed;
+        index = 0; __pyx_t_5 = __pyx_t_17(__pyx_t_19); if (unlikely(!__pyx_t_5)) goto __pyx_L15_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_5);
-        index = 1; __pyx_t_18 = __pyx_t_17(__pyx_t_19); if (unlikely(!__pyx_t_18)) goto __pyx_L22_unpacking_failed;
+        index = 1; __pyx_t_18 = __pyx_t_17(__pyx_t_19); if (unlikely(!__pyx_t_18)) goto __pyx_L15_unpacking_failed;
         __Pyx_GOTREF(__pyx_t_18);
-        if (__Pyx_IternextUnpackEndCheck(__pyx_t_17(__pyx_t_19), 2) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
+        if (__Pyx_IternextUnpackEndCheck(__pyx_t_17(__pyx_t_19), 2) < 0) __PYX_ERR(0, 257, __pyx_L1_error)
         __pyx_t_17 = NULL;
         __Pyx_DECREF(__pyx_t_19); __pyx_t_19 = 0;
-        goto __pyx_L23_unpacking_done;
-        __pyx_L22_unpacking_failed:;
+        goto __pyx_L16_unpacking_done;
+        __pyx_L15_unpacking_failed:;
         __Pyx_DECREF(__pyx_t_19); __pyx_t_19 = 0;
         __pyx_t_17 = NULL;
         if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-        __PYX_ERR(0, 264, __pyx_L1_error)
-        __pyx_L23_unpacking_done:;
+        __PYX_ERR(0, 257, __pyx_L1_error)
+        __pyx_L16_unpacking_done:;
       }
       __Pyx_XDECREF_SET(__pyx_v_chromosome, __pyx_t_5);
       __pyx_t_5 = 0;
       __Pyx_XDECREF_SET(__pyx_v_strand, __pyx_t_18);
       __pyx_t_18 = 0;
-      __Pyx_XDECREF_SET(__pyx_v_v, ((struct __pyx_obj_5epic2_3src_13reads_to_bins_Vector32 *)__pyx_t_7));
-      __pyx_t_7 = 0;
+      __Pyx_XDECREF_SET(__pyx_v_v, ((struct __pyx_obj_5epic2_3src_13reads_to_bins_Vector32 *)__pyx_t_6));
+      __pyx_t_6 = 0;
 
-      /* "epic2/src/reads_to_bins.pyx":266
+      /* "epic2/src/reads_to_bins.pyx":259
  *         for (chromosome, strand), v in tags.items():
+ * 
+ *             v.sort() # needs to be done again, since extracting the 5' end might make tags wrong order             # <<<<<<<<<<<<<<
+ * 
+ *             if strand == "+":
+ */
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v), __pyx_n_s_sort); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 259, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __pyx_t_7 = NULL;
+      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
+        __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
+        if (likely(__pyx_t_7)) {
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+          __Pyx_INCREF(__pyx_t_7);
+          __Pyx_INCREF(function);
+          __Pyx_DECREF_SET(__pyx_t_6, function);
+        }
+      }
+      if (__pyx_t_7) {
+        __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 259, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      } else {
+        __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 259, __pyx_L1_error)
+      }
+      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+      /* "epic2/src/reads_to_bins.pyx":261
+ *             v.sort() # needs to be done again, since extracting the 5' end might make tags wrong order
  * 
  *             if strand == "+":             # <<<<<<<<<<<<<<
  *                 for i in range(len(v)):
  *                     v.wrapped_vector[i] = v.wrapped_vector[i] + half_fragment_size
  */
-      __pyx_t_12 = (__Pyx_PyString_Equals(__pyx_v_strand, __pyx_kp_s__12, Py_EQ)); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 266, __pyx_L1_error)
+      __pyx_t_12 = (__Pyx_PyString_Equals(__pyx_v_strand, __pyx_kp_s__12, Py_EQ)); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 261, __pyx_L1_error)
       if (__pyx_t_12) {
 
-        /* "epic2/src/reads_to_bins.pyx":267
+        /* "epic2/src/reads_to_bins.pyx":262
  * 
  *             if strand == "+":
  *                 for i in range(len(v)):             # <<<<<<<<<<<<<<
  *                     v.wrapped_vector[i] = v.wrapped_vector[i] + half_fragment_size
  *             else:
  */
-        __pyx_t_20 = PyObject_Length(((PyObject *)__pyx_v_v)); if (unlikely(__pyx_t_20 == ((Py_ssize_t)-1))) __PYX_ERR(0, 267, __pyx_L1_error)
+        __pyx_t_20 = PyObject_Length(((PyObject *)__pyx_v_v)); if (unlikely(__pyx_t_20 == ((Py_ssize_t)-1))) __PYX_ERR(0, 262, __pyx_L1_error)
         __pyx_t_21 = __pyx_t_20;
         for (__pyx_t_22 = 0; __pyx_t_22 < __pyx_t_21; __pyx_t_22+=1) {
           __pyx_v_i = __pyx_t_22;
 
-          /* "epic2/src/reads_to_bins.pyx":268
+          /* "epic2/src/reads_to_bins.pyx":263
  *             if strand == "+":
  *                 for i in range(len(v)):
  *                     v.wrapped_vector[i] = v.wrapped_vector[i] + half_fragment_size             # <<<<<<<<<<<<<<
@@ -5880,17 +5658,17 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
           (__pyx_v_v->wrapped_vector[__pyx_v_i]) = ((__pyx_v_v->wrapped_vector[__pyx_v_i]) + __pyx_v_half_fragment_size);
         }
 
-        /* "epic2/src/reads_to_bins.pyx":266
- *         for (chromosome, strand), v in tags.items():
+        /* "epic2/src/reads_to_bins.pyx":261
+ *             v.sort() # needs to be done again, since extracting the 5' end might make tags wrong order
  * 
  *             if strand == "+":             # <<<<<<<<<<<<<<
  *                 for i in range(len(v)):
  *                     v.wrapped_vector[i] = v.wrapped_vector[i] + half_fragment_size
  */
-        goto __pyx_L24;
+        goto __pyx_L17;
       }
 
-      /* "epic2/src/reads_to_bins.pyx":270
+      /* "epic2/src/reads_to_bins.pyx":265
  *                     v.wrapped_vector[i] = v.wrapped_vector[i] + half_fragment_size
  *             else:
  *                 for i in range(len(v)):             # <<<<<<<<<<<<<<
@@ -5898,12 +5676,12 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
  * 
  */
       /*else*/ {
-        __pyx_t_20 = PyObject_Length(((PyObject *)__pyx_v_v)); if (unlikely(__pyx_t_20 == ((Py_ssize_t)-1))) __PYX_ERR(0, 270, __pyx_L1_error)
+        __pyx_t_20 = PyObject_Length(((PyObject *)__pyx_v_v)); if (unlikely(__pyx_t_20 == ((Py_ssize_t)-1))) __PYX_ERR(0, 265, __pyx_L1_error)
         __pyx_t_21 = __pyx_t_20;
         for (__pyx_t_22 = 0; __pyx_t_22 < __pyx_t_21; __pyx_t_22+=1) {
           __pyx_v_i = __pyx_t_22;
 
-          /* "epic2/src/reads_to_bins.pyx":271
+          /* "epic2/src/reads_to_bins.pyx":266
  *             else:
  *                 for i in range(len(v)):
  *                     v.wrapped_vector[i] = v.wrapped_vector[i] - half_fragment_size             # <<<<<<<<<<<<<<
@@ -5913,21 +5691,21 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
           (__pyx_v_v->wrapped_vector[__pyx_v_i]) = ((__pyx_v_v->wrapped_vector[__pyx_v_i]) - __pyx_v_half_fragment_size);
         }
       }
-      __pyx_L24:;
+      __pyx_L17:;
 
-      /* "epic2/src/reads_to_bins.pyx":273
+      /* "epic2/src/reads_to_bins.pyx":268
  *                     v.wrapped_vector[i] = v.wrapped_vector[i] - half_fragment_size
  * 
  *             for i in range(len(v)):             # <<<<<<<<<<<<<<
  *                 v.wrapped_vector[i] = v.wrapped_vector[i] - (v.wrapped_vector[i] % bin_size)
  * 
  */
-      __pyx_t_20 = PyObject_Length(((PyObject *)__pyx_v_v)); if (unlikely(__pyx_t_20 == ((Py_ssize_t)-1))) __PYX_ERR(0, 273, __pyx_L1_error)
+      __pyx_t_20 = PyObject_Length(((PyObject *)__pyx_v_v)); if (unlikely(__pyx_t_20 == ((Py_ssize_t)-1))) __PYX_ERR(0, 268, __pyx_L1_error)
       __pyx_t_21 = __pyx_t_20;
       for (__pyx_t_22 = 0; __pyx_t_22 < __pyx_t_21; __pyx_t_22+=1) {
         __pyx_v_i = __pyx_t_22;
 
-        /* "epic2/src/reads_to_bins.pyx":274
+        /* "epic2/src/reads_to_bins.pyx":269
  * 
  *             for i in range(len(v)):
  *                 v.wrapped_vector[i] = v.wrapped_vector[i] - (v.wrapped_vector[i] % bin_size)             # <<<<<<<<<<<<<<
@@ -5937,37 +5715,37 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
         (__pyx_v_v->wrapped_vector[__pyx_v_i]) = ((__pyx_v_v->wrapped_vector[__pyx_v_i]) - ((__pyx_v_v->wrapped_vector[__pyx_v_i]) % __pyx_v_bin_size));
       }
 
-      /* "epic2/src/reads_to_bins.pyx":276
+      /* "epic2/src/reads_to_bins.pyx":271
  *                 v.wrapped_vector[i] = v.wrapped_vector[i] - (v.wrapped_vector[i] % bin_size)
  * 
  *             if chromosome not in sum_tags:             # <<<<<<<<<<<<<<
  *                 sum_tags[chromosome] = v
  *             else:
  */
-      __pyx_t_12 = (__Pyx_PySequence_ContainsTF(__pyx_v_chromosome, __pyx_v_sum_tags, Py_NE)); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 276, __pyx_L1_error)
+      __pyx_t_12 = (__Pyx_PySequence_ContainsTF(__pyx_v_chromosome, __pyx_v_sum_tags, Py_NE)); if (unlikely(__pyx_t_12 < 0)) __PYX_ERR(0, 271, __pyx_L1_error)
       __pyx_t_11 = (__pyx_t_12 != 0);
       if (__pyx_t_11) {
 
-        /* "epic2/src/reads_to_bins.pyx":277
+        /* "epic2/src/reads_to_bins.pyx":272
  * 
  *             if chromosome not in sum_tags:
  *                 sum_tags[chromosome] = v             # <<<<<<<<<<<<<<
  *             else:
  *                 v2 = sum_tags[chromosome]
  */
-        if (unlikely(PyObject_SetItem(__pyx_v_sum_tags, __pyx_v_chromosome, ((PyObject *)__pyx_v_v)) < 0)) __PYX_ERR(0, 277, __pyx_L1_error)
+        if (unlikely(PyObject_SetItem(__pyx_v_sum_tags, __pyx_v_chromosome, ((PyObject *)__pyx_v_v)) < 0)) __PYX_ERR(0, 272, __pyx_L1_error)
 
-        /* "epic2/src/reads_to_bins.pyx":276
+        /* "epic2/src/reads_to_bins.pyx":271
  *                 v.wrapped_vector[i] = v.wrapped_vector[i] - (v.wrapped_vector[i] % bin_size)
  * 
  *             if chromosome not in sum_tags:             # <<<<<<<<<<<<<<
  *                 sum_tags[chromosome] = v
  *             else:
  */
-        goto __pyx_L31;
+        goto __pyx_L24;
       }
 
-      /* "epic2/src/reads_to_bins.pyx":279
+      /* "epic2/src/reads_to_bins.pyx":274
  *                 sum_tags[chromosome] = v
  *             else:
  *                 v2 = sum_tags[chromosome]             # <<<<<<<<<<<<<<
@@ -5975,75 +5753,75 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
  * 
  */
       /*else*/ {
-        __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_sum_tags, __pyx_v_chromosome); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_v_sum_tags, __pyx_v_chromosome); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 274, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5epic2_3src_13reads_to_bins_Vector32))))) __PYX_ERR(0, 279, __pyx_L1_error)
+        if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_5epic2_3src_13reads_to_bins_Vector32))))) __PYX_ERR(0, 274, __pyx_L1_error)
         __Pyx_XDECREF_SET(__pyx_v_v2, ((struct __pyx_obj_5epic2_3src_13reads_to_bins_Vector32 *)__pyx_t_4));
         __pyx_t_4 = 0;
 
-        /* "epic2/src/reads_to_bins.pyx":280
+        /* "epic2/src/reads_to_bins.pyx":275
  *             else:
  *                 v2 = sum_tags[chromosome]
  *                 sum_tags[chromosome] = v.merge(v2)             # <<<<<<<<<<<<<<
  * 
  *     sys.stderr.flush()
  */
-        __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v), __pyx_n_s_merge); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 280, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_7);
-        __pyx_t_6 = NULL;
-        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
-          __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_7);
-          if (likely(__pyx_t_6)) {
-            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
-            __Pyx_INCREF(__pyx_t_6);
+        __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v), __pyx_n_s_merge); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 275, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_7 = NULL;
+        if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
+          __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_6);
+          if (likely(__pyx_t_7)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+            __Pyx_INCREF(__pyx_t_7);
             __Pyx_INCREF(function);
-            __Pyx_DECREF_SET(__pyx_t_7, function);
+            __Pyx_DECREF_SET(__pyx_t_6, function);
           }
         }
-        if (!__pyx_t_6) {
-          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_7, ((PyObject *)__pyx_v_v2)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
+        if (!__pyx_t_7) {
+          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_6, ((PyObject *)__pyx_v_v2)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 275, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
         } else {
           #if CYTHON_FAST_PYCALL
-          if (PyFunction_Check(__pyx_t_7)) {
-            PyObject *__pyx_temp[2] = {__pyx_t_6, ((PyObject *)__pyx_v_v2)};
-            __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
-            __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          if (PyFunction_Check(__pyx_t_6)) {
+            PyObject *__pyx_temp[2] = {__pyx_t_7, ((PyObject *)__pyx_v_v2)};
+            __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_6, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 275, __pyx_L1_error)
+            __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
             __Pyx_GOTREF(__pyx_t_4);
           } else
           #endif
           #if CYTHON_FAST_PYCCALL
-          if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
-            PyObject *__pyx_temp[2] = {__pyx_t_6, ((PyObject *)__pyx_v_v2)};
-            __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
-            __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+          if (__Pyx_PyFastCFunction_Check(__pyx_t_6)) {
+            PyObject *__pyx_temp[2] = {__pyx_t_7, ((PyObject *)__pyx_v_v2)};
+            __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_6, __pyx_temp+1-1, 1+1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 275, __pyx_L1_error)
+            __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
             __Pyx_GOTREF(__pyx_t_4);
           } else
           #endif
           {
-            __pyx_t_18 = PyTuple_New(1+1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 280, __pyx_L1_error)
+            __pyx_t_18 = PyTuple_New(1+1); if (unlikely(!__pyx_t_18)) __PYX_ERR(0, 275, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_18);
-            __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_18, 0, __pyx_t_6); __pyx_t_6 = NULL;
+            __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_18, 0, __pyx_t_7); __pyx_t_7 = NULL;
             __Pyx_INCREF(((PyObject *)__pyx_v_v2));
             __Pyx_GIVEREF(((PyObject *)__pyx_v_v2));
             PyTuple_SET_ITEM(__pyx_t_18, 0+1, ((PyObject *)__pyx_v_v2));
-            __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_18, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 280, __pyx_L1_error)
+            __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_6, __pyx_t_18, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 275, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_4);
             __Pyx_DECREF(__pyx_t_18); __pyx_t_18 = 0;
           }
         }
-        __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-        if (unlikely(PyObject_SetItem(__pyx_v_sum_tags, __pyx_v_chromosome, __pyx_t_4) < 0)) __PYX_ERR(0, 280, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+        if (unlikely(PyObject_SetItem(__pyx_v_sum_tags, __pyx_v_chromosome, __pyx_t_4) < 0)) __PYX_ERR(0, 275, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       }
-      __pyx_L31:;
+      __pyx_L24:;
 
-      /* "epic2/src/reads_to_bins.pyx":264
- *                 v.unique()
+      /* "epic2/src/reads_to_bins.pyx":257
+ *             postincrement(it)
  * 
  *         for (chromosome, strand), v in tags.items():             # <<<<<<<<<<<<<<
  * 
- *             if strand == "+":
+ *             v.sort() # needs to be done again, since extracting the 5' end might make tags wrong order
  */
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -6058,19 +5836,19 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "epic2/src/reads_to_bins.pyx":282
+  /* "epic2/src/reads_to_bins.pyx":277
  *                 sum_tags[chromosome] = v.merge(v2)
  * 
  *     sys.stderr.flush()             # <<<<<<<<<<<<<<
  * 
  *     bins_counts = count_reads_per_bin(sum_tags)
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_stderr); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_stderr); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_flush); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 282, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_flush); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -6084,42 +5862,42 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 282, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 277, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 282, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 277, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "epic2/src/reads_to_bins.pyx":284
+  /* "epic2/src/reads_to_bins.pyx":279
  *     sys.stderr.flush()
  * 
  *     bins_counts = count_reads_per_bin(sum_tags)             # <<<<<<<<<<<<<<
  * 
  *     remove_out_of_bounds_bins(bins_counts, args["chromsizes"])
  */
-  __pyx_t_3 = __pyx_f_5epic2_3src_13reads_to_bins_count_reads_per_bin(__pyx_v_sum_tags, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 284, __pyx_L1_error)
+  __pyx_t_3 = __pyx_f_5epic2_3src_13reads_to_bins_count_reads_per_bin(__pyx_v_sum_tags, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 279, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_v_bins_counts = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "epic2/src/reads_to_bins.pyx":286
+  /* "epic2/src/reads_to_bins.pyx":281
  *     bins_counts = count_reads_per_bin(sum_tags)
  * 
  *     remove_out_of_bounds_bins(bins_counts, args["chromsizes"])             # <<<<<<<<<<<<<<
  * 
  *     return bins_counts
  */
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_chromsizes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_chromsizes); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 281, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __pyx_f_5epic2_3src_13reads_to_bins_remove_out_of_bounds_bins(__pyx_v_bins_counts, __pyx_t_3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5epic2_3src_13reads_to_bins_remove_out_of_bounds_bins(__pyx_v_bins_counts, __pyx_t_3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "epic2/src/reads_to_bins.pyx":288
+  /* "epic2/src/reads_to_bins.pyx":283
  *     remove_out_of_bounds_bins(bins_counts, args["chromsizes"])
  * 
  *     return bins_counts             # <<<<<<<<<<<<<<
@@ -6160,7 +5938,6 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_files_to_bin_counts(PyObjec
   __Pyx_XDECREF(__pyx_v_f);
   __Pyx_XDECREF(__pyx_v_chromosome);
   __Pyx_XDECREF(__pyx_v_strand);
-  __Pyx_XDECREF(__pyx_v_k);
   __Pyx_XDECREF(__pyx_v_bins_counts);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -6262,7 +6039,7 @@ static PyObject *__pyx_pf_5epic2_3src_13reads_to_bins_4files_to_bin_counts(CYTHO
   return __pyx_r;
 }
 
-/* "epic2/src/reads_to_bins.pyx":292
+/* "epic2/src/reads_to_bins.pyx":287
  * 
  * 
  * cpdef add_reads_to_dict(f, chromosomes):             # <<<<<<<<<<<<<<
@@ -6300,34 +6077,34 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
   uint32_t __pyx_t_15;
   __Pyx_RefNannySetupContext("add_reads_to_dict", 0);
 
-  /* "epic2/src/reads_to_bins.pyx":294
+  /* "epic2/src/reads_to_bins.pyx":289
  * cpdef add_reads_to_dict(f, chromosomes):
  * 
  *     genome = dict()             # <<<<<<<<<<<<<<
  *     cdef Vector32 v
  * 
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 289, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_genome = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "epic2/src/reads_to_bins.pyx":297
+  /* "epic2/src/reads_to_bins.pyx":292
  *     cdef Vector32 v
  * 
  *     for line in open(f):             # <<<<<<<<<<<<<<
  *         chromosome, left, right, _, _, strand = line.split()
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_open, __pyx_v_f); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_open, __pyx_v_f); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 297, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 292, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 297, __pyx_L1_error)
+    __pyx_t_4 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 292, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -6335,17 +6112,17 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 297, __pyx_L1_error)
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 292, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       } else {
         if (__pyx_t_3 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 297, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 292, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 297, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       }
@@ -6355,7 +6132,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 297, __pyx_L1_error)
+          else __PYX_ERR(0, 292, __pyx_L1_error)
         }
         break;
       }
@@ -6364,14 +6141,14 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
     __Pyx_XDECREF_SET(__pyx_v_line, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "epic2/src/reads_to_bins.pyx":298
+    /* "epic2/src/reads_to_bins.pyx":293
  * 
  *     for line in open(f):
  *         chromosome, left, right, _, _, strand = line.split()             # <<<<<<<<<<<<<<
  * 
  *         if chromosome not in chromosomes:
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_line, __pyx_n_s_split); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 298, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_line, __pyx_n_s_split); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 293, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -6384,10 +6161,10 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
       }
     }
     if (__pyx_t_6) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 298, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 293, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     } else {
-      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 298, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 293, __pyx_L1_error)
     }
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -6397,7 +6174,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
       if (unlikely(size != 6)) {
         if (size > 6) __Pyx_RaiseTooManyValuesError(6);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 298, __pyx_L1_error)
+        __PYX_ERR(0, 293, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -6426,7 +6203,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
         Py_ssize_t i;
         PyObject** temps[6] = {&__pyx_t_5,&__pyx_t_6,&__pyx_t_7,&__pyx_t_8,&__pyx_t_9,&__pyx_t_10};
         for (i=0; i < 6; i++) {
-          PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 298, __pyx_L1_error)
+          PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 293, __pyx_L1_error)
           __Pyx_GOTREF(item);
           *(temps[i]) = item;
         }
@@ -6436,7 +6213,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
     } else {
       Py_ssize_t index = -1;
       PyObject** temps[6] = {&__pyx_t_5,&__pyx_t_6,&__pyx_t_7,&__pyx_t_8,&__pyx_t_9,&__pyx_t_10};
-      __pyx_t_11 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 298, __pyx_L1_error)
+      __pyx_t_11 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 293, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_12 = Py_TYPE(__pyx_t_11)->tp_iternext;
@@ -6445,7 +6222,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
         __Pyx_GOTREF(item);
         *(temps[index]) = item;
       }
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_12(__pyx_t_11), 6) < 0) __PYX_ERR(0, 298, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_12(__pyx_t_11), 6) < 0) __PYX_ERR(0, 293, __pyx_L1_error)
       __pyx_t_12 = NULL;
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       goto __pyx_L6_unpacking_done;
@@ -6453,7 +6230,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
       __pyx_t_12 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 298, __pyx_L1_error)
+      __PYX_ERR(0, 293, __pyx_L1_error)
       __pyx_L6_unpacking_done:;
     }
     __Pyx_XDECREF_SET(__pyx_v_chromosome, __pyx_t_5);
@@ -6469,18 +6246,18 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
     __Pyx_XDECREF_SET(__pyx_v_strand, __pyx_t_10);
     __pyx_t_10 = 0;
 
-    /* "epic2/src/reads_to_bins.pyx":300
+    /* "epic2/src/reads_to_bins.pyx":295
  *         chromosome, left, right, _, _, strand = line.split()
  * 
  *         if chromosome not in chromosomes:             # <<<<<<<<<<<<<<
  *             continue
  * 
  */
-    __pyx_t_13 = (__Pyx_PySequence_ContainsTF(__pyx_v_chromosome, __pyx_v_chromosomes, Py_NE)); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 300, __pyx_L1_error)
+    __pyx_t_13 = (__Pyx_PySequence_ContainsTF(__pyx_v_chromosome, __pyx_v_chromosomes, Py_NE)); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 295, __pyx_L1_error)
     __pyx_t_14 = (__pyx_t_13 != 0);
     if (__pyx_t_14) {
 
-      /* "epic2/src/reads_to_bins.pyx":301
+      /* "epic2/src/reads_to_bins.pyx":296
  * 
  *         if chromosome not in chromosomes:
  *             continue             # <<<<<<<<<<<<<<
@@ -6489,7 +6266,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
  */
       goto __pyx_L3_continue;
 
-      /* "epic2/src/reads_to_bins.pyx":300
+      /* "epic2/src/reads_to_bins.pyx":295
  *         chromosome, left, right, _, _, strand = line.split()
  * 
  *         if chromosome not in chromosomes:             # <<<<<<<<<<<<<<
@@ -6498,30 +6275,30 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
  */
     }
 
-    /* "epic2/src/reads_to_bins.pyx":303
+    /* "epic2/src/reads_to_bins.pyx":298
  *             continue
  * 
  *         if strand == "+":             # <<<<<<<<<<<<<<
  *             five_end = <uint32_t> int(left)
  *         else:
  */
-    __pyx_t_14 = (__Pyx_PyString_Equals(__pyx_v_strand, __pyx_kp_s__12, Py_EQ)); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 303, __pyx_L1_error)
+    __pyx_t_14 = (__Pyx_PyString_Equals(__pyx_v_strand, __pyx_kp_s__12, Py_EQ)); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 298, __pyx_L1_error)
     if (__pyx_t_14) {
 
-      /* "epic2/src/reads_to_bins.pyx":304
+      /* "epic2/src/reads_to_bins.pyx":299
  * 
  *         if strand == "+":
  *             five_end = <uint32_t> int(left)             # <<<<<<<<<<<<<<
  *         else:
  *             five_end = <uint32_t> int(right)
  */
-      __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_left); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 304, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_left); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_15 = __Pyx_PyInt_As_uint32_t(__pyx_t_1); if (unlikely((__pyx_t_15 == ((uint32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 304, __pyx_L1_error)
+      __pyx_t_15 = __Pyx_PyInt_As_uint32_t(__pyx_t_1); if (unlikely((__pyx_t_15 == ((uint32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 299, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_v_five_end = ((uint32_t)__pyx_t_15);
 
-      /* "epic2/src/reads_to_bins.pyx":303
+      /* "epic2/src/reads_to_bins.pyx":298
  *             continue
  * 
  *         if strand == "+":             # <<<<<<<<<<<<<<
@@ -6531,7 +6308,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
       goto __pyx_L8;
     }
 
-    /* "epic2/src/reads_to_bins.pyx":306
+    /* "epic2/src/reads_to_bins.pyx":301
  *             five_end = <uint32_t> int(left)
  *         else:
  *             five_end = <uint32_t> int(right)             # <<<<<<<<<<<<<<
@@ -6539,22 +6316,22 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
  *         if (chromosome, strand) in genome:
  */
     /*else*/ {
-      __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_right); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 306, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_right); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 301, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_15 = __Pyx_PyInt_As_uint32_t(__pyx_t_1); if (unlikely((__pyx_t_15 == ((uint32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 306, __pyx_L1_error)
+      __pyx_t_15 = __Pyx_PyInt_As_uint32_t(__pyx_t_1); if (unlikely((__pyx_t_15 == ((uint32_t)-1)) && PyErr_Occurred())) __PYX_ERR(0, 301, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_v_five_end = ((uint32_t)__pyx_t_15);
     }
     __pyx_L8:;
 
-    /* "epic2/src/reads_to_bins.pyx":308
+    /* "epic2/src/reads_to_bins.pyx":303
  *             five_end = <uint32_t> int(right)
  * 
  *         if (chromosome, strand) in genome:             # <<<<<<<<<<<<<<
  *             v = genome[chromosome, strand]
  *             v.wrapped_vector.push_back(five_end)
  */
-    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 308, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_v_chromosome);
     __Pyx_GIVEREF(__pyx_v_chromosome);
@@ -6562,19 +6339,19 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
     __Pyx_INCREF(__pyx_v_strand);
     __Pyx_GIVEREF(__pyx_v_strand);
     PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_strand);
-    __pyx_t_14 = (__Pyx_PyDict_ContainsTF(__pyx_t_1, __pyx_v_genome, Py_EQ)); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 308, __pyx_L1_error)
+    __pyx_t_14 = (__Pyx_PyDict_ContainsTF(__pyx_t_1, __pyx_v_genome, Py_EQ)); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 303, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_13 = (__pyx_t_14 != 0);
     if (__pyx_t_13) {
 
-      /* "epic2/src/reads_to_bins.pyx":309
+      /* "epic2/src/reads_to_bins.pyx":304
  * 
  *         if (chromosome, strand) in genome:
  *             v = genome[chromosome, strand]             # <<<<<<<<<<<<<<
  *             v.wrapped_vector.push_back(five_end)
  *         else:
  */
-      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
+      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 304, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_INCREF(__pyx_v_chromosome);
       __Pyx_GIVEREF(__pyx_v_chromosome);
@@ -6582,14 +6359,14 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
       __Pyx_INCREF(__pyx_v_strand);
       __Pyx_GIVEREF(__pyx_v_strand);
       PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_strand);
-      __pyx_t_10 = __Pyx_PyDict_GetItem(__pyx_v_genome, __pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 309, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyDict_GetItem(__pyx_v_genome, __pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 304, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (!(likely(((__pyx_t_10) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_10, __pyx_ptype_5epic2_3src_13reads_to_bins_Vector32))))) __PYX_ERR(0, 309, __pyx_L1_error)
+      if (!(likely(((__pyx_t_10) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_10, __pyx_ptype_5epic2_3src_13reads_to_bins_Vector32))))) __PYX_ERR(0, 304, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v_v, ((struct __pyx_obj_5epic2_3src_13reads_to_bins_Vector32 *)__pyx_t_10));
       __pyx_t_10 = 0;
 
-      /* "epic2/src/reads_to_bins.pyx":310
+      /* "epic2/src/reads_to_bins.pyx":305
  *         if (chromosome, strand) in genome:
  *             v = genome[chromosome, strand]
  *             v.wrapped_vector.push_back(five_end)             # <<<<<<<<<<<<<<
@@ -6600,10 +6377,10 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
         __pyx_v_v->wrapped_vector.push_back(__pyx_v_five_end);
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 310, __pyx_L1_error)
+        __PYX_ERR(0, 305, __pyx_L1_error)
       }
 
-      /* "epic2/src/reads_to_bins.pyx":308
+      /* "epic2/src/reads_to_bins.pyx":303
  *             five_end = <uint32_t> int(right)
  * 
  *         if (chromosome, strand) in genome:             # <<<<<<<<<<<<<<
@@ -6613,7 +6390,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
       goto __pyx_L9;
     }
 
-    /* "epic2/src/reads_to_bins.pyx":312
+    /* "epic2/src/reads_to_bins.pyx":307
  *             v.wrapped_vector.push_back(five_end)
  *         else:
  *             v = Vector32()             # <<<<<<<<<<<<<<
@@ -6621,12 +6398,12 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
  *             genome[chromosome, strand] = v
  */
     /*else*/ {
-      __pyx_t_10 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5epic2_3src_13reads_to_bins_Vector32)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 312, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5epic2_3src_13reads_to_bins_Vector32)); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 307, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_XDECREF_SET(__pyx_v_v, ((struct __pyx_obj_5epic2_3src_13reads_to_bins_Vector32 *)__pyx_t_10));
       __pyx_t_10 = 0;
 
-      /* "epic2/src/reads_to_bins.pyx":313
+      /* "epic2/src/reads_to_bins.pyx":308
  *         else:
  *             v = Vector32()
  *             v.wrapped_vector.push_back(five_end)             # <<<<<<<<<<<<<<
@@ -6637,17 +6414,17 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
         __pyx_v_v->wrapped_vector.push_back(__pyx_v_five_end);
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 313, __pyx_L1_error)
+        __PYX_ERR(0, 308, __pyx_L1_error)
       }
 
-      /* "epic2/src/reads_to_bins.pyx":314
+      /* "epic2/src/reads_to_bins.pyx":309
  *             v = Vector32()
  *             v.wrapped_vector.push_back(five_end)
  *             genome[chromosome, strand] = v             # <<<<<<<<<<<<<<
  * 
  *     return genome
  */
-      __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 314, __pyx_L1_error)
+      __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 309, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_INCREF(__pyx_v_chromosome);
       __Pyx_GIVEREF(__pyx_v_chromosome);
@@ -6655,12 +6432,12 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
       __Pyx_INCREF(__pyx_v_strand);
       __Pyx_GIVEREF(__pyx_v_strand);
       PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_v_strand);
-      if (unlikely(PyDict_SetItem(__pyx_v_genome, __pyx_t_10, ((PyObject *)__pyx_v_v)) < 0)) __PYX_ERR(0, 314, __pyx_L1_error)
+      if (unlikely(PyDict_SetItem(__pyx_v_genome, __pyx_t_10, ((PyObject *)__pyx_v_v)) < 0)) __PYX_ERR(0, 309, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     }
     __pyx_L9:;
 
-    /* "epic2/src/reads_to_bins.pyx":297
+    /* "epic2/src/reads_to_bins.pyx":292
  *     cdef Vector32 v
  * 
  *     for line in open(f):             # <<<<<<<<<<<<<<
@@ -6671,7 +6448,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "epic2/src/reads_to_bins.pyx":316
+  /* "epic2/src/reads_to_bins.pyx":311
  *             genome[chromosome, strand] = v
  * 
  *     return genome             # <<<<<<<<<<<<<<
@@ -6683,7 +6460,7 @@ static PyObject *__pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(PyObject 
   __pyx_r = __pyx_v_genome;
   goto __pyx_L0;
 
-  /* "epic2/src/reads_to_bins.pyx":292
+  /* "epic2/src/reads_to_bins.pyx":287
  * 
  * 
  * cpdef add_reads_to_dict(f, chromosomes):             # <<<<<<<<<<<<<<
@@ -6749,11 +6526,11 @@ static PyObject *__pyx_pw_5epic2_3src_13reads_to_bins_7add_reads_to_dict(PyObjec
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_chromosomes)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_reads_to_dict", 1, 2, 2, 1); __PYX_ERR(0, 292, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_reads_to_dict", 1, 2, 2, 1); __PYX_ERR(0, 287, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_reads_to_dict") < 0)) __PYX_ERR(0, 292, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_reads_to_dict") < 0)) __PYX_ERR(0, 287, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -6766,7 +6543,7 @@ static PyObject *__pyx_pw_5epic2_3src_13reads_to_bins_7add_reads_to_dict(PyObjec
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_reads_to_dict", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 292, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_reads_to_dict", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 287, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("epic2.src.reads_to_bins.add_reads_to_dict", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6785,7 +6562,7 @@ static PyObject *__pyx_pf_5epic2_3src_13reads_to_bins_6add_reads_to_dict(CYTHON_
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("add_reads_to_dict", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(__pyx_v_f, __pyx_v_chromosomes, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5epic2_3src_13reads_to_bins_add_reads_to_dict(__pyx_v_f, __pyx_v_chromosomes, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -22053,17 +21830,15 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_uint32, __pyx_k_uint32, sizeof(__pyx_k_uint32), 0, 0, 1, 1},
   {&__pyx_kp_s_unable_to_allocate_array_data, __pyx_k_unable_to_allocate_array_data, sizeof(__pyx_k_unable_to_allocate_array_data), 0, 0, 1, 0},
   {&__pyx_kp_s_unable_to_allocate_shape_and_str, __pyx_k_unable_to_allocate_shape_and_str, sizeof(__pyx_k_unable_to_allocate_shape_and_str), 0, 0, 1, 0},
-  {&__pyx_n_s_unique, __pyx_k_unique, sizeof(__pyx_k_unique), 0, 0, 1, 1},
   {&__pyx_n_s_unpack, __pyx_k_unpack, sizeof(__pyx_k_unpack), 0, 0, 1, 1},
   {&__pyx_n_s_update, __pyx_k_update, sizeof(__pyx_k_update), 0, 0, 1, 1},
-  {&__pyx_n_s_values, __pyx_k_values, sizeof(__pyx_k_values), 0, 0, 1, 1},
   {&__pyx_n_s_write, __pyx_k_write, sizeof(__pyx_k_write), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 89, __pyx_L1_error)
   __pyx_builtin_chr = __Pyx_GetBuiltinName(__pyx_n_s_chr); if (!__pyx_builtin_chr) __PYX_ERR(0, 249, __pyx_L1_error)
-  __pyx_builtin_open = __Pyx_GetBuiltinName(__pyx_n_s_open); if (!__pyx_builtin_open) __PYX_ERR(0, 297, __pyx_L1_error)
+  __pyx_builtin_open = __Pyx_GetBuiltinName(__pyx_n_s_open); if (!__pyx_builtin_open) __PYX_ERR(0, 292, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(1, 132, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 147, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 150, __pyx_L1_error)
@@ -22084,7 +21859,7 @@ static int __Pyx_InitCachedConstants(void) {
  *         c_string = py_bytes
  * 
  *         if f.endswith(".bed"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bed(c_string)
+ *             cpp_tags = cr.read_bed(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe"):
  */
   __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s_bed); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 229, __pyx_L1_error)
@@ -22093,9 +21868,9 @@ static int __Pyx_InitCachedConstants(void) {
 
   /* "epic2/src/reads_to_bins.pyx":231
  *         if f.endswith(".bed"):
- *             cpp_tags = cr.read_bed(c_string)
+ *             cpp_tags = cr.read_bed(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bedpe(c_string)
+ *             cpp_tags = cr.read_bedpe(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bam") or f.endswith(".sam"):
  */
   __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_s_bedpe); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 231, __pyx_L1_error)
@@ -22104,7 +21879,7 @@ static int __Pyx_InitCachedConstants(void) {
 
   /* "epic2/src/reads_to_bins.pyx":233
  *         elif f.endswith(".bedpe"):
- *             cpp_tags = cr.read_bedpe(c_string)
+ *             cpp_tags = cr.read_bedpe(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bam") or f.endswith(".sam"):             # <<<<<<<<<<<<<<
  *             cpp_tags = read_bam(f)
  *         elif f.endswith(".bed.gz"):
@@ -22120,7 +21895,7 @@ static int __Pyx_InitCachedConstants(void) {
  *         elif f.endswith(".bam") or f.endswith(".sam"):
  *             cpp_tags = read_bam(f)
  *         elif f.endswith(".bed.gz"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bed_gz(c_string)
+ *             cpp_tags = cr.read_bed_gz(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe.gz"):
  */
   __pyx_tuple__10 = PyTuple_Pack(1, __pyx_kp_s_bed_gz); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 235, __pyx_L1_error)
@@ -22129,9 +21904,9 @@ static int __Pyx_InitCachedConstants(void) {
 
   /* "epic2/src/reads_to_bins.pyx":237
  *         elif f.endswith(".bed.gz"):
- *             cpp_tags = cr.read_bed_gz(c_string)
+ *             cpp_tags = cr.read_bed_gz(c_string, args["drop_duplicates"])
  *         elif f.endswith(".bedpe.gz"):             # <<<<<<<<<<<<<<
- *             cpp_tags = cr.read_bedpe_gz(c_string)
+ *             cpp_tags = cr.read_bedpe_gz(c_string, args["drop_duplicates"])
  * 
  */
   __pyx_tuple__11 = PyTuple_Pack(1, __pyx_kp_s_bedpe_gz); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 237, __pyx_L1_error)
@@ -22446,7 +22221,6 @@ static int __Pyx_InitCachedConstants(void) {
 
 static int __Pyx_InitGlobals(void) {
   __pyx_umethod_PyDict_Type_items.type = (PyObject*)&PyDict_Type;
-  __pyx_umethod_PyDict_Type_values.type = (PyObject*)&PyDict_Type;
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   __pyx_int_0 = PyInt_FromLong(0); if (unlikely(!__pyx_int_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1 = PyInt_FromLong(1); if (unlikely(!__pyx_int_1)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -24122,14 +23896,6 @@ static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key) {
     Py_DECREF(args);
 bad:
     return result;
-}
-
-/* py_dict_values */
-      static CYTHON_INLINE PyObject* __Pyx_PyDict_Values(PyObject* d) {
-    if (PY_MAJOR_VERSION >= 3)
-        return __Pyx_CallUnboundCMethod0(&__pyx_umethod_PyDict_Type_values, d);
-    else
-        return PyDict_Values(d);
 }
 
 /* py_dict_items */

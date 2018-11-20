@@ -60,3 +60,39 @@ def test_compute_background_probabilities():
     print(result)
 
     assert result[0] - 17.673 < 0.01
+
+
+
+def test_compute_background_probabilities2():
+
+    # 19.112
+    result = compute_score_threshold(20227554, 200, 2625043440, 600)
+    # result = compute_score_threshold(20227554, 200, 2625043440, 600)
+
+    print(result)
+
+    assert result[0] - 19.112 < 0.01
+
+
+def test_compute_background_probabilities3():
+
+    # 19.112
+    result = compute_score_threshold(44590598, 200, 2625043440, 600)
+    # result = compute_score_threshold(20227554, 200, 2625043440, 600)
+
+    print(result)
+
+    assert result[0] - 28.356 < 0.01
+    assert result[1] == 6
+
+
+def test_compute_background_probabilities4():
+
+    # 19.112
+    result = compute_score_threshold(44590598, 200, 2625043440, 600)
+    # result = compute_score_threshold(20227554, 200, 2625043440, 600)
+
+    print(result)
+
+    assert result[0] - 28.356 < 0.01
+    assert result[1] == 6

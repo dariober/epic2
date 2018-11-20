@@ -3,6 +3,7 @@ import cython
 from libcpp cimport bool
 
 from libcpp.algorithm cimport sort as stdsort
+from libcpp.string cimport string
 from libc.math cimport log2
 import numpy as np
 
@@ -15,6 +16,7 @@ from natsort import natsorted
 
 
 cdef struct island:
+    string chromosome
     uint32_t start
     uint32_t end
     uint16_t chip_count
@@ -56,14 +58,13 @@ cdef class IslandVector:
 
 
 @cython.boundscheck(False)
-@cython.wraparound(False)
+@cython.wraparound(True)
 @cython.initializedcheck(False)
 def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_threshold, uint32_t island_enriched_threshold, float average_window_readcount):
 
     _poisson = poisson(average_window_readcount)
 
     cdef:
-        pass
         float slightly_less = score_threshold - 0.0000000001
         float score
         int i
@@ -78,7 +79,7 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
         IslandVector v
         uint32_t distance_allowed = (gaps_allowed * bin_size) + 2
 
-    chromosomes = set(bins_counts.keys())
+    chromosomes = natsorted(set(bins_counts.keys()))
 
     island_dict = dict()
 
@@ -86,14 +87,14 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
         v = IslandVector()
         i = 0
 
-        # TODO: if chromo not in chromsizes, remove
         bins, counts = bins_counts[chromosome]
 
         count = counts[0]
         _bin = bins[0]
         score = compute_window_score(count, _poisson)
 
-        current_island = [_bin, _bin + bin_size - 1, count, 0, score, 0, 0]
+        chromosome = chromosome.encode("utf-8")
+        current_island = [chromosome, _bin, _bin + bin_size - 1, count, 0, score, 0, 0]
         for i in range(1, len(bins)):
 
             count = counts[i]
@@ -105,6 +106,13 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
 
             dist = _bin - current_island.end
 
+            # if chromosome == b"chr1" and bins[i] in [36532800, 36533000, 36533200, 36533400, 36533600, 36533800, 36534000, 36534200, 36534400, 36534600, 36534800, 36535000] :
+            #     print("bins[i]", bins[i], "counts[i]", count)
+            #     print("island_enriched", island_enriched_threshold)
+            #     print("dist", dist)
+            #     print("current_island", current_island)
+            #     print("---")
+
             if dist <= distance_allowed:
                 current_island.end = bins[i] + bin_size - 1
                 current_island.chip_count += counts[i]
@@ -114,15 +122,16 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
                     v.push_back(current_island)
 
                 score = compute_window_score(counts[i], _poisson)
-                current_island = [_bin, bins[i] + bin_size - 1, count, 0, score, 0, 0]
+                current_island = [chromosome, _bin, bins[i] + bin_size - 1, count, 0, score, 0, 0]
 
         # takes care of last or potential single bin
         if current_island.score > slightly_less: # and current_island.chip_count > island_enriched_threshold:
             v.push_back(current_island)
 
-        island_dict[chromosome] = v
+        island_dict[chromosome.decode()] = v
+        # print(chromosome, v.wrapped_vector[0])
 
-        del bins_counts[chromosome]
+        del bins_counts[chromosome.decode()]
 
     return island_dict
 
@@ -156,7 +165,7 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
     # print("float(chip_library_size) / float(control_library_size)", float(chip_library_size) / float(control_library_size))
     sf = poisson.sf
     chromosomes = natsorted(set(islands.keys()))
-    num_islands_per_chrom = [len(v) for _, v in natsorted(islands.items())]
+    num_islands_per_chrom = {c: len(v) for c, v in natsorted(islands.items())}
     # print("scaling_factor", scaling_factor)
     # print("zero_scaler", zero_scaler)
     for chromosome in chromosomes:
@@ -173,6 +182,8 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
         for i in range(len(_islands)):
             # _island = &_islands.wrapped_vector[i]
             _island = _islands.wrapped_vector[i]
+
+
 
             # not overlapping
             while (bins[j] < _island.start and j < number_bins):
@@ -198,6 +209,8 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
             else:
                 _island.p_value = 1
 
+
+
             all_islands.push_back(_island)
 
         del b_bins_counts[chromosome]
@@ -206,25 +219,27 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
     ranks = rankdata(np.array([_island.p_value for _island in all_islands], dtype=np.int))
 
     counter = 0
+    j = 0
     num_islands = len(all_islands)
 
+    # print("len all islands", num_islands)
+    # print("len chromsizes", sum(num_islands_per_chrom.values()))
+
     print("\t".join(["Chromosome", "Start", "End", "PValue", "Score", "Strand", "ChIPCount", "InputCount", "FDR", "log2(FoldChange)"]))
-    for chromosome, chromosome_size in zip(chromosomes, num_islands_per_chrom):
-
-        i = 0
-        for i in range(chromosome_size):
-
-            #### compute fdr #####
-            _island = all_islands.wrapped_vector[i + counter]
-            fdr = _island.p_value * num_islands / ranks[i + counter]
+    for i in range(num_islands):
+            _island = all_islands.wrapped_vector[i]
+            fdr = _island.p_value * num_islands / ranks[i]
             if fdr > 1:
                 fdr = 1
 
             if fdr <= fdr_cutoff:
+                chromosome = _island.chromosome.decode()
                 print("\t".join(str(e) for e in [chromosome, _island.start, _island.end, _island.p_value,
                                                  min(1000, _island.fold_change * 100), ".", _island.chip_count, _island.input_count, fdr, _island.fold_change]))
 
-        counter += chromosome_size
+        # counter += chromosome_size
+
+    # print("j " * 100, j)
 
 
 def write_islands(islands, float average_window_readcount, float fdr_cutoff):
@@ -260,6 +275,7 @@ def write_islands(islands, float average_window_readcount, float fdr_cutoff):
             _island = all_islands.wrapped_vector[i + counter]
 
             fdr = _island.p_value * num_islands / ranks[i + counter]
+            # print("fdr cutoff", fdr_cutoff)
             if fdr > 1:
                 fdr = 1
             if fdr <= fdr_cutoff:

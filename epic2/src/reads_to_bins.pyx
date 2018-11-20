@@ -227,15 +227,15 @@ cpdef files_to_bin_counts(files, args, datatype):
         c_string = py_bytes
 
         if f.endswith(".bed"):
-            cpp_tags = cr.read_bed(c_string)
+            cpp_tags = cr.read_bed(c_string, args["drop_duplicates"])
         elif f.endswith(".bedpe"):
-            cpp_tags = cr.read_bedpe(c_string)
+            cpp_tags = cr.read_bedpe(c_string, args["drop_duplicates"])
         elif f.endswith(".bam") or f.endswith(".sam"):
             cpp_tags = read_bam(f)
         elif f.endswith(".bed.gz"):
-            cpp_tags = cr.read_bed_gz(c_string)
+            cpp_tags = cr.read_bed_gz(c_string, args["drop_duplicates"])
         elif f.endswith(".bedpe.gz"):
-            cpp_tags = cr.read_bedpe_gz(c_string)
+            cpp_tags = cr.read_bedpe_gz(c_string, args["drop_duplicates"])
 
         it = cpp_tags.begin();
 
@@ -254,14 +254,9 @@ cpdef files_to_bin_counts(files, args, datatype):
 
             postincrement(it)
 
-        for v in tags.values():
-            v.sort()
-
-        if args["drop_duplicates"]:
-            for k, v in tags.items():
-                v.unique()
-
         for (chromosome, strand), v in tags.items():
+
+            v.sort() # needs to be done again, since extracting the 5' end might make tags wrong order
 
             if strand == "+":
                 for i in range(len(v)):
