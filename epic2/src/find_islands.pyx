@@ -60,7 +60,7 @@ cdef class IslandVector:
 @cython.boundscheck(False)
 @cython.wraparound(True)
 @cython.initializedcheck(False)
-def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_threshold, uint32_t island_enriched_threshold, float average_window_readcount):
+def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_threshold, uint32_t min_tags_in_windw, float average_window_readcount):
 
     _poisson = poisson(average_window_readcount)
 
@@ -74,7 +74,6 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
         uint32_t[::1] bins = np.ones(1, dtype=np.uint32)
         uint16_t[::1] counts = np.ones(1, dtype=np.uint16)
         uint32_t dist
-        island _island
         island current_island
         IslandVector v
         uint32_t distance_allowed = (gaps_allowed * bin_size) + 2
@@ -89,17 +88,17 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
 
         bins, counts = bins_counts[chromosome]
 
-        count = counts[0]
+        count = 0
         _bin = bins[0]
         score = compute_window_score(count, _poisson)
 
         chromosome = chromosome.encode("utf-8")
-        current_island = [chromosome, _bin, _bin + bin_size - 1, count, 0, score, 0, 0]
+        current_island = [chromosome, _bin, _bin + bin_size - 1, 0, 0, score, 0, 0]
         for i in range(1, len(bins)):
 
             count = counts[i]
 
-            if count < island_enriched_threshold:
+            if count < min_tags_in_windw:
                 continue
 
             _bin = bins[i]
@@ -108,32 +107,81 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
 
             # if chromosome == b"chr1" and bins[i] in [36532800, 36533000, 36533200, 36533400, 36533600, 36533800, 36534000, 36534200, 36534400, 36534600, 36534800, 36535000] :
             #     print("bins[i]", bins[i], "counts[i]", count)
-            #     print("island_enriched", island_enriched_threshold)
+            #     print("island_enriched", min_tags_in_windw)
             #     print("dist", dist)
             #     print("current_island", current_island)
             #     print("---")
 
             if dist <= distance_allowed:
                 current_island.end = bins[i] + bin_size - 1
-                current_island.chip_count += counts[i]
+                # current_island.chip_count += counts[i]
                 current_island.score += compute_window_score(counts[i], _poisson)
             else:
-                if current_island.score > slightly_less: # and current_island.chip_count > island_enriched_threshold:
+                if current_island.score > slightly_less: # and current_island.chip_count > min_tags_in_windw:
                     v.push_back(current_island)
 
                 score = compute_window_score(counts[i], _poisson)
-                current_island = [chromosome, _bin, bins[i] + bin_size - 1, count, 0, score, 0, 0]
+                current_island = [chromosome, _bin, bins[i] + bin_size - 1, 0, 0, score, 0, 0]
 
         # takes care of last or potential single bin
-        if current_island.score > slightly_less: # and current_island.chip_count > island_enriched_threshold:
+        if current_island.score > slightly_less: # and current_island.chip_count > min_tags_in_windw:
             v.push_back(current_island)
 
         island_dict[chromosome.decode()] = v
         # print(chromosome, v.wrapped_vector[0])
 
-        del bins_counts[chromosome.decode()]
-
     return island_dict
+
+
+@cython.boundscheck(False)
+@cython.wraparound(False)
+@cython.initializedcheck(False)
+@cython.cdivision(True)
+def add_chip_count_to_islands(islands, c_bins_counts):
+    cdef:
+        int i
+        island current_island
+        IslandVector _islands
+        IslandVector updated_islands
+
+    new_islands = {}
+    chromosomes = natsorted(set(islands.keys()))
+    num_islands_per_chrom = {c: len(v) for c, v in natsorted(islands.items())}
+    for chromosome in chromosomes:
+
+        updated_islands = IslandVector()
+        j = 0
+        _islands = islands[chromosome]
+        # print("chr", chromosome, len(_islands))
+        # print(chromosome, c_bins_counts)
+
+        if chromosome not in c_bins_counts:
+            # print("chromosome", chromosome, "not in", c_bins_counts)
+            continue
+
+        bins, counts = c_bins_counts[chromosome]
+        number_bins = len(bins)
+
+        for i in range(len(_islands)):
+            # _island = &_islands.wrapped_vector[i]
+            _island = _islands.wrapped_vector[i]
+
+            # not overlapping
+            while (bins[j] < _island.start and j < number_bins):
+                # print("bins[j]", bins[j], "_island.start", _island.start)
+                j += 1
+
+            # overlapping
+            while (bins[j] < _island.end and bins[j] >= _island.start and j < number_bins):
+                _island.chip_count += counts[j]
+                j += 1
+
+            updated_islands.wrapped_vector.push_back(_island)
+
+        new_islands[chromosome] = updated_islands
+        del c_bins_counts[chromosome]
+
+    return new_islands
 
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -145,7 +193,6 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
         int i
         int j
         int number_bins
-        # island *_island
         island _island
         IslandVector _islands
         IslandVector all_islands = IslandVector()

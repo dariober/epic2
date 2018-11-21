@@ -21,7 +21,7 @@ typedef std::vector<interval> interval_vector;
 typedef std::map<key, intvec> genome_tags;
 typedef std::map<key, interval_vector> genome_intervals;
 
-bool compare_by_start_end(const interval lhs, const interval rhs){
+uint32_t compare_by_start_end(const interval lhs, const interval rhs){
   if (lhs.start < rhs.start){
     return 1;
   } else if (rhs.start < lhs.start){
@@ -35,7 +35,7 @@ bool compare_by_start_end(const interval lhs, const interval rhs){
 }
 
 
-bool start_end_equal(const interval lhs, const interval rhs){
+uint32_t start_end_equal(const interval lhs, const interval rhs){
   if ((lhs.start == rhs.start) && (lhs.end == rhs.end)){
       return 1;
     } else {
@@ -43,7 +43,7 @@ bool start_end_equal(const interval lhs, const interval rhs){
   }
 }
 
-genome_map read_bed(char const* fileName, bool drop_duplicates)
+genome_map read_bed(char const* fileName, uint32_t drop_duplicates)
 {
   std::ifstream file(fileName);
 
@@ -111,7 +111,7 @@ genome_map read_bed(char const* fileName, bool drop_duplicates)
 
 #include "gzstream.h"
 // using namespace gz;
-genome_map read_bed_gz(char const* fileName, bool drop_duplicates)
+genome_map read_bed_gz(char const* fileName, uint32_t drop_duplicates)
 {
   igzstream in(fileName);
 
@@ -177,7 +177,7 @@ genome_map read_bed_gz(char const* fileName, bool drop_duplicates)
 }
 
 
-genome_map read_bedpe_gz(char const* fileName, bool drop_duplicates)
+genome_map read_bedpe_gz(char const* fileName, uint32_t drop_duplicates)
 {
 
   igzstream in(fileName);
@@ -244,7 +244,7 @@ genome_map read_bedpe_gz(char const* fileName, bool drop_duplicates)
 }
 
 
-genome_map read_bedpe(char const* fileName, bool drop_duplicates)
+genome_map read_bedpe(char const* fileName, uint32_t drop_duplicates)
 {
   std::ifstream file(fileName);
 

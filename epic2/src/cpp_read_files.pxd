@@ -14,10 +14,10 @@ ctypedef map[key, intvec] genome_map
 
 
 cdef extern from "read_files.hpp":
-    genome_map read_bed(const char *, bool)
-    genome_map read_bed_gz(const char *, bool)
-    genome_map read_bedpe(const char *, bool)
-    genome_map read_bedpe_gz(const char *, bool)
+    genome_map read_bed(const char *, uint32_t)
+    genome_map read_bed_gz(const char *, uint32_t)
+    genome_map read_bedpe(const char *, uint32_t)
+    genome_map read_bedpe_gz(const char *, uint32_t)
     genome_map read_bam(const char *)
 
 

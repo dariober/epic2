@@ -18,6 +18,7 @@ from libcpp.map cimport map as cppmap
 from libcpp.algorithm cimport unique
 from libcpp.vector cimport vector
 from libcpp.string cimport string
+from libcpp cimport bool
 from libcpp.map cimport map
 
 cdef extern from "<algorithm>" namespace "std" nogil:
@@ -205,6 +206,7 @@ cpdef files_to_bin_counts(files, args, datatype):
     cdef:
         uint32_t bin_size = args["bin_size"]
         uint32_t half_fragment_size = args["fragment_size"] / 2
+        uint32_t drop_duplicates = args["drop_duplicates"]
         Vector32 v
         Vector32 v2
         long[::1] bin_arr
@@ -218,24 +220,26 @@ cpdef files_to_bin_counts(files, args, datatype):
     sys.stderr.write("Parsing {} file(s):\n".format(datatype))
     sys.stderr.flush()
     tags = dict()
+
     for f in files:
 
         sys.stderr.write("  " + f + "\n")
         sys.stderr.flush()
 
+
         py_bytes = f.encode()
         c_string = py_bytes
 
         if f.endswith(".bed"):
-            cpp_tags = cr.read_bed(c_string, args["drop_duplicates"])
+            cpp_tags = cr.read_bed(c_string, drop_duplicates)
         elif f.endswith(".bedpe"):
-            cpp_tags = cr.read_bedpe(c_string, args["drop_duplicates"])
+            cpp_tags = cr.read_bedpe(c_string, drop_duplicates)
         elif f.endswith(".bam") or f.endswith(".sam"):
             cpp_tags = read_bam(f)
         elif f.endswith(".bed.gz"):
-            cpp_tags = cr.read_bed_gz(c_string, args["drop_duplicates"])
+            cpp_tags = cr.read_bed_gz(c_string, drop_duplicates)
         elif f.endswith(".bedpe.gz"):
-            cpp_tags = cr.read_bedpe_gz(c_string, args["drop_duplicates"])
+            cpp_tags = cr.read_bedpe_gz(c_string, drop_duplicates)
 
         it = cpp_tags.begin();
 
