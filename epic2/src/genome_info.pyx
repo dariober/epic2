@@ -178,16 +178,27 @@ def egl_and_chromsizes(args):
     have_chromsizes = args["chromsizes"] != None
     have_effective_genome_fraction = args["effective_genome_fraction"] != None
 
-    if have_chromsizes or have_effective_genome_fraction:
-        assert have_chromsizes
-        assert have_effective_genome_fraction
+    read_length = find_readlength(args)
+    if have_chromsizes and have_effective_genome_fraction:
+        # assert have_chromsizes
+        # assert have_effective_genome_fraction
 
         chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])
         egf = args["effective_genome_fraction"]
         egl = egf * sum(chromsizes.values())
         genome_length = sum(chromsizes.values())
+    elif have_chromsizes:
+        chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])
+        egf = get_effective_genome_fraction(args["genome"], read_length)
+        egl = egf * sum(chromsizes.values())
+        genome_length = sum(chromsizes.values())
+    elif have_effective_genome_fraction:
+        chromsizes = create_genome_size_dict(args["genome"])
+        egf = args["effective_genome_fraction"]
+        genome_length = sum(chromsizes.values())
+        egl = egf * genome_length
+
     else:
-        read_length = find_readlength(args)
         chromsizes = create_genome_size_dict(args["genome"])
         egf = get_effective_genome_fraction(args["genome"], read_length)
         genome_length = sum(chromsizes.values())

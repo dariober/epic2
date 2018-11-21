@@ -30,7 +30,7 @@ parser.add_argument(
     required=True,
     type=str,
     nargs='+',
-    help='''Treatment (pull-down) file(s) in (b/gzipped) bed/bedpe format.''')
+    help='''Treatment (pull-down) file(s) in one of these formats: bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam. Mixing file formats is allowed.''')
 
 parser.add_argument(
     '--control',
@@ -38,7 +38,7 @@ parser.add_argument(
     required=False,
     type=str,
     nargs='+',
-    help='''Control (input) file(s) in (b/gzipped) bed/bedpe format.''')
+    help='''Control (input) file(s) in one of these formats: bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam. Mixing file formats is allowed.''')
 
 
 parser.add_argument('--genome',
@@ -46,7 +46,7 @@ parser.add_argument('--genome',
                     required=False,
                     default="hg19",
                     type=str,
-                    help='''Which genome to analyze. Default: hg19. If --chromsizes flag is given, --genome is not required.''')
+                    help='''Which genome to analyze. Default: hg19. If --chromsizes and --egf flag is given, --genome is not required.''')
 
 parser.add_argument(
     '--keep-duplicates',
@@ -55,7 +55,7 @@ parser.add_argument(
     default=False,
     action='store_true',
     help=
-    '''Drop reads mapping to the same position on the same strand within a library. Default: False.
+    '''Keep reads mapping to the same position on the same strand within a library. Default: False.
                    ''')
 
 parser.add_argument(
@@ -65,7 +65,7 @@ parser.add_argument(
     default=200,
     type=int,
     help=
-    '''Size of the windows to scan the genome. WINDOW_SIZE is the smallest possible island. Default 200.
+    '''Size of the windows to scan the genome. BIN-SIZE is the smallest possible island. Default 200.
                    ''')
 
 parser.add_argument(
@@ -75,8 +75,9 @@ parser.add_argument(
     default=3,
     type=int,
     help=
-    '''This number is multiplied by the window size to determine the gap size. Must be an integer. Default: 3.
-                   ''')
+    '''This number is multiplied by the window size to determine the number of gaps
+                   (ineligible windows) allowed between two eligible windows.
+                   Must be an integer. Default: 3. ''')
 
 parser.add_argument(
     '--fragment-size',
@@ -85,8 +86,7 @@ parser.add_argument(
     default=150,
     type=int,
     help=
-    '''(Single end reads only) Size of the sequenced fragment. The center of the the fragment will be taken as half the fragment size. Default 150.
-                   ''')
+    '''(Single end reads only) Size of the sequenced fragment. Each read is extended half the fragment size from the 5' end. Default 150 (i.e. extend by 75).''')
 
 parser.add_argument(
     '--false-discovery-rate-cutoff',
@@ -104,7 +104,7 @@ parser.add_argument(
     required=False,
     type=float,
     help=
-    '''Use a different effective genome fraction than the one included in epic. The default value depends on the genome and readlength, but is a number between 0 and 1.''')
+    '''Use a different effective genome fraction than the one included in epic2. The default value depends on the genome and readlength, but is a number between 0 and 1.''')
 
 
 parser.add_argument(

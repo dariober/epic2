@@ -36,45 +36,49 @@ pip install epic2
 ```
 usage: epic2 [-h] --treatment TREATMENT [TREATMENT ...]
              [--control CONTROL [CONTROL ...]] [--genome GENOME]
-             [--drop-duplicates] [--bin-size BIN_SIZE]
+             [--keep-duplicates] [--bin-size BIN_SIZE]
              [--gaps-allowed GAPS_ALLOWED] [--fragment-size FRAGMENT_SIZE]
              [--false-discovery-rate-cutoff FALSE_DISCOVERY_RATE_CUTOFF]
              [--effective-genome-fraction EFFECTIVE_GENOME_FRACTION]
              [--chromsizes CHROMSIZES]
 
-SICER2. (Visit github.com/endrebak/SICER2 for examples and help.)
+epic2. (Visit github.com/endrebak/epic2 for examples and help.)
 
 optional arguments:
   -h, --help            show this help message and exit
   --treatment TREATMENT [TREATMENT ...], -t TREATMENT [TREATMENT ...]
-                        Treatment (pull-down) file(s) in (b/gzipped) bed/bedpe
-                        format.
+                        Treatment (pull-down) file(s) in one of these formats:
+                        bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam.
+                        Mixing file formats is allowed.
   --control CONTROL [CONTROL ...], -c CONTROL [CONTROL ...]
-                        Control (input) file(s) in (b/gzipped) bed/bedpe
-                        format.
+                        Control (input) file(s) in one of these formats: bed,
+                        bedpe, bed.gz, bedpe.gz or (single-end) bam, sam.
+                        Mixing file formats is allowed.
   --genome GENOME, -gn GENOME
                         Which genome to analyze. Default: hg19. If
-                        --chromsizes flag is given, --genome is not required.
-  --drop-duplicates, -d
-                        Drop reads mapping to the same position on the same
-                        strand within a library. Default: True.
+                        --chromsizes and --egf flag is given, --genome is not
+                        required.
+  --keep-duplicates, -kd
+                        Keep reads mapping to the same position on the same
+                        strand within a library. Default: False.
   --bin-size BIN_SIZE, -bin BIN_SIZE
-                        Size of the windows to scan the genome. WINDOW_SIZE is
+                        Size of the windows to scan the genome. BIN-SIZE is
                         the smallest possible island. Default 200.
   --gaps-allowed GAPS_ALLOWED, -g GAPS_ALLOWED
                         This number is multiplied by the window size to
-                        determine the gap size. Must be an integer. Default:
-                        3.
+                        determine the number of gaps (ineligible windows)
+                        allowed between two eligible windows. Must be an
+                        integer. Default: 3.
   --fragment-size FRAGMENT_SIZE, -fs FRAGMENT_SIZE
                         (Single end reads only) Size of the sequenced
-                        fragment. Half of the fragment size will be used to
-                        extend the reads from the 5' end. Default 150.
+                        fragment. Each read is extended half the fragment size
+                        from the 5' end. Default 150 (i.e. extend by 75).
   --false-discovery-rate-cutoff FALSE_DISCOVERY_RATE_CUTOFF, -fdr FALSE_DISCOVERY_RATE_CUTOFF
                         Remove all islands with an FDR below cutoff. Default
                         0.05.
   --effective-genome-fraction EFFECTIVE_GENOME_FRACTION, -egf EFFECTIVE_GENOME_FRACTION
                         Use a different effective genome fraction than the one
-                        included in epic. The default value depends on the
+                        included in epic2. The default value depends on the
                         genome and readlength, but is a number between 0 and
                         1.
   --chromsizes CHROMSIZES, -cs CHROMSIZES

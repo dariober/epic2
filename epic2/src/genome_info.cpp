@@ -4192,18 +4192,18 @@ static PyObject *__pyx_pw_5epic2_3src_11genome_info_13egl_and_chromsizes(PyObjec
 static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_args) {
   PyObject *__pyx_v_have_chromsizes = NULL;
   PyObject *__pyx_v_have_effective_genome_fraction = NULL;
+  PyObject *__pyx_v_read_length = NULL;
   PyObject *__pyx_v_chromsizes = NULL;
   PyObject *__pyx_v_egf = NULL;
   PyObject *__pyx_v_egl = NULL;
   PyObject *__pyx_v_genome_length = NULL;
-  PyObject *__pyx_v_read_length = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  int __pyx_t_3;
+  PyObject *__pyx_t_3 = NULL;
   int __pyx_t_4;
-  PyObject *__pyx_t_5 = NULL;
+  int __pyx_t_5;
   PyObject *__pyx_t_6 = NULL;
   int __pyx_t_7;
   PyObject *__pyx_t_8 = NULL;
@@ -4229,7 +4229,7 @@ static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_
  *     have_chromsizes = args["chromsizes"] != None
  *     have_effective_genome_fraction = args["effective_genome_fraction"] != None             # <<<<<<<<<<<<<<
  * 
- *     if have_chromsizes or have_effective_genome_fraction:
+ *     read_length = find_readlength(args)
  */
   __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_effective_genome_fraction); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 179, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -4241,66 +4241,59 @@ static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_
   /* "epic2/src/genome_info.pyx":181
  *     have_effective_genome_fraction = args["effective_genome_fraction"] != None
  * 
- *     if have_chromsizes or have_effective_genome_fraction:             # <<<<<<<<<<<<<<
- *         assert have_chromsizes
- *         assert have_effective_genome_fraction
+ *     read_length = find_readlength(args)             # <<<<<<<<<<<<<<
+ *     if have_chromsizes and have_effective_genome_fraction:
+ *         # assert have_chromsizes
  */
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_have_chromsizes); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 181, __pyx_L1_error)
-  if (!__pyx_t_4) {
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_find_readlength); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_args) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_args);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_v_read_length = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "epic2/src/genome_info.pyx":182
+ * 
+ *     read_length = find_readlength(args)
+ *     if have_chromsizes and have_effective_genome_fraction:             # <<<<<<<<<<<<<<
+ *         # assert have_chromsizes
+ *         # assert have_effective_genome_fraction
+ */
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_have_chromsizes); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 182, __pyx_L1_error)
+  if (__pyx_t_5) {
   } else {
-    __pyx_t_3 = __pyx_t_4;
+    __pyx_t_4 = __pyx_t_5;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_have_effective_genome_fraction); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 181, __pyx_L1_error)
-  __pyx_t_3 = __pyx_t_4;
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_have_effective_genome_fraction); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_t_4 = __pyx_t_5;
   __pyx_L4_bool_binop_done:;
-  if (__pyx_t_3) {
+  if (__pyx_t_4) {
 
-    /* "epic2/src/genome_info.pyx":182
- * 
- *     if have_chromsizes or have_effective_genome_fraction:
- *         assert have_chromsizes             # <<<<<<<<<<<<<<
- *         assert have_effective_genome_fraction
- * 
- */
-    #ifndef CYTHON_WITHOUT_ASSERTIONS
-    if (unlikely(!Py_OptimizeFlag)) {
-      __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_have_chromsizes); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 182, __pyx_L1_error)
-      if (unlikely(!__pyx_t_3)) {
-        PyErr_SetNone(PyExc_AssertionError);
-        __PYX_ERR(0, 182, __pyx_L1_error)
-      }
-    }
-    #endif
-
-    /* "epic2/src/genome_info.pyx":183
- *     if have_chromsizes or have_effective_genome_fraction:
- *         assert have_chromsizes
- *         assert have_effective_genome_fraction             # <<<<<<<<<<<<<<
- * 
- *         chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])
- */
-    #ifndef CYTHON_WITHOUT_ASSERTIONS
-    if (unlikely(!Py_OptimizeFlag)) {
-      __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_have_effective_genome_fraction); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 183, __pyx_L1_error)
-      if (unlikely(!__pyx_t_3)) {
-        PyErr_SetNone(PyExc_AssertionError);
-        __PYX_ERR(0, 183, __pyx_L1_error)
-      }
-    }
-    #endif
-
-    /* "epic2/src/genome_info.pyx":185
- *         assert have_effective_genome_fraction
+    /* "epic2/src/genome_info.pyx":186
+ *         # assert have_effective_genome_fraction
  * 
  *         chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])             # <<<<<<<<<<<<<<
  *         egf = args["effective_genome_fraction"]
  *         egl = egf * sum(chromsizes.values())
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_create_genome_size_dict_custom_g); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_create_genome_size_dict_custom_g); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_chromsizes_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 185, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_chromsizes_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_6 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
       __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_2);
@@ -4311,139 +4304,121 @@ static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_
         __Pyx_DECREF_SET(__pyx_t_2, function);
       }
     }
-    __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_6, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_5);
+    __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_6, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_chromsizes = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "epic2/src/genome_info.pyx":186
+    /* "epic2/src/genome_info.pyx":187
  * 
  *         chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])
  *         egf = args["effective_genome_fraction"]             # <<<<<<<<<<<<<<
  *         egl = egf * sum(chromsizes.values())
  *         genome_length = sum(chromsizes.values())
  */
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_effective_genome_fraction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_effective_genome_fraction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 187, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_egf = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "epic2/src/genome_info.pyx":187
+    /* "epic2/src/genome_info.pyx":188
  *         chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])
  *         egf = args["effective_genome_fraction"]
  *         egl = egf * sum(chromsizes.values())             # <<<<<<<<<<<<<<
  *         genome_length = sum(chromsizes.values())
- *     else:
- */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_chromsizes, __pyx_n_s_values); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 187, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = NULL;
-    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_2);
-      if (likely(__pyx_t_5)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-        __Pyx_INCREF(__pyx_t_5);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_2, function);
-      }
-    }
-    __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 187, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_sum, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 187, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PyNumber_Multiply(__pyx_v_egf, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 187, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_v_egl = __pyx_t_1;
-    __pyx_t_1 = 0;
-
-    /* "epic2/src/genome_info.pyx":188
- *         egf = args["effective_genome_fraction"]
- *         egl = egf * sum(chromsizes.values())
- *         genome_length = sum(chromsizes.values())             # <<<<<<<<<<<<<<
- *     else:
- *         read_length = find_readlength(args)
+ *     elif have_chromsizes:
  */
     __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_chromsizes, __pyx_n_s_values); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_5 = NULL;
+    __pyx_t_3 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_2);
-      if (likely(__pyx_t_5)) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_3)) {
         PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-        __Pyx_INCREF(__pyx_t_5);
+        __Pyx_INCREF(__pyx_t_3);
         __Pyx_INCREF(function);
         __Pyx_DECREF_SET(__pyx_t_2, function);
       }
     }
-    __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_sum, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = PyNumber_Multiply(__pyx_v_egf, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_v_egl = __pyx_t_1;
+    __pyx_t_1 = 0;
+
+    /* "epic2/src/genome_info.pyx":189
+ *         egf = args["effective_genome_fraction"]
+ *         egl = egf * sum(chromsizes.values())
+ *         genome_length = sum(chromsizes.values())             # <<<<<<<<<<<<<<
+ *     elif have_chromsizes:
+ *         chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])
+ */
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_chromsizes, __pyx_n_s_values); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_3 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
+      }
+    }
+    __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_sum, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_genome_length = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "epic2/src/genome_info.pyx":181
- *     have_effective_genome_fraction = args["effective_genome_fraction"] != None
+    /* "epic2/src/genome_info.pyx":182
  * 
- *     if have_chromsizes or have_effective_genome_fraction:             # <<<<<<<<<<<<<<
- *         assert have_chromsizes
- *         assert have_effective_genome_fraction
+ *     read_length = find_readlength(args)
+ *     if have_chromsizes and have_effective_genome_fraction:             # <<<<<<<<<<<<<<
+ *         # assert have_chromsizes
+ *         # assert have_effective_genome_fraction
  */
     goto __pyx_L3;
   }
 
   /* "epic2/src/genome_info.pyx":190
+ *         egl = egf * sum(chromsizes.values())
  *         genome_length = sum(chromsizes.values())
- *     else:
- *         read_length = find_readlength(args)             # <<<<<<<<<<<<<<
- *         chromsizes = create_genome_size_dict(args["genome"])
+ *     elif have_chromsizes:             # <<<<<<<<<<<<<<
+ *         chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])
  *         egf = get_effective_genome_fraction(args["genome"], read_length)
  */
-  /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_find_readlength); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = NULL;
-    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
-      __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_1);
-      if (likely(__pyx_t_5)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-        __Pyx_INCREF(__pyx_t_5);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_1, function);
-      }
-    }
-    __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_5, __pyx_v_args) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_args);
-    __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_v_read_length = __pyx_t_2;
-    __pyx_t_2 = 0;
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_have_chromsizes); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 190, __pyx_L1_error)
+  if (__pyx_t_4) {
 
     /* "epic2/src/genome_info.pyx":191
- *     else:
- *         read_length = find_readlength(args)
- *         chromsizes = create_genome_size_dict(args["genome"])             # <<<<<<<<<<<<<<
- *         egf = get_effective_genome_fraction(args["genome"], read_length)
  *         genome_length = sum(chromsizes.values())
+ *     elif have_chromsizes:
+ *         chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])             # <<<<<<<<<<<<<<
+ *         egf = get_effective_genome_fraction(args["genome"], read_length)
+ *         egl = egf * sum(chromsizes.values())
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_create_genome_size_dict); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 191, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_create_genome_size_dict_custom_g); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 191, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_genome); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 191, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_chromsizes_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 191, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_6 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
       __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_1);
@@ -4454,9 +4429,9 @@ static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_
         __Pyx_DECREF_SET(__pyx_t_1, function);
       }
     }
-    __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_6, __pyx_t_5) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_5);
+    __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_6, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4464,16 +4439,16 @@ static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_
     __pyx_t_2 = 0;
 
     /* "epic2/src/genome_info.pyx":192
- *         read_length = find_readlength(args)
- *         chromsizes = create_genome_size_dict(args["genome"])
+ *     elif have_chromsizes:
+ *         chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])
  *         egf = get_effective_genome_fraction(args["genome"], read_length)             # <<<<<<<<<<<<<<
+ *         egl = egf * sum(chromsizes.values())
  *         genome_length = sum(chromsizes.values())
- *         egl = egf * genome_length
  */
     __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_get_effective_genome_fraction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_genome); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 192, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_genome); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 192, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_6 = NULL;
     __pyx_t_7 = 0;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
@@ -4488,20 +4463,20 @@ static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_
     }
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_1)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_5, __pyx_v_read_length};
+      PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_v_read_length};
       __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else
     #endif
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_5, __pyx_v_read_length};
+      PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_3, __pyx_v_read_length};
       __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else
     #endif
     {
@@ -4510,12 +4485,12 @@ static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_
       if (__pyx_t_6) {
         __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
       }
-      __Pyx_GIVEREF(__pyx_t_5);
-      PyTuple_SET_ITEM(__pyx_t_8, 0+__pyx_t_7, __pyx_t_5);
+      __Pyx_GIVEREF(__pyx_t_3);
+      PyTuple_SET_ITEM(__pyx_t_8, 0+__pyx_t_7, __pyx_t_3);
       __Pyx_INCREF(__pyx_v_read_length);
       __Pyx_GIVEREF(__pyx_v_read_length);
       PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_v_read_length);
-      __pyx_t_5 = 0;
+      __pyx_t_3 = 0;
       __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -4525,11 +4500,11 @@ static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_
     __pyx_t_2 = 0;
 
     /* "epic2/src/genome_info.pyx":193
- *         chromsizes = create_genome_size_dict(args["genome"])
+ *         chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])
  *         egf = get_effective_genome_fraction(args["genome"], read_length)
- *         genome_length = sum(chromsizes.values())             # <<<<<<<<<<<<<<
- *         egl = egf * genome_length
- * 
+ *         egl = egf * sum(chromsizes.values())             # <<<<<<<<<<<<<<
+ *         genome_length = sum(chromsizes.values())
+ *     elif have_effective_genome_fraction:
  */
     __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_chromsizes, __pyx_n_s_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -4551,86 +4526,355 @@ static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_
     __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_sum, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = PyNumber_Multiply(__pyx_v_egf, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_v_egl = __pyx_t_2;
+    __pyx_t_2 = 0;
+
+    /* "epic2/src/genome_info.pyx":194
+ *         egf = get_effective_genome_fraction(args["genome"], read_length)
+ *         egl = egf * sum(chromsizes.values())
+ *         genome_length = sum(chromsizes.values())             # <<<<<<<<<<<<<<
+ *     elif have_effective_genome_fraction:
+ *         chromsizes = create_genome_size_dict(args["genome"])
+ */
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_chromsizes, __pyx_n_s_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_8 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+      __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_1);
+      if (likely(__pyx_t_8)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+        __Pyx_INCREF(__pyx_t_8);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_1, function);
+      }
+    }
+    __pyx_t_2 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
+    __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_sum, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_genome_length = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "epic2/src/genome_info.pyx":194
+    /* "epic2/src/genome_info.pyx":190
+ *         egl = egf * sum(chromsizes.values())
+ *         genome_length = sum(chromsizes.values())
+ *     elif have_chromsizes:             # <<<<<<<<<<<<<<
+ *         chromsizes = create_genome_size_dict_custom_genome(args["chromsizes"])
+ *         egf = get_effective_genome_fraction(args["genome"], read_length)
+ */
+    goto __pyx_L3;
+  }
+
+  /* "epic2/src/genome_info.pyx":195
+ *         egl = egf * sum(chromsizes.values())
+ *         genome_length = sum(chromsizes.values())
+ *     elif have_effective_genome_fraction:             # <<<<<<<<<<<<<<
+ *         chromsizes = create_genome_size_dict(args["genome"])
+ *         egf = args["effective_genome_fraction"]
+ */
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_have_effective_genome_fraction); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 195, __pyx_L1_error)
+  if (__pyx_t_4) {
+
+    /* "epic2/src/genome_info.pyx":196
+ *         genome_length = sum(chromsizes.values())
+ *     elif have_effective_genome_fraction:
+ *         chromsizes = create_genome_size_dict(args["genome"])             # <<<<<<<<<<<<<<
+ *         egf = args["effective_genome_fraction"]
+ *         genome_length = sum(chromsizes.values())
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_create_genome_size_dict); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_genome); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 196, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __pyx_t_3 = NULL;
+    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
+      }
+    }
+    __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_8);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_v_chromsizes = __pyx_t_1;
+    __pyx_t_1 = 0;
+
+    /* "epic2/src/genome_info.pyx":197
+ *     elif have_effective_genome_fraction:
+ *         chromsizes = create_genome_size_dict(args["genome"])
+ *         egf = args["effective_genome_fraction"]             # <<<<<<<<<<<<<<
+ *         genome_length = sum(chromsizes.values())
+ *         egl = egf * genome_length
+ */
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_effective_genome_fraction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_v_egf = __pyx_t_1;
+    __pyx_t_1 = 0;
+
+    /* "epic2/src/genome_info.pyx":198
+ *         chromsizes = create_genome_size_dict(args["genome"])
+ *         egf = args["effective_genome_fraction"]
+ *         genome_length = sum(chromsizes.values())             # <<<<<<<<<<<<<<
+ *         egl = egf * genome_length
+ * 
+ */
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_chromsizes, __pyx_n_s_values); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 198, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_8 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
+      __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_2);
+      if (likely(__pyx_t_8)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+        __Pyx_INCREF(__pyx_t_8);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_2, function);
+      }
+    }
+    __pyx_t_1 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
+    __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_sum, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 198, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_v_genome_length = __pyx_t_2;
+    __pyx_t_2 = 0;
+
+    /* "epic2/src/genome_info.pyx":199
+ *         egf = args["effective_genome_fraction"]
+ *         genome_length = sum(chromsizes.values())
+ *         egl = egf * genome_length             # <<<<<<<<<<<<<<
+ * 
+ *     else:
+ */
+    __pyx_t_2 = PyNumber_Multiply(__pyx_v_egf, __pyx_v_genome_length); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 199, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_v_egl = __pyx_t_2;
+    __pyx_t_2 = 0;
+
+    /* "epic2/src/genome_info.pyx":195
+ *         egl = egf * sum(chromsizes.values())
+ *         genome_length = sum(chromsizes.values())
+ *     elif have_effective_genome_fraction:             # <<<<<<<<<<<<<<
+ *         chromsizes = create_genome_size_dict(args["genome"])
+ *         egf = args["effective_genome_fraction"]
+ */
+    goto __pyx_L3;
+  }
+
+  /* "epic2/src/genome_info.pyx":202
+ * 
+ *     else:
+ *         chromsizes = create_genome_size_dict(args["genome"])             # <<<<<<<<<<<<<<
+ *         egf = get_effective_genome_fraction(args["genome"], read_length)
+ *         genome_length = sum(chromsizes.values())
+ */
+  /*else*/ {
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_create_genome_size_dict); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 202, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_genome); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 202, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __pyx_t_3 = NULL;
+    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_1, function);
+      }
+    }
+    __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_8);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 202, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_v_chromsizes = __pyx_t_2;
+    __pyx_t_2 = 0;
+
+    /* "epic2/src/genome_info.pyx":203
+ *     else:
+ *         chromsizes = create_genome_size_dict(args["genome"])
+ *         egf = get_effective_genome_fraction(args["genome"], read_length)             # <<<<<<<<<<<<<<
+ *         genome_length = sum(chromsizes.values())
+ *         egl = egf * genome_length
+ */
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_get_effective_genome_fraction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_8 = __Pyx_PyObject_Dict_GetItem(__pyx_v_args, __pyx_n_s_genome); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __pyx_t_3 = NULL;
+    __pyx_t_7 = 0;
+    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+        __Pyx_INCREF(__pyx_t_3);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_1, function);
+        __pyx_t_7 = 1;
+      }
+    }
+    #if CYTHON_FAST_PYCALL
+    if (PyFunction_Check(__pyx_t_1)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_8, __pyx_v_read_length};
+      __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    } else
+    #endif
+    #if CYTHON_FAST_PYCCALL
+    if (__Pyx_PyFastCFunction_Check(__pyx_t_1)) {
+      PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_t_8, __pyx_v_read_length};
+      __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_1, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+      __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    } else
+    #endif
+    {
+      __pyx_t_6 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 203, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      if (__pyx_t_3) {
+        __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_3); __pyx_t_3 = NULL;
+      }
+      __Pyx_GIVEREF(__pyx_t_8);
+      PyTuple_SET_ITEM(__pyx_t_6, 0+__pyx_t_7, __pyx_t_8);
+      __Pyx_INCREF(__pyx_v_read_length);
+      __Pyx_GIVEREF(__pyx_v_read_length);
+      PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_7, __pyx_v_read_length);
+      __pyx_t_8 = 0;
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    }
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_v_egf = __pyx_t_2;
+    __pyx_t_2 = 0;
+
+    /* "epic2/src/genome_info.pyx":204
+ *         chromsizes = create_genome_size_dict(args["genome"])
+ *         egf = get_effective_genome_fraction(args["genome"], read_length)
+ *         genome_length = sum(chromsizes.values())             # <<<<<<<<<<<<<<
+ *         egl = egf * genome_length
+ * 
+ */
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_chromsizes, __pyx_n_s_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_6 = NULL;
+    if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
+      __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_1);
+      if (likely(__pyx_t_6)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+        __Pyx_INCREF(__pyx_t_6);
+        __Pyx_INCREF(function);
+        __Pyx_DECREF_SET(__pyx_t_1, function);
+      }
+    }
+    __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
+    __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_sum, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_v_genome_length = __pyx_t_1;
+    __pyx_t_1 = 0;
+
+    /* "epic2/src/genome_info.pyx":205
  *         egf = get_effective_genome_fraction(args["genome"], read_length)
  *         genome_length = sum(chromsizes.values())
  *         egl = egf * genome_length             # <<<<<<<<<<<<<<
  * 
  *     sys.stderr.write("Using an effective genome length of ~{} * 1e6 \n\n".format(int(egl/1e6)))
  */
-    __pyx_t_1 = PyNumber_Multiply(__pyx_v_egf, __pyx_v_genome_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_Multiply(__pyx_v_egf, __pyx_v_genome_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_egl = __pyx_t_1;
     __pyx_t_1 = 0;
   }
   __pyx_L3:;
 
-  /* "epic2/src/genome_info.pyx":196
+  /* "epic2/src/genome_info.pyx":207
  *         egl = egf * genome_length
  * 
  *     sys.stderr.write("Using an effective genome length of ~{} * 1e6 \n\n".format(int(egl/1e6)))             # <<<<<<<<<<<<<<
  * 
  *     return egl, chromsizes
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_sys); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_sys); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_stderr); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 196, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_write); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Using_an_effective_genome_length, __pyx_n_s_format); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 196, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyFloat_DivideObjC(__pyx_v_egl, __pyx_float_1e6, 1e6, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_stderr); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_9 = __Pyx_PyNumber_Int(__pyx_t_6); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 196, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_9);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_write); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = NULL;
-  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
-    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_5);
-    if (likely(__pyx_t_6)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_5);
-      __Pyx_INCREF(__pyx_t_6);
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_kp_s_Using_an_effective_genome_length, __pyx_n_s_format); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_8);
+  __pyx_t_3 = __Pyx_PyFloat_DivideObjC(__pyx_v_egl, __pyx_float_1e6, 1e6, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_9 = __Pyx_PyNumber_Int(__pyx_t_3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_9);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_8);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_8);
+      __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_5, function);
+      __Pyx_DECREF_SET(__pyx_t_8, function);
     }
   }
-  __pyx_t_8 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_9);
-  __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_6 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_3, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_9);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 196, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = NULL;
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 207, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __pyx_t_8 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_5)) {
+    __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_8)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_5);
+      __Pyx_INCREF(__pyx_t_8);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_5, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_1 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_8, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "epic2/src/genome_info.pyx":198
+  /* "epic2/src/genome_info.pyx":209
  *     sys.stderr.write("Using an effective genome length of ~{} * 1e6 \n\n".format(int(egl/1e6)))
  * 
  *     return egl, chromsizes             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_egl);
   __Pyx_GIVEREF(__pyx_v_egl);
@@ -4654,7 +4898,7 @@ static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
@@ -4663,11 +4907,11 @@ static PyObject *__pyx_pf_5epic2_3src_11genome_info_12egl_and_chromsizes(CYTHON_
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_have_chromsizes);
   __Pyx_XDECREF(__pyx_v_have_effective_genome_fraction);
+  __Pyx_XDECREF(__pyx_v_read_length);
   __Pyx_XDECREF(__pyx_v_chromsizes);
   __Pyx_XDECREF(__pyx_v_egf);
   __Pyx_XDECREF(__pyx_v_egl);
   __Pyx_XDECREF(__pyx_v_genome_length);
-  __Pyx_XDECREF(__pyx_v_read_length);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -4842,7 +5086,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(0, 22, __pyx_L1_error)
   __pyx_builtin_open = __Pyx_GetBuiltinName(__pyx_n_s_open); if (!__pyx_builtin_open) __PYX_ERR(0, 46, __pyx_L1_error)
   __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_n_s_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(0, 165, __pyx_L1_error)
-  __pyx_builtin_sum = __Pyx_GetBuiltinName(__pyx_n_s_sum); if (!__pyx_builtin_sum) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_builtin_sum = __Pyx_GetBuiltinName(__pyx_n_s_sum); if (!__pyx_builtin_sum) __PYX_ERR(0, 188, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -4986,7 +5230,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *     have_chromsizes = args["chromsizes"] != None
  */
-  __pyx_tuple__21 = PyTuple_Pack(8, __pyx_n_s_args, __pyx_n_s_have_chromsizes, __pyx_n_s_have_effective_genome_fraction, __pyx_n_s_chromsizes_3, __pyx_n_s_egf, __pyx_n_s_egl, __pyx_n_s_genome_length, __pyx_n_s_read_length); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_tuple__21 = PyTuple_Pack(8, __pyx_n_s_args, __pyx_n_s_have_chromsizes, __pyx_n_s_have_effective_genome_fraction, __pyx_n_s_read_length, __pyx_n_s_chromsizes_3, __pyx_n_s_egf, __pyx_n_s_egl, __pyx_n_s_genome_length); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
   __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(1, 0, 8, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_genome_info_pyx, __pyx_n_s_egl_and_chromsizes, 176, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 176, __pyx_L1_error)

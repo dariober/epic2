@@ -105,7 +105,9 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
 
             dist = _bin - current_island.end
 
-            # if chromosome == b"chr1" and bins[i] in [36532800, 36533000, 36533200, 36533400, 36533600, 36533800, 36534000, 36534200, 36534400, 36534600, 36534800, 36535000] :
+            # 1035, 1047
+            # if chromosome == b"chr1" and i in range(1030, 1060): # bins[i] in range(892200, 894799, 200):
+            #     print("i", i)
             #     print("bins[i]", bins[i], "counts[i]", count)
             #     print("island_enriched", min_tags_in_windw)
             #     print("dist", dist)
