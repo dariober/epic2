@@ -18,7 +18,7 @@ cdef extern from "read_files.hpp":
     genome_map read_bed_gz(const char *, uint32_t)
     genome_map read_bedpe(const char *, uint32_t)
     genome_map read_bedpe_gz(const char *, uint32_t)
-    genome_map read_bam(const char *)
+    genome_map read_bam(const char *, uint32_t)
 
 
 

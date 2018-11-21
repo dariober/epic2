@@ -25,7 +25,7 @@ ctypedef pair [int, char] intkey
 ctypedef map[intkey, intvec] genome_map_int
 ctypedef map[key, intvec] genome_map
 ctypedef map[intkey, interval_vector] genome_intervals_int
-ctypedef map[key, interval_vector] genome_intervals
+ctypedef map[key, intvec] genome_intervals
 
 
 # include "<htslib>"
@@ -36,13 +36,55 @@ ctypedef map[key, interval_vector] genome_intervals
 #     cdef:
 
 
+cdef uint32_t compare_start_end(interval lhs, interval rhs):
+  if (lhs.start < rhs.start):
+    return 1
+  elif (rhs.start < lhs.start):
+      return 0
+  elif (lhs.end < rhs.end):
+      return 1
+  else:
+    return 0
+
+
+# uint32_t compare_by_start_end(const interval lhs, const interval rhs){
+#   if (lhs.start < rhs.start){
+#     return 1;
+#   } else if (rhs.start < lhs.start){
+#     return 0;
+#   } else if (lhs.end < rhs.end){
+#     return 1;
+#   } else {
+#     return 0;
+#   };
+
+# }
+
+cdef uint32_t start_end_equal(interval lhs, interval rhs):
+  if ((lhs.start == rhs.start) and (lhs.end == rhs.end)):
+      return 1
+  else:
+      return 0
+
+
+
+
+# uint32_t start_end_equal(const interval lhs, const interval rhs){
+#   if ((lhs.start == rhs.start) && (lhs.end == rhs.end)){
+#       return 1;
+#   } else {
+#     return 0;
+#   }
+# }
+
+
 import pysam
 
 
 from pysam.libcalignmentfile cimport AlignmentFile, AlignedSegment
 
 
-cpdef read_bam(filename):
+cpdef read_bam(filename, uint32_t drop_duplicates):
 
     cdef:
         uint32_t flag
@@ -61,8 +103,11 @@ cpdef read_bam(filename):
         genome_intervals_int genome
         genome_intervals genome_fixed
         interval _interval
+        interval_vector intervals
+        intvec five_ends
         # AlignmentFile samfile
         # AlignedSegment a
+        uint32_t i = 0
 
     samfile = pysam.AlignmentFile(filename, "rb")
 
@@ -101,13 +146,24 @@ cpdef read_bam(filename):
         chromosome = samfile.get_reference_name(chromosome_id).encode("utf-8")
 
         strand = dereference(it).first.second
+        intervals = dereference(it).second
+        five_ends = intvec()
+
+        if drop_duplicates:
+
+            stdsort(intervals.begin(), intervals.end(), compare_start_end)
+            intervals.erase(unique(intervals.begin(), intervals.end(), start_end_equal), intervals.end())
 
         if chr(strand) == "+":
             chrom_strand_fixed = make_pair(<string>chromosome, <char>forward)
-            genome_fixed[chrom_strand_fixed] = dereference(it).second
+            for i in range(intervals.size()):
+                five_ends.push_back(intervals[i].start)
         else:
             chrom_strand_fixed = make_pair(<string>chromosome, <char>reverse)
-            genome_fixed[chrom_strand_fixed] = dereference(it).second
+            for i in range(intervals.size()):
+                five_ends.push_back(intervals[i].end)
+
+        genome_fixed[chrom_strand_fixed] = five_ends
 
         postincrement(it)
 
