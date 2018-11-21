@@ -142,9 +142,12 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
 def add_chip_count_to_islands(islands, c_bins_counts):
     cdef:
         int i
+        int j = 0
         island current_island
         IslandVector _islands
         IslandVector updated_islands
+        uint32_t[::1] bins = np.ones(1, dtype=np.uint32)
+        uint16_t[::1] counts = np.ones(1, dtype=np.uint16)
 
     new_islands = {}
     chromosomes = natsorted(set(islands.keys()))
@@ -169,12 +172,12 @@ def add_chip_count_to_islands(islands, c_bins_counts):
             _island = _islands.wrapped_vector[i]
 
             # not overlapping
-            while (bins[j] < _island.start and j < number_bins):
+            while j < number_bins and (bins[j] < _island.start):
                 # print("bins[j]", bins[j], "_island.start", _island.start)
                 j += 1
 
             # overlapping
-            while (bins[j] < _island.end and bins[j] >= _island.start and j < number_bins):
+            while j < number_bins and (bins[j] < _island.end and bins[j] >= _island.start):
                 _island.chip_count += counts[j]
                 j += 1
 
@@ -235,12 +238,12 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
 
 
             # not overlapping
-            while (bins[j] < _island.start and j < number_bins):
+            while j < number_bins and (bins[j] < _island.start):
                 # print("bins[j]", bins[j], "_island.start", _island.start)
                 j += 1
 
             # overlapping
-            while (bins[j] < _island.end and bins[j] >= _island.start and j < number_bins):
+            while j < number_bins and (bins[j] < _island.end and bins[j] >= _island.start):
                 _island.input_count += counts[j]
                 j += 1
 

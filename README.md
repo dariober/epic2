@@ -90,4 +90,4 @@ optional arguments:
 
 #### Performance
 
-<img src="graphs/epic2.png" />
+<img src="graphs/speed_SICER2_vs_SICER_no_bigwig.png" />
