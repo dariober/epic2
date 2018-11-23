@@ -13,7 +13,7 @@ ctypedef vector[uint32_t] intvec
 ctypedef map[key, intvec] genome_map
 
 
-cdef extern from "read_files.hpp":
+cdef extern from "read_files.cpp":
     genome_map read_bed(const char *, uint32_t)
     genome_map read_bed_gz(const char *, uint32_t)
     genome_map read_bedpe(const char *, uint32_t)

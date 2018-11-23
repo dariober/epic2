@@ -4,7 +4,7 @@
 {
     "distutils": {
         "depends": [
-            "epic2/src/read_files.hpp"
+            "epic2/src/read_files.cpp"
         ],
         "extra_compile_args": [
             "-Ofast",
@@ -25,7 +25,8 @@
         "name": "epic2.src.reads_to_bins",
         "sources": [
             "epic2/src/reads_to_bins.pyx",
-            "epic2/src/gzstream.cpp"
+            "epic2/src/gzstream.cpp",
+            "epic2/src/read_files.cpp"
         ]
     },
     "module_name": "epic2.src.reads_to_bins"
@@ -661,7 +662,7 @@ static CYTHON_INLINE float __PYX_NAN() {
 #include <vector>
 #include <map>
 #include <stdint.h>
-#include "read_files.hpp"
+#include "read_files.cpp"
 #include <algorithm>
 #include "pythread.h"
 #include <stdlib.h>

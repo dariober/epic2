@@ -21,7 +21,7 @@ typedef std::vector<interval> interval_vector;
 // typedef std::map<key, intvec> genome_tags;
 typedef std::map<key, interval_vector> genome_intervals;
 
-uint32_t compare_by_start_end(const interval lhs, const interval rhs){
+uint32_t compare_by_start_end_(const interval lhs, const interval rhs){
   if (lhs.start < rhs.start){
     return 1;
   } else if (rhs.start < lhs.start){
@@ -35,7 +35,7 @@ uint32_t compare_by_start_end(const interval lhs, const interval rhs){
 }
 
 
-uint32_t start_end_equal(const interval lhs, const interval rhs){
+uint32_t start_end_equal_(const interval lhs, const interval rhs){
   if ((lhs.start == rhs.start) && (lhs.end == rhs.end)){
       return 1;
     } else {
@@ -49,7 +49,7 @@ genome_map intervals_to_five_end(genome_intervals genome, uint32_t drop_duplicat
   genome_intervals::iterator it;
   char strand;
 
-  uint i = 0;
+  uint32_t i = 0;
 
   key chrom_strand;
   interval_vector intervals;
@@ -64,8 +64,8 @@ genome_map intervals_to_five_end(genome_intervals genome, uint32_t drop_duplicat
     intervals = it->second;
 
     if (drop_duplicates){
-      std::sort(intervals.begin(), intervals.end(), compare_by_start_end);
-      intervals.erase(unique(intervals.begin(), intervals.end(), start_end_equal), intervals.end());
+      std::sort(intervals.begin(), intervals.end(), compare_by_start_end_);
+      intervals.erase(unique(intervals.begin(), intervals.end(), start_end_equal_), intervals.end());
     }
 
     i = 0;
