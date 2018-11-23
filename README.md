@@ -2,6 +2,14 @@
 
 epic2 is an ultraperformant reimplementation of SICER. It focuses on speed, low memory overhead and ease of use.
 
+## Note
+
+We are extremely responsive to bugs, issues and installation problems. We are
+proud to say that epic was 20% more downloaded on PyPI than MACS2 even, and we
+believe that was (among other things) because it was easy to install and use. We
+wish to make epic2 similarly easy to install and use, so please report any
+issues you have.
+
 #### Features
 
 * easy to install and use

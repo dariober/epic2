@@ -46,7 +46,8 @@ cdef class IslandVector:
         return str(self)
 
     def __len__(self):
-        return self.wrapped_vector.size()
+
+        return int(self.wrapped_vector.size())
 
     def __iter__(self):
         # slow, only implemented to ease testing
@@ -138,8 +139,9 @@ def find_islands(bins_counts, int gaps_allowed, int bin_size, float score_thresh
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.initializedcheck(False)
-@cython.cdivision(True)
+@cython.cdivision(False)
 def add_chip_count_to_islands(islands, c_bins_counts):
+
     cdef:
         int i
         int j = 0
@@ -149,9 +151,11 @@ def add_chip_count_to_islands(islands, c_bins_counts):
         uint32_t[::1] bins = np.ones(1, dtype=np.uint32)
         uint16_t[::1] counts = np.ones(1, dtype=np.uint16)
 
+
+
     new_islands = {}
     chromosomes = natsorted(set(islands.keys()))
-    num_islands_per_chrom = {c: len(v) for c, v in natsorted(islands.items())}
+
     for chromosome in chromosomes:
 
         updated_islands = IslandVector()
@@ -184,7 +188,7 @@ def add_chip_count_to_islands(islands, c_bins_counts):
             updated_islands.wrapped_vector.push_back(_island)
 
         new_islands[chromosome] = updated_islands
-        del c_bins_counts[chromosome]
+        # del c_bins_counts[chromosome]
 
     return new_islands
 
@@ -212,12 +216,14 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
         int num_islands
         int counter
 
-    # print("chip_library_size", chip_library_size)
-    # print("control_library_size", control_library_size)
-    # print("float(chip_library_size) / float(control_library_size)", float(chip_library_size) / float(control_library_size))
     sf = poisson.sf
     chromosomes = natsorted(set(islands.keys()))
-    num_islands_per_chrom = {c: len(v) for c, v in natsorted(islands.items())}
+
+    num_islands_per_chrom = {}
+    for c in natsorted(islands):
+        _islands = islands[c]
+        num_islands_per_chrom[c] = len(_islands)
+
     # print("scaling_factor", scaling_factor)
     # print("zero_scaler", zero_scaler)
     for chromosome in chromosomes:
@@ -306,18 +312,28 @@ def write_islands(islands, float average_window_readcount, float fdr_cutoff):
 
 
     chromosomes = natsorted(set(islands.keys()))
-    num_islands_per_chrom = [len(v) for _, v in natsorted(islands.items())]
+
+    num_islands_per_chrom = {}
+    for c in natsorted(islands):
+        _islands = islands[c]
+        num_islands_per_chrom[c] = len(_islands)
+
+
     _poisson = poisson(average_window_readcount)
     print("\t".join(["Chromosome", "Start", "End", "PValue", "ChIPCount", "Strand", "FDR"]))
     for chromosome in chromosomes:
         _islands = islands[chromosome]
-        for _island in _islands:
+
+        for i in range(len(_islands)):
+            _island = _islands.wrapped_vector[i]
+
             _island.p_value = _poisson.pmf(_island.chip_count)
             all_islands.wrapped_vector.push_back(_island)
 
     ranks = rankdata(np.array([_island.p_value for _island in all_islands], dtype=np.int))
     counter = 0
     num_islands = len(all_islands)
+
     for chromosome, chromosome_size in zip(chromosomes, num_islands_per_chrom):
 
         i = 0

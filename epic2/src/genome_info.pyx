@@ -67,7 +67,7 @@ def find_readlength(args):
             if i == 100:
                 break
 
-        print(arr)
+        # print(arr)
 
 
     return get_closest_readlength(np.median(arr))
