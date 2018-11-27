@@ -1,4 +1,6 @@
 from scipy.stats import poisson, rankdata
+import sys
+import logging
 import cython
 from libcpp cimport bool
 
@@ -188,7 +190,7 @@ def add_chip_count_to_islands(islands, c_bins_counts):
             updated_islands.wrapped_vector.push_back(_island)
 
         new_islands[chromosome] = updated_islands
-        # del c_bins_counts[chromosome]
+        del c_bins_counts[chromosome]
 
     return new_islands
 
@@ -224,11 +226,11 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
         _islands = islands[c]
         num_islands_per_chrom[c] = len(_islands)
 
-    # print("scaling_factor", scaling_factor)
-    # print("zero_scaler", zero_scaler)
     for chromosome in chromosomes:
+
         j = 0
         _islands = islands[chromosome]
+        print(_islands)
         # print("chr", chromosome, len(_islands), _islands)
 
         if chromosome not in b_bins_counts:
@@ -238,62 +240,57 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
         number_bins = len(bins)
 
         for i in range(len(_islands)):
-            # _island = &_islands.wrapped_vector[i]
-            _island = _islands.wrapped_vector[i]
-
-
 
             # not overlapping
-            while j < number_bins and (bins[j] < _island.start):
-                # print("bins[j]", bins[j], "_island.start", _island.start)
+            while j < number_bins and (bins[j] < _islands.wrapped_vector[i].start):
+                # print("bins[j]", bins[j], "_islands.wrapped_vector[i].start", _islands.wrapped_vector[i].start)
                 j += 1
 
             # overlapping
-            while j < number_bins and (bins[j] < _island.end and bins[j] >= _island.start):
-                _island.input_count += counts[j]
+            while j < number_bins and (bins[j] < _islands.wrapped_vector[i].end and bins[j] >= _islands.wrapped_vector[i].start):
+                _islands.wrapped_vector[i].input_count += counts[j]
                 j += 1
 
             ##### COMPUTE P ########
-            if _island.input_count > 0:
-                average = _island.input_count * scaling_factor
+            if _islands.wrapped_vector[i].input_count > 0:
+                average = _islands.wrapped_vector[i].input_count * scaling_factor
             else:
-                average = (_island.end - _island.start + 1) * zero_scaler
+                average = (_islands.wrapped_vector[i].end - _islands.wrapped_vector[i].start + 1) * zero_scaler
                 average = min(0.25, average) * scaling_factor
 
-            _island.fold_change = log2(_island.chip_count / average)
+            _islands.wrapped_vector[i].fold_change = log2(_islands.wrapped_vector[i].chip_count / average)
 
-            if _island.chip_count > average:
-                _island.p_value = sf(_island.chip_count, average)
+            if _islands.wrapped_vector[i].chip_count > average:
+                _islands.wrapped_vector[i].p_value = sf(_islands.wrapped_vector[i].chip_count, average)
             else:
-                _island.p_value = 1
+                _islands.wrapped_vector[i].p_value = 1
 
-
-
-            all_islands.push_back(_island)
+            all_islands.push_back(_islands.wrapped_vector[i])
 
         del b_bins_counts[chromosome]
 
+    p_values = np.zeros(len(all_islands))
 
-    ranks = rankdata(np.array([_island.p_value for _island in all_islands], dtype=np.int))
+    for i in range(len(all_islands)):
+        p_values[i] = all_islands.wrapped_vector[i].p_value
+
+    ranks = rankdata(p_values)
 
     counter = 0
     j = 0
     num_islands = len(all_islands)
 
-    # print("len all islands", num_islands)
-    # print("len chromsizes", sum(num_islands_per_chrom.values()))
-
     print("\t".join(["Chromosome", "Start", "End", "PValue", "Score", "Strand", "ChIPCount", "InputCount", "FDR", "log2(FoldChange)"]))
     for i in range(num_islands):
-            _island = all_islands.wrapped_vector[i]
-            fdr = _island.p_value * num_islands / ranks[i]
+            # _island = all_islands.wrapped_vector[i]
+            fdr = all_islands.wrapped_vector[i].p_value * num_islands / ranks[i]
             if fdr > 1:
                 fdr = 1
 
             if fdr <= fdr_cutoff:
-                chromosome = _island.chromosome.decode()
-                print("\t".join(str(e) for e in [chromosome, _island.start, _island.end, _island.p_value,
-                                                 min(1000, _island.fold_change * 100), ".", _island.chip_count, _island.input_count, fdr, _island.fold_change]))
+                chromosome = all_islands.wrapped_vector[i].chromosome.decode()
+                print("\t".join(str(e) for e in [chromosome, all_islands.wrapped_vector[i].start, all_islands.wrapped_vector[i].end, all_islands.wrapped_vector[i].p_value,
+                                                 min(1000, all_islands.wrapped_vector[i].fold_change * 100), ".", all_islands.wrapped_vector[i].chip_count, all_islands.wrapped_vector[i].input_count, fdr, all_islands.wrapped_vector[i].fold_change]))
 
         # counter += chromosome_size
 
@@ -303,7 +300,6 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
 def write_islands(islands, float average_window_readcount, float fdr_cutoff):
 
     cdef:
-        island _island
         IslandVector _islands
         IslandVector all_islands = IslandVector()
         int i
@@ -325,26 +321,34 @@ def write_islands(islands, float average_window_readcount, float fdr_cutoff):
         _islands = islands[chromosome]
 
         for i in range(len(_islands)):
-            _island = _islands.wrapped_vector[i]
+            # _islands.wrapped_vector[i] = _islands.wrapped_vector[i]
 
-            _island.p_value = _poisson.pmf(_island.chip_count)
-            all_islands.wrapped_vector.push_back(_island)
+            _islands.wrapped_vector[i].p_value = _poisson.pmf(_islands.wrapped_vector[i].chip_count)
+            all_islands.push_back(_islands.wrapped_vector[i])
 
-    ranks = rankdata(np.array([_island.p_value for _island in all_islands], dtype=np.int))
+    # ranks = rankdata(np.array([_islands.wrapped_vector[i].p_value for _islands.wrapped_vector[i] in all_islands.wrapped_vector[i]s], dtype=np.int))
+
+    p_values = np.zeros(len(all_islands))
+
+    for i in range(len(all_islands)):
+        p_values[i] = all_islands.wrapped_vector[i].p_value
+
+    ranks = rankdata(p_values)
+
     counter = 0
     num_islands = len(all_islands)
 
-    for chromosome, chromosome_size in zip(chromosomes, num_islands_per_chrom):
+    for chromosome, chromosome_size in natsorted(num_islands_per_chrom.items()):
 
         i = 0
-        for i in range(chromosome_size):
+        for i in range(int(chromosome_size)):
 
             #### compute fdr #####
-            _island = all_islands.wrapped_vector[i + counter]
+            # _islands.wrapped_vector[i] = all_islands.wrapped_vector[i + counter]
 
-            fdr = _island.p_value * num_islands / ranks[i + counter]
+            fdr = all_islands.wrapped_vector[i + counter].p_value * num_islands / ranks[i + counter]
             # print("fdr cutoff", fdr_cutoff)
             if fdr > 1:
                 fdr = 1
             if fdr <= fdr_cutoff:
-                print("\t".join(str(e) for e in [chromosome, _island.start, _island.end, _island.p_value, _island.chip_count, ".", fdr]))
+                print("\t".join(str(e) for e in [chromosome, all_islands.wrapped_vector[i].start, all_islands.wrapped_vector[i].end, all_islands.wrapped_vector[i].p_value, all_islands.wrapped_vector[i].chip_count, ".", fdr]))

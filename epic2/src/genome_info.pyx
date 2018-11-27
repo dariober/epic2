@@ -1,3 +1,4 @@
+import logging
 from os.path import basename
 from natsort import natsorted
 from collections import OrderedDict
@@ -68,9 +69,11 @@ def find_readlength(args):
                 break
 
         # print(arr)
+    median = np.median(arr)
+    logging.info("Found a median readlength of {}\n".format(median))
 
 
-    return get_closest_readlength(np.median(arr))
+    return get_closest_readlength(median)
 
 
     # filereader = "cat "
@@ -204,6 +207,6 @@ def egl_and_chromsizes(args):
         genome_length = sum(chromsizes.values())
         egl = egf * genome_length
 
-    sys.stderr.write("Using an effective genome length of ~{} * 1e6 \n\n".format(int(egl/1e6)))
+    logging.info("Using an effective genome length of ~{} * 1e6\n".format(int(egl/1e6)))
 
     return egl, chromsizes

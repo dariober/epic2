@@ -116,10 +116,33 @@ parser.add_argument(
     '''Set the chromosome lengths yourself in a file with two columns: chromosome names and sizes. Useful to analyze custom genomes, assemblies or simulated data. Only chromosomes included in the file will be analyzed.''')
 
 
+parser.add_argument(
+    '--verbose',
+    '-v',
+    required=False,
+    default=False,
+    action="store_true",
+    help=
+    '''Write output messages to stderr.''')
+
 def main():
 
     args = vars(parser.parse_args())
     args["drop_duplicates"] = int(not args["keep_duplicates"])
+
+    import logging
+
+    if args["verbose"]:
+        level = logging.INFO
+    else:
+        level = logging.CRITICAL
+
+    logging.basicConfig(
+        level=level,
+        format=
+        '%(message)s ',
+        datefmt='%a, %d %b %Y %H:%M:%S',
+        stream=sys.stderr)
 
     effective_genome_length, chromsizes = egl_and_chromsizes(args)
     args["chromsizes"] = chromsizes
@@ -128,23 +151,23 @@ def main():
     c_bins_counts = files_to_bin_counts(args["treatment"], args, "ChIP")
     chip_count = sum(sum(counts) for _, counts in c_bins_counts.values())
 
-    sys.stderr.write("\n  Valid ChIP reads: {}\n".format(chip_count))
+    logging.info("\nValid ChIP reads: {}\n".format(chip_count))
 
     score_threshold, island_enriched_threshold, average_window_readcount = compute_score_threshold(
         chip_count, args["bin_size"], effective_genome_length, args["gaps_allowed"] * args["bin_size"])
 
-    sys.stderr.write("\nNumber of tags in a window: {}\n".format(island_enriched_threshold))
+    logging.info("Number of tags in a window: {}\n".format(island_enriched_threshold))
 
     islands = find_islands(c_bins_counts, args["gaps_allowed"], args["bin_size"], score_threshold, island_enriched_threshold, average_window_readcount)
     new_islands = add_chip_count_to_islands(islands, c_bins_counts)
 
-    sys.stderr.write("\nNumber of islands found: {}\n\n".format(sum(len(i) for i in islands.values())))
+    logging.info("Number of islands found: {}\n".format(sum(len(i) for i in islands.values())))
 
     if args["control"]:
 
         b_bins_counts = files_to_bin_counts(args["control"], args, "Input")
         background_count = sum(sum(counts) for _, counts in b_bins_counts.values())
-        sys.stderr.write("\n  Valid background reads: {}\n".format(background_count))
+        logging.info("\nValid background reads: {}\n".format(background_count))
 
         compute_fdr(new_islands, b_bins_counts, chip_count, background_count, effective_genome_length, args["false_discovery_rate_cutoff"])
     else:

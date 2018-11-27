@@ -74,7 +74,7 @@ setup(
     scripts=["bin/epic2"],
     package_data={'epic2': ['effective_sizes/*.txt', 'chromsizes/*chromsizes'],
                   '': ['*.pyx', '*.pxd', '*.h', '*.c', '*.hpp']},
-    version="0.0.9",
+    version="0.0.10",
     description="Ultraperformant ChIP-Seq broad peak/domain finder.",
     author="Endre Bakken Stovner",
     author_email="endrebak85@gmail.com",

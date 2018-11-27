@@ -1,3 +1,4 @@
+import logging
 from collections import defaultdict
 from cython.operator import dereference, postincrement
 
@@ -217,13 +218,13 @@ cpdef files_to_bin_counts(files, args, datatype):
 
 
     sum_tags = defaultdict(list)
-    sys.stderr.write("Parsing {} file(s):\n".format(datatype))
+    logging.info("Parsing {} file(s):".format(datatype))
     sys.stderr.flush()
     tags = dict()
 
     for f in files:
 
-        sys.stderr.write("  " + f + "\n")
+        logging.info("  " + f)
         sys.stderr.flush()
 
 
