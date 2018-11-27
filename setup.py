@@ -62,6 +62,7 @@ extensions = [Extension("epic2.src.reads_to_bins",
                         extra_compile_args=compile_options,
                         include_dirs=pysam.get_include(), #  + conda_include
                         library_dirs=conda_lib,
+                        libraries=["z"],
                         define_macros=pysam.get_defines()),
               Extension("epic2.src.genome_info",
                         ["epic2/src/genome_info.pyx"], language="c++",

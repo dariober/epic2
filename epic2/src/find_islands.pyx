@@ -230,7 +230,6 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
 
         j = 0
         _islands = islands[chromosome]
-        print(_islands)
         # print("chr", chromosome, len(_islands), _islands)
 
         if chromosome not in b_bins_counts:
