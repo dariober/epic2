@@ -117,13 +117,13 @@ parser.add_argument(
 
 
 parser.add_argument(
-    '--verbose',
-    '-v',
+    '--quiet',
+    '-q',
     required=False,
     default=False,
     action="store_true",
     help=
-    '''Write output messages to stderr.''')
+    '''Do not write output messages to stderr.''')
 
 def main():
 
@@ -132,10 +132,10 @@ def main():
 
     import logging
 
-    if args["verbose"]:
-        level = logging.INFO
-    else:
+    if args["quiet"]:
         level = logging.CRITICAL
+    else:
+        level = logging.INFO
 
     logging.basicConfig(
         level=level,

@@ -2,7 +2,7 @@
 
 epic2 is an ultraperformant reimplementation of SICER. It focuses on speed, low memory overhead and ease of use.
 
-## Note
+#### Under active development
 
 We are extremely responsive to bugs, issues and installation problems. We are
 proud to say that epic was 20% more downloaded on PyPI than MACS2 even, and we
@@ -48,7 +48,7 @@ usage: epic2 [-h] --treatment TREATMENT [TREATMENT ...]
              [--gaps-allowed GAPS_ALLOWED] [--fragment-size FRAGMENT_SIZE]
              [--false-discovery-rate-cutoff FALSE_DISCOVERY_RATE_CUTOFF]
              [--effective-genome-fraction EFFECTIVE_GENOME_FRACTION]
-             [--chromsizes CHROMSIZES]
+             [--chromsizes CHROMSIZES] [--verbose]
 
 epic2. (Visit github.com/endrebak/epic2 for examples and help.)
 
@@ -94,6 +94,7 @@ optional arguments:
                         columns: chromosome names and sizes. Useful to analyze
                         custom genomes, assemblies or simulated data. Only
                         chromosomes included in the file will be analyzed.
+  --quiet, -q           Do not write output messages to stderr.
 ```
 
 #### Performance
