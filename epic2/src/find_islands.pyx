@@ -279,7 +279,7 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
     j = 0
     num_islands = len(all_islands)
 
-    print("\t".join(["Chromosome", "Start", "End", "PValue", "Score", "Strand", "ChIPCount", "InputCount", "FDR", "log2(FoldChange)"]))
+    print("\t".join(["Chromosome", "Start", "End", "PValue", "Score", "Strand", "ChIPCount", "InputCount", "FDR", "log2FoldChange"]))
     for i in range(num_islands):
             # _island = all_islands.wrapped_vector[i]
             fdr = all_islands.wrapped_vector[i].p_value * num_islands / ranks[i]
@@ -315,39 +315,36 @@ def write_islands(islands, float average_window_readcount, float fdr_cutoff):
 
 
     _poisson = poisson(average_window_readcount)
-    print("\t".join(["Chromosome", "Start", "End", "PValue", "ChIPCount", "Strand", "FDR"]))
+    print("\t".join(["Chromosome", "Start", "End", "ChIPCount", "Score", "Strand"]))
     for chromosome in chromosomes:
         _islands = islands[chromosome]
 
         for i in range(len(_islands)):
-            # _islands.wrapped_vector[i] = _islands.wrapped_vector[i]
-
-            _islands.wrapped_vector[i].p_value = _poisson.pmf(_islands.wrapped_vector[i].chip_count)
-            all_islands.push_back(_islands.wrapped_vector[i])
+            print("\t".join(str(e) for e in [chromosome, _islands.wrapped_vector[i].start, _islands.wrapped_vector[i].end, _islands.wrapped_vector[i].chip_count, float(_islands.wrapped_vector[i].score), "."]))
 
     # ranks = rankdata(np.array([_islands.wrapped_vector[i].p_value for _islands.wrapped_vector[i] in all_islands.wrapped_vector[i]s], dtype=np.int))
 
-    p_values = np.zeros(len(all_islands))
+    # p_values = np.zeros(len(all_islands))
 
-    for i in range(len(all_islands)):
-        p_values[i] = all_islands.wrapped_vector[i].p_value
+    # for i in range(len(all_islands)):
+    #     p_values[i] = all_islands.wrapped_vector[i].p_value
 
-    ranks = rankdata(p_values)
+    # ranks = rankdata(p_values)
 
-    counter = 0
-    num_islands = len(all_islands)
+    # counter = 0
+    # num_islands = len(all_islands)
 
-    for chromosome, chromosome_size in natsorted(num_islands_per_chrom.items()):
+    # for chromosome, chromosome_size in natsorted(num_islands_per_chrom.items()):
 
-        i = 0
-        for i in range(int(chromosome_size)):
+    #     i = 0
+    #     for i in range(int(chromosome_size)):
 
-            #### compute fdr #####
-            # _islands.wrapped_vector[i] = all_islands.wrapped_vector[i + counter]
+    #         #### compute fdr #####
+    #         # _islands.wrapped_vector[i] = all_islands.wrapped_vector[i + counter]
 
-            fdr = all_islands.wrapped_vector[i + counter].p_value * num_islands / ranks[i + counter]
-            # print("fdr cutoff", fdr_cutoff)
-            if fdr > 1:
-                fdr = 1
-            if fdr <= fdr_cutoff:
-                print("\t".join(str(e) for e in [chromosome, all_islands.wrapped_vector[i].start, all_islands.wrapped_vector[i].end, all_islands.wrapped_vector[i].p_value, all_islands.wrapped_vector[i].chip_count, ".", fdr]))
+    #         fdr = all_islands.wrapped_vector[i + counter].p_value * num_islands / ranks[i + counter]
+    #         # print("fdr cutoff", fdr_cutoff)
+    #         if fdr > 1:
+    #             fdr = 1
+    #         if fdr <= fdr_cutoff:
+    #             print("\t".join(str(e) for e in [chromosome, all_islands.wrapped_vector[i].start, all_islands.wrapped_vector[i].end, all_islands.wrapped_vector[i].p_value, all_islands.wrapped_vector[i].chip_count, ".", fdr]))

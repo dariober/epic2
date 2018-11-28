@@ -100,3 +100,29 @@ optional arguments:
 #### Performance
 
 <img src="graphs/speed_epic2_vs_SICER_no_bigwig.png" />
+
+#### Output
+
+When used with a background library, epic2 produces the following bed6-compatible file:
+
+```
+Chromosome	Start	End	PValue	Score	Strand	ChIPCount	InputCount	FDR	log2FoldChange
+chr1	23568400	23568599	8.184732752658519e-11	1000.0	.	2	0	6.319375023267071e-10	11.307485580444336
+chr1	26401200	26401399	8.184732752658519e-11	1000.0	.	2	0	6.319375023267071e-10	11.307485580444336
+...
+```
+
+This is the meaning of the columns:
+
+| Column | Description   |
+| --- | --- |
+| PValue | Poisson-computed PValue based on the number of ChIP count vs. library-size normalized Input count in the region |
+| Score | Log2FC * 100 (capped at 1000). Regions with a larger relative ChIP vs. Input count will show as darker in the [UCSC genome browser](https://genome.ucsc.edu/FAQ/FAQformat.html#format1) |
+| ChIPCount | The number of ChIP counts in the region (also including counts from windows with a count below the cutoff) |
+| InputCount | The number of Input counts in the region |
+| FDR | Benjamini-Hochberg correction of the p-values |
+| log2FoldChange | Log2 of the region ChIP count vs. the library-size corrected region Input count |
+
+When used without a background library, epic2 produces the following bed6-compatible file:
+
+(More to come)

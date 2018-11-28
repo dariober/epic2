@@ -1087,17 +1087,18 @@ struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_3_genexpr {
  */
 struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands {
   PyObject_HEAD
-  struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *__pyx_v_all_islands;
+  struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *__pyx_v__islands;
   PyObject *__pyx_v_chromosome;
-  PyObject *__pyx_v_fdr;
   int __pyx_v_i;
 };
 
 
-/* "epic2/src/find_islands.pyx":353
- *                 fdr = 1
- *             if fdr <= fdr_cutoff:
- *                 print("\t".join(str(e) for e in [chromosome, all_islands.wrapped_vector[i].start, all_islands.wrapped_vector[i].end, all_islands.wrapped_vector[i].p_value, all_islands.wrapped_vector[i].chip_count, ".", fdr]))             # <<<<<<<<<<<<<<
+/* "epic2/src/find_islands.pyx":323
+ * 
+ *         for i in range(len(_islands)):
+ *             print("\t".join(str(e) for e in [chromosome, _islands.wrapped_vector[i].start, _islands.wrapped_vector[i].end, _islands.wrapped_vector[i].chip_count, float(_islands.wrapped_vector[i].score), "."]))             # <<<<<<<<<<<<<<
+ * 
+ *     # ranks = rankdata(np.array([_islands.wrapped_vector[i].p_value for _islands.wrapped_vector[i] in all_islands.wrapped_vector[i]s], dtype=np.int))
  */
 struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_5_genexpr {
   PyObject_HEAD
@@ -1614,38 +1615,6 @@ static CYTHON_INLINE PyObject* __Pyx_decode_cpp_string(
     return __Pyx_decode_c_bytes(
         cppstring.data(), cppstring.size(), start, stop, encoding, errors, decode_func);
 }
-
-/* py_dict_items.proto */
-static CYTHON_INLINE PyObject* __Pyx_PyDict_Items(PyObject* d);
-
-/* UnpackUnboundCMethod.proto */
-typedef struct {
-    PyObject *type;
-    PyObject **method_name;
-    PyCFunction func;
-    PyObject *method;
-    int flag;
-} __Pyx_CachedCFunction;
-
-/* CallUnboundCMethod0.proto */
-static PyObject* __Pyx__CallUnboundCMethod0(__Pyx_CachedCFunction* cfunc, PyObject* self);
-#if CYTHON_COMPILING_IN_CPYTHON
-#define __Pyx_CallUnboundCMethod0(cfunc, self)\
-    (likely((cfunc)->func) ?\
-        (likely((cfunc)->flag == METH_NOARGS) ?  (*((cfunc)->func))(self, NULL) :\
-         (PY_VERSION_HEX >= 0x030600B1 && likely((cfunc)->flag == METH_FASTCALL) ?\
-            (PY_VERSION_HEX >= 0x030700A0 ?\
-                (*(__Pyx_PyCFunctionFast)(void*)(PyCFunction)(cfunc)->func)(self, &__pyx_empty_tuple, 0) :\
-                (*(__Pyx_PyCFunctionFastWithKeywords)(void*)(PyCFunction)(cfunc)->func)(self, &__pyx_empty_tuple, 0, NULL)) :\
-          (PY_VERSION_HEX >= 0x030700A0 && (cfunc)->flag == (METH_FASTCALL | METH_KEYWORDS) ?\
-            (*(__Pyx_PyCFunctionFastWithKeywords)(void*)(PyCFunction)(cfunc)->func)(self, &__pyx_empty_tuple, 0, NULL) :\
-            (likely((cfunc)->flag == (METH_VARARGS | METH_KEYWORDS)) ?  ((*(PyCFunctionWithKeywords)(void*)(PyCFunction)(cfunc)->func)(self, __pyx_empty_tuple, NULL)) :\
-               ((cfunc)->flag == METH_VARARGS ?  (*((cfunc)->func))(self, __pyx_empty_tuple) :\
-               __Pyx__CallUnboundCMethod0(cfunc, self)))))) :\
-        __Pyx__CallUnboundCMethod0(cfunc, self))
-#else
-#define __Pyx_CallUnboundCMethod0(cfunc, self)  __Pyx__CallUnboundCMethod0(cfunc, self)
-#endif
 
 /* Import.proto */
 static PyObject *__Pyx_Import(PyObject *name, PyObject *from_list, int level);
@@ -2230,7 +2199,6 @@ static const char __pyx_k_end[] = "end";
 static const char __pyx_k_fdr[] = "fdr";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_obj[] = "obj";
-static const char __pyx_k_pmf[] = "pmf";
 static const char __pyx_k_sys[] = "sys";
 static const char __pyx_k_args[] = "args";
 static const char __pyx_k_base[] = "base";
@@ -2260,7 +2228,6 @@ static const char __pyx_k_count[] = "count";
 static const char __pyx_k_dtype[] = "dtype";
 static const char __pyx_k_error[] = "error";
 static const char __pyx_k_flags[] = "flags";
-static const char __pyx_k_items[] = "items";
 static const char __pyx_k_numpy[] = "numpy";
 static const char __pyx_k_print[] = "print";
 static const char __pyx_k_range[] = "range";
@@ -2349,12 +2316,11 @@ static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_slightly_less[] = "slightly_less";
 static const char __pyx_k_write_islands[] = "write_islands";
 static const char __pyx_k_current_island[] = "current_island";
+static const char __pyx_k_log2FoldChange[] = "log2FoldChange";
 static const char __pyx_k_scaling_factor[] = "scaling_factor";
 static const char __pyx_k_View_MemoryView[] = "View.MemoryView";
 static const char __pyx_k_allocate_buffer[] = "allocate_buffer";
-static const char __pyx_k_chromosome_size[] = "chromosome_size";
 static const char __pyx_k_dtype_is_object[] = "dtype_is_object";
-static const char __pyx_k_log2_FoldChange[] = "log2(FoldChange)";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_score_threshold[] = "score_threshold";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
@@ -2476,7 +2442,6 @@ static PyObject *__pyx_n_s_c_bins_counts;
 static PyObject *__pyx_n_s_chip_count;
 static PyObject *__pyx_n_s_chip_library_size;
 static PyObject *__pyx_n_s_chromosome;
-static PyObject *__pyx_n_s_chromosome_size;
 static PyObject *__pyx_n_s_chromosomes;
 static PyObject *__pyx_n_s_class;
 static PyObject *__pyx_n_s_cline_in_traceback;
@@ -2526,14 +2491,13 @@ static PyObject *__pyx_n_s_island;
 static PyObject *__pyx_n_s_island_dict;
 static PyObject *__pyx_n_s_islands;
 static PyObject *__pyx_n_s_islands_2;
-static PyObject *__pyx_n_s_items;
 static PyObject *__pyx_n_s_itemsize;
 static PyObject *__pyx_kp_s_itemsize_0_for_cython_array;
 static PyObject *__pyx_n_s_iter___locals_genexpr;
 static PyObject *__pyx_n_s_j;
 static PyObject *__pyx_n_s_join;
 static PyObject *__pyx_n_s_keys;
-static PyObject *__pyx_kp_s_log2_FoldChange;
+static PyObject *__pyx_n_s_log2FoldChange;
 static PyObject *__pyx_n_s_logging;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_memview;
@@ -2558,7 +2522,6 @@ static PyObject *__pyx_n_s_p_value;
 static PyObject *__pyx_n_s_p_values;
 static PyObject *__pyx_n_s_pack;
 static PyObject *__pyx_n_s_pickle;
-static PyObject *__pyx_n_s_pmf;
 static PyObject *__pyx_n_s_poisson;
 static PyObject *__pyx_n_s_poisson_2;
 static PyObject *__pyx_n_s_print;
@@ -2624,7 +2587,7 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_2add_chip_count_to_islands(
 static PyObject *__pyx_pf_5epic2_3src_12find_islands_11compute_fdr_genexpr(PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_pf_5epic2_3src_12find_islands_4compute_fdr(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_islands, PyObject *__pyx_v_b_bins_counts, int __pyx_v_chip_library_size, int __pyx_v_control_library_size, float __pyx_v_effective_genome_fraction, float __pyx_v_fdr_cutoff); /* proto */
 static PyObject *__pyx_pf_5epic2_3src_12find_islands_13write_islands_genexpr(PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_islands, float __pyx_v_average_window_readcount, float __pyx_v_fdr_cutoff); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_islands, float __pyx_v_average_window_readcount, CYTHON_UNUSED float __pyx_v_fdr_cutoff); /* proto */
 static PyObject *__pyx_pf_5epic2_3src_12find_islands_8__pyx_unpickle_IslandVector(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array_2__getbuffer__(struct __pyx_array_obj *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
@@ -2679,7 +2642,6 @@ static PyObject *__pyx_tp_new_array(PyTypeObject *t, PyObject *a, PyObject *k); 
 static PyObject *__pyx_tp_new_Enum(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_memoryview(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new__memoryviewslice(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static __Pyx_CachedCFunction __pyx_umethod_PyDict_Type_items = {0, &__pyx_n_s_items, 0, 0, 0};
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
 static PyObject *__pyx_int_184191891;
@@ -6308,7 +6270,7 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_4compute_fdr(CYTHON_UNUSED 
  *     j = 0
  *     num_islands = len(all_islands)             # <<<<<<<<<<<<<<
  * 
- *     print("\t".join(["Chromosome", "Start", "End", "PValue", "Score", "Strand", "ChIPCount", "InputCount", "FDR", "log2(FoldChange)"]))
+ *     print("\t".join(["Chromosome", "Start", "End", "PValue", "Score", "Strand", "ChIPCount", "InputCount", "FDR", "log2FoldChange"]))
  */
   __pyx_t_3 = ((PyObject *)__pyx_cur_scope->__pyx_v_all_islands);
   __Pyx_INCREF(__pyx_t_3);
@@ -6319,7 +6281,7 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_4compute_fdr(CYTHON_UNUSED 
   /* "epic2/src/find_islands.pyx":282
  *     num_islands = len(all_islands)
  * 
- *     print("\t".join(["Chromosome", "Start", "End", "PValue", "Score", "Strand", "ChIPCount", "InputCount", "FDR", "log2(FoldChange)"]))             # <<<<<<<<<<<<<<
+ *     print("\t".join(["Chromosome", "Start", "End", "PValue", "Score", "Strand", "ChIPCount", "InputCount", "FDR", "log2FoldChange"]))             # <<<<<<<<<<<<<<
  *     for i in range(num_islands):
  *             # _island = all_islands.wrapped_vector[i]
  */
@@ -6352,9 +6314,9 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_4compute_fdr(CYTHON_UNUSED 
   __Pyx_INCREF(__pyx_n_s_FDR);
   __Pyx_GIVEREF(__pyx_n_s_FDR);
   PyList_SET_ITEM(__pyx_t_3, 8, __pyx_n_s_FDR);
-  __Pyx_INCREF(__pyx_kp_s_log2_FoldChange);
-  __Pyx_GIVEREF(__pyx_kp_s_log2_FoldChange);
-  PyList_SET_ITEM(__pyx_t_3, 9, __pyx_kp_s_log2_FoldChange);
+  __Pyx_INCREF(__pyx_n_s_log2FoldChange);
+  __Pyx_GIVEREF(__pyx_n_s_log2FoldChange);
+  PyList_SET_ITEM(__pyx_t_3, 9, __pyx_n_s_log2FoldChange);
   __pyx_t_7 = __Pyx_PyString_Join(__pyx_kp_s__6, __pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 282, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -6363,7 +6325,7 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_4compute_fdr(CYTHON_UNUSED 
 
   /* "epic2/src/find_islands.pyx":283
  * 
- *     print("\t".join(["Chromosome", "Start", "End", "PValue", "Score", "Strand", "ChIPCount", "InputCount", "FDR", "log2(FoldChange)"]))
+ *     print("\t".join(["Chromosome", "Start", "End", "PValue", "Score", "Strand", "ChIPCount", "InputCount", "FDR", "log2FoldChange"]))
  *     for i in range(num_islands):             # <<<<<<<<<<<<<<
  *             # _island = all_islands.wrapped_vector[i]
  *             fdr = all_islands.wrapped_vector[i].p_value * num_islands / ranks[i]
@@ -6522,7 +6484,7 @@ static PyMethodDef __pyx_mdef_5epic2_3src_12find_islands_7write_islands = {"writ
 static PyObject *__pyx_pw_5epic2_3src_12find_islands_7write_islands(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_islands = 0;
   float __pyx_v_average_window_readcount;
-  float __pyx_v_fdr_cutoff;
+  CYTHON_UNUSED float __pyx_v_fdr_cutoff;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("write_islands (wrapper)", 0);
@@ -6590,10 +6552,12 @@ static PyObject *__pyx_pw_5epic2_3src_12find_islands_7write_islands(PyObject *__
 }
 static PyObject *__pyx_gb_5epic2_3src_12find_islands_13write_islands_2generator2(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "epic2/src/find_islands.pyx":353
- *                 fdr = 1
- *             if fdr <= fdr_cutoff:
- *                 print("\t".join(str(e) for e in [chromosome, all_islands.wrapped_vector[i].start, all_islands.wrapped_vector[i].end, all_islands.wrapped_vector[i].p_value, all_islands.wrapped_vector[i].chip_count, ".", fdr]))             # <<<<<<<<<<<<<<
+/* "epic2/src/find_islands.pyx":323
+ * 
+ *         for i in range(len(_islands)):
+ *             print("\t".join(str(e) for e in [chromosome, _islands.wrapped_vector[i].start, _islands.wrapped_vector[i].end, _islands.wrapped_vector[i].chip_count, float(_islands.wrapped_vector[i].score), "."]))             # <<<<<<<<<<<<<<
+ * 
+ *     # ranks = rankdata(np.array([_islands.wrapped_vector[i].p_value for _islands.wrapped_vector[i] in all_islands.wrapped_vector[i]s], dtype=np.int))
  */
 
 static PyObject *__pyx_pf_5epic2_3src_12find_islands_13write_islands_genexpr(PyObject *__pyx_self) {
@@ -6605,7 +6569,7 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_13write_islands_genexpr(PyO
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_5_genexpr *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 353, __pyx_L1_error)
+    __PYX_ERR(0, 323, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -6613,7 +6577,7 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_13write_islands_genexpr(PyO
   __Pyx_INCREF(((PyObject *)__pyx_cur_scope->__pyx_outer_scope));
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_5epic2_3src_12find_islands_13write_islands_2generator2, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_write_islands_locals_genexpr, __pyx_n_s_epic2_src_find_islands); if (unlikely(!gen)) __PYX_ERR(0, 353, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_5epic2_3src_12find_islands_13write_islands_2generator2, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_write_islands_locals_genexpr, __pyx_n_s_epic2_src_find_islands); if (unlikely(!gen)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -6649,22 +6613,21 @@ static PyObject *__pyx_gb_5epic2_3src_12find_islands_13write_islands_2generator2
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 353, __pyx_L1_error)
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_chromosome)) { __Pyx_RaiseClosureNameError("chromosome"); __PYX_ERR(0, 353, __pyx_L1_error) }
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_all_islands)) { __Pyx_RaiseClosureNameError("all_islands"); __PYX_ERR(0, 353, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_uint32_t((__pyx_cur_scope->__pyx_outer_scope->__pyx_v_all_islands->wrapped_vector[__pyx_cur_scope->__pyx_outer_scope->__pyx_v_i]).start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 353, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 323, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_chromosome)) { __Pyx_RaiseClosureNameError("chromosome"); __PYX_ERR(0, 323, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v__islands)) { __Pyx_RaiseClosureNameError("_islands"); __PYX_ERR(0, 323, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_uint32_t((__pyx_cur_scope->__pyx_outer_scope->__pyx_v__islands->wrapped_vector[__pyx_cur_scope->__pyx_outer_scope->__pyx_v_i]).start); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_all_islands)) { __Pyx_RaiseClosureNameError("all_islands"); __PYX_ERR(0, 353, __pyx_L1_error) }
-  __pyx_t_2 = __Pyx_PyInt_From_uint32_t((__pyx_cur_scope->__pyx_outer_scope->__pyx_v_all_islands->wrapped_vector[__pyx_cur_scope->__pyx_outer_scope->__pyx_v_i]).end); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 353, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v__islands)) { __Pyx_RaiseClosureNameError("_islands"); __PYX_ERR(0, 323, __pyx_L1_error) }
+  __pyx_t_2 = __Pyx_PyInt_From_uint32_t((__pyx_cur_scope->__pyx_outer_scope->__pyx_v__islands->wrapped_vector[__pyx_cur_scope->__pyx_outer_scope->__pyx_v_i]).end); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_all_islands)) { __Pyx_RaiseClosureNameError("all_islands"); __PYX_ERR(0, 353, __pyx_L1_error) }
-  __pyx_t_3 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_outer_scope->__pyx_v_all_islands->wrapped_vector[__pyx_cur_scope->__pyx_outer_scope->__pyx_v_i]).p_value); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 353, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v__islands)) { __Pyx_RaiseClosureNameError("_islands"); __PYX_ERR(0, 323, __pyx_L1_error) }
+  __pyx_t_3 = __Pyx_PyInt_From_uint16_t((__pyx_cur_scope->__pyx_outer_scope->__pyx_v__islands->wrapped_vector[__pyx_cur_scope->__pyx_outer_scope->__pyx_v_i]).chip_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_all_islands)) { __Pyx_RaiseClosureNameError("all_islands"); __PYX_ERR(0, 353, __pyx_L1_error) }
-  __pyx_t_4 = __Pyx_PyInt_From_uint16_t((__pyx_cur_scope->__pyx_outer_scope->__pyx_v_all_islands->wrapped_vector[__pyx_cur_scope->__pyx_outer_scope->__pyx_v_i]).chip_count); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 353, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v__islands)) { __Pyx_RaiseClosureNameError("_islands"); __PYX_ERR(0, 323, __pyx_L1_error) }
+  __pyx_t_4 = PyFloat_FromDouble(((double)(__pyx_cur_scope->__pyx_outer_scope->__pyx_v__islands->wrapped_vector[__pyx_cur_scope->__pyx_outer_scope->__pyx_v_i]).score)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_fdr)) { __Pyx_RaiseClosureNameError("fdr"); __PYX_ERR(0, 353, __pyx_L1_error) }
-  __pyx_t_5 = PyTuple_New(7); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 353, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(6); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 323, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_INCREF(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_chromosome);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_chromosome);
@@ -6680,9 +6643,6 @@ static PyObject *__pyx_gb_5epic2_3src_12find_islands_13write_islands_2generator2
   __Pyx_INCREF(__pyx_kp_s__5);
   __Pyx_GIVEREF(__pyx_kp_s__5);
   PyTuple_SET_ITEM(__pyx_t_5, 5, __pyx_kp_s__5);
-  __Pyx_INCREF(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_fdr);
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_fdr);
-  PyTuple_SET_ITEM(__pyx_t_5, 6, __pyx_cur_scope->__pyx_outer_scope->__pyx_v_fdr);
   __pyx_t_1 = 0;
   __pyx_t_2 = 0;
   __pyx_t_3 = 0;
@@ -6690,18 +6650,18 @@ static PyObject *__pyx_gb_5epic2_3src_12find_islands_13write_islands_2generator2
   __pyx_t_4 = __pyx_t_5; __Pyx_INCREF(__pyx_t_4); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   for (;;) {
-    if (__pyx_t_6 >= 7) break;
+    if (__pyx_t_6 >= 6) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 353, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 323, __pyx_L1_error)
     #else
-    __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 353, __pyx_L1_error)
+    __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     #endif
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_e);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_e, __pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_5);
     __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_cur_scope->__pyx_v_e); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 353, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_cur_scope->__pyx_v_e); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 323, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
@@ -6719,7 +6679,7 @@ static PyObject *__pyx_gb_5epic2_3src_12find_islands_13write_islands_2generator2
     __pyx_cur_scope->__pyx_t_0 = 0;
     __Pyx_XGOTREF(__pyx_t_4);
     __pyx_t_6 = __pyx_cur_scope->__pyx_t_1;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 353, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 323, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
@@ -6753,18 +6713,13 @@ static PyObject *__pyx_gb_5epic2_3src_12find_islands_13write_islands_2generator2
  *     cdef:
  */
 
-static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_islands, float __pyx_v_average_window_readcount, float __pyx_v_fdr_cutoff) {
+static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_islands, float __pyx_v_average_window_readcount, CYTHON_UNUSED float __pyx_v_fdr_cutoff) {
   struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands *__pyx_cur_scope;
-  struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *__pyx_v__islands = 0;
-  int __pyx_v_num_islands;
-  int __pyx_v_counter;
+  CYTHON_UNUSED struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *__pyx_v_all_islands = 0;
   PyObject *__pyx_v_chromosomes = NULL;
   PyObject *__pyx_v_num_islands_per_chrom = NULL;
   PyObject *__pyx_v_c = NULL;
-  PyObject *__pyx_v__poisson = NULL;
-  PyObject *__pyx_v_p_values = NULL;
-  PyObject *__pyx_v_ranks = NULL;
-  PyObject *__pyx_v_chromosome_size = NULL;
+  CYTHON_UNUSED PyObject *__pyx_v__poisson = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6777,12 +6732,6 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSE
   Py_ssize_t __pyx_t_8;
   Py_ssize_t __pyx_t_9;
   int __pyx_t_10;
-  float __pyx_t_11;
-  PyObject *(*__pyx_t_12)(PyObject *);
-  long __pyx_t_13;
-  long __pyx_t_14;
-  int __pyx_t_15;
-  int __pyx_t_16;
   __Pyx_RefNannySetupContext("write_islands", 0);
   __pyx_cur_scope = (struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands *)__pyx_tp_new_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands(__pyx_ptype_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
@@ -6802,8 +6751,7 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSE
  */
   __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5epic2_3src_12find_islands_IslandVector)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_1);
-  __pyx_cur_scope->__pyx_v_all_islands = ((struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *)__pyx_t_1);
+  __pyx_v_all_islands = ((struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "epic2/src/find_islands.pyx":309
@@ -6943,7 +6891,9 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSE
     __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_v_islands, __pyx_v_c); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 313, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5epic2_3src_12find_islands_IslandVector))))) __PYX_ERR(0, 313, __pyx_L1_error)
-    __Pyx_XDECREF_SET(__pyx_v__islands, ((struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *)__pyx_t_1));
+    __Pyx_XGOTREF(((PyObject *)__pyx_cur_scope->__pyx_v__islands));
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v__islands, ((struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *)__pyx_t_1));
+    __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
     /* "epic2/src/find_islands.pyx":314
@@ -6953,7 +6903,10 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSE
  * 
  * 
  */
-    __pyx_t_8 = PyObject_Length(((PyObject *)__pyx_v__islands)); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 314, __pyx_L1_error)
+    __pyx_t_1 = ((PyObject *)__pyx_cur_scope->__pyx_v__islands);
+    __Pyx_INCREF(__pyx_t_1);
+    __pyx_t_8 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 314, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 314, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (unlikely(PyDict_SetItem(__pyx_v_num_islands_per_chrom, __pyx_v_c, __pyx_t_1) < 0)) __PYX_ERR(0, 314, __pyx_L1_error)
@@ -6973,7 +6926,7 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSE
  * 
  * 
  *     _poisson = poisson(average_window_readcount)             # <<<<<<<<<<<<<<
- *     print("\t".join(["Chromosome", "Start", "End", "PValue", "ChIPCount", "Strand", "FDR"]))
+ *     print("\t".join(["Chromosome", "Start", "End", "ChIPCount", "Score", "Strand"]))
  *     for chromosome in chromosomes:
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_poisson); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 317, __pyx_L1_error)
@@ -7002,11 +6955,11 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSE
   /* "epic2/src/find_islands.pyx":318
  * 
  *     _poisson = poisson(average_window_readcount)
- *     print("\t".join(["Chromosome", "Start", "End", "PValue", "ChIPCount", "Strand", "FDR"]))             # <<<<<<<<<<<<<<
+ *     print("\t".join(["Chromosome", "Start", "End", "ChIPCount", "Score", "Strand"]))             # <<<<<<<<<<<<<<
  *     for chromosome in chromosomes:
  *         _islands = islands[chromosome]
  */
-  __pyx_t_2 = PyList_New(7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_Chromosome);
   __Pyx_GIVEREF(__pyx_n_s_Chromosome);
@@ -7017,18 +6970,15 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSE
   __Pyx_INCREF(__pyx_n_s_End);
   __Pyx_GIVEREF(__pyx_n_s_End);
   PyList_SET_ITEM(__pyx_t_2, 2, __pyx_n_s_End);
-  __Pyx_INCREF(__pyx_n_s_PValue);
-  __Pyx_GIVEREF(__pyx_n_s_PValue);
-  PyList_SET_ITEM(__pyx_t_2, 3, __pyx_n_s_PValue);
   __Pyx_INCREF(__pyx_n_s_ChIPCount);
   __Pyx_GIVEREF(__pyx_n_s_ChIPCount);
-  PyList_SET_ITEM(__pyx_t_2, 4, __pyx_n_s_ChIPCount);
+  PyList_SET_ITEM(__pyx_t_2, 3, __pyx_n_s_ChIPCount);
+  __Pyx_INCREF(__pyx_n_s_Score);
+  __Pyx_GIVEREF(__pyx_n_s_Score);
+  PyList_SET_ITEM(__pyx_t_2, 4, __pyx_n_s_Score);
   __Pyx_INCREF(__pyx_n_s_Strand);
   __Pyx_GIVEREF(__pyx_n_s_Strand);
   PyList_SET_ITEM(__pyx_t_2, 5, __pyx_n_s_Strand);
-  __Pyx_INCREF(__pyx_n_s_FDR);
-  __Pyx_GIVEREF(__pyx_n_s_FDR);
-  PyList_SET_ITEM(__pyx_t_2, 6, __pyx_n_s_FDR);
   __pyx_t_1 = __Pyx_PyString_Join(__pyx_kp_s__6, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -7037,7 +6987,7 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSE
 
   /* "epic2/src/find_islands.pyx":319
  *     _poisson = poisson(average_window_readcount)
- *     print("\t".join(["Chromosome", "Start", "End", "PValue", "ChIPCount", "Strand", "FDR"]))
+ *     print("\t".join(["Chromosome", "Start", "End", "ChIPCount", "Score", "Strand"]))
  *     for chromosome in chromosomes:             # <<<<<<<<<<<<<<
  *         _islands = islands[chromosome]
  * 
@@ -7087,7 +7037,7 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSE
     __pyx_t_2 = 0;
 
     /* "epic2/src/find_islands.pyx":320
- *     print("\t".join(["Chromosome", "Start", "End", "PValue", "ChIPCount", "Strand", "FDR"]))
+ *     print("\t".join(["Chromosome", "Start", "End", "ChIPCount", "Score", "Strand"]))
  *     for chromosome in chromosomes:
  *         _islands = islands[chromosome]             # <<<<<<<<<<<<<<
  * 
@@ -7096,431 +7046,51 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSE
     __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_v_islands, __pyx_cur_scope->__pyx_v_chromosome); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 320, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5epic2_3src_12find_islands_IslandVector))))) __PYX_ERR(0, 320, __pyx_L1_error)
-    __Pyx_XDECREF_SET(__pyx_v__islands, ((struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *)__pyx_t_2));
+    __Pyx_XGOTREF(((PyObject *)__pyx_cur_scope->__pyx_v__islands));
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v__islands, ((struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *)__pyx_t_2));
+    __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
 
     /* "epic2/src/find_islands.pyx":322
  *         _islands = islands[chromosome]
  * 
  *         for i in range(len(_islands)):             # <<<<<<<<<<<<<<
- *             # _islands.wrapped_vector[i] = _islands.wrapped_vector[i]
+ *             print("\t".join(str(e) for e in [chromosome, _islands.wrapped_vector[i].start, _islands.wrapped_vector[i].end, _islands.wrapped_vector[i].chip_count, float(_islands.wrapped_vector[i].score), "."]))
  * 
  */
-    __pyx_t_8 = PyObject_Length(((PyObject *)__pyx_v__islands)); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 322, __pyx_L1_error)
+    __pyx_t_2 = ((PyObject *)__pyx_cur_scope->__pyx_v__islands);
+    __Pyx_INCREF(__pyx_t_2);
+    __pyx_t_8 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 322, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_9 = __pyx_t_8;
     for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
       __pyx_cur_scope->__pyx_v_i = __pyx_t_10;
 
-      /* "epic2/src/find_islands.pyx":325
- *             # _islands.wrapped_vector[i] = _islands.wrapped_vector[i]
+      /* "epic2/src/find_islands.pyx":323
  * 
- *             _islands.wrapped_vector[i].p_value = _poisson.pmf(_islands.wrapped_vector[i].chip_count)             # <<<<<<<<<<<<<<
- *             all_islands.push_back(_islands.wrapped_vector[i])
- * 
- */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v__poisson, __pyx_n_s_pmf); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 325, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_3 = __Pyx_PyInt_From_uint16_t((__pyx_v__islands->wrapped_vector[__pyx_cur_scope->__pyx_v_i]).chip_count); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 325, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_5 = NULL;
-      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
-        __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
-        if (likely(__pyx_t_5)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-          __Pyx_INCREF(__pyx_t_5);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_4, function);
-        }
-      }
-      __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
-      __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 325, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_11 = __pyx_PyFloat_AsFloat(__pyx_t_2); if (unlikely((__pyx_t_11 == (float)-1) && PyErr_Occurred())) __PYX_ERR(0, 325, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      (__pyx_v__islands->wrapped_vector[__pyx_cur_scope->__pyx_v_i]).p_value = __pyx_t_11;
-
-      /* "epic2/src/find_islands.pyx":326
- * 
- *             _islands.wrapped_vector[i].p_value = _poisson.pmf(_islands.wrapped_vector[i].chip_count)
- *             all_islands.push_back(_islands.wrapped_vector[i])             # <<<<<<<<<<<<<<
+ *         for i in range(len(_islands)):
+ *             print("\t".join(str(e) for e in [chromosome, _islands.wrapped_vector[i].start, _islands.wrapped_vector[i].end, _islands.wrapped_vector[i].chip_count, float(_islands.wrapped_vector[i].score), "."]))             # <<<<<<<<<<<<<<
  * 
  *     # ranks = rankdata(np.array([_islands.wrapped_vector[i].p_value for _islands.wrapped_vector[i] in all_islands.wrapped_vector[i]s], dtype=np.int))
  */
-      __pyx_t_2 = ((struct __pyx_vtabstruct_5epic2_3src_12find_islands_IslandVector *)__pyx_cur_scope->__pyx_v_all_islands->__pyx_vtab)->push_back(__pyx_cur_scope->__pyx_v_all_islands, (__pyx_v__islands->wrapped_vector[__pyx_cur_scope->__pyx_v_i])); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 326, __pyx_L1_error)
+      __pyx_t_2 = __pyx_pf_5epic2_3src_12find_islands_13write_islands_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 323, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
+      __pyx_t_4 = __Pyx_PyString_Join(__pyx_kp_s__6, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 323, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      if (__Pyx_PrintOne(0, __pyx_t_4) < 0) __PYX_ERR(0, 323, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     }
 
     /* "epic2/src/find_islands.pyx":319
  *     _poisson = poisson(average_window_readcount)
- *     print("\t".join(["Chromosome", "Start", "End", "PValue", "ChIPCount", "Strand", "FDR"]))
+ *     print("\t".join(["Chromosome", "Start", "End", "ChIPCount", "Score", "Strand"]))
  *     for chromosome in chromosomes:             # <<<<<<<<<<<<<<
  *         _islands = islands[chromosome]
  * 
  */
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "epic2/src/find_islands.pyx":330
- *     # ranks = rankdata(np.array([_islands.wrapped_vector[i].p_value for _islands.wrapped_vector[i] in all_islands.wrapped_vector[i]s], dtype=np.int))
- * 
- *     p_values = np.zeros(len(all_islands))             # <<<<<<<<<<<<<<
- * 
- *     for i in range(len(all_islands)):
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 330, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = ((PyObject *)__pyx_cur_scope->__pyx_v_all_islands);
-  __Pyx_INCREF(__pyx_t_2);
-  __pyx_t_6 = PyObject_Length(__pyx_t_2); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 330, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyInt_FromSsize_t(__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 330, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_4, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 330, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_v_p_values = __pyx_t_1;
-  __pyx_t_1 = 0;
-
-  /* "epic2/src/find_islands.pyx":332
- *     p_values = np.zeros(len(all_islands))
- * 
- *     for i in range(len(all_islands)):             # <<<<<<<<<<<<<<
- *         p_values[i] = all_islands.wrapped_vector[i].p_value
- * 
- */
-  __pyx_t_1 = ((PyObject *)__pyx_cur_scope->__pyx_v_all_islands);
-  __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_6 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 332, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_8 = __pyx_t_6;
-  for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_8; __pyx_t_10+=1) {
-    __pyx_cur_scope->__pyx_v_i = __pyx_t_10;
-
-    /* "epic2/src/find_islands.pyx":333
- * 
- *     for i in range(len(all_islands)):
- *         p_values[i] = all_islands.wrapped_vector[i].p_value             # <<<<<<<<<<<<<<
- * 
- *     ranks = rankdata(p_values)
- */
-    __pyx_t_1 = PyFloat_FromDouble((__pyx_cur_scope->__pyx_v_all_islands->wrapped_vector[__pyx_cur_scope->__pyx_v_i]).p_value); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 333, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    if (unlikely(__Pyx_SetItemInt(__pyx_v_p_values, __pyx_cur_scope->__pyx_v_i, __pyx_t_1, int, 1, __Pyx_PyInt_From_int, 0, 1, 1) < 0)) __PYX_ERR(0, 333, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  }
-
-  /* "epic2/src/find_islands.pyx":335
- *         p_values[i] = all_islands.wrapped_vector[i].p_value
- * 
- *     ranks = rankdata(p_values)             # <<<<<<<<<<<<<<
- * 
- *     counter = 0
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_rankdata); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 335, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_2);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_4, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_v_p_values) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_p_values);
-  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 335, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_v_ranks = __pyx_t_1;
-  __pyx_t_1 = 0;
-
-  /* "epic2/src/find_islands.pyx":337
- *     ranks = rankdata(p_values)
- * 
- *     counter = 0             # <<<<<<<<<<<<<<
- *     num_islands = len(all_islands)
- * 
- */
-  __pyx_v_counter = 0;
-
-  /* "epic2/src/find_islands.pyx":338
- * 
- *     counter = 0
- *     num_islands = len(all_islands)             # <<<<<<<<<<<<<<
- * 
- *     for chromosome, chromosome_size in natsorted(num_islands_per_chrom.items()):
- */
-  __pyx_t_1 = ((PyObject *)__pyx_cur_scope->__pyx_v_all_islands);
-  __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_6 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 338, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_num_islands = __pyx_t_6;
-
-  /* "epic2/src/find_islands.pyx":340
- *     num_islands = len(all_islands)
- * 
- *     for chromosome, chromosome_size in natsorted(num_islands_per_chrom.items()):             # <<<<<<<<<<<<<<
- * 
- *         i = 0
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_natsorted); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 340, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyDict_Items(__pyx_v_num_islands_per_chrom); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_4, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
-    __pyx_t_4 = __pyx_t_1; __Pyx_INCREF(__pyx_t_4); __pyx_t_6 = 0;
-    __pyx_t_7 = NULL;
-  } else {
-    __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 340, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 340, __pyx_L1_error)
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  for (;;) {
-    if (likely(!__pyx_t_7)) {
-      if (likely(PyList_CheckExact(__pyx_t_4))) {
-        if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_4)) break;
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 340, __pyx_L1_error)
-        #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        #endif
-      } else {
-        if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_1); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 340, __pyx_L1_error)
-        #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_1);
-        #endif
-      }
-    } else {
-      __pyx_t_1 = __pyx_t_7(__pyx_t_4);
-      if (unlikely(!__pyx_t_1)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 340, __pyx_L1_error)
-        }
-        break;
-      }
-      __Pyx_GOTREF(__pyx_t_1);
-    }
-    if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
-      PyObject* sequence = __pyx_t_1;
-      Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
-      if (unlikely(size != 2)) {
-        if (size > 2) __Pyx_RaiseTooManyValuesError(2);
-        else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 340, __pyx_L1_error)
-      }
-      #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      if (likely(PyTuple_CheckExact(sequence))) {
-        __pyx_t_2 = PyTuple_GET_ITEM(sequence, 0); 
-        __pyx_t_3 = PyTuple_GET_ITEM(sequence, 1); 
-      } else {
-        __pyx_t_2 = PyList_GET_ITEM(sequence, 0); 
-        __pyx_t_3 = PyList_GET_ITEM(sequence, 1); 
-      }
-      __Pyx_INCREF(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
-      #else
-      __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 340, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      #endif
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    } else {
-      Py_ssize_t index = -1;
-      __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 340, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_5);
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_12 = Py_TYPE(__pyx_t_5)->tp_iternext;
-      index = 0; __pyx_t_2 = __pyx_t_12(__pyx_t_5); if (unlikely(!__pyx_t_2)) goto __pyx_L13_unpacking_failed;
-      __Pyx_GOTREF(__pyx_t_2);
-      index = 1; __pyx_t_3 = __pyx_t_12(__pyx_t_5); if (unlikely(!__pyx_t_3)) goto __pyx_L13_unpacking_failed;
-      __Pyx_GOTREF(__pyx_t_3);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_12(__pyx_t_5), 2) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
-      __pyx_t_12 = NULL;
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      goto __pyx_L14_unpacking_done;
-      __pyx_L13_unpacking_failed:;
-      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_12 = NULL;
-      if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 340, __pyx_L1_error)
-      __pyx_L14_unpacking_done:;
-    }
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_chromosome);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_chromosome, __pyx_t_2);
-    __Pyx_GIVEREF(__pyx_t_2);
-    __pyx_t_2 = 0;
-    __Pyx_XDECREF_SET(__pyx_v_chromosome_size, __pyx_t_3);
-    __pyx_t_3 = 0;
-
-    /* "epic2/src/find_islands.pyx":342
- *     for chromosome, chromosome_size in natsorted(num_islands_per_chrom.items()):
- * 
- *         i = 0             # <<<<<<<<<<<<<<
- *         for i in range(int(chromosome_size)):
- * 
- */
-    __pyx_cur_scope->__pyx_v_i = 0;
-
-    /* "epic2/src/find_islands.pyx":343
- * 
- *         i = 0
- *         for i in range(int(chromosome_size)):             # <<<<<<<<<<<<<<
- * 
- *             #### compute fdr #####
- */
-    __pyx_t_1 = __Pyx_PyNumber_Int(__pyx_v_chromosome_size); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_13 = __Pyx_PyInt_As_long(__pyx_t_1); if (unlikely((__pyx_t_13 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 343, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_14 = __pyx_t_13;
-    for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_14; __pyx_t_10+=1) {
-      __pyx_cur_scope->__pyx_v_i = __pyx_t_10;
-
-      /* "epic2/src/find_islands.pyx":348
- *             # _islands.wrapped_vector[i] = all_islands.wrapped_vector[i + counter]
- * 
- *             fdr = all_islands.wrapped_vector[i + counter].p_value * num_islands / ranks[i + counter]             # <<<<<<<<<<<<<<
- *             # print("fdr cutoff", fdr_cutoff)
- *             if fdr > 1:
- */
-      __pyx_t_1 = PyFloat_FromDouble(((__pyx_cur_scope->__pyx_v_all_islands->wrapped_vector[(__pyx_cur_scope->__pyx_v_i + __pyx_v_counter)]).p_value * __pyx_v_num_islands)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_15 = (__pyx_cur_scope->__pyx_v_i + __pyx_v_counter);
-      __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_ranks, __pyx_t_15, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 348, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_fdr);
-      __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_fdr, __pyx_t_2);
-      __Pyx_GIVEREF(__pyx_t_2);
-      __pyx_t_2 = 0;
-
-      /* "epic2/src/find_islands.pyx":350
- *             fdr = all_islands.wrapped_vector[i + counter].p_value * num_islands / ranks[i + counter]
- *             # print("fdr cutoff", fdr_cutoff)
- *             if fdr > 1:             # <<<<<<<<<<<<<<
- *                 fdr = 1
- *             if fdr <= fdr_cutoff:
- */
-      __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_fdr, __pyx_int_1, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
-      __pyx_t_16 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_16 < 0)) __PYX_ERR(0, 350, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (__pyx_t_16) {
-
-        /* "epic2/src/find_islands.pyx":351
- *             # print("fdr cutoff", fdr_cutoff)
- *             if fdr > 1:
- *                 fdr = 1             # <<<<<<<<<<<<<<
- *             if fdr <= fdr_cutoff:
- *                 print("\t".join(str(e) for e in [chromosome, all_islands.wrapped_vector[i].start, all_islands.wrapped_vector[i].end, all_islands.wrapped_vector[i].p_value, all_islands.wrapped_vector[i].chip_count, ".", fdr]))
- */
-        __Pyx_INCREF(__pyx_int_1);
-        __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_fdr);
-        __Pyx_DECREF_SET(__pyx_cur_scope->__pyx_v_fdr, __pyx_int_1);
-        __Pyx_GIVEREF(__pyx_int_1);
-
-        /* "epic2/src/find_islands.pyx":350
- *             fdr = all_islands.wrapped_vector[i + counter].p_value * num_islands / ranks[i + counter]
- *             # print("fdr cutoff", fdr_cutoff)
- *             if fdr > 1:             # <<<<<<<<<<<<<<
- *                 fdr = 1
- *             if fdr <= fdr_cutoff:
- */
-      }
-
-      /* "epic2/src/find_islands.pyx":352
- *             if fdr > 1:
- *                 fdr = 1
- *             if fdr <= fdr_cutoff:             # <<<<<<<<<<<<<<
- *                 print("\t".join(str(e) for e in [chromosome, all_islands.wrapped_vector[i].start, all_islands.wrapped_vector[i].end, all_islands.wrapped_vector[i].p_value, all_islands.wrapped_vector[i].chip_count, ".", fdr]))
- */
-      __pyx_t_2 = PyFloat_FromDouble(__pyx_v_fdr_cutoff); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 352, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_fdr, __pyx_t_2, Py_LE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 352, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_16 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_16 < 0)) __PYX_ERR(0, 352, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (__pyx_t_16) {
-
-        /* "epic2/src/find_islands.pyx":353
- *                 fdr = 1
- *             if fdr <= fdr_cutoff:
- *                 print("\t".join(str(e) for e in [chromosome, all_islands.wrapped_vector[i].start, all_islands.wrapped_vector[i].end, all_islands.wrapped_vector[i].p_value, all_islands.wrapped_vector[i].chip_count, ".", fdr]))             # <<<<<<<<<<<<<<
- */
-        __pyx_t_3 = __pyx_pf_5epic2_3src_12find_islands_13write_islands_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 353, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_2 = __Pyx_PyString_Join(__pyx_kp_s__6, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 353, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_2);
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (__Pyx_PrintOne(0, __pyx_t_2) < 0) __PYX_ERR(0, 353, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-        /* "epic2/src/find_islands.pyx":352
- *             if fdr > 1:
- *                 fdr = 1
- *             if fdr <= fdr_cutoff:             # <<<<<<<<<<<<<<
- *                 print("\t".join(str(e) for e in [chromosome, all_islands.wrapped_vector[i].start, all_islands.wrapped_vector[i].end, all_islands.wrapped_vector[i].p_value, all_islands.wrapped_vector[i].chip_count, ".", fdr]))
- */
-      }
-    }
-
-    /* "epic2/src/find_islands.pyx":340
- *     num_islands = len(all_islands)
- * 
- *     for chromosome, chromosome_size in natsorted(num_islands_per_chrom.items()):             # <<<<<<<<<<<<<<
- * 
- *         i = 0
- */
-  }
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "epic2/src/find_islands.pyx":299
  * 
@@ -7542,14 +7112,11 @@ static PyObject *__pyx_pf_5epic2_3src_12find_islands_6write_islands(CYTHON_UNUSE
   __Pyx_AddTraceback("epic2.src.find_islands.write_islands", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
-  __Pyx_XDECREF((PyObject *)__pyx_v__islands);
+  __Pyx_XDECREF((PyObject *)__pyx_v_all_islands);
   __Pyx_XDECREF(__pyx_v_chromosomes);
   __Pyx_XDECREF(__pyx_v_num_islands_per_chrom);
   __Pyx_XDECREF(__pyx_v_c);
   __Pyx_XDECREF(__pyx_v__poisson);
-  __Pyx_XDECREF(__pyx_v_p_values);
-  __Pyx_XDECREF(__pyx_v_ranks);
-  __Pyx_XDECREF(__pyx_v_chromosome_size);
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
@@ -22631,9 +22198,8 @@ static PyObject *__pyx_tp_new_5epic2_3src_12find_islands___pyx_scope_struct_4_wr
 static void __pyx_tp_dealloc_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands(PyObject *o) {
   struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands *p = (struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands *)o;
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_all_islands);
+  Py_CLEAR(p->__pyx_v__islands);
   Py_CLEAR(p->__pyx_v_chromosome);
-  Py_CLEAR(p->__pyx_v_fdr);
   if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands)))) {
     __pyx_freelist_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands[__pyx_freecount_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands++] = ((struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands *)o);
   } else {
@@ -22644,14 +22210,11 @@ static void __pyx_tp_dealloc_5epic2_3src_12find_islands___pyx_scope_struct_4_wri
 static int __pyx_tp_traverse_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands(PyObject *o, visitproc v, void *a) {
   int e;
   struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands *p = (struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands *)o;
-  if (p->__pyx_v_all_islands) {
-    e = (*v)(((PyObject *)p->__pyx_v_all_islands), a); if (e) return e;
+  if (p->__pyx_v__islands) {
+    e = (*v)(((PyObject *)p->__pyx_v__islands), a); if (e) return e;
   }
   if (p->__pyx_v_chromosome) {
     e = (*v)(p->__pyx_v_chromosome, a); if (e) return e;
-  }
-  if (p->__pyx_v_fdr) {
-    e = (*v)(p->__pyx_v_fdr, a); if (e) return e;
   }
   return 0;
 }
@@ -22659,14 +22222,11 @@ static int __pyx_tp_traverse_5epic2_3src_12find_islands___pyx_scope_struct_4_wri
 static int __pyx_tp_clear_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands(PyObject *o) {
   PyObject* tmp;
   struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands *p = (struct __pyx_obj_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands *)o;
-  tmp = ((PyObject*)p->__pyx_v_all_islands);
-  p->__pyx_v_all_islands = ((struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *)Py_None); Py_INCREF(Py_None);
+  tmp = ((PyObject*)p->__pyx_v__islands);
+  p->__pyx_v__islands = ((struct __pyx_obj_5epic2_3src_12find_islands_IslandVector *)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->__pyx_v_chromosome);
   p->__pyx_v_chromosome = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->__pyx_v_fdr);
-  p->__pyx_v_fdr = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
 }
@@ -23615,7 +23175,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_chip_count, __pyx_k_chip_count, sizeof(__pyx_k_chip_count), 0, 0, 1, 1},
   {&__pyx_n_s_chip_library_size, __pyx_k_chip_library_size, sizeof(__pyx_k_chip_library_size), 0, 0, 1, 1},
   {&__pyx_n_s_chromosome, __pyx_k_chromosome, sizeof(__pyx_k_chromosome), 0, 0, 1, 1},
-  {&__pyx_n_s_chromosome_size, __pyx_k_chromosome_size, sizeof(__pyx_k_chromosome_size), 0, 0, 1, 1},
   {&__pyx_n_s_chromosomes, __pyx_k_chromosomes, sizeof(__pyx_k_chromosomes), 0, 0, 1, 1},
   {&__pyx_n_s_class, __pyx_k_class, sizeof(__pyx_k_class), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
@@ -23665,14 +23224,13 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_island_dict, __pyx_k_island_dict, sizeof(__pyx_k_island_dict), 0, 0, 1, 1},
   {&__pyx_n_s_islands, __pyx_k_islands, sizeof(__pyx_k_islands), 0, 0, 1, 1},
   {&__pyx_n_s_islands_2, __pyx_k_islands_2, sizeof(__pyx_k_islands_2), 0, 0, 1, 1},
-  {&__pyx_n_s_items, __pyx_k_items, sizeof(__pyx_k_items), 0, 0, 1, 1},
   {&__pyx_n_s_itemsize, __pyx_k_itemsize, sizeof(__pyx_k_itemsize), 0, 0, 1, 1},
   {&__pyx_kp_s_itemsize_0_for_cython_array, __pyx_k_itemsize_0_for_cython_array, sizeof(__pyx_k_itemsize_0_for_cython_array), 0, 0, 1, 0},
   {&__pyx_n_s_iter___locals_genexpr, __pyx_k_iter___locals_genexpr, sizeof(__pyx_k_iter___locals_genexpr), 0, 0, 1, 1},
   {&__pyx_n_s_j, __pyx_k_j, sizeof(__pyx_k_j), 0, 0, 1, 1},
   {&__pyx_n_s_join, __pyx_k_join, sizeof(__pyx_k_join), 0, 0, 1, 1},
   {&__pyx_n_s_keys, __pyx_k_keys, sizeof(__pyx_k_keys), 0, 0, 1, 1},
-  {&__pyx_kp_s_log2_FoldChange, __pyx_k_log2_FoldChange, sizeof(__pyx_k_log2_FoldChange), 0, 0, 1, 0},
+  {&__pyx_n_s_log2FoldChange, __pyx_k_log2FoldChange, sizeof(__pyx_k_log2FoldChange), 0, 0, 1, 1},
   {&__pyx_n_s_logging, __pyx_k_logging, sizeof(__pyx_k_logging), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_memview, __pyx_k_memview, sizeof(__pyx_k_memview), 0, 0, 1, 1},
@@ -23697,7 +23255,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_p_values, __pyx_k_p_values, sizeof(__pyx_k_p_values), 0, 0, 1, 1},
   {&__pyx_n_s_pack, __pyx_k_pack, sizeof(__pyx_k_pack), 0, 0, 1, 1},
   {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
-  {&__pyx_n_s_pmf, __pyx_k_pmf, sizeof(__pyx_k_pmf), 0, 0, 1, 1},
   {&__pyx_n_s_poisson, __pyx_k_poisson, sizeof(__pyx_k_poisson), 0, 0, 1, 1},
   {&__pyx_n_s_poisson_2, __pyx_k_poisson_2, sizeof(__pyx_k_poisson_2), 0, 0, 1, 1},
   {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
@@ -24183,10 +23740,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *     cdef:
  */
-  __pyx_tuple__39 = PyTuple_Pack(19, __pyx_n_s_islands, __pyx_n_s_average_window_readcount, __pyx_n_s_fdr_cutoff, __pyx_n_s_islands_2, __pyx_n_s_all_islands, __pyx_n_s_i, __pyx_n_s_num_islands, __pyx_n_s_counter, __pyx_n_s_chromosomes, __pyx_n_s_num_islands_per_chrom, __pyx_n_s_c, __pyx_n_s_poisson_2, __pyx_n_s_chromosome, __pyx_n_s_p_values, __pyx_n_s_ranks, __pyx_n_s_chromosome_size, __pyx_n_s_fdr, __pyx_n_s_genexpr, __pyx_n_s_genexpr); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_tuple__39 = PyTuple_Pack(15, __pyx_n_s_islands, __pyx_n_s_average_window_readcount, __pyx_n_s_fdr_cutoff, __pyx_n_s_islands_2, __pyx_n_s_all_islands, __pyx_n_s_i, __pyx_n_s_num_islands, __pyx_n_s_counter, __pyx_n_s_chromosomes, __pyx_n_s_num_islands_per_chrom, __pyx_n_s_c, __pyx_n_s_poisson_2, __pyx_n_s_chromosome, __pyx_n_s_genexpr, __pyx_n_s_genexpr); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__39);
   __Pyx_GIVEREF(__pyx_tuple__39);
-  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(3, 0, 19, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_find_islands_pyx, __pyx_n_s_write_islands, 299, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 299, __pyx_L1_error)
+  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(3, 0, 15, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_find_islands_pyx, __pyx_n_s_write_islands, 299, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 299, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_IslandVector(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
@@ -24270,7 +23827,6 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 }
 
 static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
-  __pyx_umethod_PyDict_Type_items.type = (PyObject*)&PyDict_Type;
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
   __pyx_int_0 = PyInt_FromLong(0); if (unlikely(!__pyx_int_0)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_1 = PyInt_FromLong(1); if (unlikely(!__pyx_int_1)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -24364,7 +23920,7 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_type_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   __pyx_ptype_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands = &__pyx_type_5epic2_3src_12find_islands___pyx_scope_struct_4_write_islands;
-  if (PyType_Ready(&__pyx_type_5epic2_3src_12find_islands___pyx_scope_struct_5_genexpr) < 0) __PYX_ERR(0, 353, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5epic2_3src_12find_islands___pyx_scope_struct_5_genexpr) < 0) __PYX_ERR(0, 323, __pyx_L1_error)
   __pyx_type_5epic2_3src_12find_islands___pyx_scope_struct_5_genexpr.tp_print = 0;
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5epic2_3src_12find_islands___pyx_scope_struct_5_genexpr.tp_dictoffset && __pyx_type_5epic2_3src_12find_islands___pyx_scope_struct_5_genexpr.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5epic2_3src_12find_islands___pyx_scope_struct_5_genexpr.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
@@ -25977,53 +25533,6 @@ static CYTHON_INLINE PyObject* __Pyx_decode_c_bytes(
     } else {
         return PyUnicode_Decode(cstring, length, encoding, errors);
     }
-}
-
-/* UnpackUnboundCMethod */
-static int __Pyx_TryUnpackUnboundCMethod(__Pyx_CachedCFunction* target) {
-    PyObject *method;
-    method = __Pyx_PyObject_GetAttrStr(target->type, *target->method_name);
-    if (unlikely(!method))
-        return -1;
-    target->method = method;
-#if CYTHON_COMPILING_IN_CPYTHON
-    #if PY_MAJOR_VERSION >= 3
-    if (likely(__Pyx_TypeCheck(method, &PyMethodDescr_Type)))
-    #endif
-    {
-        PyMethodDescrObject *descr = (PyMethodDescrObject*) method;
-        target->func = descr->d_method->ml_meth;
-        target->flag = descr->d_method->ml_flags & ~(METH_CLASS | METH_STATIC | METH_COEXIST | METH_STACKLESS);
-    }
-#endif
-    return 0;
-}
-
-/* CallUnboundCMethod0 */
-static PyObject* __Pyx__CallUnboundCMethod0(__Pyx_CachedCFunction* cfunc, PyObject* self) {
-    PyObject *args, *result = NULL;
-    if (unlikely(!cfunc->method) && unlikely(__Pyx_TryUnpackUnboundCMethod(cfunc) < 0)) return NULL;
-#if CYTHON_ASSUME_SAFE_MACROS
-    args = PyTuple_New(1);
-    if (unlikely(!args)) goto bad;
-    Py_INCREF(self);
-    PyTuple_SET_ITEM(args, 0, self);
-#else
-    args = PyTuple_Pack(1, self);
-    if (unlikely(!args)) goto bad;
-#endif
-    result = __Pyx_PyObject_Call(cfunc->method, args, NULL);
-    Py_DECREF(args);
-bad:
-    return result;
-}
-
-/* py_dict_items */
-static CYTHON_INLINE PyObject* __Pyx_PyDict_Items(PyObject* d) {
-    if (PY_MAJOR_VERSION >= 3)
-        return __Pyx_CallUnboundCMethod0(&__pyx_umethod_PyDict_Type_items, d);
-    else
-        return PyDict_Items(d);
 }
 
 /* Import */
