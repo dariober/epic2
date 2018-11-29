@@ -116,7 +116,7 @@ optional arguments:
                         assumption. Should be used when not using a control
                         library. Default: 1000.
   --quiet, -q           Do not write output messages to stderr.
-  --example, -ex        Show the paths of the example data location.``
+  --example, -ex        Show the paths of the example data and print example command.
 ```
 
 #### Output
