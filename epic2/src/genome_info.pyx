@@ -1,4 +1,5 @@
 import logging
+import gzip
 from os.path import basename
 from natsort import natsorted
 from collections import OrderedDict
@@ -51,6 +52,39 @@ def find_readlength(args):
             if i == 100:
                 break
 
+
+    elif _file.endswith(".bed.gz"):
+        for line in gzip.open(_file):
+            line = line.decode()
+            _start, _end = line.split()[1:3]
+            arr[i] = int(_end) - int(_start)
+            i += 1
+            if i == 100:
+                break
+
+
+    elif _file.endswith(".bedpe"):
+        for line in open(_file):
+            ls = line.split()
+            _start = ls[1]
+            _end = ls[5]
+            arr[i] = int(_end) - int(_start)
+            i += 1
+            if i == 100:
+                break
+
+    elif _file.endswith(".bedpe.gz"):
+        for line in gzip.open(_file):
+            line = line.decode()
+            ls = line.split()
+            _start = ls[1]
+            _end = ls[5]
+            arr[i] = int(_end) - int(_start)
+            i += 1
+            if i == 100:
+                break
+
+
     elif _file.endswith(".bam") or _file.endswith(".sam"):
 
         import pysam
@@ -68,6 +102,9 @@ def find_readlength(args):
             if i == 100:
                 break
 
+    else:
+        raise IOError("Cannot recognize file extension of: " + _file + ". Must be bed, bedpe, bam, sam, bed.gz or bedpe.gz")
+
         # print(arr)
     median = np.median(arr)
     logging.info("Found a median readlength of {}\n".format(median))
@@ -76,42 +113,10 @@ def find_readlength(args):
     return get_closest_readlength(median)
 
 
-    # filereader = "cat "
-    # if bed_file.endswith(".gz"):
-    #     filereader = "gzcat "
-    # elif bed_file.endswith(".bz2"):
-    #     filereader = "bzgrep "
-    # elif bed_file.endswith(".bam"):
-    #     filereader = "samtools view "
-
-    # command = filereader + "{} | head -10000".format(bed_file)
-    # output = check_output(command, shell=True)
-
-    # df = pd.read_table(
-    #     BytesIO(output),
-    #     header=None,
-    #     usecols=[1, 2],
-    #     sep="\t",
-    #     names=["Start", "End"])
-
-    # readlengths = df.End - df.Start
-    # mean_readlength = readlengths.mean()
-    # median_readlength = readlengths.median()
-    # max_readlength = readlengths.max()
-    # min_readlength = readlengths.min()
-
-    # logging.info((
-    #     "Used first 10000 reads of {} to estimate a median read length of {}\n"
-    #     "Mean readlength: {}, max readlength: {}, min readlength: {}.").format(
-    #         bed_file, median_readlength, mean_readlength, max_readlength,
-    #         min_readlength))
-
-
-
 
 def get_genome_size_file(genome):
 
-    genome_names = pkg_resources.resource_listdir("epic", "scripts/chromsizes")
+    genome_names = pkg_resources.resource_listdir("epic2", "chromsizes")
     name_dict = {n.lower().replace(".chromsizes", ""): n for n in genome_names}
 
     # # No try/except here, because get_egs would already have failed if genome

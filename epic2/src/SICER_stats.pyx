@@ -378,11 +378,11 @@ class Background_island_probscore_statistics:
 # Total number of islands:  16431
 
 
-def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size):
+def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size, e_value):
 
 	tag_density = chip_counts/effective_genome_length
 	background = Background_island_probscore_statistics(chip_counts, window_size, gap_size, 0.2, effective_genome_length, 0.001)
-	score_threshold = background.find_island_threshold(1000)
+	score_threshold = background.find_island_threshold(e_value)
 
 	logging.info("Score threshold: {}\n".format(score_threshold))
 

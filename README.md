@@ -23,10 +23,21 @@ issues you have.
 #### Quick Start
 
 ```
-git clone git@github.com:endrebak/epic2.git
-cd epic2
-python setup.py install
-epic2 -t examples/test.bed -c examples/control.bed > results.txt
+pip install epic2
+
+epic2 -ex
+# Treatment: /mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/epic2-0.0.13-py3.6-linux-x86_64.egg/epic2/examples/test.bed.gz
+# Control: /mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/epic2-0.0.13-py3.6-linux-x86_64.egg/epic2/examples/control.bed.gz
+# Example command: epic2 -t /mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/epic2-0.0.13-py3.6-linux-x86_64.egg/epic2/examples/test.bed.gz -c /mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/epic2-0.0.13-py3.6-linux-x86_64.egg/epic2/examples/control.bed.gz > deleteme.txt
+
+epic2 -t /mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/epic2-0.0.13-py3.6-linux-x86_64.egg/epic2/examples/test.bed.gz \
+      -c /mnt/work/endrebak/software/anaconda/lib/python3.6/site-packages/epic2-0.0.13-py3.6-linux-x86_64.egg/epic2/examples/control.bed.gz \
+      > deleteme.txt
+
+head -3 deleteme.txt
+# Chromosome      Start   End     PValue  Score   Strand  ChIPCount       InputCount      FDR     log2FoldChange
+# chr1    23568400        23568599        8.184732752658519e-11   1000.0  .       2       0       6.319375023267071e-10   11.307485580444336
+# chr1    26401200        26401399        8.184732752658519e-11   1000.0  .       2       0       6.319375023267071e-10   11.307485580444336
 ```
 
 #### Install
@@ -39,16 +50,21 @@ to include the headers.
 pip install epic2
 ```
 
+#### Performance
+
+<img src="graphs/speed_epic2_vs_SICER_no_bigwig.png" />
+
+
 #### CLI
 
-```
-usage: epic2 [-h] --treatment TREATMENT [TREATMENT ...]
+```usage: epic2 [-h] [--treatment TREATMENT [TREATMENT ...]]
              [--control CONTROL [CONTROL ...]] [--genome GENOME]
              [--keep-duplicates] [--bin-size BIN_SIZE]
              [--gaps-allowed GAPS_ALLOWED] [--fragment-size FRAGMENT_SIZE]
              [--false-discovery-rate-cutoff FALSE_DISCOVERY_RATE_CUTOFF]
              [--effective-genome-fraction EFFECTIVE_GENOME_FRACTION]
-             [--chromsizes CHROMSIZES] [--verbose]
+             [--chromsizes CHROMSIZES] [--e-value E_VALUE] [--quiet]
+             [--example]
 
 epic2. (Visit github.com/endrebak/epic2 for examples and help.)
 
@@ -94,12 +110,14 @@ optional arguments:
                         columns: chromosome names and sizes. Useful to analyze
                         custom genomes, assemblies or simulated data. Only
                         chromosomes included in the file will be analyzed.
+  --e-value E_VALUE, -e E_VALUE
+                        The E-value controls the genome-wide error rate of
+                        identified islands under the random background
+                        assumption. Should be used when not using a control
+                        library. Default: 1000.
   --quiet, -q           Do not write output messages to stderr.
+  --example, -ex        Show the paths of the example data location.``
 ```
-
-#### Performance
-
-<img src="graphs/speed_epic2_vs_SICER_no_bigwig.png" />
 
 #### Output
 
@@ -125,4 +143,11 @@ This is the meaning of the columns:
 
 When used without a background library, epic2 produces the following bed6-compatible file:
 
-(More to come)
+```
+Chromosome      Start   End     ChIPCount       Score   Strand
+chr1    23568400        23568599        2       14.983145713806152      .
+chr1    26401200        26401399        2       14.983145713806152      .
+...
+```
+
+Here Score is merely the score the island got (SICER internal really).

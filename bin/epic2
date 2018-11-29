@@ -27,7 +27,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     '--treatment',
     '-t',
-    required=True,
+    required=False,
     type=str,
     nargs='+',
     help='''Treatment (pull-down) file(s) in one of these formats: bed, bedpe, bed.gz, bedpe.gz or (single-end) bam, sam. Mixing file formats is allowed.''')
@@ -117,6 +117,15 @@ parser.add_argument(
 
 
 parser.add_argument(
+    '--e-value',
+    '-e',
+    required=False,
+    default=1000,
+    type=int,
+    help=
+    '''The E-value controls the genome-wide error rate of identified islands under the random background assumption. Should be used when not using a control library. Default: 1000.''')
+
+parser.add_argument(
     '--quiet',
     '-q',
     required=False,
@@ -125,9 +134,36 @@ parser.add_argument(
     help=
     '''Do not write output messages to stderr.''')
 
+
+parser.add_argument(
+    '--example',
+    '-ex',
+    required=False,
+    default=False,
+    action="store_true",
+    help=
+    '''Show the paths of the example data.''')
+
+
+
 def main():
 
+
     args = vars(parser.parse_args())
+
+    if args["example"]:
+
+        import pkg_resources
+        treatment = pkg_resources.resource_filename("epic2", "examples/test.bed.gz")
+        control = pkg_resources.resource_filename("epic2", "examples/control.bed.gz")
+        print("Treatment: " + treatment)
+        print("Control: " + control)
+        print("Example command: epic2 -t {} -c {} > deleteme.txt".format(treatment, control))
+        sys.exit(0)
+
+    if not args["treatment"]:
+        raise Exception("The treatment flag -t is required.")
+
     args["drop_duplicates"] = int(not args["keep_duplicates"])
 
     import logging
@@ -154,7 +190,7 @@ def main():
     logging.info("\nValid ChIP reads: {}\n".format(chip_count))
 
     score_threshold, island_enriched_threshold, average_window_readcount = compute_score_threshold(
-        chip_count, args["bin_size"], effective_genome_length, args["gaps_allowed"] * args["bin_size"])
+        chip_count, args["bin_size"], effective_genome_length, args["gaps_allowed"] * args["bin_size"], args["e_value"])
 
     logging.info("Number of tags in a window: {}\n".format(island_enriched_threshold))
 
@@ -171,7 +207,7 @@ def main():
 
         compute_fdr(new_islands, b_bins_counts, chip_count, background_count, effective_genome_length, args["false_discovery_rate_cutoff"])
     else:
-        write_islands(new_islands, average_window_readcount, args["false_discovery_rate_cutoff"])
+        write_islands(new_islands, average_window_readcount, args["false_discovery_rate_cutoff"], args["e_value"])
 
 
 main()

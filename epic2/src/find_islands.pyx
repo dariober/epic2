@@ -296,13 +296,13 @@ def compute_fdr(islands, b_bins_counts, int chip_library_size, int control_libra
     # print("j " * 100, j)
 
 
-def write_islands(islands, float average_window_readcount, float fdr_cutoff):
+def write_islands(islands, float average_window_readcount, float fdr_cutoff, int e_value):
 
     cdef:
         IslandVector _islands
         IslandVector all_islands = IslandVector()
         int i
-        int num_islands
+        int num_islands = 0
         int counter
 
 
@@ -318,10 +318,12 @@ def write_islands(islands, float average_window_readcount, float fdr_cutoff):
     print("\t".join(["Chromosome", "Start", "End", "ChIPCount", "Score", "Strand"]))
     for chromosome in chromosomes:
         _islands = islands[chromosome]
+        num_islands += len(_islands)
 
         for i in range(len(_islands)):
             print("\t".join(str(e) for e in [chromosome, _islands.wrapped_vector[i].start, _islands.wrapped_vector[i].end, _islands.wrapped_vector[i].chip_count, float(_islands.wrapped_vector[i].score), "."]))
 
+    logging.info("Empirical estimate of FDR is: {} ({}/{})".format(min(1, float(e_value)/num_islands), e_value, num_islands))
     # ranks = rankdata(np.array([_islands.wrapped_vector[i].p_value for _islands.wrapped_vector[i] in all_islands.wrapped_vector[i]s], dtype=np.int))
 
     # p_values = np.zeros(len(all_islands))

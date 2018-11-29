@@ -1453,6 +1453,7 @@ static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_module[] = "__module__";
 static const char __pyx_k_xrange[] = "xrange";
 static const char __pyx_k_average[] = "average";
+static const char __pyx_k_e_value[] = "e_value";
 static const char __pyx_k_gapSize[] = "gapSize";
 static const char __pyx_k_logging[] = "logging";
 static const char __pyx_k_outfile[] = "outfile";
@@ -1587,6 +1588,7 @@ static PyObject *__pyx_n_s_current_max_scaled_score;
 static PyObject *__pyx_n_s_current_scaled_score;
 static PyObject *__pyx_n_s_doc;
 static PyObject *__pyx_n_s_dx;
+static PyObject *__pyx_n_s_e_value;
 static PyObject *__pyx_n_s_e_value_threshold;
 static PyObject *__pyx_n_s_effective_genome_length;
 static PyObject *__pyx_n_s_end;
@@ -1699,7 +1701,7 @@ static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_38Background_island_probscor
 static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_38Background_island_probscore_statistics_22bracket_root(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_f, PyObject *__pyx_v_interval, PyObject *__pyx_v_max_iterations); /* proto */
 static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_38Background_island_probscore_statistics_24bisect_root(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, PyObject *__pyx_v_func, PyObject *__pyx_v_interval, PyObject *__pyx_v_xacc); /* proto */
 static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_38Background_island_probscore_statistics_26find_asymptotics_exponent(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self, PyObject *__pyx_v_xacc); /* proto */
-static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_chip_counts, PyObject *__pyx_v_window_size, PyObject *__pyx_v_effective_genome_length, PyObject *__pyx_v_gap_size); /* proto */
+static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_chip_counts, PyObject *__pyx_v_window_size, PyObject *__pyx_v_effective_genome_length, PyObject *__pyx_v_gap_size, PyObject *__pyx_v_e_value); /* proto */
 static PyObject *__pyx_float_0_0;
 static PyObject *__pyx_float_0_1;
 static PyObject *__pyx_float_0_2;
@@ -7265,7 +7267,7 @@ static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_38Background_island_probscor
 /* "epic2/src/SICER_stats.pyx":381
  * 
  * 
- * def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size):             # <<<<<<<<<<<<<<
+ * def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size, e_value):             # <<<<<<<<<<<<<<
  * 
  * 	tag_density = chip_counts/effective_genome_length
  */
@@ -7278,16 +7280,19 @@ static PyObject *__pyx_pw_5epic2_3src_11SICER_stats_1compute_score_threshold(PyO
   PyObject *__pyx_v_window_size = 0;
   PyObject *__pyx_v_effective_genome_length = 0;
   PyObject *__pyx_v_gap_size = 0;
+  PyObject *__pyx_v_e_value = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("compute_score_threshold (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_chip_counts,&__pyx_n_s_window_size,&__pyx_n_s_effective_genome_length,&__pyx_n_s_gap_size,0};
-    PyObject* values[4] = {0,0,0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_chip_counts,&__pyx_n_s_window_size,&__pyx_n_s_effective_genome_length,&__pyx_n_s_gap_size,&__pyx_n_s_e_value,0};
+    PyObject* values[5] = {0,0,0,0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
+        case  5: values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
+        CYTHON_FALLTHROUGH;
         case  4: values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
         CYTHON_FALLTHROUGH;
         case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
@@ -7308,53 +7313,61 @@ static PyObject *__pyx_pw_5epic2_3src_11SICER_stats_1compute_score_threshold(PyO
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_window_size)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_score_threshold", 1, 4, 4, 1); __PYX_ERR(0, 381, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_score_threshold", 1, 5, 5, 1); __PYX_ERR(0, 381, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_effective_genome_length)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_score_threshold", 1, 4, 4, 2); __PYX_ERR(0, 381, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_score_threshold", 1, 5, 5, 2); __PYX_ERR(0, 381, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_gap_size)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("compute_score_threshold", 1, 4, 4, 3); __PYX_ERR(0, 381, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("compute_score_threshold", 1, 5, 5, 3); __PYX_ERR(0, 381, __pyx_L3_error)
+        }
+        CYTHON_FALLTHROUGH;
+        case  4:
+        if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_e_value)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("compute_score_threshold", 1, 5, 5, 4); __PYX_ERR(0, 381, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "compute_score_threshold") < 0)) __PYX_ERR(0, 381, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
       values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
       values[3] = PyTuple_GET_ITEM(__pyx_args, 3);
+      values[4] = PyTuple_GET_ITEM(__pyx_args, 4);
     }
     __pyx_v_chip_counts = values[0];
     __pyx_v_window_size = values[1];
     __pyx_v_effective_genome_length = values[2];
     __pyx_v_gap_size = values[3];
+    __pyx_v_e_value = values[4];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("compute_score_threshold", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 381, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("compute_score_threshold", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 381, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("epic2.src.SICER_stats.compute_score_threshold", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(__pyx_self, __pyx_v_chip_counts, __pyx_v_window_size, __pyx_v_effective_genome_length, __pyx_v_gap_size);
+  __pyx_r = __pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(__pyx_self, __pyx_v_chip_counts, __pyx_v_window_size, __pyx_v_effective_genome_length, __pyx_v_gap_size, __pyx_v_e_value);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_chip_counts, PyObject *__pyx_v_window_size, PyObject *__pyx_v_effective_genome_length, PyObject *__pyx_v_gap_size) {
+static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_chip_counts, PyObject *__pyx_v_window_size, PyObject *__pyx_v_effective_genome_length, PyObject *__pyx_v_gap_size, PyObject *__pyx_v_e_value) {
   CYTHON_UNUSED PyObject *__pyx_v_tag_density = NULL;
   PyObject *__pyx_v_background = NULL;
   PyObject *__pyx_v_score_threshold = NULL;
@@ -7371,11 +7384,11 @@ static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTH
   __Pyx_RefNannySetupContext("compute_score_threshold", 0);
 
   /* "epic2/src/SICER_stats.pyx":383
- * def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size):
+ * def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size, e_value):
  * 
  * 	tag_density = chip_counts/effective_genome_length             # <<<<<<<<<<<<<<
  * 	background = Background_island_probscore_statistics(chip_counts, window_size, gap_size, 0.2, effective_genome_length, 0.001)
- * 	score_threshold = background.find_island_threshold(1000)
+ * 	score_threshold = background.find_island_threshold(e_value)
  */
   __pyx_t_1 = __Pyx_PyNumber_Divide(__pyx_v_chip_counts, __pyx_v_effective_genome_length); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 383, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -7386,7 +7399,7 @@ static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTH
  * 
  * 	tag_density = chip_counts/effective_genome_length
  * 	background = Background_island_probscore_statistics(chip_counts, window_size, gap_size, 0.2, effective_genome_length, 0.001)             # <<<<<<<<<<<<<<
- * 	score_threshold = background.find_island_threshold(1000)
+ * 	score_threshold = background.find_island_threshold(e_value)
  * 
  */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Background_island_probscore_stat); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 384, __pyx_L1_error)
@@ -7454,7 +7467,7 @@ static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTH
   /* "epic2/src/SICER_stats.pyx":385
  * 	tag_density = chip_counts/effective_genome_length
  * 	background = Background_island_probscore_statistics(chip_counts, window_size, gap_size, 0.2, effective_genome_length, 0.001)
- * 	score_threshold = background.find_island_threshold(1000)             # <<<<<<<<<<<<<<
+ * 	score_threshold = background.find_island_threshold(e_value)             # <<<<<<<<<<<<<<
  * 
  * 	logging.info("Score threshold: {}\n".format(score_threshold))
  */
@@ -7470,7 +7483,7 @@ static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTH
       __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_5, __pyx_int_1000) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_int_1000);
+  __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_5, __pyx_v_e_value) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_e_value);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -7479,7 +7492,7 @@ static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTH
   __pyx_t_1 = 0;
 
   /* "epic2/src/SICER_stats.pyx":387
- * 	score_threshold = background.find_island_threshold(1000)
+ * 	score_threshold = background.find_island_threshold(e_value)
  * 
  * 	logging.info("Score threshold: {}\n".format(score_threshold))             # <<<<<<<<<<<<<<
  * 
@@ -7579,7 +7592,7 @@ static PyObject *__pyx_pf_5epic2_3src_11SICER_stats_compute_score_threshold(CYTH
   /* "epic2/src/SICER_stats.pyx":381
  * 
  * 
- * def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size):             # <<<<<<<<<<<<<<
+ * def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size, e_value):             # <<<<<<<<<<<<<<
  * 
  * 	tag_density = chip_counts/effective_genome_length
  */
@@ -7699,6 +7712,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_current_scaled_score, __pyx_k_current_scaled_score, sizeof(__pyx_k_current_scaled_score), 0, 0, 1, 1},
   {&__pyx_n_s_doc, __pyx_k_doc, sizeof(__pyx_k_doc), 0, 0, 1, 1},
   {&__pyx_n_s_dx, __pyx_k_dx, sizeof(__pyx_k_dx), 0, 0, 1, 1},
+  {&__pyx_n_s_e_value, __pyx_k_e_value, sizeof(__pyx_k_e_value), 0, 0, 1, 1},
   {&__pyx_n_s_e_value_threshold, __pyx_k_e_value_threshold, sizeof(__pyx_k_e_value_threshold), 0, 0, 1, 1},
   {&__pyx_n_s_effective_genome_length, __pyx_k_effective_genome_length, sizeof(__pyx_k_effective_genome_length), 0, 0, 1, 1},
   {&__pyx_n_s_end, __pyx_k_end, sizeof(__pyx_k_end), 0, 0, 1, 1},
@@ -8031,14 +8045,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "epic2/src/SICER_stats.pyx":381
  * 
  * 
- * def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size):             # <<<<<<<<<<<<<<
+ * def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size, e_value):             # <<<<<<<<<<<<<<
  * 
  * 	tag_density = chip_counts/effective_genome_length
  */
-  __pyx_tuple__38 = PyTuple_Pack(9, __pyx_n_s_chip_counts, __pyx_n_s_window_size, __pyx_n_s_effective_genome_length, __pyx_n_s_gap_size, __pyx_n_s_tag_density, __pyx_n_s_background, __pyx_n_s_score_threshold, __pyx_n_s_min_tags_in_window, __pyx_n_s_average_window_readcount); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 381, __pyx_L1_error)
+  __pyx_tuple__38 = PyTuple_Pack(10, __pyx_n_s_chip_counts, __pyx_n_s_window_size, __pyx_n_s_effective_genome_length, __pyx_n_s_gap_size, __pyx_n_s_e_value, __pyx_n_s_tag_density, __pyx_n_s_background, __pyx_n_s_score_threshold, __pyx_n_s_min_tags_in_window, __pyx_n_s_average_window_readcount); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 381, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__38);
   __Pyx_GIVEREF(__pyx_tuple__38);
-  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(4, 0, 9, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_SICER_stats_pyx, __pyx_n_s_compute_score_threshold, 381, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 381, __pyx_L1_error)
+  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(5, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_epic2_src_SICER_stats_pyx, __pyx_n_s_compute_score_threshold, 381, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 381, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -8598,7 +8612,7 @@ if (!__Pyx_RefNanny) {
   /* "epic2/src/SICER_stats.pyx":381
  * 
  * 
- * def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size):             # <<<<<<<<<<<<<<
+ * def compute_score_threshold(chip_counts, window_size, effective_genome_length, gap_size, e_value):             # <<<<<<<<<<<<<<
  * 
  * 	tag_density = chip_counts/effective_genome_length
  */
