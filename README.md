@@ -57,7 +57,8 @@ pip install epic2
 
 #### CLI
 
-```usage: epic2 [-h] [--treatment TREATMENT [TREATMENT ...]]
+```
+usage: epic2 [-h] [--treatment TREATMENT [TREATMENT ...]]
              [--control CONTROL [CONTROL ...]] [--genome GENOME]
              [--keep-duplicates] [--bin-size BIN_SIZE]
              [--gaps-allowed GAPS_ALLOWED] [--fragment-size FRAGMENT_SIZE]
