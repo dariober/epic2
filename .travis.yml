@@ -1,17 +1,16 @@
 sudo: false
 language: python
-python:
-    - "3.6"
 dist: trusty
 
 install:
     - wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     - bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda
     - export PATH="$HOME/miniconda/bin:$PATH"
-    - which conda
     - pip install Cython
     - pip install pysam
     - pip install epic2
 
 script:
-    - epic2 -t examples/test.bam -c examples/control.bam
+    - epic2 -t examples/test.bam -c examples/control.bam > peaks.bed
+    - n=`cat peaks.bed | wc -l` && if (( $n < 10 )); then exit 1; fi
+
